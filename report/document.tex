@@ -1,0 +1,541 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = ru_RU
+\documentclass[14pt,a4paper]{extarticle}
+
+\usepackage[russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace} 
+\usepackage[a4paper,
+			left=30mm,
+			right=10mm,
+			top=20mm,
+			bottom=20mm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx, cite}
+\usepackage{enumitem}
+\usepackage{kprj}  
+
+\VKRTitleOnly
+
+\title{Инвариантные компакты и стабильность положений равновесия в модели взаимодействия клеток иммунитета и мозговой опухоли}
+\author{М.Д. Кирдин}
+\authorfull{Кирдин Матвей Дмитриевич}
+\group{ФН12-81Б}
+\faculty{Фундаментальные науки}
+\chair{Математическое моделирование}
+\chief{А.П. ~Крищенко}
+\inspector{М.А. ~Велищанский}
+\workyear{2024}
+\facultyshort{ФН}
+\chairshort{ФН12}
+\chairhead{А.П. Крищенко}
+
+\onehalfspacing
+\setcounter{secnumdepth}{3}
+\renewenvironment{proof}{\noindent$\blacktriangleleft$}{$\blacktriangleright$}
+\theoremstyle{definition}
+\newtheorem{theorem}{Теорема}
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\theoremstyle{definition}
+\newtheorem{affirmation}{Утверждение}
+\setcontentsname{СОДЕРЖАНИЕ}
+\setrefsname{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
+
+\begin{document}
+	\begin{spacing}{1.0}
+		\maketitle
+	\end{spacing}
+	
+	\tableofcontents
+	
+	\section*{\MakeUppercase{Введение}}
+	\addcontentsline{toc}{section}{\MakeUppercase{Введение}}
+	
+	Злокачественные глиомы --- крайне агрессивные новообразования, поражающие глиальные клетки головного и спинного мозга. От 30\% до 40\% от всех мозговых опухолей \cite{glioma_overview} являются глиомами, поэтому важной является задача составления и исследования моделей, описывающих взаимодействие раковых и иммунных клеток. 
+	
+	Системы дифференциальных уравнений позволяют дать количественное представление многим биологическим процессам, протекающим во время заболевания \cite{abt_DEs}. Например, взаимодействие патогена и иммунной системы с учетом воздействия терапевтических белков\cite{Kasbawati et.al.}, реакция системы рак-иммунитет на химиотерапию\cite{W. L. Duan et.al.,Xiangdong Liu et.al.,L.G. de Pillis et.al., dePillis L.G. et.al.} или взаимодействие клеток иммунитета и раковых клеток с условием поражения ВИЧ т-хелперов\cite{F. A. Rihan et.al.}. В частности может быть предсказана динамику развития глиом в различных сценариях \cite{gliomae_scenarios}.
+	
+	В данной работе была поставлена цель провести исследование модели, представленной в \cite{model} при помощи методов локализации инвариантных компактов \cite{invar_comp, invar_comp_localization}, исследование устойчивости положений равновесия системы при помощи построения функций Ляпунова.
+	
+	Нахождение инвариантных компактов позволит говорить об асимптотическом поведении траекторий системы, что на практике дает возможность судить о дальнейшем ходе заболевания по концентрациям глиом, макрофагов, т-киллеров, белков \textit{TGF-}$\beta$, и гамма интерферонов.
+	
+	\newpage 
+	\section{\MakeUppercase{Описание модели}}
+	
+	Рассмотрим следующую пятимерную систему с неотрицательными переменными $x=(x_1, x_2, x_3, x_4, x_5)$ и положительными параметрами:
+	\begin{equation}
+		\begin{cases}
+			\begin{aligned}
+				\dot{x}_1 &= r_1x_1\left(1-\dfrac{x_1}{c_1}\right)-\dfrac{1}{x_4+e_1}(\alpha_1x_2+\alpha_2x_3)\dfrac{x_1}{x_1+k_1},\\
+				\dot{x}_2 &= r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2}-\alpha_3\dfrac{x_1}{x_1+k_2}x_2,\\
+				\dot{x}_3 &= a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3,\\
+				\dot{x}_4 &= s_1 + b_1x_1-\mu_2x_4,\\
+				\dot{x}_5 &= b_2x_3-\mu_3x_5,
+			\end{aligned}
+		\end{cases}\label{eq:initial_system}
+	\end{equation}
+	где $t\ge0$ --- время;
+	
+	$x_1$ --- количество клеток глиомы;
+	
+	$x_2$ --- количество макрофагов;
+	
+	$x_3$ --- количество т-киллеров;
+	
+	$x_4$ --- количество белков \textit{TGF-}$\beta$;
+	
+	$x_5$ --- количество $\gamma$-интерферонов. 
+	
+	Также из биологических соображений будем полагать, что начальные условия имеют следующий вид:
+	\begin{equation}\label{eq:conds}
+	x_1(0)\ge0,\,x_2(0)\ge0,\,x_3(0)\ge0,\,x_4(0)\ge0,\,x_5(0)\ge0.
+	\end{equation}
+	
+	\newpage 
+	\section{\MakeUppercase{Постановка задачи}}
+	Введем следующие обозначения:
+	\[\mathbb{R}^n_{+,0}=\{x=(x_1,\dots,x_n)\in\mathbb{R}^n:\, x_i\ge0,\, i=\overline{1,n}\},\,\mathbb{R}_{+,0}=\{x\in\mathbb{R}:\, x\ge0\}.\]
+	
+	Для системы \ref{eq:initial_system} покажем, что множество $D=\mathbb{R}^{5}_{+,0} = \{x \ge 0\}$ положительно инвариантно, проведем исследование инвариантности пересечений множества $D$ с координатными плоскостями, а также систем, являющихся ограничениями \ref{eq:initial_system} на инвариантные координатные плоскости. Кроме того, найдем компактное множество, содержащее аттрактор системы.
+	
+	\newpage 
+	\section{\MakeUppercase{Основная часть}}
+	\subsection{Локализация инвариантных компактов}
+	
+	\begin{theorem}\textbf{(Коши)}
+		Пусть функция $f(x, t)$ кусочно непрерывна по t и удовлетворяет неравенству
+		\[\|f(x,t)-f(y,t)\|\leq L\|x-y\|,\]
+		где L — постоянная, при любых x, y из $\varepsilon$-окрестности $O_{\varepsilon} = {x : \|x - x_0\| < \varepsilon}$ точки $x_0$ и любого $t \in [t_0,t_1]$. Тогда существует $\delta > 0$ для которого решение задачи Коши вида 
+		\[\dot{x}=f(x,t),\, x(t_0)=x_0\in G,\, t\geq t_0,\]
+		где $G$ -- область определения системы, существует и единственно при $t\in[t_0,t_0+\delta]$. 
+	\end{theorem}
+	
+	\begin{affirmation}
+		 Система \ref{eq:initial_system} с начальными условиями \ref{eq:conds} имеет, причем единственное, решение на области $D$. 
+	\end{affirmation}
+	\begin{proof}
+		Правая часть системы --- непрерывно-дифференциируемая на множестве $D$ функция. Из этого следует, что она локально липшицева в каждой точке этого множества, т.е. для любой его точки справедлива теорема Коши. Таким образом, в каждой точке $D$ существует, причем единственное, решение задачи Коши.
+	\end{proof}
+	
+	\begin{definition}
+		Для непрерывной динамической системы $\dot{x}=f(x),\, x\in\mathbb{R}^n$, множество $G\in\mathbb{R}^n$ называется положительно инвариантным, если для любой точки $x_0\in G$ решение системы $x(t,x_0)$ с начальным условием $x(0, x_0)=x_0$ при $t>0$ не выходит за пределы множества $G$. 
+	\end{definition}
+	
+	\begin{theorem}
+		Множество $D=\mathbb{R}^5_{+,0}$ является положительно инвариантным для системы \ref{eq:initial_system}.
+	\end{theorem}
+	\begin{proof}
+		Заметим, что граница множества $D$ --- множество точек с хотя бы одной нулевой координатой. Таким образом, достаточно показать, для траекторий системы, начинающихся на границе $D$, справедливо, что 
+		\[x_i(t)\ge0,\, i=\overline{1,5},\, t>0.\]
+		
+		Рассмотрим случай, когда
+		\begin{equation}\label{eq:conds_1}
+		x_1(0)=0,\, x_2(0)\ge0,\, x_3(0)\ge0,\, x_4(0)\ge0,\, x_5(0)\ge0.
+		\end{equation}
+		Для каждого такого начального условия существует, причем единственное, решение задачи Коши: 
+		\[x_1=x_1(t),\, x_2=x_2(t),\, x_3=x_3(t),\, x_4=x_4(t),\, x_5=x_5(t),\]
+		обращающее систему \ref{eq:initial_system} в тождество. Заметим, что в случае если $x_1(t)\equiv0$, \ref{eq:initial_system} остается тождеством и преобразуется в следующую систему:
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_2(t) &= r_2x_2(t)\left(1-\dfrac{x_2(t)}{c_2}\right)+\dfrac{x_5(t)}{k_4+x_5(t)}a_1\dfrac{1}{x_4(t)+e_2},\\
+					\dot{x}_3(t) &= -\mu_1x_3(t),\\
+					\dot{x}_4(t) &= s_1 - \mu_2x_4(t),\\
+					\dot{x}_5(t) &= b_2x_3(t)-\mu_3x_5(t).
+				\end{aligned}
+			\end{cases}
+		\end{equation*} 
+		Таким образом, из единственности решения следует, что
+		\[x_1\equiv0,\, x_2=x_2(t),\, x_3=x_3(t),\, x_4=x_4(t),\, x_5=x_5(t),\]
+		является решением исходной системы с начальными условиями \ref{eq:conds_1}.
+		
+		При $x_2(0)=0$ имеем, что
+		\[\dot{x}_2(0)=\dfrac{a_1x_5(0)}{(k_4+x_5(0))(x_4(0)+e_2)}\ge0,\] 
+		из чего $\dot{x}_2(0)>0$ при $x_5(0)>0$, т.е. траектории будут продолжаться внутрь множества $D$, а при $x_5(0)=0$ $\dot{x}_2(0)=0$, т.е. траектории останутся на границе $x_2=0$. Далее, если $x_3(0)=0$, то 
+		\[\dot{x}_3(0)=\dfrac{a_2x_1(0)}{k_5+x_4(0)}\ge0,\]
+		т.е. $\dot{x}_3(0)>0$ при $x_1(0)>0$ и $\dot{x}_3(0)=0$ при $x_1(0)=0$. Таким образом, если $x_1(0)>0$, то траектории покинут границу $x_3$ и уйдут внутрь множества $D$, а если $x_1(0)=0$, то траектории останутся на границе. Если $x_4(0)=0$, то $\dot{x}_4(0)=s_1+b_1x_1(0)>0$, т.е. всегда уходят с границы $x_4=0$ внутрь множества $D$. При $x_5(0)=0$ имеем, что $\dot{x}_5(0)=b_2x_3(0)\ge0$, из чего $\dot{x}_5(0)>0$ при $x_3(0)>0$ и траектории уходят внутрь множества и $\dot{x}_5(0)=0$ при $x_3(0)=0$ и траектории остаются на границе $x_5=0$ множества $D$.
+	\end{proof}
+	
+	Заметим, что из доказательства данной теоремы следует, что некоторые координатные плоскости положительно инвариантны относительно системы \ref{eq:initial_system}. Для координатных плоскостей $x_i=0$ условие инвариантности -- выполнение равенств $\dot{x}_i=0$ для траекторий, начинающихся в них. Таким образом, плоскости  
+	\begin{gather*}
+		x_1=0;\\
+		x_1=0,\, x_3=0;\\
+		x_1=0,\, x_3=0,\, x_5=0,
+	\end{gather*}
+	а также прямая $x_1=0,\, x_2=0,\, x_3=0,\, x_5=0$ являются инвариантными относительно исходной системы.  
+	
+	Рассмотрим плоскость $x_1=0$. Исходная система на этом множестве принимает вид:
+	
+	\begin{equation*}
+		\begin{cases}
+			\begin{aligned}
+				\dot{x}_2 &= r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2},\\
+				\dot{x}_3 &= -\mu_1x_3,\\
+				\dot{x}_4 &= s_1 - \mu_2x_4,\\
+				\dot{x}_5 &= b_2x_3-\mu_3x_5.
+			\end{aligned}
+		\end{cases}
+	\end{equation*}
+	
+	У преобразованной системы имеется два положения равновесия:
+	\[P_1\left(0,0,\frac{s_1}{\mu_2},0\right),\, P_2\left(c_2,0,\frac{s_1}{\mu_2},0\right).\]
+	
+	Рассмотрим плоскость $x_1=0,\, x_3=0$. Исходная система на этом множестве принимает вид:
+	
+	\begin{equation*}
+		\begin{cases}
+			\begin{aligned}
+				\dot{x}_2 &= r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2},\\
+				\dot{x}_4 &= s_1 -\mu_2x_4,\\
+				\dot{x}_5 &= -\mu_3x_5.
+			\end{aligned}
+		\end{cases}
+	\end{equation*}
+	
+	У данной системы также два положения равновесия:
+	\[P_1\left(0,\frac{s_1}{\mu_2},0\right),\, P_2\left(c_2,\frac{s_1}{\mu_2},0\right).\]
+	
+	Рассмотрим плоскость $x_1=0,\, x_3=0,\, x_5=0$. Исходная система на этом множестве принимает вид:
+	
+	\begin{equation*}
+		\begin{cases}
+			\begin{aligned}
+				\dot{x}_2 &= r_2x_2\left(1-\dfrac{x_2}{c_2}\right),\\
+				\dot{x}_4 &= s_1 -\mu_2x_4,\\
+			\end{aligned}
+		\end{cases}
+	\end{equation*}
+	
+	У преобразованной системы также два положения равновесия: $\left(0,\frac{s_1}{\mu_2}\right)$ и $\left(c_2,\frac{s_1}{\mu_2}\right)$.
+	
+	Рассмотрим прямую $x_1=0,\, x_2=0,\, x_3=0,\, x_5=0$. Исходная система на этом множестве принимает вид:
+	
+	\begin{equation*}
+		\begin{aligned}
+			\{\dot{x}_4 &= s_1 -\mu_2x_4,\\
+		\end{aligned}
+	\end{equation*}
+	
+	У данной системы единственное положение равновесия --- $x_4=\frac{s_1}{\mu_2}$.
+	
+	\begin{theorem}
+		Все компактные инвариантные множества системы (1) содержатся в положительно инвариантных множествах
+		\begin{align*}
+			K_1 &=\{0 \le x_1 \le \overline{x}_1 = c_1\}\cap D,\\
+			K_2 &=\{\frac{s_1}{\mu_2} = \underline{x}_4 \le x_4 \le \overline{x}_4 = \frac{s_1}{\mu_2} + b_1c_1\}\cap K_1,\\
+			K_3 &=\{0 \le x_3 \le \overline{x}_3 = \dfrac{a_2\overline{x}_1}{k_5+\underline{x}_4}\cdot\dfrac{\overline{x}_1+k_2}{\mu_1k_2}\}\cap K_2,\\
+			K_4 &=\{0 \le x_5 \le \overline{x}_5 = \dfrac{b_3\overline{x}_3}{\mu_3}\}\cap K_3,\\
+			K_5 &=\{0 \le x_2 \le \overline{x}_2 =  \dfrac{c_2}{2}+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{x}_5}{k_4(\underline{x}_4+e_2)}}\}\cap K_4.
+		\end{align*}
+	\end{theorem}
+	\begin{proof} 
+		Пусть $\varphi_1(x)=x_1$. Тогда на области $D$:
+		\[\dot{\varphi}_1(x)=r_1x_1\left(1-\dfrac{x_1}{c_1}\right)-\dfrac{1}{x_4+e_1}(\alpha_1x_2+\alpha_2x_3)\dfrac{x_1}{x_1+k_1}.\]
+		Универсальное сечение на $D$ можно задать следующим образом:
+		\[S(\varphi_1,\, D)=\left\{r_1x_1\left(1-\dfrac{x_1}{c_1}\right)-\dfrac{1}{x_4+e_1}(\alpha_1x_2+\alpha_2x_3)\dfrac{x_1}{x_1+k_1}=0\right\}\cap D.\]
+		Преобразуем равенство, задающее это множество:
+		\[S(\varphi_1,\, D)=\left\{x_1\left(r_1\left(1-\dfrac{x_1}{c_1}\right)-\dfrac{\alpha_1x_2+\alpha_2x_3}{(x_1+k_1)(x_4+e_1)}\right)=0\right\}\cap D.\]
+		Тогда $x_1=0$ или $x_1=c_1\left(1-\dfrac{\alpha_1x_2+\alpha_2x_3}{r_1(x_1+k_1)(x_4+e_1)}\right) $. Таким образом, экстремальные значения $\varphi_1(x)$ на множестве $S(\varphi_1,\, D)$:
+		\[\inf\limits_{x\in S(\varphi_1,\, D)} \varphi_1=0,\, \sup\limits_{x\in S(\varphi_1,\, D)} \varphi_1=c_1,\]
+		из чего локализирующее множество $\Omega(\varphi_1,\, D)$ задается следующим образом:
+		\[\Omega(\varphi_1,\, D)=\{0\le x_1\le c_1 = \overline{x}_1\}\cap D=K_1.\]
+		
+		Далее возьмем $\varphi_2(x)=x_4$. В таком случае универсальное сечение имеет вид:
+		\[S(\varphi_2, K_1)=\{s_1 + b_1x_1-\mu_2x_4=0\}\cap K_1.\]
+		На множестве $S(\varphi_2,\, K_1)$
+		\[\inf\limits_{x\in S(\varphi_2,\, K_1)} \varphi_2=\dfrac{s_1}{\mu_2} = \underline{x}_4,\, \sup\limits_{x\in S(\varphi_2,\, K_1)} \varphi_2=\dfrac{s_1}{\mu_2}+\dfrac{b_1c_1}{\mu_2} = \overline{x}_4.\]
+		Следовательно, локализирующее множество можно задать как 
+		\[\Omega(\varphi_2,\, K_1)=\{\underline{x}_4 \le x_4\le \overline{x}_4\}\cap K_1=K_2.\]
+		
+		Пусть $\varphi_3(x)=x_3$. Универсальное сечение для данной функции:
+		\[S(\varphi_3,\, K_2)=\{a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3=0\}\cap K_2.\]
+		Преобразовав выражение, задающее $S(\varphi_3,\, K_2)$, получим
+		\[x_3=\dfrac{a_2x_1}{k_5+x_4}\cdot\dfrac{x_1+k_3}{\mu_1x_1+\mu_1k_3+\alpha_4x_1}.\]
+		Тогда на множестве $S(\varphi_3,\, K_2)$
+		\[\inf\limits_{x\in S(\varphi_3,\, K_2)} \varphi_3=0,\, \sup\limits_{x\in S(\varphi_3,\, K_2)} \varphi_3\le \dfrac{a_2\overline{x}_1}{k_5+\underline{x}_4}\cdot\dfrac{\overline{x}_1+k_3}{\mu_1k_3}=\overline{x}_3.\]
+		Таким образом, локализирующее множество:
+		\[\Omega(\varphi_3,\, K_2) = (\{0\le x_3 \le \sup{x_3}\}\cap K_2) \subset (\{0 \le x_3\le \overline x_3\} \cap K_2) = K_3.\]
+		
+		Возьмем $\varphi_4(x)=x_5$. В таком случае универсальное сечение:
+		\[S(\varphi_4,\, K_3)=\{\, b_2x_3-\mu_3x_5=0\}\cap K_3.\]
+		На множестве $S(\varphi_4,\, K_3)$
+		\[\inf\limits_{x\in S(\varphi_4,\, K_3)} \varphi_4=0,\, \sup\limits_{x\in S(\varphi_4,\, K_3)} \varphi_4=\dfrac{b_2\overline{x}_3}{\mu_3}=\overline{x}_5,\]
+		поэтому 
+		\[\Omega(\varphi_4,\, K_3) = \{0 \le x_5 \le \overline{x}_5\} \cap K_3 = K_4.\]
+		
+		Далее, пусть $\varphi_5(x)=x_2$. Тогда 
+		\[S(\varphi_5,\, K_4)=\{r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2}-\alpha_3\dfrac{x_1}{x_1+k_2}x_2=0\}\cap K_4.\]
+		Рассмотрим равенство, задающее универсальное сечение $S_{\varphi_5}$. Заметим, что на множестве $S(\varphi_5,\, K_4)$:
+		\begin{multline*}
+		r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2}-\alpha_3\dfrac{x_1x_2}{x_1+k_2}\le\\
+		\le r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{a_1\overline{x}_5}{(\overline{x}_5+k_4)(\underline{x}_4+e_2)}.
+		\end{multline*}
+		Т.е.
+		\[x_2^2-c_2x_2-\dfrac{a_1\overline{x}_5}{(\overline{x}_5+k_4)(\underline{x}_4+e_2)}\le 0.\]
+		Таким образом, 
+		\[0 \le x_2 \le \dfrac{c_2}{2}+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{x}_5}{(\overline{x}_5+k_4)(\underline{x}_4+e_2)}}=\overline{x}_2.\]
+		Итого, локализирующее множество имеет следующий вид:
+		\[\Omega(\varphi_5,\, K_4)=\{0\le x_2 \le \overline{x}_2\} \cap K_4 = K_5.\]
+	\end{proof}
+	
+	\begin{theorem}
+		Множество $K_5$ является компактным и содержит аттрактор системы \ref{eq:initial_system}.
+	\end{theorem}
+	\begin{proof}
+		Рассмотрим множество
+		\[K_1(\tau_1) = \{0 \le x_1 \le c_1+\tau_1\},\, \tau_1\ge0.\]
+		Заметим, что на множестве $D\setminus K_1(\tau_1)=\{x_1>c_1+\tau_1\}$ производная локализирующей функции $\varphi_1$ в силу системы $\dot{\varphi}_1 < 0$. Действительно, на этом множестве 
+		\[\dot{\varphi}_1 \le r_1x_1\left(1-\dfrac{x_1}{c_1}\right) < -r_1(c_1+\tau_1)\dfrac{\tau_1}{c_1} \le 0.\]
+		Таким образом множества $K_1(\tau_1)$ положительно инвариантны. Далее будем говорить, что $c_1+\tau_1=\overline{\xi}_1(\tau_1)$.
+		
+		Рассмотрим множество 
+		\[K_2(\tau_1,\,\tau_2,\, \tilde{\tau}_2)=\{\dfrac{s_1}{\mu_2}-\tilde{\tau}_2 \le x_4 \le \dfrac{s_1}{\mu_2} + \dfrac{b_1\overline{\xi}_1(\tau_1)}{\mu_2} + \tau_2\}\cap K_1(\tau_1),\,\tau_1,\,\tau_2,\,\tilde{\tau}_2 \ge 0.\]   
+		На множестве $\{x_4 > \dfrac{s_1}{\mu_2} + \dfrac{b_1\overline{\xi}_1(\tau_1)}{\mu_2} + \tau_2\}\cap K_1(\tau_1)$
+		\[\dot{\varphi_2} = s_1 + b_1x_1 - \mu_2x_4 < - \mu_2\tau_2 \le 0.\]
+		На множестве $\{x_4 < \dfrac{s_1}{\mu_2}-\tilde{\tau}_2\}\cap K_1(\tau_1)$
+		\[\dot{\varphi_2} = s_1 + b_1x_1 - \mu_2x_4 > \mu_2\tilde{\tau}_2 \ge 0.\]
+		Таким образом, множества $K_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2)$ положительно инвариантны. Обозначим
+		\begin{align*}
+			\overline{\xi}_4(\tau_1,\,\tau_2) =&\, \dfrac{s_1}{\mu_2} + \dfrac{b_1\tilde{x}_1}{\mu_2} + \tau_2,\\
+			\underline{\xi}_4(\tilde{\tau}_2) =&\, \dfrac{s_1}{\mu_2} - \tilde{\tau}_2.
+		\end{align*}
+		
+		Пусть 
+		\[K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\,\tau_3) = \{0 \le x_3 \le \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_2}{\mu_1k_2}+\tau_3\}\cap K_2(\tau_1,\, \tilde{\tau}_2,\, \tau_2),\]
+		где $\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3 \ge 0$. Тогда на множестве 
+		\[K_2(\tau_1,\, \tilde{\tau}_2,\, \tau_2)/K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3) = \{x_3 > \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_2}{\mu_1k_2}+\tau_3\}\]
+		справедливо, что
+		\[\dot{\varphi}_3 = a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3 < -\dfrac{\mu_1k_2\tau_3}{\overline{\xi}_1(\tau_1)+k_2} \le 0.\]
+		Таким образом, множества $K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)$ положительно инвариантны. Далее будем считать, что
+		\[\overline{\xi}_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3) = \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_2}{\mu_1k_2} + \tau_3.\]
+		
+		Положим, что 
+		\[K_4(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3,\,\tau_4) = \{0 \le x_5 \le \dfrac{b_2\overline{\xi}_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)}{\mu_3}+\tau_4\}\cap K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3),\]
+		где $\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3,\,\tau_4 \ge 0$. На множестве 
+		\[K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)/K_4(\tau_1,\, \tau_2,\, \tilde{\tau}_2,\, \tau_3,\, \tau_4)=\{x_5 > \dfrac{b_2\overline{\xi}_3(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3)}{\mu_3}+\tau_4\}\]
+		справедливо, что
+		\[\dot{\varphi}_4 = b_2x_3 - \mu_3x_5 < -\mu_3\tau_4 \le 0,\]
+		из чего множества $K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)$ за положительно инвариантны. Обозначим
+		\[\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4) = \dfrac{b_2\overline{\xi}_3(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3)}{\mu_3}+\tau_4.\]
+		
+		Рассмотрим множество 
+		\begin{multline*}
+			K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5) = \{0 \le x_2 \le \dfrac{c_2}{2}+\\
+			+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{k_4(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}}+\tau_5\}\cap K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4),
+		\end{multline*}
+		где $\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \ge 0$.
+		Можно провести следующую оценку $\dot{\varphi}_2$:
+		\[\dot{\varphi}_2 \le r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{(\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+k_4)(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}.\]
+		Пусть
+		\begin{align*}
+			\overline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4) = \dfrac{c_2}{2}+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{(\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+k_4)(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}},\\
+			\underline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4) = \dfrac{c_2}{2}-\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{(\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+k_4)(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}}.
+		\end{align*}
+		В таком случае, на множестве 
+		\[K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)/K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)=\{x_2 > \overline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+\tau_5\}\]
+		имеет место оценка
+		\begin{multline*}
+			\dot{\varphi}_2 \le -(x_2 - \overline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4))(x_2 - \underline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)) <\\
+			< -2\tau_5\cdot\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{(\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+k_4)(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}} \le 0.
+		\end{multline*}
+		Следовательно, множества $K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)$ положительно инвариантны.
+		
+		Можно заметить, что множества $K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)$ компактны при
+		\[\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \ge 0.\]
+		Тогда с учетом того, что они также положительно инвариантны и содержат предельные множества всех траекторий, и т.к.
+		\[K_5=\mathop{\cap}\limits_{\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \ge 0}K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5),\]
+		можно сделать вделать вывод о том, что $K_5$ --- положительно инвариантный компакт, содержащий аттрактор системы.
+		
+		Действительно, варьируя $\tau_i$ можно добиться того, что любая точка $x\in D$ будет содержаться в неком множестве $K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)$. Вследствие положительной инвариантности данного множества имеем, что траектории, начинающиеся внутри него, не будут его покидать. В таком случае будет выполняться теорема о продолжении и \dots
+	\end{proof}		
+	
+	\subsection{Положения равновесия на границе множества $D$}
+	
+	\begin{theorem}\textbf{(Ляпунова об устойчивости по первому приближению)}
+		Пусть правая часть автономной системы $x =f(x),\quad x\in\mathbb{R}^n$, непрерывно дифференцируема в некоторой окрестности нулевого положения равновесия и $A = {\dfrac{\partial f(x)}{\partial x}\biggr\rvert}_{x=0}$. Тогда нулевое положение равновесия асимптотически устойчиво, если все корни характеристического уравнения матрицы $A$ имеют отрицательные действительные части, и неустойчиво, если у матрицы A есть корень характеристического уравнения с положительной действительной частью.
+	\end{theorem}
+	
+	\begin{definition}
+		Положение равновесия называется некритическим, если собственные значения матрицы его линейного приближения имеют ненулевые действительные части. Иначе ПР называется критическим. 
+	\end{definition}
+	
+	\begin{theorem}
+		Система \ref{eq:initial_system} при положительных значениях параметров имеет положения равновесия $P_1\left(0,0,0,\frac{s_1}{\mu_1},0\right)$ и $P_2\left(0,c_2,0,\frac{s_1}{\mu_1},0\right)$. 
+	\end{theorem}
+	
+	\begin{theorem}
+		Положение равновесия $P_1\left(0,0,0,\frac{s_1}{\mu_1},0\right)$ является неустойчивым, а положение равновесия $P_2\left(0,c_2,0,\frac{s_1}{\mu_1},0\right)$ является асимптотически устойчивым при условии $k_1r_1s_1 + e_1k_1\mu_2r_1< \alpha_1c_2\mu_2$ и неустойчивым при условии $k_1r_1s_1 + e_1k_1\mu_2r_1>\alpha_1c_2\mu_2$. При $k_1r_1s_1 + e_1k_1\mu_2r_1 = \alpha_1c_2\mu_2$ необходимо дополнительное исследование.
+	\end{theorem}
+	\begin{proof}
+		Заметим, что в некритических положениях равновесия, в отличие от критических, характеры устойчивости автономной системы и ее первого приближения в совпадают.
+		
+		Матрица Якоби исходной системы в точке $P_1$:
+		
+		\[\begin{pmatrix}
+			r_{1} & 0 & 0 & 0 & 0\\ 
+			0 & r_{2} & 0 & 0 & \frac{a_{1}}{k_{4}\,\left(e_{2}+\frac{s_{1}}{\mu _{2}}\right)}\\ 
+			\frac{a_{2}}{k_{5}+\frac{s_{1}}{\mu _{2}}} & 0 & -\mu _{1} & 0 & 0\\ 
+			b_{1} & 0 & 0 & -\mu _{2} & 0\\ 
+			0 & 0 & b_{2} & 0 & -\mu _{3} 
+		\end{pmatrix}\]
+		
+		Набор ее собственных значений имеет вид
+		
+		\[\lambda_1=r_1,\quad \lambda_2=r_2,\quad \lambda_3=-\mu_1,\quad \lambda_4=-\mu_2,\quad \lambda_5=-\mu_3.\]
+		
+		Т.к. все параметры системы положительны, можно сделать вывод о том, что согласно теореме Ляпунова об устойчивости по первому приближению система \ref{eq:initial_system} неустойчива в ПР $P_1$.\\
+		В точке $P_2$ матрица имеет вид:
+		
+		\[\begin{pmatrix}
+			r_{1}-\frac{\alpha _{1}\,c_{2}}{k_{1}\,\left(e_{1}+\frac{s_{1}}{\mu _{2}}\right)} & 0 & 0 & 0 & 0\\ 
+			-\frac{\alpha _{3}\,c_{2}}{k_{2}} & -r_{2} & 0 & 0 & \frac{a_{1}}{k_{4}\,\left(e_{2}+\frac{s_{1}}{\mu _{2}}\right)}\\ 
+			\frac{a_{2}}{k_{5}+\frac{s_{1}}{\mu _{2}}} & 0 & -\mu _{1} & 0 & 0\\ 
+			b_{1} & 0 & 0 & -\mu _{2} & 0\\ 
+			0 & 0 & b_{2} & 0 & -\mu _{3}
+		\end{pmatrix}\]
+		
+		Ее набор собственных значений:
+		
+		\begin{multline*}
+		\lambda_1=\dfrac{k_1r_1s_1 - \alpha_1c_2\mu_2 + e_1k_1\mu_2r_1}{k_1s_1 + e_1k_1\mu_2},\quad \lambda_2=-\mu_1,\\
+		\lambda_3=-\mu_2,\quad \lambda_4=-\mu_3,\quad \lambda_5=-r_2.
+		\end{multline*}
+		
+		Аналогично предыдущему случаю, из условия строгой положительности параметров системы следует, что в ПР $P_2$ система асимптотически устойчива при условии $k_1r_1s_1 + e_1k_1\mu_2r_1< \alpha_1c_2\mu_2$ и неустойчива при условии $k_1r_1s_1 + e_1k_1\mu_2r_1>\alpha_1c_2\mu_2$. Однако в случае когда $k_1r_1s_1 + e_1k_1\mu_2r_1=\alpha_1c_2\mu_2$ точка покоя $P_2$ является критической, т.е. теорема Ляпунова об устойчивости по первому приближению в этом случае не применима и необходимо дополнительное исследование.
+	\end{proof}
+	
+	\subsection{Положения равновесия внутри множества $D$.}
+	
+	Рассмотрим следующий класс динамических систем:
+	\[\dot{x}_i=f_i(x),\, x=(x_1,\dots,x_n)\in\mathbb{R}^{n}_{+,0},\, i=\overline{1,n},\]
+	где правые части $f_i(x)$ --- некие дробно-рациональные функции (далее ДРФ) вида 
+	\begin{equation*}
+		g(x)=\dfrac{P(x)}{Q(x)},\quad l,\, m\in\mathbb{N}\cap\{0\}.
+	\end{equation*}
+	Здесь $P(x)$ и $Q(x)$ --- многочлены порядков $l$ и $m$ соответственно с отрицательными действительными корнями. 
+	
+	\begin{theorem}
+		Для динамических систем данного  вида за функцию Ляпунова для внутреннего положения равновесия $x_0=(x_{1,0},\dots,x_{n,0})\in\mathbb{R}^n_{+}$ можно принять следующее выражение:
+		\[V(x)=2\sum\limits_{i\in\sigma_1}\hat{k}_i(x_i-x_{i,0}-x_{i,0}\ln\dfrac{x_i}{x_{i,0}})+\dfrac{1}{2}\sum\limits_{j\in\sigma_2}\hat{k}_j(x_j-x_{j,0})^2,\]
+		где $\sigma_1$ -- множество номеров функций $f_i(x)$ кратных $x_j$;\\ 
+		$\sigma_2$ -- множество всех остальных номеров функций $f_j(x)$;\\
+		$\hat{k}_i$ -- положительные параметры. 
+		
+		Производная такой функции в силу системы будет представима в виде квадратичной формы:
+		\[\dot{V}(x)=(x-x_0)^{T}H(x)(x-x_0),\]
+		где $H(x)$ -- симметричная функциональная матрица размера $n\times n$, координатами которой являются константы либо рациональные функции. 
+	\end{theorem}
+	\begin{proof}
+		Обозначим корни $Q_i(x)$ как $(-a_k)\in\mathbb{R}_{-},\, k=\overline{1,m}$, а корни $P_i(x)$ как $(-b_j)\in\mathbb{R}_{-},\, j=\overline{1,l}$. Тогда
+		\begin{align*}
+			Q_i(x)=&(x_{k_1}+a_1)\cdot\dots\cdot(x_{k_m}+a_m),\\
+			P_i(x)=&(x_{j_1}+b_1)\cdot\dots\cdot(x_{j_l}+b_l).
+		\end{align*}
+		Здесь $j_1,\dots,j_l,k_1,\dots,k_m\in\{1,\dots,n\}$. Заметим, что во внутреннем ПР $x=x_0$ справедливо, что:
+		\[f_i(x_0)=\dfrac{P_i(x_0)}{Q_i(x_0)}=0.\]
+		
+		На области $\mathbb{R}^n_{+}$ для $V(x)$ справедливо, что
+		\[V(x)>0,\, V(x_0)=0.\]
+		Квадратичные слагаемые неотрицательно определены на области $\mathbb{R}^n_+$, слагаемые вида
+		\[x_j-x_{j,0}-x_{j,0}\ln\dfrac{x_j}{x_{j,0}}\] 
+		также неотрицательны в $\mathbb{R}^n_+$.
+		Производная $V(x)$ в силу системы:
+		\begin{multline*}
+			\dot{V}(x)=\sum\limits_{i\in\sigma_1}\hat{k}_i\left(1-\dfrac{x_{i,0}}{x_i}\right)x_i\tilde{f}_i(x)+\sum\limits_{j\in\sigma_2}\hat{k}_j(x_j-x_{j,0})f_j(x)=\\
+			=\sum\limits_{i\in\sigma_1}\hat{k}_i(x_i-x_{i,0})\tilde{f}_i(x)+\sum\limits_{j\in\sigma_2}\hat{k}_j(x_j-x_{j,0})f_j(x).
+		\end{multline*}
+		
+		Воспользовавшись методом математической индукции покажем, что ДРФ $f_i(x)$ можно представить как набор произведений разностей $\Delta{}x_j$ и неких дробно-рациональных функций.
+		
+		При $l=0$ и $m=1$ имеем, что:
+		\[f_i(x)=f_i(x)-f_i(x_0)=\dfrac{\Delta{}x_{k_1}}{(x_{k_1}+a_1)(x_{k_1,0}+a_1)}.\]
+		
+		При $l=0$ и $m=2$:
+		\[f_i(x)=f_i(x)-f_i(x_0)=\dfrac{1}{(x_{k_1}+a_1)(x_{k_2}+a_2)}-\dfrac{1}{(x_{k_1,0}+a_1)(x_{k_2,0}+a_2)},\]
+		\[f_i(x)=-\dfrac{\Delta{}x_{k_1}}{(x_{k_1}+a_1)(x_{k_1,0}+a_1)(x_{k_2,0}+a_2)}-\dfrac{\Delta{}x_{k_2}}{(x_{k_1}+a_1)(x_{k_2}+a_2)(x_{k_1,0}+a_1)},\]
+		
+		При $l=0$, $m\ge3$:
+		\[f_i(x)=\dfrac{1}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)}-\dfrac{1}{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.\]
+		Тогда приведя дроби к общему знаменателю и совершив в числителе замену $x_{k_j}=\Delta x_{k_j} + x_{k_j,0}$ получим:
+		\begin{multline*}
+			f_i(x)=-\dfrac{\Delta x_{k_1}(x_{k_2,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}-\\
+			-\dfrac{\Delta x_{k_1}\Delta x_{k_2}(x_{k_3,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}-...\\
+			...-\dfrac{\Delta x_{k_1}\cdot...\cdot\Delta x_{k_{m-1}}(x_{k_m,0}+a_m)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}-\\
+			-\dfrac{\Delta x_{k_1}\cdot...\cdot\Delta x_{k_{m}}}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.
+		\end{multline*}
+		Вынося поочередно множители $\Delta x_{k_j}$ из слагаемых, содержащих их, получим:
+		\begin{multline*}
+			f_i(x)=-\Delta x_{k_m}\dfrac{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_{m-1},0}+a_{m-1})}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}-\\
+			-\Delta x_{k_{m-1}}\dfrac{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_{m-2},0}+a_{m-2})(\Delta x_{k_m}+x_{k_m,0}+a_m)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}-...\\
+			...-\Delta x_{k_1}\dfrac{\Delta x_{k_2}\cdot...\cdot\Delta x_{k_m}+...+(x_{k_2,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.
+		\end{multline*}
+		Заметим, что каждое слагаемое начиная со третьего является произведением дроби $\frac{\Delta x_{k_j}}{(x_{k_j}+a_j)(x_{k_j,0}+a_j)}$ и одного из предыдущих шагов индукции вплоть до шага $l=0,\, m=m-1$. Таким образом, 
+		\begin{multline*}
+			f_i(x)=-\dfrac{\Delta x_{k_m}}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_m,0}+a_m)}-...\\
+			...-\dfrac{\Delta x_{k_1}}{(x_{k_1}+a_1)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.
+		\end{multline*}
+		
+		При $l=1$, $m\in\{2,\dots,n\}$:
+		\[f_i(x)=\dfrac{(x_{j_1}+b_1)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)}-\dfrac{(x_{j_1,0}+b_1)}{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.\]
+		Совершив в числителе первого слагаемого замену $x_{j_1}=\Delta x_{j_1} + x_{j_1,0}$ и раскрыв скобки можно получить следующую сумму:
+		\begin{multline*}
+			f_i(x)=\dfrac{\Delta x_{j_1}}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)}+\\
+			+b_1\dfrac{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)-(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.
+		\end{multline*}
+		Здесь второе слагаемое соответствует случаю, когда $l=0$ и $m\in\mathbb{N}/\{1\}$, из чего предположение индукции работает также и в этом случае. 
+		
+		Рассмотрим случай, где $l > 1$ и $m\in\mathbb{N}/\{1\}$.
+		\[f_i(x)=\dfrac{(x_{j_1}+b_1)\cdot...\cdot(x_{j_l}+b_l)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)}-\dfrac{(x_{j_1,0}+b_1)\cdot...\cdot(x_{j_l,0}+b_l)}{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.\]
+		Если разложить произвольное слагаемое в числителе первой дроби как $x_{j_p}=\Delta x_{j_p} + x_{j_p,0},\, p\in\{1,\dots,l\}$, то выражение преобразуется в сумму некой ДРФ и произведения разности $\Delta x_{j_p}$ и некоторой другой ДРФ. При этом заметим, что первое слагаемое будет соответствовать предыдущему шагу индукции, т.е. также может быть приведено к виду произведения разности и ДРФ.
+		
+		Таким образом, каждая функция $f_i(x)$ может быть представлена как
+		\[f_i(x)=\sum\limits_{p\in\hat{\sigma}_i}(x_p-x_{p,0})\tilde{h}_p(x),\]    
+		где $\tilde{h}_j(x)$ -- некие ДРФ или линейные функции, $\hat{\sigma}_i$ -- множество всех номеров $x_p,\, p\in\{1,\dots,n\}$, входящих в $f_i(x)$. Тогда производная $V(x)$ в силу системы примет вид:
+		\[\dot{V}(x)=\sum\limits_{i\in\sigma_1}\hat{k}_i(x_i-x_{i,0})\sum\limits_{p\in\hat{\sigma}_i}(x_p-x_{p,0})\tilde{h}_{p}(x)+\sum\limits_{j\in\sigma_2}\hat{k}_j(x_j-x_{j,0})\sum\limits_{q\in\hat{\sigma}_j}(x_q-x_{q,0})\tilde{h}_{q}(x).\]
+		Сложив все слагаемые с повторяющимися множителями $(x_i-x_{i,0})(x_j-x_{j,0})$ и положив равными нулю коэффициенты при множителях отсутствующих в сумме, получим квадратичную форму с симметричной функциональной матрицей $H$:
+		\[\dot{V}(x)=(x-x_0)^{T}H(x-x_0).\]
+	\end{proof}
+	
+	\begin{theorem}
+		Система \ref{eq:initial_system} при значениях параметров, данных в \cite{model}, имеет внутреннее положение равновесия
+		\[P_3\left(875419.1750,\,\,943091.7442,\,\,151.6805,\,\,9135.6470,\,\,0.1517\right).\] 
+	\end{theorem}
+	
+	\begin{theorem}
+		Положение равновесия $P_3$ является асимптотически устойчивым. 
+	\end{theorem}
+	
+	\newpage 
+	\section*{\MakeUppercase{Заключение}}
+	\addcontentsline{toc}{section}{\MakeUppercase{Заключение}}
+	
+	\newpage 
+	\begin{thebibliography}{6}
+		\bibitem{glioma_overview}
+		Zeng T, Cui D, Gao L. Glioma: an overview of current classifications, characteristics, molecular biology and target therapies. Front Biosci (Landmark Ed). 2015 Jun 1;20(7):1104-15. doi: 10.2741/4362. PMID: 25961548.
+		\bibitem{abt_DEs}
+		S. Bunimovich-Mendrazitsky, J. C. Gluckman and J. Chaskalovic, J. Theor. Biol. 277,27 (2011).
+		\bibitem{Kasbawati et.al.}
+		Kasbawati, Yuliana Jao, Nur Erawaty. Dynamic study of the pathogen-immune system interaction with natural delaying effects and protein therapy[J]. AIMS Mathematics, 2022, 7(5): 7471-7488. doi: 10.3934/math.2022419
+		\bibitem{W. L. Duan et.al.}
+		W. L. Duan, H. Fang, C. Zeng, The stability analysis of tumor-immune responses to chemotherapy system with gaussian white noises. Chaos, Soliton. Fract., 127 (2019), 96–102. https://doi.org/10.1016/j.chaos.2019.06.030. doi: 10.1016/j.chaos.2019.06.030 
+		\bibitem{Xiangdong Liu et.al.}
+		Xiangdong Liu, Qingze Li, Jianxin Pan, A deterministic and stochastic model for the system dynamics of tumor–immune responses to chemotherapy, Physica A: Statistical Mechanics and its Applications, Volume 500, 2018, pp. 162-176, ISSN 0378-4371, https://doi.org/10.1016/j.physa.2018.02.118.
+		\bibitem{L.G. de Pillis et.al.}
+		L.G. de Pillis, W. Gu, K.R. Fister, T. Head, K. Maples, A. Murugan, T. Neal, K. Yoshida, Chemotherapy for tumors: An analysis of the dynamics and a study of quadratic and linear optimal controls, Mathematical Biosciences, Volume 209, Issue 1, 2007, pp. 292-315, ISSN 0025-5564, https://doi.org/10.1016/j.mbs.2006.05.003.
+		\bibitem{dePillis L.G. et.al.}
+		dePillis, L.G., Eladdadi, A. \& Radunskaya, A.E. Modeling cancer-immune responses to therapy. J Pharmacokinet Pharmacodyn 41, 461–478 (2014). https://doi.org/10.1007/s10928-014-9386-9
+		\bibitem{F. A. Rihan et.al.}
+		F. A. Rihan, D. H. A. Rahman, Delay differential model for tumour-immune dynamics with HIV infection of CD4+ T-cells, Int. J. Comput. Math., 90 (2013), 594–614, http://dx.doi.org/10.1080/00207160.2012.726354. doi: 10.1080/00207160.2012.726354 
+		\bibitem{gliomae_scenarios}
+		K. R. Swanson, C. Bridge, J. D. Murray and E. C. Alvord Jr., J. Neurol. Sci. 216, 1 (2003).
+		\bibitem{model}
+		S. Banerjee, S. Khajanchi and S. Chaudhury, PLoS ONE 10(5), e0123611 (2015). 
+		\bibitem{invar_comp_localization}
+		\textit{Крищенко А.П.} Локализация инвариантных компактов динамических систем //Дифференциальные уравнения, 2005, Т.41, N12, C. 1597 1604.
+		\bibitem{invar_comp}
+		\textit{Канатников А.Н., Крищенко А.П.} Инвариантные компакты динамических систем. М.: Изд-во МГТУ им. Н.Э. Баумана, 2011, 231 С.
+	\end{thebibliography}
+\end{document}
