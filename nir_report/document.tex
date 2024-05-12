@@ -1,0 +1,164 @@
+% !TeX spellcheck = ru_RU-Russian
+% !TeX encoding = UTF-8 
+
+\documentclass[12pt,a4paper]{extarticle}
+
+\usepackage[russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace} 
+\usepackage[a4paper,
+		left=30mm,
+		right=10mm,
+		top=20mm,
+		bottom=20mm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx, cite}
+\usepackage{enumitem}
+\usepackage{kprj} 
+
+\NIR
+
+\title{Метод выбора функции Ляпунова в моделях с дробно-рациональными правыми частями}
+\author{М.Д. Кирдин}
+\authorfull{Кирдин Матвей Дмитриевич}
+\group{ФН12-81Б}
+\faculty{Фундаментальные науки}
+\chair{Математическое моделирование}
+\chief{А.П. ~Крищенко}
+\workyear{2024}
+\facultyshort{ФН}
+\chairshort{ФН12}
+\chairhead{А.П. Крищенко}
+
+\onehalfspacing
+\setcounter{secnumdepth}{3}
+\renewenvironment{proof}{\noindent$\blacktriangleleft$}{$\blacktriangleright$}
+\theoremstyle{definition}
+\newtheorem{theorem}{Теорема}
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\theoremstyle{definition}
+\newtheorem{affirmation}{Утверждение}
+\setcontentsname{СОДЕРЖАНИЕ}
+\setrefsname{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
+
+\begin{document}
+	\begin{spacing}{1.0}
+		\maketitle
+	\end{spacing}
+	
+	\tableofcontents
+	
+	\section*{\MakeUppercase{Введение}}
+	\addcontentsline{toc}{section}{\MakeUppercase{Введение}}
+	
+	\newpage
+	\section{\MakeUppercase{Основная часть}}
+	
+	Рассмотрим следующий класс динамических систем:
+	\[\dot{x}_i=f_i(x),\, x=(x_1,\dots,x_n)\in\mathbb{R}^{n}_{+,0},\, i=\overline{1,n},\]
+	где правые части $f_i(x)$ --- некие дробно-рациональные функции (далее ДРФ) вида 
+	\begin{equation*}
+		g(x)=\dfrac{P(x)}{Q(x)},\quad l,\, m\in\mathbb{N}\cap\{0\}.
+	\end{equation*}
+	Здесь $P(x)$ и $Q(x)$ --- многочлены порядков $l$ и $m$ соответственно с отрицательными действительными корнями. 
+	
+	\begin{theorem}
+		Для динамических систем данного  вида за функцию Ляпунова для внутреннего положения равновесия $x_0=(x_{1,0},\dots,x_{n,0})\in\mathbb{R}^n_{+}$ можно принять следующее выражение:
+		\[V(x)=2\sum\limits_{i\in\sigma_1}\hat{k}_i(x_i-x_{i,0}-x_{i,0}\ln\dfrac{x_i}{x_{i,0}})+\dfrac{1}{2}\sum\limits_{j\in\sigma_2}\hat{k}_j(x_j-x_{j,0})^2,\]
+		где $\sigma_1$ -- множество номеров функций $f_i(x)$ кратных $x_i$;\\ 
+		$\sigma_2$ -- множество всех остальных номеров функций $f_j(x)$;\\
+		$\hat{k}_i$ -- положительные параметры. 
+		
+		Производная такой функции в силу системы будет представима в виде квадратичной формы:
+		\[\dot{V}(x)=(x-x_0)^{T}H(x)(x-x_0),\]
+		где $H(x)$ -- симметричная функциональная матрица размера $n\times n$, координатными функциями которой являются константы либо рациональные функции. 
+	\end{theorem}
+	\begin{proof}
+		Обозначим корни $Q_i(x)$ как $(-a_k)\in\mathbb{R}_{-},\, k=\overline{1,m}$, а корни $P_i(x)$ как $(-b_j)\in\mathbb{R}_{-},\, j=\overline{1,l}$. Тогда
+		\begin{align*}
+			Q_i(x)=&(x_{k_1}+a_1)\cdot\dots\cdot(x_{k_m}+a_m),\\
+			P_i(x)=&(x_{j_1}+b_1)\cdot\dots\cdot(x_{j_l}+b_l).
+		\end{align*}
+		Здесь $j_1,\dots,j_l,k_1,\dots,k_m\in\{1,\dots,n\}$. Заметим, что во внутреннем ПР $x=x_0$ справедливо, что:
+		\[f_i(x_0)=\dfrac{P_i(x_0)}{Q_i(x_0)}=0.\]
+		
+		На области $\mathbb{R}^n_{+}$ для $V(x)$ выполняются следующие условия:
+		\[V(x)>0,\, V(x_0)=0,\, x_0\in D,\,x\in D\setminus\{x_0\}.\]
+		Квадратичные слагаемые неотрицательно определены на области $\mathbb{R}^n_+$, слагаемые вида
+		\[x_j-x_{j,0}-x_{j,0}\ln\dfrac{x_j}{x_{j,0}}\] 
+		также неотрицательны в $\mathbb{R}^n_+$.
+		Производная $V(x)$ в силу системы:
+		\begin{multline*}
+			\dot{V}(x)=\sum\limits_{i\in\sigma_1}\hat{k}_i\left(1-\dfrac{x_{i,0}}{x_i}\right)x_i\tilde{f}_i(x)+\sum\limits_{j\in\sigma_2}\hat{k}_j(x_j-x_{j,0})f_j(x)=\\
+			=\sum\limits_{i\in\sigma_1}\hat{k}_i(x_i-x_{i,0})\tilde{f}_i(x)+\sum\limits_{j\in\sigma_2}\hat{k}_j(x_j-x_{j,0})f_j(x).
+		\end{multline*}
+		
+		Воспользовавшись методом математической индукции покажем, что ДРФ $f_i(x)$ можно представить как набор произведений разностей $\Delta{}x_j$ и неких дробно-рациональных функций.
+		
+		При $l=0$ и $m=1$ имеем, что:
+		\[f_i(x)=f_i(x)-f_i(x_0)=\dfrac{\Delta{}x_{k_1}}{(x_{k_1}+a_1)(x_{k_1,0}+a_1)}.\]
+		
+		При $l=0$ и $m=2$:
+		\[f_i(x)=f_i(x)-f_i(x_0)=\dfrac{1}{(x_{k_1}+a_1)(x_{k_2}+a_2)}-\dfrac{1}{(x_{k_1,0}+a_1)(x_{k_2,0}+a_2)},\]
+		\[f_i(x)=-\dfrac{\Delta{}x_{k_1}}{(x_{k_1}+a_1)(x_{k_1,0}+a_1)(x_{k_2,0}+a_2)}-\dfrac{\Delta{}x_{k_2}}{(x_{k_1}+a_1)(x_{k_2}+a_2)(x_{k_1,0}+a_1)},\]
+		
+		При $l=0$, $m\ge3$:
+		\[f_i(x)=\dfrac{1}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)}-\dfrac{1}{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.\]
+		Тогда приведя дроби к общему знаменателю и совершив в числителе замену $x_{k_j}=\Delta x_{k_j} + x_{k_j,0}$ получим:
+		\begin{multline*}
+			f_i(x)=-\dfrac{\Delta x_{k_1}(x_{k_2,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}-\\
+			-\dfrac{\Delta x_{k_1}\Delta x_{k_2}(x_{k_3,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}-...\\
+			...-\dfrac{\Delta x_{k_1}\cdot...\cdot\Delta x_{k_{m-1}}(x_{k_m,0}+a_m)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}-\\
+			-\dfrac{\Delta x_{k_1}\cdot...\cdot\Delta x_{k_{m}}}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.
+		\end{multline*}
+		Вынося поочередно множители $\Delta x_{k_j}$ из слагаемых, содержащих их, получим:
+		\begin{multline*}
+			f_i(x)=-\Delta x_{k_m}\dfrac{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_{m-1},0}+a_{m-1})}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}-\\
+			-\Delta x_{k_{m-1}}\dfrac{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_{m-2},0}+a_{m-2})(\Delta x_{k_m}+x_{k_m,0}+a_m)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}-...\\
+			...-\Delta x_{k_1}\dfrac{\Delta x_{k_2}\cdot...\cdot\Delta x_{k_m}+...+(x_{k_2,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.
+		\end{multline*}
+		Заметим, что каждое слагаемое начиная со третьего является произведением дроби 
+		\[\frac{\Delta x_{k_j}}{(x_{k_j}+a_j)(x_{k_j,0}+a_j)}\] 
+		и одного из предыдущих шагов индукции вплоть до шага $l=0,\, m=m-1$. Таким образом, 
+		\begin{multline*}
+			f_i(x)=-\dfrac{\Delta x_{k_m}}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_m,0}+a_m)}-...\\
+			...-\dfrac{\Delta x_{k_1}}{(x_{k_1}+a_1)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.
+		\end{multline*}
+		
+		При $l=1$, $m\in\{2,\dots,n\}$:
+		\[f_i(x)=\dfrac{(x_{j_1}+b_1)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)}-\dfrac{(x_{j_1,0}+b_1)}{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.\]
+		Совершив в числителе первого слагаемого замену $x_{j_1}=\Delta x_{j_1} + x_{j_1,0}$ и раскрыв скобки можно получить следующую сумму:
+		\begin{multline*}
+			f_i(x)=\dfrac{\Delta x_{j_1}}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)}+\\
+			+b_1\dfrac{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)-(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.
+		\end{multline*}
+		Здесь второе слагаемое соответствует случаю, когда $l=0$ и $m\in\mathbb{N}/\{1\}$, из чего предположение индукции работает также и в этом случае. 
+		
+		Рассмотрим случай, где $l > 1$ и $m\in\mathbb{N}/\{1\}$.
+		\[f_i(x)=\dfrac{(x_{j_1}+b_1)\cdot...\cdot(x_{j_l}+b_l)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)}-\dfrac{(x_{j_1,0}+b_1)\cdot...\cdot(x_{j_l,0}+b_l)}{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.\]
+		Если разложить произвольное слагаемое в числителе первой дроби как $x_{j_p}=\Delta x_{j_p} + x_{j_p,0},\, p\in\{1,\dots,l\}$, то выражение преобразуется в сумму некой ДРФ и произведения разности $\Delta x_{j_p}$ и некоторой другой ДРФ. При этом заметим, что первое слагаемое будет соответствовать предыдущему шагу индукции, т.е. также может быть приведено к виду произведения разности и ДРФ.
+		
+		Таким образом, каждая функция $f_i(x)$ может быть представлена как
+		\[f_i(x)=\sum\limits_{p\in\hat{\sigma}_i}(x_p-x_{p,0})\tilde{h}_p(x),\]    
+		где $\tilde{h}_j(x)$ -- некие ДРФ или линейные функции, $\hat{\sigma}_i$ -- множество всех номеров $x_p,\, p\in\{1,\dots,n\}$, входящих в $f_i(x)$. Тогда производная $V(x)$ в силу системы примет вид:
+		\[\dot{V}(x)=\sum\limits_{i\in\sigma_1}\hat{k}_i(x_i-x_{i,0})\sum\limits_{p\in\hat{\sigma}_i}(x_p-x_{p,0})\tilde{h}_{p}(x)+\sum\limits_{j\in\sigma_2}\hat{k}_j(x_j-x_{j,0})\sum\limits_{q\in\hat{\sigma}_j}(x_q-x_{q,0})\tilde{h}_{q}(x).\]
+		Сложив все слагаемые с повторяющимися множителями $(x_i-x_{i,0})(x_j-x_{j,0})$ и положив равными нулю коэффициенты при множителях отсутствующих в сумме, получим квадратичную форму с симметричной функциональной матрицей $H$:
+		\[\dot{V}(x)=(x-x_0)^{T}H(x-x_0).\]
+	\end{proof}
+	
+	\begin{theorem}
+		Система \ref{eq:initial_system} при значениях параметров, данных в \cite{model}, имеет внутреннее положение равновесия
+		\[P_3\left(875419.1750,\,\,943091.7442,\,\,151.6805,\,\,9135.6470,\,\,0.1517\right).\] 
+	\end{theorem}
+	
+	\begin{theorem}
+		Положение равновесия $P_3$ является асимптотически устойчивым. 
+	\end{theorem}
+	
+	\newpage 
+	\section*{\MakeUppercase{Заключение}}
+	\addcontentsline{toc}{section}{\MakeUppercase{Заключение}}
+	
+\end{document}

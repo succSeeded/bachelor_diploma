@@ -1,0 +1,10 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\MakeUppercase []{Аннотация}}{2}{}%
+\contentsline {section}{\MakeUppercase []{Введение}}{4}{}%
+\contentsline {section}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}1. }\MakeUppercase []{Постановка задачи}}{5}{}%
+\contentsline {section}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2. }\MakeUppercase []{Основная часть}}{6}{}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.1. }Локализация инвариантных компактов}{6}{}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.2. }Положения равновесия на границе множества $D$}{16}{}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.3. }Положения равновесия внутри множества $D$}{17}{}%
+\contentsline {section}{\MakeUppercase []{Заключение}}{22}{}%
+\contentsline {section}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}{23}{}%

@@ -1,20 +1,21 @@
-% !TeX encoding = UTF-8
-% !TeX spellcheck = ru_RU
-\documentclass[14pt,a4paper]{extarticle}
+% !TeX spellcheck = ru_RU-Russian
+% !TeX encoding = UTF-8 
+
+\documentclass[12pt,a4paper]{extarticle}
 
 \usepackage[russian]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{setspace} 
 \usepackage[a4paper,
-			left=30mm,
-			right=10mm,
-			top=20mm,
-			bottom=20mm]{geometry}
+		left=30mm,
+		right=10mm,
+		top=20mm,
+		bottom=20mm]{geometry}
 \usepackage{amsmath, amssymb}
 \usepackage{amsthm}
 \usepackage{graphicx, cite}
 \usepackage{enumitem}
-\usepackage{kprj}  
+\usepackage{kprj} 
 
 \VKRTitleOnly
 
@@ -48,6 +49,16 @@
 		\maketitle
 	\end{spacing}
 	
+	\section*{\MakeUppercase{Аннотация}}
+	\addcontentsline{toc}{section}{\MakeUppercase{Аннотация}}
+	
+	Расчетно-пояснительная записка 23 с., 12  источников.
+	
+	\MakeUppercase{функция Ляпунова; инвариантные компакты; злокачественные глиомы.}
+	
+	Данная работа описывает динамику развития злокачественных глиом с учетом их взаимодействия с иммунной системой при помощи системы обыкновенных дифференциальных уравнений. Предложенная математическая модель описывает взаимодействие клеток глиомы, макрофагов, активированных цитотоксичных Т-лимфоцитов(Т-киллеров), иммуноподавляющего фактора $TGF-\beta$ и иммуностимулирующего фактора $IFN-\gamma$. Динамика данной модели были исследована аналитически на предмет устойчивости с помощью методов локализации инвариантных компактов. Были найдены граничные положения равновесия, соответствующие отсутствию глиом, а также было найдено компактное множество, содержащее аттрактор системы. При помощи численных методов было найдено и исследовано на предмет устойчивости внутреннее положение равновесия при определенных значениях параметров.
+	
+	\newpage
 	\tableofcontents
 	
 	\section*{\MakeUppercase{Введение}}
@@ -62,7 +73,7 @@
 	Нахождение инвариантных компактов позволит говорить об асимптотическом поведении траекторий системы, что на практике дает возможность судить о дальнейшем ходе заболевания по концентрациям глиом, макрофагов, т-киллеров, белков \textit{TGF-}$\beta$, и гамма интерферонов.
 	
 	\newpage 
-	\section{\MakeUppercase{Описание модели}}
+	\section{\MakeUppercase{Постановка задачи}}
 	
 	Рассмотрим следующую пятимерную систему с неотрицательными переменными $x=(x_1, x_2, x_3, x_4, x_5)$ и положительными параметрами:
 	\begin{equation}
@@ -93,8 +104,6 @@
 	x_1(0)\ge0,\,x_2(0)\ge0,\,x_3(0)\ge0,\,x_4(0)\ge0,\,x_5(0)\ge0.
 	\end{equation}
 	
-	\newpage 
-	\section{\MakeUppercase{Постановка задачи}}
 	Введем следующие обозначения:
 	\[\mathbb{R}^n_{+,0}=\{x=(x_1,\dots,x_n)\in\mathbb{R}^n:\, x_i\ge0,\, i=\overline{1,n}\},\,\mathbb{R}_{+,0}=\{x\in\mathbb{R}:\, x\ge0\}.\]
 	
@@ -109,7 +118,7 @@
 		\[\|f(x,t)-f(y,t)\|\leq L\|x-y\|,\]
 		где L — постоянная, при любых x, y из $\varepsilon$-окрестности $O_{\varepsilon} = {x : \|x - x_0\| < \varepsilon}$ точки $x_0$ и любого $t \in [t_0,t_1]$. Тогда существует $\delta > 0$ для которого решение задачи Коши вида 
 		\[\dot{x}=f(x,t),\, x(t_0)=x_0\in G,\, t\geq t_0,\]
-		где $G$ -- область определения системы, существует и единственно при $t\in[t_0,t_0+\delta]$. 
+		где $G$ -- область определения системы, существует и единственно при $t\in[t_0,t_0+\delta)$. 
 	\end{theorem}
 	
 	\begin{affirmation}
@@ -134,8 +143,8 @@
 		\begin{equation}\label{eq:conds_1}
 		x_1(0)=0,\, x_2(0)\ge0,\, x_3(0)\ge0,\, x_4(0)\ge0,\, x_5(0)\ge0.
 		\end{equation}
-		Для каждого такого начального условия существует, причем единственное, решение задачи Коши: 
-		\[x_1=x_1(t),\, x_2=x_2(t),\, x_3=x_3(t),\, x_4=x_4(t),\, x_5=x_5(t),\]
+		Для каждого такого начального условия существует $\varepsilon_1>0$ такое, что существует, причем единственное, решение задачи Коши: 
+		\[x_1=x_1(t),\, x_2=x_2(t),\, x_3=x_3(t),\, x_4=x_4(t),\, x_5=x_5(t),\, t\in[0,\varepsilon_1),\]
 		обращающее систему \ref{eq:initial_system} в тождество. Заметим, что в случае если $x_1(t)\equiv0$, \ref{eq:initial_system} остается тождеством и преобразуется в следующую систему:
 		\begin{equation*}
 			\begin{cases}
@@ -147,15 +156,138 @@
 				\end{aligned}
 			\end{cases}
 		\end{equation*} 
-		Таким образом, из единственности решения следует, что
-		\[x_1\equiv0,\, x_2=x_2(t),\, x_3=x_3(t),\, x_4=x_4(t),\, x_5=x_5(t),\]
-		является решением исходной системы с начальными условиями \ref{eq:conds_1}.
+		Следовательно, из единственности решения имеем, что
+		\[x_1\equiv0,\, x_2=x_2(t),\, x_3=x_3(t),\, x_4=x_4(t),\, x_5=x_5(t),\, t\in[0,\,\varepsilon_1),\]
+		является решением исходной системы с начальными условиями \ref{eq:conds_1}, лежащим на плоскости $x_1=0$ и не покидающим области $D$.
 		
-		При $x_2(0)=0$ имеем, что
-		\[\dot{x}_2(0)=\dfrac{a_1x_5(0)}{(k_4+x_5(0))(x_4(0)+e_2)}\ge0,\] 
-		из чего $\dot{x}_2(0)>0$ при $x_5(0)>0$, т.е. траектории будут продолжаться внутрь множества $D$, а при $x_5(0)=0$ $\dot{x}_2(0)=0$, т.е. траектории останутся на границе $x_2=0$. Далее, если $x_3(0)=0$, то 
-		\[\dot{x}_3(0)=\dfrac{a_2x_1(0)}{k_5+x_4(0)}\ge0,\]
-		т.е. $\dot{x}_3(0)>0$ при $x_1(0)>0$ и $\dot{x}_3(0)=0$ при $x_1(0)=0$. Таким образом, если $x_1(0)>0$, то траектории покинут границу $x_3$ и уйдут внутрь множества $D$, а если $x_1(0)=0$, то траектории останутся на границе. Если $x_4(0)=0$, то $\dot{x}_4(0)=s_1+b_1x_1(0)>0$, т.е. всегда уходят с границы $x_4=0$ внутрь множества $D$. При $x_5(0)=0$ имеем, что $\dot{x}_5(0)=b_2x_3(0)\ge0$, из чего $\dot{x}_5(0)>0$ при $x_3(0)>0$ и траектории уходят внутрь множества и $\dot{x}_5(0)=0$ при $x_3(0)=0$ и траектории остаются на границе $x_5=0$ множества $D$.
+		Рассмотрим случай, когда
+		\begin{equation}\label{eq:conds_2}
+			x_1(0)\ge0,\, x_2(0)=0,\, x_3(0)\ge0,\, x_4(0)\ge0,\, x_5(0)\ge0.
+		\end{equation}
+		Для каждого такого начального условия также существует $\varepsilon_2>0$ такое, что существует единственное решение задачи Коши на полуинтервале $t\in[0,\,\varepsilon_2)$ обращающее систему \ref{eq:initial_system} в тождество. Заметим, что в случае если $x_2(t)\equiv0$, \ref{eq:initial_system} преобразуется к следующему виду:
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_1 &= r_1x_1\left(1-\dfrac{x_1}{c_1}\right)-\dfrac{\alpha_2x_3}{x_4+e_1}\dfrac{x_1}{x_1+k_1},\\
+					0 &= \dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2},\\
+					\dot{x}_3 &= a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3,\\
+					\dot{x}_4 &= s_1 + b_1x_1-\mu_2x_4,\\
+					\dot{x}_5 &= b_2x_3-\mu_3x_5,
+				\end{aligned}
+			\end{cases}
+		\end{equation*} 
+		Таким образом, $x_2(t)\equiv0$ может быть решением \ref{eq:initial_system} в случае если $x_5(t)\equiv0$. Тогда получим, что:
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_1 &= r_1x_1\left(1-\dfrac{x_1}{c_1}\right)-\dfrac{\alpha_2x_3}{x_4+e_1}\dfrac{x_1}{x_1+k_1},\\
+					\dot{x}_3 &= a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3,\\
+					\dot{x}_4 &= s_1 + b_1x_1-\mu_2x_4,\\
+					0 &= b_2x_3,
+				\end{aligned}
+			\end{cases}
+		\end{equation*}  
+		т.е. $x_5(t)\equiv0$ только тогда, когда $x_3(t)\equiv0$. В таком случае
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_1 &= r_1x_1\left(1-\dfrac{x_1}{c_1}\right)-\dfrac{\alpha_2x_3}{x_4+e_1}\dfrac{x_1}{x_1+k_1},\\
+					0 &= a_2\dfrac{x_1}{k_5+x_4},\\
+					\dot{x}_4 &= s_1 + b_1x_1-\mu_2x_4,\\
+				\end{aligned}
+			\end{cases}
+		\end{equation*} 
+		из чего $x_3(t)\equiv0$ тогда и только тогда, когда $x_1(t)\equiv0$. Тогда система примет следующий вид:
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_4 &= s_1-\mu_2x_4,\\
+				\end{aligned}
+			\end{cases}
+		\end{equation*} 
+		Таким образом, из единственности решения следует, что
+		\[x_1\equiv0,\, x_2\equiv0,\, x_3\equiv0,\, x_4=x_4(t),\, x_5\equiv0,\, t\in[0,\,\varepsilon_2),\]
+		является решением исходной системы с начальными условиями \ref{eq:conds_2}, лежащим на плоскости $x_2=0$ и не покидающим области $D$.
+		
+		Рассмотрим случай, когда
+		\begin{equation}\label{eq:conds_3}
+			x_1(0)\ge0,\, x_2(0)\ge0,\, x_3(0)=0,\, x_4(0)\ge0,\, x_5(0)\ge0.
+		\end{equation}
+		Для каждого такого начального условия имеется $\varepsilon_3>0$ такое, что существует единственное решение задачи Коши на $t\in[0,\varepsilon_3)$ обращающее систему \ref{eq:initial_system} в тождество. Заметим, что в случае если $x_3(t)\equiv0$, исходная система преобразуется к следующему виду:
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_1 &= r_1x_1\left(1-\dfrac{x_1}{c_1}\right)-\dfrac{\alpha_1x_2}{x_4+e_1}\dfrac{x_1}{x_1+k_1},\\
+					\dot{x}_2 &= r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2}-\alpha_3\dfrac{x_1}{x_1+k_2}x_2,\\
+					0 &= a_2\dfrac{x_1}{k_5+x_4},\\
+					\dot{x}_4 &= s_1 + b_1x_1-\mu_2x_4,\\
+					\dot{x}_5 &= -\mu_3x_5,
+				\end{aligned}
+			\end{cases}
+		\end{equation*}
+		что возможно только когда $x_1(t)\equiv0$, т.е. когда система имеет вид
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_2 &= r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2},\\
+					\dot{x}_4 &= s_1-\mu_2x_4,\\
+					\dot{x}_5 &= -\mu_3x_5,
+				\end{aligned}
+			\end{cases}
+		\end{equation*}
+		Таким образом, из единственности решения следует, что
+		\[x_1\equiv0,\, x_2=x_2(t),\, x_3\equiv0,\, x_4=x_4(t),\, x_5=x_5(t),\, t\in[0,\,\varepsilon_3),\]
+		является решением исходной системы с начальными условиями \ref{eq:conds_3}, лежащим на плоскости $x_3=0$ и не покидающим области $D$.
+		
+		В случае если 
+		\begin{equation}\label{eq:conds_4}
+			x_1(0)\ge0,\, x_2(0)\ge0,\, x_3(0)\ge0,\, x_4(0)\ge0,\, x_5(0)=0.
+		\end{equation}
+		Для каждого такого начального условия существует $\varepsilon_4>0$ такое, что существует единственное решение задачи Коши при $t\in[0,\varepsilon_4)$ обращающее систему \ref{eq:initial_system} в тождество. В случае если $x_5(t)\equiv0$, \ref{eq:initial_system} преобразуется к следующему виду:
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+				\dot{x}_1 &= r_1x_1\left(1-\dfrac{x_1}{c_1}\right)-\dfrac{1}{x_4+e_1}(\alpha_1x_2+\alpha_2x_3)\dfrac{x_1}{x_1+k_1},\\
+				\dot{x}_2 &= r_2x_2\left(1-\dfrac{x_2}{c_2}\right)-\alpha_3\dfrac{x_1}{x_1+k_2}x_2,\\
+				\dot{x}_3 &= a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3,\\
+				\dot{x}_4 &= s_1 + b_1x_1-\mu_2x_4,\\
+				0 &= b_2x_3.
+				\end{aligned}
+			\end{cases}
+		\end{equation*}
+		Данная система обращается в тождество только тогда, когда $x_3(t)\equiv0$:
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_1 &= r_1x_1\left(1-\dfrac{x_1}{c_1}\right)-\dfrac{\alpha_1x_2}{x_4+e_1}\dfrac{x_1}{x_1+k_1},\\
+					\dot{x}_2 &= r_2x_2\left(1-\dfrac{x_2}{c_2}\right)-\alpha_3\dfrac{x_1}{x_1+k_2}x_2,\\
+					0 &= a_2\dfrac{x_1}{k_5+x_4},\\
+					\dot{x}_4 &= s_1 + b_1x_1-\mu_2x_4,\\
+				\end{aligned}
+			\end{cases}
+		\end{equation*}
+		что справедливо только при $x_1(t)\equiv0$. В таком случае\\
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_2 &= r_2x_2\left(1-\dfrac{x_2}{c_2}\right),\\
+					\dot{x}_4 &= s_1-\mu_2x_4.\\
+				\end{aligned}
+			\end{cases}
+		\end{equation*}
+		Таким образом, из единственности решения следует, что
+		\[x_1\equiv0,\, x_2=x_2(t),\, x_3\equiv0,\, x_4=x_4(t),\, x_5\equiv0,\, t\in[0,\,\varepsilon_4),\]
+		является решением исходной системы с начальными условиями \ref{eq:conds_4}, лежащим на плоскости $x_5=0$ и не покидающим области $D$.
+		
+		Для каждого из начальных условий вида
+		\begin{equation*}
+			x_1(0)\ge0,\, x_2(0)\ge0,\, x_3(0)\ge0,\, x_4(0)=0,\, x_5(0)\ge0,
+		\end{equation*}
+		имеется некое $\varepsilon_5>0$ такое, что существует единственное решение задачи Коши на полуинтервале $t\in[0,\epsilon_5)$, обращающее систему \ref{eq:initial_system} в тождество. В этом случае 
+		\[\dot{x}_4(0)=s_1+b_1x_1(0)>0,\]
+		т.е. 
+		\[x_4(t)>0,\, t\in(0,\, \tilde{\varepsilon}_5),\,\tilde{\varepsilon}_5\le\varepsilon_5\]
+		и траектория не выходит из $D$.
 	\end{proof}
 	
 	Заметим, что из доказательства данной теоремы следует, что некоторые координатные плоскости положительно инвариантны относительно системы \ref{eq:initial_system}. Для координатных плоскостей $x_i=0$ условие инвариантности -- выполнение равенств $\dot{x}_i=0$ для траекторий, начинающихся в них. Таким образом, плоскости  
@@ -285,8 +417,8 @@
 	\end{theorem}
 	\begin{proof}
 		Рассмотрим множество
-		\[K_1(\tau_1) = \{0 \le x_1 \le c_1+\tau_1\},\, \tau_1\ge0.\]
-		Заметим, что на множестве $D\setminus K_1(\tau_1)=\{x_1>c_1+\tau_1\}$ производная локализирующей функции $\varphi_1$ в силу системы $\dot{\varphi}_1 < 0$. Действительно, на этом множестве 
+		\[K_1(\tau_1) = \{0 \le x_1 \le c_1+\tau_1\}\cap D,\, \tau_1\ge0.\]
+		Заметим, что на множестве $D\setminus K_1(\tau_1) = \{x_1>c_1+\tau_1\}$ производная локализирующей функции $\varphi_1$ в силу системы $\dot{\varphi}_1 < 0$. Действительно, на этом множестве 
 		\[\dot{\varphi}_1 \le r_1x_1\left(1-\dfrac{x_1}{c_1}\right) < -r_1(c_1+\tau_1)\dfrac{\tau_1}{c_1} \le 0.\]
 		Таким образом множества $K_1(\tau_1)$ положительно инвариантны. Далее будем говорить, что $c_1+\tau_1=\overline{\xi}_1(\tau_1)$.
 		
@@ -303,18 +435,24 @@
 		\end{align*}
 		
 		Пусть 
-		\[K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\,\tau_3) = \{0 \le x_3 \le \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_2}{\mu_1k_2}+\tau_3\}\cap K_2(\tau_1,\, \tilde{\tau}_2,\, \tau_2),\]
+		\[K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\,\tau_3) = \{0 \le x_3 \le \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_3}{\mu_1k_3}+\tau_3\}\cap K_2(\tau_1,\, \tau_2,\, \tilde{\tau}_2),\]
 		где $\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3 \ge 0$. Тогда на множестве 
-		\[K_2(\tau_1,\, \tilde{\tau}_2,\, \tau_2)/K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3) = \{x_3 > \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_2}{\mu_1k_2}+\tau_3\}\]
+		\[K_2(\tau_1,\, \tilde{\tau}_2,\, \tau_2)\setminus K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)=\{x_3 > \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_3}{\mu_1k_3}+\tau_3\}\cap K_2(\tau_1,\, \tau_2,\, \tilde{\tau}_2)\]
 		справедливо, что
-		\[\dot{\varphi}_3 = a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3 < -\dfrac{\mu_1k_2\tau_3}{\overline{\xi}_1(\tau_1)+k_2} \le 0.\]
+		\begin{multline*}
+		\dot{\varphi}_3 = a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3 < a_2\dfrac{\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}-\left(\mu_1+\alpha_4\dfrac{\overline{\xi}_1(\tau_1)}{\overline{\xi}_1(\tau_1)+k_3}\right) x_3 <\\
+		< a_2\dfrac{\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}-\dfrac{\mu_1k_3}{\overline{\xi}_1(\tau_1)+k_3} x_3 < -\dfrac{\mu_1k_2\tau_3}{\overline{\xi}_1(\tau_1)+k_2} \le 0.
+		\end{multline*}
 		Таким образом, множества $K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)$ положительно инвариантны. Далее будем считать, что
 		\[\overline{\xi}_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3) = \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_2}{\mu_1k_2} + \tau_3.\]
 		
 		Положим, что 
 		\[K_4(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3,\,\tau_4) = \{0 \le x_5 \le \dfrac{b_2\overline{\xi}_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)}{\mu_3}+\tau_4\}\cap K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3),\]
 		где $\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3,\,\tau_4 \ge 0$. На множестве 
-		\[K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)/K_4(\tau_1,\, \tau_2,\, \tilde{\tau}_2,\, \tau_3,\, \tau_4)=\{x_5 > \dfrac{b_2\overline{\xi}_3(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3)}{\mu_3}+\tau_4\}\]
+		\begin{multline*}
+			K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)\setminus K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4) =\\
+			=\{x_5 > \dfrac{b_2\overline{\xi}_3(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3)}{\mu_3}+\tau_4\}\cap K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)
+		\end{multline*}
 		справедливо, что
 		\[\dot{\varphi}_4 = b_2x_3 - \mu_3x_5 < -\mu_3\tau_4 \le 0,\]
 		из чего множества $K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)$ за положительно инвариантны. Обозначим
@@ -334,7 +472,10 @@
 			\underline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4) = \dfrac{c_2}{2}-\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{(\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+k_4)(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}}.
 		\end{align*}
 		В таком случае, на множестве 
-		\[K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)/K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)=\{x_2 > \overline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+\tau_5\}\]
+		\begin{multline*}
+			K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)\setminus K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5) =\\
+			=\{x_2 > \overline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+\tau_5\}\cap K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)
+		\end{multline*}
 		имеет место оценка
 		\begin{multline*}
 			\dot{\varphi}_2 \le -(x_2 - \overline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4))(x_2 - \underline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)) <\\
@@ -348,7 +489,7 @@
 		\[K_5=\mathop{\cap}\limits_{\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \ge 0}K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5),\]
 		можно сделать вделать вывод о том, что $K_5$ --- положительно инвариантный компакт, содержащий аттрактор системы.
 		
-		Действительно, варьируя $\tau_i$ можно добиться того, что любая точка $x\in D$ будет содержаться в неком множестве $K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)$. Вследствие положительной инвариантности данного множества имеем, что траектории, начинающиеся внутри него, не будут его покидать. В таком случае будет выполняться теорема о продолжении и \dots
+		Действительно, варьируя $\tau_i$ можно добиться того, что любая точка $x\in D$ будет содержаться в неком множестве $K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)$. Вследствие положительной инвариантности данного множества имеем, что траектории, начинающиеся внутри него, не будут его покидать.
 	\end{proof}		
 	
 	\subsection{Положения равновесия на границе множества $D$}
@@ -362,7 +503,7 @@
 	\end{definition}
 	
 	\begin{theorem}
-		Система \ref{eq:initial_system} при положительных значениях параметров имеет положения равновесия $P_1\left(0,0,0,\frac{s_1}{\mu_1},0\right)$ и $P_2\left(0,c_2,0,\frac{s_1}{\mu_1},0\right)$. 
+		Система \ref{eq:initial_system} на границе области $D$ при положительных значениях параметров имеет положения равновесия $P_1\left(0,0,0,\frac{s_1}{\mu_1},0\right)$ и $P_2\left(0,c_2,0,\frac{s_1}{\mu_1},0\right)$. 
 	\end{theorem}
 	
 	\begin{theorem}
@@ -406,7 +547,7 @@
 		Аналогично предыдущему случаю, из условия строгой положительности параметров системы следует, что в ПР $P_2$ система асимптотически устойчива при условии $k_1r_1s_1 + e_1k_1\mu_2r_1< \alpha_1c_2\mu_2$ и неустойчива при условии $k_1r_1s_1 + e_1k_1\mu_2r_1>\alpha_1c_2\mu_2$. Однако в случае когда $k_1r_1s_1 + e_1k_1\mu_2r_1=\alpha_1c_2\mu_2$ точка покоя $P_2$ является критической, т.е. теорема Ляпунова об устойчивости по первому приближению в этом случае не применима и необходимо дополнительное исследование.
 	\end{proof}
 	
-	\subsection{Положения равновесия внутри множества $D$.}
+	\subsection{Положения равновесия внутри множества $D$}
 	
 	Рассмотрим следующий класс динамических систем:
 	\[\dot{x}_i=f_i(x),\, x=(x_1,\dots,x_n)\in\mathbb{R}^{n}_{+,0},\, i=\overline{1,n},\]
@@ -419,13 +560,13 @@
 	\begin{theorem}
 		Для динамических систем данного  вида за функцию Ляпунова для внутреннего положения равновесия $x_0=(x_{1,0},\dots,x_{n,0})\in\mathbb{R}^n_{+}$ можно принять следующее выражение:
 		\[V(x)=2\sum\limits_{i\in\sigma_1}\hat{k}_i(x_i-x_{i,0}-x_{i,0}\ln\dfrac{x_i}{x_{i,0}})+\dfrac{1}{2}\sum\limits_{j\in\sigma_2}\hat{k}_j(x_j-x_{j,0})^2,\]
-		где $\sigma_1$ -- множество номеров функций $f_i(x)$ кратных $x_j$;\\ 
+		где $\sigma_1$ -- множество номеров функций $f_i(x)$ кратных $x_i$;\\ 
 		$\sigma_2$ -- множество всех остальных номеров функций $f_j(x)$;\\
 		$\hat{k}_i$ -- положительные параметры. 
 		
 		Производная такой функции в силу системы будет представима в виде квадратичной формы:
 		\[\dot{V}(x)=(x-x_0)^{T}H(x)(x-x_0),\]
-		где $H(x)$ -- симметричная функциональная матрица размера $n\times n$, координатами которой являются константы либо рациональные функции. 
+		где $H(x)$ -- симметричная функциональная матрица размера $n\times n$, координатными функциями которой являются константы либо рациональные функции. 
 	\end{theorem}
 	\begin{proof}
 		Обозначим корни $Q_i(x)$ как $(-a_k)\in\mathbb{R}_{-},\, k=\overline{1,m}$, а корни $P_i(x)$ как $(-b_j)\in\mathbb{R}_{-},\, j=\overline{1,l}$. Тогда
@@ -436,8 +577,8 @@
 		Здесь $j_1,\dots,j_l,k_1,\dots,k_m\in\{1,\dots,n\}$. Заметим, что во внутреннем ПР $x=x_0$ справедливо, что:
 		\[f_i(x_0)=\dfrac{P_i(x_0)}{Q_i(x_0)}=0.\]
 		
-		На области $\mathbb{R}^n_{+}$ для $V(x)$ справедливо, что
-		\[V(x)>0,\, V(x_0)=0.\]
+		На области $\mathbb{R}^n_{+}$ для $V(x)$ выполняются следующие условия:
+		\[V(x)>0,\, V(x_0)=0,\, x_0\in D,\,x\in D\setminus\{x_0\}.\]
 		Квадратичные слагаемые неотрицательно определены на области $\mathbb{R}^n_+$, слагаемые вида
 		\[x_j-x_{j,0}-x_{j,0}\ln\dfrac{x_j}{x_{j,0}}\] 
 		также неотрицательны в $\mathbb{R}^n_+$.
@@ -471,7 +612,9 @@
 			-\Delta x_{k_{m-1}}\dfrac{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_{m-2},0}+a_{m-2})(\Delta x_{k_m}+x_{k_m,0}+a_m)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}-...\\
 			...-\Delta x_{k_1}\dfrac{\Delta x_{k_2}\cdot...\cdot\Delta x_{k_m}+...+(x_{k_2,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.
 		\end{multline*}
-		Заметим, что каждое слагаемое начиная со третьего является произведением дроби $\frac{\Delta x_{k_j}}{(x_{k_j}+a_j)(x_{k_j,0}+a_j)}$ и одного из предыдущих шагов индукции вплоть до шага $l=0,\, m=m-1$. Таким образом, 
+		Заметим, что каждое слагаемое начиная со третьего является произведением дроби 
+		\[\frac{\Delta x_{k_j}}{(x_{k_j}+a_j)(x_{k_j,0}+a_j)}\] 
+		и одного из предыдущих шагов индукции вплоть до шага $l=0,\, m=m-1$. Таким образом, 
 		\begin{multline*}
 			f_i(x)=-\dfrac{\Delta x_{k_m}}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_m,0}+a_m)}-...\\
 			...-\dfrac{\Delta x_{k_1}}{(x_{k_1}+a_1)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.

@@ -1,0 +1,4 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\MakeUppercase []{Введение}}{4}{}%
+\contentsline {section}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}1. }\MakeUppercase []{Основная часть}}{5}{}%
+\contentsline {section}{\MakeUppercase []{Заключение}}{9}{}%
