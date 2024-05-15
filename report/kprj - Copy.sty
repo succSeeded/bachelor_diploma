@@ -282,12 +282,11 @@
 \def\ulbox#1#2{\underline{\hbox to #1{#2\hfil}}}
 \def\ulfill{\leaders\hrule height-1pt depth1.4pt\hfill\kern\z@}
 \def\UlBox#1#2{\hbox to 0pt{#2\hss}\nobreak\vrule height-1pt depth1.4pt width#1{}}
-\def\ulline{\vspace{12pt}\hrulefill}
+\def\ulline{\vspace{6pt}\hrulefill}
 \newdimen\jsp\jsp=0.9mm
 
 \def\@labrab@title{{\bf ОТЧЕТ}\\ по лабораторной работе
 	\ifnum\@title@no<1\else\space\No\@title@no\fi}
-\def\@pract@title{\textbf{ОТЧЕТ}\\ по производственной практике}
 \def\@rpzname{\MakeUppercase{Расчетно-пояснительная записка}}
 \def\@kursproj@title{{\bfseries \@rpzname}\textit{\\к курсовому проекту\\на тему:}}
 \def\@kursrab@title{{\bfseries \@rpzname}\textit{\\к курсовой работе\\на тему:}}
@@ -310,8 +309,6 @@
 \newif\if@FirstConsultant\@FirstConsultantfalse
 \newif\if@SecondConsultant\@SecondConsultantfalse
 \newif\if@VKR\@VKRfalse
-\newif\if@pract\@practfalse
-\newif\if@pract@jobspec\@pract@jobspecfalse
 \def\@chief@type{Руководитель \@jobsp@type@rod}
 \def\@cons@type{Консультант}
 \def\@make@zadanie{\gen@zadanie}
@@ -329,11 +326,6 @@
 	\let\@zadan@title\@zadan@NIR@title\let\@zadan@theme\relax
 	\def\@jobsp@type@shrt{НИР}\def\@chief@type{Руководитель \@jobsp@type@shrt}%
 	\@jobspectrue\def\@jobsp@type@rod{научно-исследовательской работы}%
-	\@block@variant}
-\def\Pract{\@practtrue\let\@title@name\@pract@title\def\@titlename@font{\bf\itshape}%
-	\@pract@jobspectrue%
-	\def\@jobsp@type@shrt{практики}\def\@jobsp@type@rod{производственной практики}%
-	\def\@chief@type{Руководитель \@jobsp@type@shrt}%
 	\@block@variant}
 \def\LabWork{\let\@title@name\@labrab@title\def\@titlename@font{\bf\itshape}
 	\def\@chief@type{Руководитель}}
@@ -354,8 +346,6 @@
 	\def\@jobsp@type@rod{научной квалификационной работы}%
 	\def\@chief@type{Научный руководитель}}
 \def\LabWorkNo#1{\def\@title@no{#1}}
-\def\PractType#1{\def\@practtype{#1}}
-\def\PractFacility#1{\def\@facility{#1}}
 \def\title#1{\def\@title{#1}}
 \newcommand\authorfull[1]{\def\@authorfull{#1}}
 \newcommand\workyear[1]{\def\@workyear{#1}}
@@ -426,23 +416,10 @@
 	\egroup
 	\vskip20mm
 	\bgroup
-	\if@pract
-	\@subscr@line@forpract{Студент}{\@ifundefined{@authorfull}{}{\@authorfull}}%
-	\vskip5mm
-	\@subscr@line@forpract{Группа}{\@ifundefined{@group}{}{\@group}}%
-	\vskip5mm
-	\@subscr@line@forpract{Тип практики}{\@ifundefined{@practtype}{}{\@practtype}}%
-	\vskip5mm
-	\@subscr@line@forpract{Название предприятия}{\@ifundefined{@facility}{}{\@facility}}%
-	\fi
 	\vfil
 	{\fontsize{12pt}{12pt}\selectfont
 	\raggedright@
-	\if@pract
-	\@subscr@line{Студент}{}{\@ifundefined{@author}{\ulbox{7em}{}}{\@author}}%
-	\else
 	\@subscr@line{Студент группы}{\@group@place}{\@author}%
-	\fi
 	\@ifundefined{@chief}{}{\vskip5mm\@subscr@line{\@chief@type}{}{\@chief}}%
 	\if@FirstConsultant
 	\vskip5mm
@@ -456,15 +433,12 @@
 	\vskip5mm
 	\@subscr@line{Нормоконтролер}{}{\@ifundefined{@inspector}{\ulbox{7em}{}}{\@inspector}}\par
 	\fi
-	\vskip20mm
-	\if@pract{Оценка\hspace{0.6\linewidth}{\ulbox{0.3\linewidth}{}}\par}\fi
 	\egroup
 	\vfil
 	\textit{\@workyear г.}\par
 	\pagebreak
 	\egroup
 	\if@jobspec{\pagestyle{empty}\headheight=0pt\headsep=0pt\@make@jobspec\pagebreak}\fi
-	\if@pract@jobspec{\pagestyle{empty}\headheight=0pt\headsep=0pt\@make@pract@jobspec\pagebreak}\fi
 	\if@VKR\kalplan\fi
 }}
 \let\cover\maketitle
@@ -491,56 +465,8 @@
 		\ifempty{#1}\hphantom{#1}\space
 		\hbox to\@grpl@len{\@underwr@font\hfil(группа)\hfil}\fi}%
 	\hbox to\@subspl@len{\@underwr@font\hfil(подпись, дата)\hfil}\par}
-	
-\def\@subscr@line@forpract#1#2{%
-		\noindent #1 \hbox to 0pt{\ \hspace{0.3\linewidth}#2\hss}\ulfill\par}
 
 \def\@group@place{\underline{\hbox to\@grpl@len{\@ifundefined{@group}{}{\ \@group}\hfil}}}
-
-\def\@make@pract@jobspec{
-	\vspace*{-5mm}
-	{\centering\@title@shapka{}}%
-	\vskip20mm
-	\bgroup
-	\centering
-	{\Large\bfseries{ЗАДАНИЕ}\par на прохождение \@jobsp@type@rod\par}%
-	\egroup
-	\vskip5\jsp
-	\bgroup
-	\parindent=0pt
-	\fontsize{11pt}{13}\selectfont
-	На предприятии \ulfill\\
-	\ulline\\
-	\vspace{12pt}
-	Студент \hbox to 0pt{\kern9em\@authorfull\space\@group\hss}\ulfill\par
-	\hrule height0pt\vskip1mm\hbox to \hsize{\@underwr@font\hfil(Фамилия, Имя, Отчество, Индекс Группы)\hfil}\par
-	\vskip5\jsp
-	Во время прохождения \@jobsp@type@rod\space студент должен:\hfill{\space}\par
-	\begin{enumerate}
-		\item 
-		\item 
-		\item 
-	\end{enumerate} 
-	\vskip10\jsp
-	Дата выдачи задания \al\,\ulbox{1.75em}{}\,\ar\kern0.2em\ulbox{6em}{}\space 20\ulbox{1.5em}{}\,г.\hfill{\space}\par
-	\egroup
-	\vskip7\jsp
-	\bgroup
-	\raggedright@
-	\@subscr@line{Студент}{}{\@author}\par
-	\vskip2\jsp
-	\@subscr@line{\@chief@type}{}{\@ifundefined{@chief}{\ulbox{5em}{}}\@chief}\par
-	\nobreak
-	\egroup
-	\vfil
-	\bgroup
-	\fontsize{9pt}{11}\selectfont
-	{\bfseries Примечание.} Задание оформляется в двух экземплярах: один выдается студенту,
-	второй хранится на кафедре.\par
-	\if@VKR\else
-	\vspace*{-15mm}\pagebreak\fi
-	\egroup
-}
 
 \def\@make@jobspec{%
 	\vspace*{-5mm}
@@ -557,8 +483,10 @@
 	\bgroup
 	\parindent=0pt
 	\fontsize{11pt}{13}\selectfont
-	Студент \hbox to 0pt{\kern9em\@authorfull\space\@group\hss}\ulfill\par
-	\hrule height0pt\vskip1mm\hbox to \hsize{\@underwr@font\hfil(Фамилия, Имя, Отчество, Индекс Группы)\hfil}\par
+	Студент группы \ulbox{5em}{\ \@group}\par
+	\vskip1\jsp
+	\indent\hbox to 0pt{\kern3em\@authorfull\hss}\ulfill\par
+	\hrule height0pt\vskip1mm\hbox to \hsize{\@underwr@font\hfil(Фамилия, Имя, Отчество)\hfil}\par
 	\if@VKR\vskip3\jsp\fi
 	\@zadan@theme
 	\if@VKR
@@ -732,14 +660,17 @@
 	от \al\,\UlBox{1.7em}{}\,\ar\kern0.2em\UlBox{5em}{}\space 20\UlBox{1.5em}{}\,г.\par
 	\vskip4\jsp
 	{\itshape\bfseries Часть 1. \ulfill}\par
-	\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\par
+	\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\
+	\ulline\\\ulline\par
 	\penalty-100
 	\vskip2\jsp\vspace{2mm}
 	{\itshape\bfseries Часть 2. \ulfill}\par
-	\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\par
+	\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\
+	\ulline\\\ulline\par
 	\vskip2\jsp\vspace{2mm}
 	{\itshape\bfseries Часть 3. \ulfill}\par
-	\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\par
+	\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\
+	\ulline\\\ulline\par
 }
 
 

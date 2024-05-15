@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.8)  13 MAY 2024 02:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.8)  15 MAY 2024 04:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -466,23 +466,23 @@ File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )<<t2a.cmap>>)
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Info: Redefining \th on input line 45.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Info: Redefining \th on input line 46.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -554,6 +554,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
 (document.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -561,10 +570,10 @@ L3 programming layer <2024-04-11>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 5741 strings out of 474369
- 86224 string characters out of 5754585
- 1942754 words of memory out of 5000000
- 28057 multiletter control sequences out of 15000+600000
+ 5743 strings out of 474369
+ 86248 string characters out of 5754585
+ 1946754 words of memory out of 5000000
+ 28059 multiletter control sequences out of 15000+600000
  565205 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,15n,65p,690b,247s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -572,14 +581,14 @@ Here is how much of TeX's memory you used:
 ts/type1/public/amsfonts/cm/cmmi12.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmmi8.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/A
 pps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/Apps/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/symbo
-ls/msam10.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><D
-:/Apps/MiKTeX/fonts/type1/public/cm-super/sfbx1200.pfb><D:/Apps/MiKTeX/fonts/ty
-pe1/public/cm-super/sfrm1200.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sf
-ti1200.pfb>
-Output written on document.pdf (4 pages, 127354 bytes).
+public/amsfonts/cm/cmsy10.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+sy8.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><D:/Apps
+/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><D:/Apps/MiKTeX/fonts/ty
+pe1/public/cm-super/sfbx1200.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sf
+rm1200.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on document.pdf (7 pages, 143565 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
+ 83 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

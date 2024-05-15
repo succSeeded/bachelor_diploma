@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.8)  15 MAY 2024 04:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.8)  15 MAY 2024 04:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -554,31 +554,14 @@ LaTeX Font Warning: Font shape `T2A/cmr/bx/n' in size <16> not available
 (Font)              size <17.28> substituted on input line 50.
 
 
-LaTeX Font Warning: Font shape `T2A/cmr/m/it' in size <16> not available
-(Font)              size <17.28> substituted on input line 50.
-
-
 LaTeX Font Warning: Font shape `T2A/cmr/bx/it' in size <16> not available
 (Font)              size <17.28> substituted on input line 50.
 
-<<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>>
-Overfull \hbox (1.78844pt too wide) detected at line 50
- \T2A/cmr/m/n/12 ФН12-81Б 
- []
-
-
-Overfull \hbox (16.68144pt too wide) detected at line 50
-\T2A/cmr/m/it/12 М.А.  Велищанский 
- []
-
-[1
+<<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>> [1
 
 {C:/Users/anaki/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{D:/Apps/MiKTe
-X/fonts/enc/dvips/cm-super/cm-super-t2a.enc} <./emblema.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2]
-(document.toc)
+X/fonts/enc/dvips/cm-super/cm-super-t2a.enc} <./emblema.pdf>] [2] (document.toc
+)
 \tf@toc=\write3
 \openout3 = `document.toc'.
 
@@ -645,45 +628,30 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [22]
+Underfull \hbox (badness 1342) in paragraph at lines 650--651
+\T2A/cmr/m/n/12 Mechanics and its Applications, Volume 500, 2018, pp. 162-176, 
+ISSN 0378-4371,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 654--655
+[]\T2A/cmr/m/n/12 dePillis, L.G., Eladdadi, A. & Radunskaya, A.E. Modeling canc
+er-immune
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 654--655
+\T2A/cmr/m/n/12 responses to therapy. J Pharmacokinet Pharmacodyn 41, 461^^U478
+ (2014).
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [23]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [24]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25]
-Underfull \hbox (badness 1917) in paragraph at lines 752--753
-\T2A/cmr/m/n/12 Mechanics and its Applications, Volume 500, 2018, pp. 162-176, 
-ISSN 0378-4371,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 756--757
-[]\T2A/cmr/m/n/12 dePillis, L.G., Eladdadi, A. & Radunskaya, A.E. Modeling canc
-er-immune
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 756--757
-\T2A/cmr/m/n/12 responses to therapy. J Pharmacokinet Pharmacodyn 41, 461^^U478
- (2014).
- []
-
-
-Underfull \hbox (badness 1270) in paragraph at lines 758--759
-\T2A/cmr/m/n/12 with HIV infection of CD4+ T-cells, Int. J. Comput. Math., 90 (
-2013), 594^^U614,
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [26]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [27]
 (document.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -696,11 +664,11 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 5851 strings out of 474369
- 88081 string characters out of 5754585
+ 5871 strings out of 474369
+ 88455 string characters out of 5754585
  1947754 words of memory out of 5000000
- 28144 multiletter control sequences out of 15000+600000
- 573529 words of font info for 67 fonts, out of 8000000 for 9000
+ 28158 multiletter control sequences out of 15000+600000
+ 575825 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,15n,65p,4395b,286s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <D:/Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Apps/MiKTeX/fon
@@ -710,20 +678,21 @@ msfonts/cm/cmmi12.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
 type1/public/amsfonts/cm/cmr12.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmr6.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/Apps/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Apps/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmsy6.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.p
-fb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><D:/Apps/MiKT
-eX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><D:/Apps/MiKTeX/fonts/type1/p
-ublic/cm-super/sfbi1728.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfbx109
+ic/amsfonts/cm/cmsy8.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/symbols/ms
+am10.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><D:/App
+s/MiKTeX/fonts/type1/public/cm-super/sfbi1728.pfb><D:/Apps/MiKTeX/fonts/type1/p
+ublic/cm-super/sfbx0900.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfbx109
 5.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfbx1200.pfb><D:/Apps/MiKTeX/
 fonts/type1/public/cm-super/sfbx1440.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-
 super/sfbx1728.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfrm0800.pfb><D:
-/Apps/MiKTeX/fonts/type1/public/cm-super/sfrm1200.pfb><D:/Apps/MiKTeX/fonts/typ
-e1/public/cm-super/sfrm1440.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sft
-i1200.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfti1440.pfb><D:/Apps/MiK
-TeX/fonts/type1/public/cm-super/sfti1728.pfb>
-Output written on document.pdf (27 pages, 574331 bytes).
+/Apps/MiKTeX/fonts/type1/public/cm-super/sfrm0900.pfb><D:/Apps/MiKTeX/fonts/typ
+e1/public/cm-super/sfrm1095.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfr
+m1200.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfrm1440.pfb><D:/Apps/MiK
+TeX/fonts/type1/public/cm-super/sfti1200.pfb><D:/Apps/MiKTeX/fonts/type1/public
+/cm-super/sfti1440.pfb>
+Output written on document.pdf (24 pages, 580578 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
+ 192 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

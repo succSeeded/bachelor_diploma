@@ -34,7 +34,8 @@
 
 \onehalfspacing
 \setcounter{secnumdepth}{3}
-\renewenvironment{proof}{\noindent$\blacktriangleleft$}{$\blacktriangleright$}
+\renewcommand\qedsymbol{$\blacktriangleright$}
+\renewenvironment{proof}{\noindent$\blacktriangleleft$}{}
 \theoremstyle{definition}
 \newtheorem{theorem}{Теорема}
 \theoremstyle{definition}
@@ -83,7 +84,9 @@
 	\begin{proof}
 		Заметим, что граница множества $D$ --- множество точек с хотя бы одной нулевой координатой. Таким образом, достаточно показать, для траекторий системы, начинающихся на границе $D$, справедливо, что 
 		\[x_i(t)\ge0,\, i=\overline{1,5},\, t\in[0,\,\varepsilon),\,\varepsilon>0.\]
-		
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 		Рассмотрим случай, когда
 		\begin{equation}\label{eq:conds_1}
 			x_1(0)=0,\, x_2(0)\ge0,\, x_3(0)\ge0,\, x_4(0)\ge0,\, x_5(0)\ge0.
@@ -102,7 +105,7 @@
 				\end{aligned}
 			\end{cases}
 		\end{equation*}
-		Решение $x_1(t)\equiv0$ удовлетворяет начальным условиям $x_1(0)=0,\,\dot{x}_1(0)=0$. При подстановке \ref{eq:initial_system} первое уравнение становится тождеством, а сама система преобразуется к следующему виду:
+		Решение $x_1(t)\equiv0$ удовлетворяет начальному условию $x_1(0)=0$, а также удовлетворяет первому уравнению исходной системы при $t=0$. При подстановке $x_1(t)\equiv0$ в \ref{eq:initial_system} первое уравнение становится тождеством, а сама система преобразуется к следующему виду:
 		\begin{equation*}
 			\begin{cases}
 				\begin{aligned}
@@ -116,7 +119,9 @@
 		Определив $x_2(t),\dots,x_5(t)$ как решения системы с пониженным порядком, из единственности решения задачи Коши имеем, что
 		\[x_1\equiv0,\, x_2=x_2(t),\, x_3=x_3(t),\, x_4=x_4(t),\, x_5=x_5(t),\, t\in[0,\,\varepsilon_1),\]
 		является решением исходной системы с начальными условиями \ref{eq:conds_1}, лежащим на плоскости $x_1=0$ и не покидающим область $D$ через неё.
-		
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 		Для каждого из начальных условий вида
 		\begin{equation*}
 			x_1(0)\ge0,\, x_2(0)\ge0,\, x_3(0)\ge0,\, x_4(0)=0,\, x_5(0)\ge0,
@@ -126,7 +131,9 @@
 		т.е. 
 		\[x_4(t)>0,\, t\in(0,\, \tilde{\varepsilon}_2),\,\tilde{\varepsilon}_2\le\varepsilon_2\]
 		и траектория не выходит из $D$ через плоскость $x_4=0$.
-		
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 		Рассмотрим случай, когда
 		\begin{equation}\label{eq:conds_3}
 			x_1(0)\ge0,\, x_2(0)\ge0,\, x_3(0)=0,\, x_4(0)\ge0,\, x_5(0)\ge0.
@@ -155,114 +162,147 @@
 				\end{aligned}
 			\end{cases}
 		\end{equation*}
-		Тогда аналогично случаю с границей $x_1=0$, $x_1(t)\equiv0$. При этом решение $x_3(t)\equiv0$ удовлетворяет начальным условиям $x_3(0)=0,\,\dot{x}_3(0)=0$ и при его подстановке весте с $x(t)\equiv0$ в исходную систему получим, что:
-		что возможно только когда $x_1(t)\equiv0$, т.е. когда система имеет вид
+		Тогда, аналогично случаю с границей $x_1=0$, $x_1(t)\equiv0$. При этом решение $x_3(t)\equiv0$ удовлетворяет начальному условию $x_3(0)=0$ и уравнению $\dot{x}_3(0)=0$. При его подстановке вместе с $x_1(t)\equiv0$ в исходную систему получим, что:
 		\begin{equation*}
 			\begin{cases}
 				\begin{aligned}
 					\dot{x}_2(t) &= r_2x_2(t)\left(1-\dfrac{x_2(t)}{c_2}\right)+\dfrac{x_5(t)}{k_4+x_5(t)}a_1\dfrac{1}{x_4(t)+e_2},\\
 					\dot{x}_4(t) &= s_1-\mu_2x_4(t),\\
-					\dot{x}_5(t) &= -\mu_3x_5(t),
+					\dot{x}_5(t) &= -\mu_3x_5(t).
 				\end{aligned}
 			\end{cases}
 		\end{equation*}
 		Если определить $x_2,\, x_4,\, x_5$ как решения системы с пониженным порядком на плоскости $x_1=x_3=0$, то из единственности решения следует, что
 		\[x_1\equiv0,\, x_2=x_2(t),\, x_3\equiv0,\, x_4=x_4(t),\, x_5=x_5(t),\, t\in[0,\,\varepsilon_3),\]
-		является решением исходной системы с начальными условиями \ref{eq:conds_3}, лежащим на плоскости $x_1=x_3=0$ и не покидающим области $D$ через границу $x_3=0$.
-		
-		\MakeUppercase{Для $x_5,\, x_2$ док-во закомментировано, т.к. это пробник.}
-		
-%		В случае если 
-%		\begin{equation}\label{eq:conds_4}
-%			x_1(0)\ge0,\, x_2(0)\ge0,\, x_3(0)\ge0,\, x_4(0)\ge0,\, x_5(0)=0.
-%		\end{equation}
-%		Для каждого такого начального условия существует $\varepsilon_4>0$ такое, что существует единственное решение задачи Коши при $t\in[0,\varepsilon_4)$ обращающее систему \ref{eq:initial_system} в тождество. При $t=0$ исходная система примет вид:
-%		\begin{equation*}
-%			\begin{cases}
-%				\begin{aligned}
-%					\dot{x}_1(0) &= r_1x_1(0)\left(1-\dfrac{x_1(0)}{c_1}\right)-\dfrac{1}{x_4(0)+e_1}(\alpha_1x_2(0)+\alpha_2x_3(0))\dfrac{x_1(0)}{x_1(0)+k_1},\\
-%					\dot{x}_2(0) &= r_2x_2(0)\left(1-\dfrac{x_2(0)}{c_2}\right)-\alpha_3\dfrac{x_1(0)}{x_1(0)+k_2}x_2(0),\\
-%					\dot{x}_3(0) &= a_2\dfrac{x_1(0)}{k_5+x_4(0)}-\mu_1x_3(0)-\alpha_4\dfrac{x_1(0)}{x_1(0)+k_3}x_3(0),\\
-%					\dot{x}_4(0) &= s_1 + b_1x_1(0)-\mu_2x_4(0),\\
-%					\dot{x}_5(0) &= b_2x_3(0).
-%				\end{aligned}
-%			\end{cases}
-%		\end{equation*}
-%		В случае если $x_3(0)>0$ получим, что $\dot{x}_5(0)>0$, из чего $x_5(t)>0,\, t\in(0,\, \tilde{\varepsilon}_4),\,\tilde{\varepsilon}_4\le\varepsilon_4$ и траектория не выходит из $D$ через плоскость $x_5=0$. Иначе при $x_3(0)=0$ система при $t=0$ преобразуется к следующему виду:
-%		\begin{equation*}
-%			\begin{cases}
-%				\begin{aligned}
-%					\dot{x}_1(0) &= r_1x_1(0)\left(1-\dfrac{x_1(0)}{c_1}\right)-\dfrac{\alpha_1x_2(0)}{x_4(0)+e_1}\dfrac{x_1(0)}{x_1(0)+k_1},\\
-%					\dot{x}_2(0) &= r_2x_2(0)\left(1-\dfrac{x_2(0)}{c_2}\right)-\alpha_3\dfrac{x_1(0)}{x_1(0)+k_2}x_2(0),\\
-%					\dot{x}_3(0) &= a_2\dfrac{x_1(0)}{k_5+x_4(0)},\\
-%					\dot{x}_4(0) &= s_1 + b_1x_1(0)-\mu_2x_4(0),\\
-%					\dot{x}_5(0) &= 0,
-%				\end{aligned}
-%			\end{cases}
-%		\end{equation*} 
-%		Здесь при $x_1(0)>0$ имеем, что $\dot{x}_3(0)>0$, то есть $x_3(t)>0,\, t\in(0,\, \tilde{\varepsilon}^\prime_4),\,\tilde{\varepsilon}^\prime_4\le\varepsilon_4$. Из этого следует, что $x_5(t)>0,\, t\in(0,\, \tilde{\varepsilon}^\prime_4),\,\tilde{\varepsilon}^\prime_4\le\varepsilon_4$ и траектория не выходит из $D$ через плоскость $x_5=0$. При $x_1(0)=0$ система в начальный момент примет следующий вид:
-%		\begin{equation*}
-%			\begin{cases}
-%				\begin{aligned}
-%					\dot{x}_1(0) &= 0,\\
-%					\dot{x}_2(0) &= r_2x_2(0)\left(1-\dfrac{x_2(0)}{c_2}\right),\\
-%					\dot{x}_3(0) &= 0,\\ 
-%					\dot{x}_4(0) &= s_1-\mu_2x_4(0).\\
-%					\dot{x}_5(0) &= 0.
-%				\end{aligned}
-%			\end{cases}
-%		\end{equation*}
-%		Таким образом, из единственности решения следует, что
-%		\[x_1\equiv0,\, x_2=x_2(t),\, x_3\equiv0,\, x_4=x_4(t),\, x_5\equiv0,\, t\in[0,\,\varepsilon_4),\]
-%		является решением исходной системы с начальными условиями \ref{eq:conds_4}, лежащим на плоскости $x_5=0$ и не покидающим области $D$.
-%		
-%		Рассмотрим случай, когда
-%		\begin{equation}\label{eq:conds_5}
-%			x_1(0)\ge0,\, x_2(0)=0,\, x_3(0)\ge0,\, x_4(0)\ge0,\, x_5(0)\ge0.
-%		\end{equation}
-%		Для каждого такого начального условия также существует $\varepsilon_2>0$ такое, что существует единственное решение задачи Коши на полуинтервале $t\in[0,\,\varepsilon_2)$ обращающее систему \ref{eq:initial_system} в тождество. Заметим, что в случае если $x_2(t)\equiv0$, \ref{eq:initial_system} преобразуется к следующему виду:
-%		\begin{equation*}
-%			\begin{cases}
-%				\begin{aligned}
-%					\dot{x}_1 &= r_1x_1\left(1-\dfrac{x_1}{c_1}\right)-\dfrac{\alpha_2x_3}{x_4+e_1}\dfrac{x_1}{x_1+k_1},\\
-%					0 &= \dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2},\\
-%					\dot{x}_3 &= a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3,\\
-%					\dot{x}_4 &= s_1 + b_1x_1-\mu_2x_4,\\
-%					\dot{x}_5 &= b_2x_3-\mu_3x_5,
-%				\end{aligned}
-%			\end{cases}
-%		\end{equation*} 
-%		Таким образом, $x_2(t)\equiv0$ может быть решением \ref{eq:initial_system} в случае если $x_5(t)\equiv0$. Тогда получим, что:
-%		\begin{equation*}
-%			\begin{cases}
-%				\begin{aligned}
-%					\dot{x}_1 &= r_1x_1\left(1-\dfrac{x_1}{c_1}\right)-\dfrac{\alpha_2x_3}{x_4+e_1}\dfrac{x_1}{x_1+k_1},\\
-%					\dot{x}_3 &= a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3,\\
-%					\dot{x}_4 &= s_1 + b_1x_1-\mu_2x_4,\\
-%					0 &= b_2x_3,
-%				\end{aligned}
-%			\end{cases}
-%		\end{equation*}  
-%		т.е. $x_5(t)\equiv0$ только тогда, когда $x_3(t)\equiv0$. В таком случае
-%		\begin{equation*}
-%			\begin{cases}
-%				\begin{aligned}
-%					\dot{x}_1 &= r_1x_1\left(1-\dfrac{x_1}{c_1}\right)-\dfrac{\alpha_2x_3}{x_4+e_1}\dfrac{x_1}{x_1+k_1},\\
-%					0 &= a_2\dfrac{x_1}{k_5+x_4},\\
-%					\dot{x}_4 &= s_1 + b_1x_1-\mu_2x_4,\\
-%				\end{aligned}
-%			\end{cases}
-%		\end{equation*} 
-%		из чего $x_3(t)\equiv0$ тогда и только тогда, когда $x_1(t)\equiv0$. Тогда система примет следующий вид:
-%		\begin{equation*}
-%			\begin{cases}
-%				\begin{aligned}
-%					\dot{x}_4 &= s_1-\mu_2x_4,\\
-%				\end{aligned}
-%			\end{cases}
-%		\end{equation*} 
-%		Таким образом, из единственности решения следует, что
-%		\[x_1\equiv0,\, x_2\equiv0,\, x_3\equiv0,\, x_4=x_4(t),\, x_5\equiv0,\, t\in[0,\,\varepsilon_5),\]
-%		является решением исходной системы с начальными условиями \ref{eq:conds_5}, лежащим на плоскости $x_2=0$ и не покидающим области $D$.
+		является решением исходной системы для которого выполняются \ref{eq:conds_3} при $x_1(0)=0$, лежащим на плоскости $x_1=x_3=0$ и не покидающим области $D$ через границу $x_3=0$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+		В случае если 
+		\begin{equation}\label{eq:conds_4}
+			x_1(0)\ge0,\, x_2(0)\ge0,\, x_3(0)\ge0,\, x_4(0)\ge0,\, x_5(0)=0.
+		\end{equation}
+		Для каждого такого начального условия существует $\varepsilon_4>0$ такое, что существует единственное решение задачи Коши при $t\in[0,\varepsilon_4)$ обращающее систему \ref{eq:initial_system} в тождество. При $t=0$ исходная система примет вид:
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_1(0) &= r_1x_1(0)\left(1-\dfrac{x_1(0)}{c_1}\right)-\dfrac{1}{x_4(0)+e_1}(\alpha_1x_2(0)+\alpha_2x_3(0))\dfrac{x_1(0)}{x_1(0)+k_1},\\
+					\dot{x}_2(0) &= r_2x_2(0)\left(1-\dfrac{x_2(0)}{c_2}\right)-\alpha_3\dfrac{x_1(0)}{x_1(0)+k_2}x_2(0),\\
+					\dot{x}_3(0) &= a_2\dfrac{x_1(0)}{k_5+x_4(0)}-\mu_1x_3(0)-\alpha_4\dfrac{x_1(0)}{x_1(0)+k_3}x_3(0),\\
+					\dot{x}_4(0) &= s_1 + b_1x_1(0)-\mu_2x_4(0),\\
+					\dot{x}_5(0) &= b_2x_3(0).
+				\end{aligned}
+			\end{cases}
+		\end{equation*}
+		В случае если $x_3(0)>0$ получим, что $\dot{x}_5(0)>0$, из чего $x_5(t)>0,\, t\in(0,\, \tilde{\varepsilon}_4),\,\tilde{\varepsilon}_4\le\varepsilon_4$ и траектория не выходит из $D$ через плоскость $x_5=0$. При $x_3(0)=0$, в свою очередь, система в начальный момент преобразуется к следующему виду:
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_1(0) &= r_1x_1(0)\left(1-\dfrac{x_1(0)}{c_1}\right)-\dfrac{\alpha_1x_2(0)}{x_4(0)+e_1}\dfrac{x_1(0)}{x_1(0)+k_1},\\
+					\dot{x}_2(0) &= r_2x_2(0)\left(1-\dfrac{x_2(0)}{c_2}\right)-\alpha_3\dfrac{x_1(0)}{x_1(0)+k_2}x_2(0),\\
+					\dot{x}_3(0) &= a_2\dfrac{x_1(0)}{k_5+x_4(0)},\\
+					\dot{x}_4(0) &= s_1 + b_1x_1(0)-\mu_2x_4(0),\\
+					\dot{x}_5(0) &= 0.
+				\end{aligned}
+			\end{cases}
+		\end{equation*} 
+		Здесь при $x_1(0)>0$ имеем, что $\dot{x}_3(0)>0$, то есть $x_3(t)>0,\, t\in(0,\, \tilde{\varepsilon}^\prime_4),\,\tilde{\varepsilon}^\prime_4\le\varepsilon_4$. Из этого следует, что $x_5(t)>0,\, t\in(0,\, \tilde{\varepsilon}^\prime_4),\,\tilde{\varepsilon}^\prime_4\le\varepsilon_4$ и траектория не выходит из $D$ через плоскость $x_5=0$. При $x_1(0)=0$ система в начальный момент примет следующий вид:
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_1(0) &= 0,\\
+					\dot{x}_2(0) &= r_2x_2(0)\left(1-\dfrac{x_2(0)}{c_2}\right),\\
+					\dot{x}_3(0) &= 0,\\ 
+					\dot{x}_4(0) &= s_1-\mu_2x_4(0),\\
+					\dot{x}_5(0) &= 0.
+				\end{aligned}
+			\end{cases}
+		\end{equation*}
+		Тогда решения $x_1(t)\equiv0,\, x_3(t)\equiv0,\, x_5(t)\equiv0$ удовлетворяет начальным условиям \ref{eq:conds_4} и уравнениям 
+		\[\dot{x}_1(t)=0,\, \dot{x}_3(t)=0,\, \dot{x}_5(0)=0.\] 
+		При их подстановке в исходную систему получим, что:
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_2(t) &= r_2x_2(t)\left(1-\dfrac{x_2(t)}{c_2}\right),\\
+					\dot{x}_4(t) &= s_1-\mu_2x_4(t).\\
+				\end{aligned}
+			\end{cases}
+		\end{equation*}
+		Если определить $x_2$ и $x_4$ как решения системы с пониженным порядком на плоскости $x_1=x_3=x_5=0$, то из единственности решения следует, что
+		\[x_1\equiv0,\, x_2=x_2(t),\, x_3\equiv0,\, x_4=x_4(t),\, x_5\equiv0,\, t\in[0,\,\varepsilon_4),\]
+		является решением исходной системы с начальными условиями \ref{eq:conds_4}, где
+		\[x_1(0)=0,\, x_3(0)=0,\, x_5(0)=0,\]
+		которое лежит на плоскости $x_1=x_3=x_5=0$ и не покидает область $D$ через границу $x_5=0$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+		Рассмотрим случай, когда
+		\begin{equation}\label{eq:conds_5}
+			x_1(0)\ge0,\, x_2(0)=0,\, x_3(0)\ge0,\, x_4(0)\ge0,\, x_5(0)\ge0.
+		\end{equation}
+		Для каждого такого начального условия также существует $\varepsilon_5>0$ такое, что существует единственное решение задачи Коши на полуинтервале $t\in[0,\,\varepsilon_5)$ обращающее систему исходную систему в тождество. В начальный момент времени \ref{eq:initial_system} принимает вид: 
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_1(0) &= r_1x_1(0)\left(1-\dfrac{x_1(0)}{c_1}\right)-\dfrac{\alpha_2x_3(0)}{x_4(0)+e_1}\dfrac{x_1(0)}{x_1(0)+k_1},\\
+					\dot{x}_2(0) &= \dfrac{x_5(0)}{k_4+x_5(0)}a_1\dfrac{1}{x_4(0)+e_2},\\
+					\dot{x}_3(0) &= a_2\dfrac{x_1(0)}{k_5+x_4(0)}-\mu_1x_3(0)-\alpha_4\dfrac{x_1(0)}{x_1(0)+k_3}x_3(0),\\
+					\dot{x}_4(0) &= s_1 + b_1x_1(0)-\mu_2x_4(0),\\
+					\dot{x}_5(0) &= b_2x_3(0)-\mu_3x_5(0).
+				\end{aligned}
+			\end{cases}
+		\end{equation*} 
+		В случае, если $x_5(0)>0$ получим, что $\dot{x}_2(0)>0$, из чего $x_2(t)>0,\, t\in(0,\, \tilde{\varepsilon}_5),\,\tilde{\varepsilon}_5\le\varepsilon_5$ и траектория не выходит из $D$ через плоскость $x_2=0$. При $x_5(0)=0$ и $t=0$, в свою очередь, система преобразуется к следующему виду:
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_1(0) &= r_1x_1(0)\left(1-\dfrac{x_1(0)}{c_1}\right)-\dfrac{\alpha_2x_3(0)}{x_4(0)+e_1}\dfrac{x_1(0)}{x_1(0)+k_1},\\
+					\dot{x}_2(0) &= 0,\\
+					\dot{x}_3(0) &= a_2\dfrac{x_1(0)}{k_5+x_4(0)}-\mu_1x_3(0)-\alpha_4\dfrac{x_1(0)}{x_1(0)+k_3}x_3(0),\\
+					\dot{x}_4(0) &= s_1 + b_1x_1(0)-\mu_2x_4(0),\\
+					\dot{x}_5(0) &= b_2x_3(0).
+				\end{aligned}
+			\end{cases}
+		\end{equation*}  
+		В случае, если $x_3(0)>0$ получим, что $\dot{x}_5(0)>0$, из чего $x_3(t)>0,\, t\in(0,\, \tilde{\varepsilon}^{\prime\prime}_5),\,\tilde{\varepsilon}^{\prime\prime}_5\le\varepsilon_5$ и траектория не выходит из $D$ через плоскость $x_2=0$. При $x_3(0)=0$ система в начальный момент примет следующий вид:
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_1(0) &= r_1x_1(0)\left(1-\dfrac{x_1(0)}{c_1}\right),\\
+					\dot{x}_2(0) &= 0,\\
+					\dot{x}_3(0) &= a_2\dfrac{x_1(0)}{k_5+x_4(0)},\\
+					\dot{x}_4(0) &= s_1 + b_1x_1(0)-\mu_2x_4(0),\\
+					\dot{x}_5(0) &= 0.
+				\end{aligned}
+			\end{cases}
+		\end{equation*} 
+		Здесь при $x_1(0)>0$ имеем, что $\dot{x}_3(0)>0$, то есть $x_3(t)>0,\, t\in(0,\, \tilde{\varepsilon}^{\prime\prime\prime}_5),\,\tilde{\varepsilon}^{\prime\prime\prime}_5\le\varepsilon_5$. Из этого следует, что $x_2(t)>0,\, t\in(0,\, \tilde{\varepsilon}^{\prime\prime\prime}_5),\,\tilde{\varepsilon}^{\prime\prime\prime}_5\le\varepsilon_5$ и траектория не выходит из $D$ через плоскость $x_2=0$. При $x_1(0)=0$ система в начальный момент примет следующий вид:
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_1(0) &= 0,\\
+					\dot{x}_2(0) &= 0,\\
+					\dot{x}_3(0) &= 0,\\
+					\dot{x}_4(0) &= s_1 - \mu_2x_4(0),\\
+					\dot{x}_5(0) &= 0.
+				\end{aligned}
+			\end{cases}
+		\end{equation*}
+		Тогда решения $x_1(t)\equiv0,\, x_2(t)\equiv0,\, x_3(t)\equiv0,\, x_5(t)\equiv0$ удовлетворяет начальным условиям \ref{eq:conds_4} и уравнениям 
+		\[\dot{x}_1(t)=0,\, \dot{x}_2(t)=0,\, \dot{x}_3(t)=0,\, \dot{x}_5(0)=0.\] 
+		При их подстановке в исходную систему получим, что:
+		\begin{equation*}
+			\begin{cases}
+				\begin{aligned}
+					\dot{x}_4(t) &= s_1-\mu_2x_4(t),\\
+				\end{aligned}
+			\end{cases}
+		\end{equation*} 
+		Тогда если определить $x_4$ как решение системы с пониженным порядком на плоскости $x_1=x_2=x_3=x_5=0$, то из единственности решения следует, что
+		\[x_1\equiv0,\, x_2\equiv0,\, x_3\equiv0,\, x_4=x_4(t),\, x_5\equiv0,\, t\in[0,\,\varepsilon_5),\]
+		является решением исходной системы с начальными условиями \ref{eq:conds_4}, где
+		\[x_1(0)=0,\, x_2(0)=0,\, x_3(0)=0,\, x_5(0)=0,\]
+		которое лежит на плоскости $x_1=x_2=x_3=x_5=0$ и не покидает область $D$ через границу $x_2=0$. Таким образом. траектории системы не пересекают ни одну из границ $x_i=0,\, i\in\overline{1,5}$.\qed
 	\end{proof}
 \end{document}
