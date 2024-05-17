@@ -105,10 +105,10 @@
 	\ifdim\@tempskipa>\z@
 	\begingroup
 	#6\relax
-	\raggedcenter@\interlinepenalty\@M #6\relax\@svsec#9\par
+	\raggedcenter@\interlinepenalty\@M #6\relax\@svsec\ifnum #2<2\MakeUppercase{#9}\else #9\fi\par
 	\endgroup
 	\csname #1mark\endcsname{#8}
-	\addcontentsline{toc}{#1}{\cont@svsec#7}%
+	\addcontentsline{toc}{#1}{\cont@svsec\ifnum #2<2\MakeUppercase{#7}\else #7\fi}%
 	\else
 	\def\@svsechd{%
 		#6\@svsec#9\@nameuse{#1mark}{#8}%
@@ -132,7 +132,7 @@
 \def\@sctsect#1#2#3#4#5{\@tempskipa #3\relax
 	\ifdim \@tempskipa>\z@
 	\begingroup
-	\interlinepenalty\@M \raggedcenter@ #4\hskip #1\relax #5\par     %%%    --- И.К. 29.09.2009
+	\interlinepenalty\@M \raggedcenter@ #4\hskip #1\relax \MakeUppercase{#5}\par     %%%    --- И.К. 29.09.2009
 	\endgroup
 	\else
 	\begingroup
@@ -146,17 +146,20 @@
 \def\section@dot{}
 \newif\ifsecno@
 \def\secdelim#1{\def\@secdelimamount{#1}\gdef\@secdelim{\@secdelimamount}}
-\gdef\appendixname{Приложение}
+\gdef\appendixname{ПРИЛОЖЕНИЕ}
 \gdef\conthdsection{}
 \secdelim{0.1em}
 
 
-\def\section{\@startctsection{section}{1}{\@secdelim}%
+\def\section{\newpage\@startctsection{section}{1}{\@secdelim}%
 	{\secsepbefore}{\secsepafter}{\reset@font\sectionfont}}
 \def\subsection{\@startctsection{subsection}{2}{\@secdelim}%
 	{\subsecsepbefore}{\subsecsepafter}{\reset@font\subsectionfont}}
 \def\subsubsection{\@startctsection{subsubsection}{3}{\@secdelim}%
 	{\subsubsecsepbefore}{\subsubsecsepafter}{\reset@font\subsubsectionfont}}
+\newenvironment{annotation}{\section*{Аннотация}}{\pagebreak}
+\newenvironment{introduction}{\section*{Введение}\addcontentsline{toc}{section}{\MakeUppercase{Введение}}}{\pagebreak}
+\newenvironment{conclusion}{\section*{Заключение}\addcontentsline{toc}{section}{\MakeUppercase{Заключение}}}{\pagebreak}
 
 %%%    Оформление содержания
 
@@ -590,9 +593,9 @@
 	\vskip5\jsp
 	\bgroup
 	\raggedright@
-	\@subscr@line{\@chief@type}{}{\@ifundefined{@chief}{\ulbox{5em}{}}\@chief}\par
-	\vskip2\jsp
 	\@subscr@line{Студент}{}{\@author}\par
+	\vskip2\jsp
+	\@subscr@line{\@chief@type}{}{\@ifundefined{@chief}{\ulbox{5em}{}}\@chief}\par
 	\nobreak
 	\egroup
 	\vfil

@@ -20,20 +20,21 @@
 \NIR
 
 \title{Метод выбора функции Ляпунова в моделях с дробно-рациональными правыми частями}
-\author{М.Д. Кирдин}
+\author{М.Д.~Кирдин}
 \authorfull{Кирдин Матвей Дмитриевич}
 \group{ФН12-81Б}
 \faculty{Фундаментальные науки}
 \chair{Математическое моделирование}
-\chief{А.П. ~Крищенко}
+\chief{Д.А.~Фетисов}
 \workyear{2024}
 \facultyshort{ФН}
 \chairshort{ФН12}
-\chairhead{А.П. Крищенко}
+\chairhead{А.П.~Крищенко}
 
 \onehalfspacing
 \setcounter{secnumdepth}{3}
-\renewenvironment{proof}{\noindent$\blacktriangleleft$}{$\blacktriangleright$}
+\renewcommand{\qedsymbol}{$\blacktriangleright$}
+\renewenvironment{proof}{\noindent$\blacktriangleleft$}{}
 \theoremstyle{definition}
 \newtheorem{theorem}{Теорема}
 \theoremstyle{definition}
@@ -49,12 +50,29 @@
 	\end{spacing}
 	
 	\tableofcontents
+	 
+	\section{Постановка задачи}
 	
-	\section*{\MakeUppercase{Введение}}
-	\addcontentsline{toc}{section}{\MakeUppercase{Введение}}
+	Рассмотрим следующую пятимерную систему с положительными параметрами:
+	\begin{equation}
+		\begin{cases}
+			\begin{aligned}
+				\dot{x}_1 &= r_1x_1\left(1-\dfrac{x_1}{c_1}\right)-\dfrac{1}{x_4+e_1}(\alpha_1x_2+\alpha_2x_3)\dfrac{x_1}{x_1+k_1},\\
+				\dot{x}_2 &= r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2}-\alpha_3\dfrac{x_1}{x_1+k_2}x_2,\\
+				\dot{x}_3 &= a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3,\\
+				\dot{x}_4 &= s_1 + b_1x_1-\mu_2x_4,\\
+				\dot{x}_5 &= b_2x_3-\mu_3x_5,
+			\end{aligned}
+		\end{cases}\label{eq:initial_system}
+	\end{equation}
+	где $x=(x_1, x_2, x_3, x_4, x_5)$ -- неотрицательные переменные, $t\ge0$ --- время.
 	
-	\newpage
-	\section{\MakeUppercase{Основная часть}}
+	Введем следующие обозначения:
+	\[\mathbb{R}^n_{+,0}=\{x=(x_1,\dots,x_n)\in\mathbb{R}^n:\, x_i\ge0,\, i=\overline{1,n}\},\,\mathbb{R}_{+,0}=\{x\in\mathbb{R}:\, x\ge0\}.\]
+	
+	Для данной системы найдем положения равновесия при помощи построения функций Ляпунова, а также условия их устойчивости, если таковые имеются. 
+	
+	\section{Основная часть}
 	
 	Рассмотрим следующий класс динамических систем:
 	\[\dot{x}_i=f_i(x),\, x=(x_1,\dots,x_n)\in\mathbb{R}^{n}_{+,0},\, i=\overline{1,n},\]
@@ -145,7 +163,20 @@
 		где $\tilde{h}_j(x)$ -- некие ДРФ или линейные функции, $\hat{\sigma}_i$ -- множество всех номеров $x_p,\, p\in\{1,\dots,n\}$, входящих в $f_i(x)$. Тогда производная $V(x)$ в силу системы примет вид:
 		\[\dot{V}(x)=\sum\limits_{i\in\sigma_1}\hat{k}_i(x_i-x_{i,0})\sum\limits_{p\in\hat{\sigma}_i}(x_p-x_{p,0})\tilde{h}_{p}(x)+\sum\limits_{j\in\sigma_2}\hat{k}_j(x_j-x_{j,0})\sum\limits_{q\in\hat{\sigma}_j}(x_q-x_{q,0})\tilde{h}_{q}(x).\]
 		Сложив все слагаемые с повторяющимися множителями $(x_i-x_{i,0})(x_j-x_{j,0})$ и положив равными нулю коэффициенты при множителях отсутствующих в сумме, получим квадратичную форму с симметричной функциональной матрицей $H$:
-		\[\dot{V}(x)=(x-x_0)^{T}H(x-x_0).\]
+		\[\dot{V}(x)=(x-x_0)^{T}H(x-x_0).\qed\]
+	\end{proof}
+	
+	\begin{theorem}
+		Система \ref{eq:initial_system} при положительных значениях параметров на границе множества $D$ имеет положения равновесия $P_1\left(0,\, 0,\,0,\,\frac{s_1}{\mu_2}\right)$ и $P_2\left(0,\, c_2,\,0,\,\frac{s_1}{\mu_2}\right)$.  
+	\end{theorem}
+	
+	\begin{theorem}
+		$P_1\left(0,\, 0,\,0,\,\frac{s_1}{\mu_2}\right)$ является неустойчивым, а $P_2\left(0,\, c_2,\,0,\,\frac{s_1}{\mu_2}\right)$ асимптотически устойчиво, если 
+		\[\dfrac{r_2\mu_2\cap{k}}{c_2}>0,\]
+		где $\cap{k}$ -- положительный коэффициент.  
+	\end{theorem}
+	\begin{proof}
+		\qed
 	\end{proof}
 	
 	\begin{theorem}
@@ -156,9 +187,11 @@
 	\begin{theorem}
 		Положение равновесия $P_3$ является асимптотически устойчивым. 
 	\end{theorem}
-	
-	\newpage 
-	\section*{\MakeUppercase{Заключение}}
-	\addcontentsline{toc}{section}{\MakeUppercase{Заключение}}
+	 
+	\newpage
+	\begin{thebibliography}{1}
+		\bibitem{model}
+		S. Banerjee, S. Khajanchi and S. Chaudhury, PLoS ONE 10(5), e0123611 (2015). 
+	\end{thebibliography}
 	
 \end{document}

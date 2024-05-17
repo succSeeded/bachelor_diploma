@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.8)  15 MAY 2024 04:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.8)  17 MAY 2024 15:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -466,23 +466,23 @@ File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )<<t2a.cmap>>)
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Info: Redefining \th on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Info: Redefining \th on input line 47.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -542,26 +542,35 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 <emblema.pdf, id=2, 476.01839pt x 534.79799pt>
 File: emblema.pdf Graphic file (type pdf)
 <use emblema.pdf>
-Package pdftex.def Info: emblema.pdf  used on input line 50.
+Package pdftex.def Info: emblema.pdf  used on input line 49.
 (pdftex.def)             Requested size: 90.44443pt x 101.61267pt.
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 50.
+(Font)              size <17.28> substituted on input line 49.
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/bx/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 50.
+(Font)              size <17.28> substituted on input line 49.
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/bx/it' in size <16> not available
-(Font)              size <17.28> substituted on input line 50.
+(Font)              size <17.28> substituted on input line 49.
 
-<<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>> [1
+<<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>>
+Overfull \hbox (9.30824pt too wide) detected at line 49
+\T2A/cmr/m/it/12 А.П. Велищанский 
+ []
+
+[1
 
 {C:/Users/anaki/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{D:/Apps/MiKTe
-X/fonts/enc/dvips/cm-super/cm-super-t2a.enc} <./emblema.pdf>] [2] (document.toc
-)
+X/fonts/enc/dvips/cm-super/cm-super-t2a.enc} <./emblema.pdf>]
+Overfull \hbox (9.30824pt too wide) detected at line 49
+\T2A/cmr/m/it/12 А.П. Велищанский 
+ []
+
+[2] (document.toc)
 \tf@toc=\write3
 \openout3 = `document.toc'.
 
@@ -628,19 +637,19 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [22]
-Underfull \hbox (badness 1342) in paragraph at lines 650--651
+Underfull \hbox (badness 1342) in paragraph at lines 647--648
 \T2A/cmr/m/n/12 Mechanics and its Applications, Volume 500, 2018, pp. 162-176, 
 ISSN 0378-4371,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 654--655
+Underfull \hbox (badness 10000) in paragraph at lines 651--652
 []\T2A/cmr/m/n/12 dePillis, L.G., Eladdadi, A. & Radunskaya, A.E. Modeling canc
 er-immune
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 654--655
+Underfull \hbox (badness 10000) in paragraph at lines 651--652
 \T2A/cmr/m/n/12 responses to therapy. J Pharmacokinet Pharmacodyn 41, 461^^U478
  (2014).
  []
@@ -664,13 +673,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 5871 strings out of 474369
- 88455 string characters out of 5754585
+ 5881 strings out of 474369
+ 88660 string characters out of 5754585
  1947754 words of memory out of 5000000
- 28158 multiletter control sequences out of 15000+600000
+ 28168 multiletter control sequences out of 15000+600000
  575825 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,15n,65p,4395b,286s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,15n,79p,4395b,286s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <D:/Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Apps/MiKTeX/fon
 ts/type1/public/amsfonts/cmextra/cmex8.pfb><D:/Apps/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmmi12.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
@@ -690,7 +699,7 @@ e1/public/cm-super/sfrm1095.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfr
 m1200.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfrm1440.pfb><D:/Apps/MiK
 TeX/fonts/type1/public/cm-super/sfti1200.pfb><D:/Apps/MiKTeX/fonts/type1/public
 /cm-super/sfti1440.pfb>
-Output written on document.pdf (24 pages, 580578 bytes).
+Output written on document.pdf (24 pages, 581694 bytes).
 PDF statistics:
  192 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -1,10 +1,9 @@
 \babel@toc {russian}{}\relax 
-\contentsline {section}{\MakeUppercase []{Аннотация}}{2}{}%
 \contentsline {section}{\MakeUppercase []{Введение}}{4}{}%
-\contentsline {section}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}1. }\MakeUppercase []{Постановка задачи}}{6}{}%
-\contentsline {section}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2. }\MakeUppercase []{Основная часть}}{7}{}%
+\contentsline {section}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}1. }{\let \oe \OE \@@text@case@aux {upper}{}{Постановка задачи}}}{6}{}%
+\contentsline {section}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2. }{\let \oe \OE \@@text@case@aux {upper}{}{Основная часть}}}{7}{}%
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.1. }Локализация инвариантных компактов}{7}{}%
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.2. }Положения равновесия на границе множества $D$}{19}{}%
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.3. }Положения равновесия внутри множества $D$}{20}{}%
 \contentsline {section}{\MakeUppercase []{Заключение}}{25}{}%
-\contentsline {section}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}{26}{}%
+\contentsline {section}{{\let \oe \OE \@@text@case@aux {upper}{}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}}}{26}{}%
