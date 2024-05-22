@@ -1,7 +1,7 @@
 % !TeX spellcheck = ru_RU-Russian
 % !TeX encoding = UTF-8 
 
-\documentclass[12pt,a4paper]{extarticle}
+\documentclass[12pt,a4paper]{article}
 
 \usepackage[russian]{babel}
 \usepackage[utf8]{inputenc}
@@ -25,7 +25,7 @@
 \group{ФН12-81Б}
 \faculty{Фундаментальные науки}
 \chair{Математическое моделирование}
-\chief{А.П.~Велищанский}
+\chief{М.А.~Велищанский}
 \workyear{2024}
 \facultyshort{ФН}
 \chairshort{ФН12}
@@ -67,7 +67,8 @@
 	
 	\end{introduction}
 	
-	\section{Постановка задачи}
+	\section{Основная часть}
+	\subsection{Постановка задачи}
 	
 	Рассмотрим следующую пятимерную систему с неотрицательными переменными $x=(x_1, x_2, x_3, x_4, x_5)$ и положительными параметрами:
 	\begin{equation}
@@ -81,7 +82,7 @@
 			\end{aligned}
 		\end{cases}\label{eq:initial_system}
 	\end{equation}
-	где $t\ge0$ --- время;
+	где $t\geqslant0$ --- время;
 	
 	$x_1$ --- количество клеток глиомы;
 	
@@ -95,22 +96,21 @@
 	
 	Также из биологических соображений будем полагать, что начальные условия имеют следующий вид:
 	\begin{equation}\label{eq:conds}
-	x_1(0)\ge0,\,x_2(0)\ge0,\,x_3(0)\ge0,\,x_4(0)\ge0,\,x_5(0)\ge0.
+	x_1(0)\geqslant0,\,x_2(0)\geqslant0,\,x_3(0)\geqslant0,\,x_4(0)\geqslant0,\,x_5(0)\geqslant0.
 	\end{equation}
 	
 	Введем следующие обозначения:
-	\[\mathbb{R}^n_{+,0}=\{x=(x_1,\dots,x_n)\in\mathbb{R}^n:\, x_i\ge0,\, i=\overline{1,n}\},\,\mathbb{R}_{+,0}=\{x\in\mathbb{R}:\, x\ge0\}.\]
+	\[\mathbb{R}^n_{+,0}=\left\{x=(x_1,\dots,x_n)\in\mathbb{R}^n:\, x_i\geqslant0,\, i=\overline{1,n}\right\},\,\mathbb{R}_{+,0}=\left\{x\in\mathbb{R}:\, x\geqslant0\right\}.\]
 	
-	Для системы \ref{eq:initial_system} покажем, что множество $D=\mathbb{R}^{5}_{+,0} = \{x \ge 0\}$ положительно инвариантно, проведем исследование инвариантности пересечений множества $D$ с координатными плоскостями, а также систем, являющихся ограничениями \ref{eq:initial_system} на инвариантные координатные плоскости. Кроме того, найдем компактное множество, содержащее аттрактор системы.
+	Для системы \ref{eq:initial_system} покажем, что множество $D=\mathbb{R}^{5}_{+,0} = \{x \geqslant 0\}$ положительно инвариантно, проведем исследование инвариантности пересечений множества $D$ с координатными плоскостями, а также систем, являющихся ограничениями \ref{eq:initial_system} на инвариантные координатные плоскости. Кроме того, найдем компактное множество, содержащее аттрактор системы.\pagebreak
 	
-	\section{Основная часть}
 	\subsection{Локализация инвариантных компактов}
 	
 	\begin{theorem}\textbf{(Коши)}
 		Пусть функция $f(x, t)$ кусочно непрерывна по t и удовлетворяет неравенству
 		\[\|f(x,t)-f(y,t)\|\leq L\|x-y\|,\]
 		где L — постоянная, при любых x, y из $\varepsilon$-окрестности $O_{\varepsilon} = {x : \|x - x_0\| < \varepsilon}$ точки $x_0$ и любого $t \in [t_0,t_1]$. Тогда существует $\delta > 0$ для которого решение задачи Коши вида 
-		\[\dot{x}=f(x,t),\, x(t_0)=x_0\in G,\, t\geq t_0,\]
+		\[\dot{x}=f(x,t),\, x(t_0)=x_0\in G,\, t\geqslant t_0,\]
 		где $G$ -- область определения системы, существует и единственно при $t\in[t_0,t_0+\delta)$. 
 	\end{theorem}
 	
@@ -126,18 +126,18 @@
 	\end{definition}
 	
 	\begin{theorem}
-		Множество $D=\mathbb{R}^5_{+,0}$ является положительно инвариантным для системы \ref{eq:initial_system}.
+		Множество $D=\mathbb{R}^5_{+,0}$ является положительно инвариантным относительно системы \ref{eq:initial_system}.
 	\end{theorem}
 	\begin{proof}
 		Заметим, что граница множества $D$ --- множество точек с хотя бы одной нулевой координатой. Таким образом, достаточно показать, для траекторий системы, начинающихся на границе $D$, справедливо, что 
-		\[x_i(t)\ge0,\, i=\overline{1,5},\, t\in[0,\,\varepsilon),\,\varepsilon>0.\]
+		\[x_i(t)\geqslant0,\, i=\overline{1,5},\, t\in[0,\,\varepsilon),\,\varepsilon>0.\]
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		
 		
 		Рассмотрим случай, когда
 		\begin{equation}\label{eq:conds_1}
-			x_1(0)=0,\, x_2(0)\ge0,\, x_3(0)\ge0,\, x_4(0)\ge0,\, x_5(0)\ge0.
+			x_1(0)=0,\, x_2(0)\geqslant0,\, x_3(0)\geqslant0,\, x_4(0)\geqslant0,\, x_5(0)\geqslant0.
 		\end{equation}
 		Для каждого такого начального условия существует $\varepsilon_1>0$ такое, что существует, причем единственное, решение задачи Коши: 
 		\[x_1=x_1(t),\, x_2=x_2(t),\, x_3=x_3(t),\, x_4=x_4(t),\, x_5=x_5(t),\, t\in[0,\varepsilon_1),\]
@@ -173,12 +173,12 @@
 		
 		Для каждого из начальных условий вида
 		\begin{equation*}
-			x_1(0)\ge0,\, x_2(0)\ge0,\, x_3(0)\ge0,\, x_4(0)=0,\, x_5(0)\ge0,
+			x_1(0)\geqslant0,\, x_2(0)\geqslant0,\, x_3(0)\geqslant0,\, x_4(0)=0,\, x_5(0)\geqslant0,
 		\end{equation*}
 		имеется некое $\varepsilon_2>0$ такое, что существует единственное решение задачи Коши на полуинтервале $t\in[0,\epsilon_2)$, обращающее систему \ref{eq:initial_system} в тождество. В этом случае 
 		\[\dot{x}_4(0)=s_1+b_1x_1(0)>0,\]
 		т.е. 
-		\[x_4(t)>0,\, t\in(0,\, \tilde{\varepsilon}_2),\,\tilde{\varepsilon}_2\le\varepsilon_2\]
+		\[x_4(t)>0,\, t\in(0,\, \tilde{\varepsilon}_2),\,\tilde{\varepsilon}_2\leqslant\varepsilon_2\]
 		и траектория не выходит из $D$ через плоскость $x_4=0$.
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -186,7 +186,7 @@
 		
 		Рассмотрим случай, когда
 		\begin{equation}\label{eq:conds_3}
-			x_1(0)\ge0,\, x_2(0)\ge0,\, x_3(0)=0,\, x_4(0)\ge0,\, x_5(0)\ge0.
+			x_1(0)\geqslant0,\, x_2(0)\geqslant0,\, x_3(0)=0,\, x_4(0)\geqslant0,\, x_5(0)\geqslant0.
 		\end{equation}
 		Для каждого такого начального условия имеется $\varepsilon_3>0$ такое, что существует единственное решение задачи Коши на $t\in[0,\varepsilon_3)$ обращающее систему \ref{eq:initial_system} в тождество. Рассмотрим исходную систему при $t=0$:
 		\begin{equation*}
@@ -200,7 +200,7 @@
 				\end{aligned}
 			\end{cases}
 		\end{equation*}
-		Если $x_1(0)>0$, то и $\dot{x}_3(0)>0$, из чего $x_1(t)>0,\, t\in(0,\, \tilde{\varepsilon}_3),\,\tilde{\varepsilon}_3\le\varepsilon_3$ и траектория не выходит из $D$ через плоскость $x_3=0$. Если же $x_1(0)=0$, то при $t=0$ система примет вид:
+		Если $x_1(0)>0$, то и $\dot{x}_3(0)>0$, из чего $x_1(t)>0,\, t\in(0,\, \tilde{\varepsilon}_3),\,\tilde{\varepsilon}_3\leqslant\varepsilon_3$ и траектория не выходит из $D$ через плоскость $x_3=0$. Если же $x_1(0)=0$, то при $t=0$ система примет вид:
 		\begin{equation*}
 			\begin{cases}
 				\begin{aligned}
@@ -230,7 +230,7 @@
 		
 		В случае если 
 		\begin{equation}\label{eq:conds_4}
-			x_1(0)\ge0,\, x_2(0)\ge0,\, x_3(0)\ge0,\, x_4(0)\ge0,\, x_5(0)=0.
+			x_1(0)\geqslant0,\, x_2(0)\geqslant0,\, x_3(0)\geqslant0,\, x_4(0)\geqslant0,\, x_5(0)=0.
 		\end{equation}
 		Для каждого такого начального условия существует $\varepsilon_4>0$ такое, что существует единственное решение задачи Коши при $t\in[0,\varepsilon_4)$ обращающее систему \ref{eq:initial_system} в тождество. При $t=0$ исходная система примет вид:
 		\begin{equation*}
@@ -244,7 +244,7 @@
 				\end{aligned}
 			\end{cases}
 		\end{equation*}
-		В случае если $x_3(0)>0$ получим, что $\dot{x}_5(0)>0$, из чего $x_5(t)>0,\, t\in(0,\, \tilde{\varepsilon}_4),\,\tilde{\varepsilon}_4\le\varepsilon_4$ и траектория не выходит из $D$ через плоскость $x_5=0$. При $x_3(0)=0$, в свою очередь, система в начальный момент преобразуется к следующему виду:
+		В случае если $x_3(0)>0$ получим, что $\dot{x}_5(0)>0$, из чего $x_5(t)>0,\, t\in(0,\, \tilde{\varepsilon}_4),\,\tilde{\varepsilon}_4\leqslant\varepsilon_4$ и траектория не выходит из $D$ через плоскость $x_5=0$. При $x_3(0)=0$, в свою очередь, система в начальный момент преобразуется к следующему виду:
 		\begin{equation*}
 			\begin{cases}
 				\begin{aligned}
@@ -256,7 +256,7 @@
 				\end{aligned}
 			\end{cases}
 		\end{equation*} 
-		Здесь при $x_1(0)>0$ имеем, что $\dot{x}_3(0)>0$, то есть $x_3(t)>0,\, t\in(0,\, \tilde{\varepsilon}^\prime_4),\,\tilde{\varepsilon}^\prime_4\le\varepsilon_4$. Из этого следует, что $x_5(t)>0,\, t\in(0,\, \tilde{\varepsilon}^\prime_4),\,\tilde{\varepsilon}^\prime_4\le\varepsilon_4$ и траектория не выходит из $D$ через плоскость $x_5=0$. При $x_1(0)=0$ система в начальный момент примет следующий вид:
+		Здесь при $x_1(0)>0$ имеем, что $\dot{x}_3(0)>0$, то есть $x_3(t)>0,\, t\in(0,\, \tilde{\varepsilon}^\prime_4),\,\tilde{\varepsilon}^\prime_4\leqslant\varepsilon_4$. Из этого следует, что $x_5(t)>0,\, t\in(0,\, \tilde{\varepsilon}^\prime_4),\,\tilde{\varepsilon}^\prime_4\leqslant\varepsilon_4$ и траектория не выходит из $D$ через плоскость $x_5=0$. При $x_1(0)=0$ система в начальный момент примет следующий вид:
 		\begin{equation*}
 			\begin{cases}
 				\begin{aligned}
@@ -289,7 +289,7 @@
 		
 		Рассмотрим случай, когда
 		\begin{equation}\label{eq:conds_5}
-			x_1(0)\ge0,\, x_2(0)=0,\, x_3(0)\ge0,\, x_4(0)\ge0,\, x_5(0)\ge0.
+			x_1(0)\geqslant0,\, x_2(0)=0,\, x_3(0)\geqslant0,\, x_4(0)\geqslant0,\, x_5(0)\geqslant0.
 		\end{equation}
 		Для каждого такого начального условия также существует $\varepsilon_5>0$ такое, что существует единственное решение задачи Коши на полуинтервале $t\in[0,\,\varepsilon_5)$ обращающее систему исходную систему в тождество. В начальный момент времени \ref{eq:initial_system} принимает вид: 
 		\begin{equation*}
@@ -303,7 +303,7 @@
 				\end{aligned}
 			\end{cases}
 		\end{equation*} 
-		В случае, если $x_5(0)>0$ получим, что $\dot{x}_2(0)>0$, из чего $x_2(t)>0,\, t\in(0,\, \tilde{\varepsilon}_5),\,\tilde{\varepsilon}_5\le\varepsilon_5$ и траектория не выходит из $D$ через плоскость $x_2=0$. При $x_5(0)=0$ и $t=0$, в свою очередь, система преобразуется к следующему виду:
+		В случае, если $x_5(0)>0$ получим, что $\dot{x}_2(0)>0$, из чего $x_2(t)>0,\, t\in(0,\, \tilde{\varepsilon}_5),\,\tilde{\varepsilon}_5\leqslant\varepsilon_5$ и траектория не выходит из $D$ через плоскость $x_2=0$. При $x_5(0)=0$ и $t=0$, в свою очередь, система преобразуется к следующему виду:
 		\begin{equation*}
 			\begin{cases}
 				\begin{aligned}
@@ -315,7 +315,7 @@
 				\end{aligned}
 			\end{cases}
 		\end{equation*}  
-		В случае, если $x_3(0)>0$ получим, что $\dot{x}_5(0)>0$, из чего $x_3(t)>0,\, t\in(0,\, \tilde{\varepsilon}^{\prime\prime}_5),\,\tilde{\varepsilon}^{\prime\prime}_5\le\varepsilon_5$ и траектория не выходит из $D$ через плоскость $x_2=0$. При $x_3(0)=0$ система в начальный момент примет следующий вид:
+		В случае, если $x_3(0)>0$ получим, что $\dot{x}_5(0)>0$, из чего $x_3(t)>0,\, t\in(0,\, \tilde{\varepsilon}^{\prime\prime}_5),\,\tilde{\varepsilon}^{\prime\prime}_5\leqslant\varepsilon_5$ и траектория не выходит из $D$ через плоскость $x_2=0$. При $x_3(0)=0$ система в начальный момент примет следующий вид:
 		\begin{equation*}
 			\begin{cases}
 				\begin{aligned}
@@ -327,7 +327,7 @@
 				\end{aligned}
 			\end{cases}
 		\end{equation*} 
-		Здесь при $x_1(0)>0$ имеем, что $\dot{x}_3(0)>0$, то есть $x_3(t)>0,\, t\in(0,\, \tilde{\varepsilon}^{\prime\prime\prime}_5),\,\tilde{\varepsilon}^{\prime\prime\prime}_5\le\varepsilon_5$. Из этого следует, что $x_2(t)>0,\, t\in(0,\, \tilde{\varepsilon}^{\prime\prime\prime}_5),\,\tilde{\varepsilon}^{\prime\prime\prime}_5\le\varepsilon_5$ и траектория не выходит из $D$ через плоскость $x_2=0$. При $x_1(0)=0$ система в начальный момент примет следующий вид:
+		Здесь при $x_1(0)>0$ имеем, что $\dot{x}_3(0)>0$, то есть $x_3(t)>0,\, t\in(0,\, \tilde{\varepsilon}^{\prime\prime\prime}_5),\,\tilde{\varepsilon}^{\prime\prime\prime}_5\leqslant\varepsilon_5$. Из этого следует, что $x_2(t)>0,\, t\in(0,\, \tilde{\varepsilon}^{\prime\prime\prime}_5),\,\tilde{\varepsilon}^{\prime\prime\prime}_5\leqslant\varepsilon_5$ и траектория не выходит из $D$ через плоскость $x_2=0$. При $x_1(0)=0$ система в начальный момент примет следующий вид:
 		\begin{equation*}
 			\begin{cases}
 				\begin{aligned}
@@ -378,7 +378,7 @@
 	\end{equation*}
 	
 	У преобразованной системы имеется два положения равновесия:
-	\[P_1\left(0,0,\frac{s_1}{\mu_2},0\right),\, P_2\left(c_2,0,\frac{s_1}{\mu_2},0\right).\]
+	\[P_1\left(0,0,\dfrac{s_1}{\mu_2},0\right),\, P_2\left(c_2,0,\dfrac{s_1}{\mu_2},0\right).\]
 	
 	Рассмотрим плоскость $x_1=0,\, x_3=0$. Исходная система на этом множестве принимает вид:
 	
@@ -393,7 +393,7 @@
 	\end{equation*}
 	
 	У данной системы также два положения равновесия:
-	\[P_1\left(0,\frac{s_1}{\mu_2},0\right),\, P_2\left(c_2,\frac{s_1}{\mu_2},0\right).\]
+	\[P_1\left(0,\dfrac{s_1}{\mu_2},0\right),\, P_2\left(c_2,\dfrac{s_1}{\mu_2},0\right).\]
 	
 	Рассмотрим плоскость $x_1=0,\, x_3=0,\, x_5=0$. Исходная система на этом множестве принимает вид:
 	
@@ -406,7 +406,7 @@
 		\end{cases}
 	\end{equation*}
 	
-	У преобразованной системы также два положения равновесия: $\left(0,\frac{s_1}{\mu_2}\right)$ и $\left(c_2,\frac{s_1}{\mu_2}\right)$.
+	У преобразованной системы также два положения равновесия: $\left(0,\dfrac{s_1}{\mu_2}\right)$ и $\left(c_2,\dfrac{s_1}{\mu_2}\right)$.
 	
 	Рассмотрим прямую $x_1=0,\, x_2=0,\, x_3=0,\, x_5=0$. Исходная система на этом множестве принимает вид:
 	
@@ -416,16 +416,16 @@
 		\end{aligned}
 	\end{equation*}
 	
-	У данной системы единственное положение равновесия --- $x_4=\frac{s_1}{\mu_2}$.
+	У данной системы единственное положение равновесия --- $x_4=\dfrac{s_1}{\mu_2}$.
 	
 	\begin{theorem}
 		Все компактные инвариантные множества системы (1) содержатся в положительно инвариантных множествах
 		\begin{align*}
-			K_1 &=\{0 \le x_1 \le \overline{x}_1 = c_1\}\cap D,\\
-			K_2 &=\{\frac{s_1}{\mu_2} = \underline{x}_4 \le x_4 \le \overline{x}_4 = \frac{s_1}{\mu_2} + b_1c_1\}\cap K_1,\\
-			K_3 &=\{0 \le x_3 \le \overline{x}_3 = \dfrac{a_2\overline{x}_1}{k_5+\underline{x}_4}\cdot\dfrac{\overline{x}_1+k_2}{\mu_1k_2}\}\cap K_2,\\
-			K_4 &=\{0 \le x_5 \le \overline{x}_5 = \dfrac{b_3\overline{x}_3}{\mu_3}\}\cap K_3,\\
-			K_5 &=\{0 \le x_2 \le \overline{x}_2 =  \dfrac{c_2}{2}+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{x}_5}{k_4(\underline{x}_4+e_2)}}\}\cap K_4.
+			K_1 &=\left\{0 \le x_1 \le \overline{x}_1 = c_1\right\}\cap D,\\
+			K_2 &=\left\{\dfrac{s_1}{\mu_2} = \underline{x}_4 \le x_4 \le \overline{x}_4 = \dfrac{s_1}{\mu_2} + b_1c_1\right\}\cap K_1,\\
+			K_3 &=\left\{0 \le x_3 \le \overline{x}_3 = \dfrac{a_2\overline{x}_1}{k_5+\underline{x}_4}\cdot\dfrac{\overline{x}_1+k_2}{\mu_1k_2}\right\}\cap K_2,\\
+			K_4 &=\left\{0 \le x_5 \le \overline{x}_5 = \dfrac{b_3\overline{x}_3}{\mu_3}\right\}\cap K_3,\\
+			K_5 &=\left\{0 \le x_2 \le \overline{x}_2 =  \dfrac{c_2}{2}+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{x}_5}{k_4(\underline{x}_4+e_2)}}\right\}\cap K_4.
 		\end{align*}
 	\end{theorem}
 	\begin{proof} 
@@ -438,23 +438,23 @@
 		Тогда $x_1=0$ или $x_1=c_1\left(1-\dfrac{\alpha_1x_2+\alpha_2x_3}{r_1(x_1+k_1)(x_4+e_1)}\right) $. Таким образом, экстремальные значения $\varphi_1(x)$ на множестве $S(\varphi_1,\, D)$:
 		\[\inf\limits_{x\in S(\varphi_1,\, D)} \varphi_1=0,\, \sup\limits_{x\in S(\varphi_1,\, D)} \varphi_1=c_1,\]
 		из чего локализирующее множество $\Omega(\varphi_1,\, D)$ задается следующим образом:
-		\[\Omega(\varphi_1,\, D)=\{0\le x_1\le c_1 = \overline{x}_1\}\cap D=K_1.\]
+		\[\Omega(\varphi_1,\, D)=\left\{0\leqslant x_1\leqslant c_1 = \overline{x}_1\right\}\cap D=K_1.\]
 		
 		Далее возьмем $\varphi_2(x)=x_4$. В таком случае универсальное сечение имеет вид:
-		\[S(\varphi_2, K_1)=\{s_1 + b_1x_1-\mu_2x_4=0\}\cap K_1.\]
+		\[S(\varphi_2, K_1)=\left\{s_1 + b_1x_1-\mu_2x_4=0\right\}\cap K_1.\]
 		На множестве $S(\varphi_2,\, K_1)$
 		\[\inf\limits_{x\in S(\varphi_2,\, K_1)} \varphi_2=\dfrac{s_1}{\mu_2} = \underline{x}_4,\, \sup\limits_{x\in S(\varphi_2,\, K_1)} \varphi_2=\dfrac{s_1}{\mu_2}+\dfrac{b_1c_1}{\mu_2} = \overline{x}_4.\]
 		Следовательно, локализирующее множество можно задать как 
-		\[\Omega(\varphi_2,\, K_1)=\{\underline{x}_4 \le x_4\le \overline{x}_4\}\cap K_1=K_2.\]
+		\[\Omega(\varphi_2,\, K_1)=\left\{\underline{x}_4 \le x_4\leqslant \overline{x}_4\right\}\cap K_1=K_2.\]
 		
 		Пусть $\varphi_3(x)=x_3$. Универсальное сечение для данной функции:
-		\[S(\varphi_3,\, K_2)=\{a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3=0\}\cap K_2.\]
+		\[S(\varphi_3,\, K_2)=\left\{a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3=0\right\}\cap K_2.\]
 		Преобразовав выражение, задающее $S(\varphi_3,\, K_2)$, получим
 		\[x_3=\dfrac{a_2x_1}{k_5+x_4}\cdot\dfrac{x_1+k_3}{\mu_1x_1+\mu_1k_3+\alpha_4x_1}.\]
 		Тогда на множестве $S(\varphi_3,\, K_2)$
-		\[\inf\limits_{x\in S(\varphi_3,\, K_2)} \varphi_3=0,\, \sup\limits_{x\in S(\varphi_3,\, K_2)} \varphi_3\le \dfrac{a_2\overline{x}_1}{k_5+\underline{x}_4}\cdot\dfrac{\overline{x}_1+k_3}{\mu_1k_3}=\overline{x}_3.\]
+		\[\inf\limits_{x\in S(\varphi_3,\, K_2)} \varphi_3=0,\, \sup\limits_{x\in S(\varphi_3,\, K_2)} \varphi_3\leqslant \dfrac{a_2\overline{x}_1}{k_5+\underline{x}_4}\cdot\dfrac{\overline{x}_1+k_3}{\mu_1k_3}=\overline{x}_3.\]
 		Таким образом, локализирующее множество:
-		\[\Omega(\varphi_3,\, K_2) = (\{0\le x_3 \le \sup{x_3}\}\cap K_2) \subset (\{0 \le x_3\le \overline x_3\} \cap K_2) = K_3.\]
+		\[\Omega(\varphi_3,\, K_2) = (\{0\leqslant x_3 \le \sup{x_3}\}\cap K_2) \subset (\{0 \le x_3\leqslant \overline x_3\} \cap K_2) = K_3.\]
 		
 		Возьмем $\varphi_4(x)=x_5$. В таком случае универсальное сечение:
 		\[S(\varphi_4,\, K_3)=\{\, b_2x_3-\mu_3x_5=0\}\cap K_3.\]
@@ -464,7 +464,7 @@
 		\[\Omega(\varphi_4,\, K_3) = \{0 \le x_5 \le \overline{x}_5\} \cap K_3 = K_4.\]
 		
 		Далее, пусть $\varphi_5(x)=x_2$. Тогда 
-		\[S(\varphi_5,\, K_4)=\{r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2}-\alpha_3\dfrac{x_1}{x_1+k_2}x_2=0\}\cap K_4.\]
+		\[S(\varphi_5,\, K_4)=\left\{r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2}-\alpha_3\dfrac{x_1}{x_1+k_2}x_2=0\right\}\cap K_4.\]
 		Рассмотрим равенство, задающее универсальное сечение $S_{\varphi_5}$. Заметим, что на множестве $S(\varphi_5,\, K_4)$:
 		\begin{multline*}
 		r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2}-\alpha_3\dfrac{x_1x_2}{x_1+k_2}\le\\
@@ -475,7 +475,7 @@
 		Таким образом, 
 		\[0 \le x_2 \le \dfrac{c_2}{2}+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{x}_5}{(\overline{x}_5+k_4)(\underline{x}_4+e_2)}}=\overline{x}_2.\]
 		Итого, локализирующее множество имеет следующий вид:
-		\[\Omega(\varphi_5,\, K_4)=\{0\le x_2 \le \overline{x}_2\} \cap K_4 = K_5.\qed\]
+		\[\Omega(\varphi_5,\, K_4)=\{0\leqslant x_2 \le \overline{x}_2\} \cap K_4 = K_5.\qed\]
 	\end{proof}
 	
 	\begin{theorem}
@@ -483,17 +483,17 @@
 	\end{theorem}
 	\begin{proof}
 		Рассмотрим множество
-		\[K_1(\tau_1) = \{0 \le x_1 \le c_1+\tau_1\}\cap D,\, \tau_1\ge0.\]
+		\[K_1(\tau_1) = \{0 \le x_1 \le c_1+\tau_1\}\cap D,\, \tau_1\geqslant0.\]
 		Заметим, что на множестве $D\setminus K_1(\tau_1) = \{x_1>c_1+\tau_1\}$ производная локализирующей функции $\varphi_1$ в силу системы $\dot{\varphi}_1 < 0$. Действительно, на этом множестве 
 		\[\dot{\varphi}_1 \le r_1x_1\left(1-\dfrac{x_1}{c_1}\right) < -r_1(c_1+\tau_1)\dfrac{\tau_1}{c_1} \le 0.\]
 		Таким образом множества $K_1(\tau_1)$ положительно инвариантны. Далее будем говорить, что $c_1+\tau_1=\overline{\xi}_1(\tau_1)$.
 		
 		Рассмотрим множество 
-		\[K_2(\tau_1,\,\tau_2,\, \tilde{\tau}_2)=\{\dfrac{s_1}{\mu_2}-\tilde{\tau}_2 \le x_4 \le \dfrac{s_1}{\mu_2} + \dfrac{b_1\overline{\xi}_1(\tau_1)}{\mu_2} + \tau_2\}\cap K_1(\tau_1),\,\tau_1,\,\tau_2,\,\tilde{\tau}_2 \ge 0.\]   
-		На множестве $\{x_4 > \dfrac{s_1}{\mu_2} + \dfrac{b_1\overline{\xi}_1(\tau_1)}{\mu_2} + \tau_2\}\cap K_1(\tau_1)$
+		\[K_2(\tau_1,\,\tau_2,\, \tilde{\tau}_2)=\left\{\dfrac{s_1}{\mu_2}-\tilde{\tau}_2 \le x_4 \le \dfrac{s_1}{\mu_2} + \dfrac{b_1\overline{\xi}_1(\tau_1)}{\mu_2} + \tau_2\right\}\cap K_1(\tau_1),\,\tau_1,\,\tau_2,\,\tilde{\tau}_2 \geqslant 0.\]   
+		На множестве $\left\{x_4 > \dfrac{s_1}{\mu_2} + \dfrac{b_1\overline{\xi}_1(\tau_1)}{\mu_2} + \tau_2\right\}\cap K_1(\tau_1)$
 		\[\dot{\varphi_2} = s_1 + b_1x_1 - \mu_2x_4 < - \mu_2\tau_2 \le 0.\]
-		На множестве $\{x_4 < \dfrac{s_1}{\mu_2}-\tilde{\tau}_2\}\cap K_1(\tau_1)$
-		\[\dot{\varphi_2} = s_1 + b_1x_1 - \mu_2x_4 > \mu_2\tilde{\tau}_2 \ge 0.\]
+		На множестве $\left\{x_4 < \dfrac{s_1}{\mu_2}-\tilde{\tau}_2\right\}\cap K_1(\tau_1)$
+		\[\dot{\varphi_2} = s_1 + b_1x_1 - \mu_2x_4 > \mu_2\tilde{\tau}_2 \geqslant 0.\]
 		Таким образом, множества $K_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2)$ положительно инвариантны. Обозначим
 		\begin{align*}
 			\overline{\xi}_4(\tau_1,\,\tau_2) =&\, \dfrac{s_1}{\mu_2} + \dfrac{b_1\tilde{x}_1}{\mu_2} + \tau_2,\\
@@ -501,9 +501,9 @@
 		\end{align*}
 		
 		Пусть 
-		\[K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\,\tau_3) = \{0 \le x_3 \le \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_3}{\mu_1k_3}+\tau_3\}\cap K_2(\tau_1,\, \tau_2,\, \tilde{\tau}_2),\]
-		где $\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3 \ge 0$. Тогда на множестве 
-		\[K_2(\tau_1,\, \tilde{\tau}_2,\, \tau_2)\setminus K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)=\{x_3 > \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_3}{\mu_1k_3}+\tau_3\}\cap K_2(\tau_1,\, \tau_2,\, \tilde{\tau}_2)\]
+		\[K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\,\tau_3) = \left\{0 \le x_3 \le \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_3}{\mu_1k_3}+\tau_3\right\}\cap K_2(\tau_1,\, \tau_2,\, \tilde{\tau}_2),\]
+		где $\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3 \geqslant 0$. Тогда на множестве 
+		\[K_2(\tau_1,\, \tilde{\tau}_2,\, \tau_2)\setminus K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)=\left\{x_3 > \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_3}{\mu_1k_3}+\tau_3\right\}\cap K_2(\tau_1,\, \tau_2,\, \tilde{\tau}_2)\]
 		справедливо, что
 		\begin{multline*}
 		\dot{\varphi}_3 = a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3 < a_2\dfrac{\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}-\left(\mu_1+\alpha_4\dfrac{\overline{\xi}_1(\tau_1)}{\overline{\xi}_1(\tau_1)+k_3}\right) x_3 <\\
@@ -513,11 +513,11 @@
 		\[\overline{\xi}_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3) = \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_2}{\mu_1k_2} + \tau_3.\]
 		
 		Положим, что 
-		\[K_4(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3,\,\tau_4) = \{0 \le x_5 \le \dfrac{b_2\overline{\xi}_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)}{\mu_3}+\tau_4\}\cap K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3),\]
-		где $\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3,\,\tau_4 \ge 0$. На множестве 
+		\[K_4(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3,\,\tau_4) = \left\{0 \le x_5 \le \dfrac{b_2\overline{\xi}_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)}{\mu_3}+\tau_4\right\}\cap K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3),\]
+		где $\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3,\,\tau_4 \geqslant 0$. На множестве 
 		\begin{multline*}
 			K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)\setminus K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4) =\\
-			=\{x_5 > \dfrac{b_2\overline{\xi}_3(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3)}{\mu_3}+\tau_4\}\cap K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)
+			=\left\{x_5 > \dfrac{b_2\overline{\xi}_3(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3)}{\mu_3}+\tau_4\right\}\cap K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)
 		\end{multline*}
 		справедливо, что
 		\[\dot{\varphi}_4 = b_2x_3 - \mu_3x_5 < -\mu_3\tau_4 \le 0,\]
@@ -526,10 +526,10 @@
 		
 		Рассмотрим множество 
 		\begin{multline*}
-			K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5) = \{0 \le x_2 \le \dfrac{c_2}{2}+\\
-			+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{k_4(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}}+\tau_5\}\cap K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4),
+			K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5) = \biggr\{0 \le x_2 \le \dfrac{c_2}{2}+\\
+			+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{k_4(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}}+\tau_5\biggr\}\cap K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4),
 		\end{multline*}
-		где $\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \ge 0$.
+		где $\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \geqslant 0$.
 		Можно провести следующую оценку $\dot{\varphi}_2$:
 		\[\dot{\varphi}_2 \le r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{(\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+k_4)(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}.\]
 		Пусть
@@ -540,7 +540,7 @@
 		В таком случае, на множестве 
 		\begin{multline*}
 			K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)\setminus K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5) =\\
-			=\{x_2 > \overline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+\tau_5\}\cap K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)
+			=\left\{x_2 > \overline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+\tau_5\right\}\cap K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)
 		\end{multline*}
 		имеет место оценка
 		\begin{multline*}
@@ -550,9 +550,9 @@
 		Следовательно, множества $K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)$ положительно инвариантны.
 		
 		Можно заметить, что множества $K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)$ компактны при
-		\[\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \ge 0.\]
+		\[\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \geqslant 0.\]
 		Тогда с учетом того, что они также положительно инвариантны и содержат предельные множества всех траекторий, и т.к.
-		\[K_5=\mathop{\cap}\limits_{\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \ge 0}K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5),\]
+		\[K_5=\mathop{\cap}\limits_{\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \geqslant 0}K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5),\]
 		можно сделать вделать вывод о том, что $K_5$ --- положительно инвариантный компакт, содержащий аттрактор системы.
 		
 		Действительно, варьируя $\tau_i$ можно добиться того, что любая точка $x\in D$ будет содержаться в неком множестве $K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)$. Вследствие положительной инвариантности данного множества имеем, что траектории, начинающиеся внутри него, не будут его покидать.\qed
@@ -569,11 +569,11 @@
 	\end{definition}
 	
 	\begin{theorem}
-		Система \ref{eq:initial_system} на границе области $D$ при положительных значениях параметров имеет положения равновесия $P_1\left(0,0,0,\frac{s_1}{\mu_2},0\right)$ и $P_2\left(0,c_2,0,\frac{s_1}{\mu_2},0\right)$. 
+		Система \ref{eq:initial_system} на границе области $D$ при положительных значениях параметров имеет положения равновесия $P_1\left(0,0,0,\dfrac{s_1}{\mu_2},0\right)$ и $P_2\left(0,c_2,0,\dfrac{s_1}{\mu_2},0\right)$. 
 	\end{theorem}
 	
 	\begin{theorem}
-		Положение равновесия $P_1\left(0,0,0,\frac{s_1}{\mu_2},0\right)$ является неустойчивым, а положение равновесия $P_2\left(0,c_2,0,\frac{s_1}{\mu_2},0\right)$ является асимптотически устойчивым при условии $k_1r_1s_1 + e_1k_1\mu_2r_1< \alpha_1c_2\mu_2$ и неустойчивым при условии $k_1r_1s_1 + e_1k_1\mu_2r_1>\alpha_1c_2\mu_2$. При $k_1r_1s_1 + e_1k_1\mu_2r_1 = \alpha_1c_2\mu_2$ необходимо дополнительное исследование.
+		Положение равновесия $P_1\left(0,0,0,\dfrac{s_1}{\mu_2},0\right)$ является неустойчивым, а положение равновесия $P_2\left(0,c_2,0,\dfrac{s_1}{\mu_2},0\right)$ является асимптотически устойчивым при условии $k_1r_1s_1 + e_1k_1\mu_2r_1< \alpha_1c_2\mu_2$ и неустойчивым при условии $k_1r_1s_1 + e_1k_1\mu_2r_1>\alpha_1c_2\mu_2$. При $k_1r_1s_1 + e_1k_1\mu_2r_1 = \alpha_1c_2\mu_2$ необходимо дополнительное исследование.
 	\end{theorem}
 	\begin{proof}
 		Заметим, что в некритических положениях равновесия, в отличие от критических, характеры устойчивости автономной системы и ее первого приближения в совпадают.
@@ -582,8 +582,8 @@
 		
 		\[\begin{pmatrix}
 			r_{1} & 0 & 0 & 0 & 0\\ 
-			0 & r_{2} & 0 & 0 & \frac{a_{1}}{k_{4}\,\left(e_{2}+\frac{s_{1}}{\mu _{2}}\right)}\\ 
-			\frac{a_{2}}{k_{5}+\frac{s_{1}}{\mu _{2}}} & 0 & -\mu _{1} & 0 & 0\\ 
+			0 & r_{2} & 0 & 0 & \dfrac{a_{1}}{k_{4}\,\left(e_{2}+\dfrac{s_{1}}{\mu _{2}}\right)}\\ 
+			\dfrac{a_{2}}{k_{5}+\dfrac{s_{1}}{\mu _{2}}} & 0 & -\mu _{1} & 0 & 0\\ 
 			b_{1} & 0 & 0 & -\mu _{2} & 0\\ 
 			0 & 0 & b_{2} & 0 & -\mu _{3} 
 		\end{pmatrix}\]
@@ -596,9 +596,9 @@
 		В точке $P_2$ матрица имеет вид:
 		
 		\[\begin{pmatrix}
-			r_{1}-\frac{\alpha _{1}\,c_{2}}{k_{1}\,\left(e_{1}+\frac{s_{1}}{\mu _{2}}\right)} & 0 & 0 & 0 & 0\\ 
-			-\frac{\alpha _{3}\,c_{2}}{k_{2}} & -r_{2} & 0 & 0 & \frac{a_{1}}{k_{4}\,\left(e_{2}+\frac{s_{1}}{\mu _{2}}\right)}\\ 
-			\frac{a_{2}}{k_{5}+\frac{s_{1}}{\mu _{2}}} & 0 & -\mu _{1} & 0 & 0\\ 
+			r_{1}-\dfrac{\alpha _{1}\,c_{2}}{k_{1}\,\left(e_{1}+\dfrac{s_{1}}{\mu _{2}}\right)} & 0 & 0 & 0 & 0\\ 
+			-\dfrac{\alpha _{3}\,c_{2}}{k_{2}} & -r_{2} & 0 & 0 & \dfrac{a_{1}}{k_{4}\,\left(e_{2}+\dfrac{s_{1}}{\mu _{2}}\right)}\\ 
+			\dfrac{a_{2}}{k_{5}+\dfrac{s_{1}}{\mu _{2}}} & 0 & -\mu _{1} & 0 & 0\\ 
 			b_{1} & 0 & 0 & -\mu _{2} & 0\\ 
 			0 & 0 & b_{2} & 0 & -\mu _{3}
 		\end{pmatrix}\]
@@ -636,39 +636,39 @@
 		\bibitem{glioma_classification}
 		Byun YH, Park CK. Classification and Diagnosis of Adult Glioma: A Scoping Review. Brain Neurorehabil. 2022 Nov 22;15(3):e23. doi: 10.12786/bn.2022.15.e23. PMID: 36742083; PMCID: PMC9833487.
 		\bibitem{glioma_overview}
-		Zeng T, Cui D, Gao L. Glioma: an overview of current classifications, characteristics, molecular biology and target therapies. Front Biosci (Landmark Ed). 2015 Jun 1;20(7):1104-15. doi: 10.2741/4362. PMID: 25961548.
+		Zeng T, Cui D, Gao L. Glioma: an overview of current classifications, characteristics, molecular biology and target therapies. Front Biosci (Landmark Ed). 2015 Jun 1;20(7):pp.1104-15. doi: 10.2741/4362. PMID: 25961548.
 		\bibitem{abt_DEs}
 		S. Bunimovich-Mendrazitsky, J. C. Gluckman and J. Chaskalovic, J. Theor. Biol. 277,27 (2011).
 		\bibitem{Kasbawati et.al.}
-		Kasbawati, Yuliana Jao, Nur Erawaty. Dynamic study of the pathogen-immune system interaction with natural delaying effects and protein therapy[J]. AIMS Mathematics, 2022, 7(5): 7471-7488. doi: 10.3934/math.2022419
+		Kasbawati, Yuliana Jao, Nur Erawaty. Dynamic study of the pathogen-immune system interaction with natural delaying effects and protein therapy[J]. AIMS Mathematics, 2022, 7(5): pp.7471-7488. doi: 10.3934/math.2022419
 		\bibitem{W. L. Duan et.al.}
-		W. L. Duan, H. Fang, C. Zeng, The stability analysis of tumor-immune responses to chemotherapy system with gaussian white noises. Chaos, Soliton. Fract., 127 (2019), 96–102. https://doi.org/10.1016/j.chaos.2019.06.030. doi: 10.1016/j.chaos.2019.06.030 
+		W. L. Duan, H. Fang, C. Zeng, The stability analysis of tumor-immune responses to chemotherapy system with gaussian white noises. Chaos, Soliton. Fract., 127 (2019), pp.96–102. https://doi.org/10.1016/j.chaos.2019.06.030. doi: 10.1016/j.chaos.2019.06.030 
 		\bibitem{Xiangdong Liu et.al.}
 		Xiangdong Liu, Qingze Li, Jianxin Pan, A deterministic and stochastic model for the system dynamics of tumor–immune responses to chemotherapy, Physica A: Statistical Mechanics and its Applications, Volume 500, 2018, pp. 162-176, ISSN 0378-4371, https://doi.org/10.1016/j.physa.2018.02.118.
 		\bibitem{L.G. de Pillis et.al.}
 		L.G. de Pillis, W. Gu, K.R. Fister, T. Head, K. Maples, A. Murugan, T. Neal, K. Yoshida, Chemotherapy for tumors: An analysis of the dynamics and a study of quadratic and linear optimal controls, Mathematical Biosciences, Volume 209, Issue 1, 2007, pp. 292-315, ISSN 0025-5564, https://doi.org/10.1016/j.mbs.2006.05.003.
 		\bibitem{dePillis L.G. et.al.}
-		dePillis, L.G., Eladdadi, A. \& Radunskaya, A.E. Modeling cancer-immune responses to therapy. J Pharmacokinet Pharmacodyn 41, 461–478 (2014). https://doi.org/10.1007/s10928-014-9386-9
+		dePillis, L.G., Eladdadi, A. \& Radunskaya, A.E. Modeling cancer-immune responses to therapy. J Pharmacokinet Pharmacodyn 41, pp.461–478 (2014). https://doi.org/10.1007/s10928-014-9386-9
 		\bibitem{F. A. Rihan et.al.}
-		F. A. Rihan, D. H. A. Rahman, Delay differential model for tumour-immune dynamics with HIV infection of CD4+ T-cells, Int. J. Comput. Math., 90 (2013), 594–614, http://dx.doi.org/10.1080/00207160.2012.726354. doi: 10.1080/00207160.2012.726354 
+		F. A. Rihan, D. H. A. Rahman, Delay differential model for tumour-immune dynamics with HIV infection of CD4+ T-cells, Int. J. Comput. Math., 90 (2013), pp.594–614, http://dx.doi.org/10.1080/00207160.2012.726354. doi: 10.1080/00207160.2012.726354 
 		\bibitem{gliomae_scenarios}
 		K. R. Swanson, C. Bridge, J. D. Murray and E. C. Alvord Jr., J. Neurol. Sci. 216, 1 (2003).
 		\bibitem{Chakrabarty et.al.}
-		Chakrabarty SP, Hanson FB. Distributed parameters deterministic model for treatment of brain tumors using Galerkin finite element method. Math Biosci. 2009; 219(2): 129–141. pmid:19345698
+		Chakrabarty SP, Hanson FB. Distributed parameters deterministic model for treatment of brain tumors using Galerkin finite element method. Math Biosci. 2009; 219(2): pp.129–141. pmid:19345698
 		\bibitem{Bandera}
-		Bandara S, Diehl M, Fricker G. A mathematical model for the transport of paclitaxel (Taxol) across the blood-brain barrier. Chem Eng Res Des. 2007; 85: 1065–1071.
+		Bandara S, Diehl M, Fricker G. A mathematical model for the transport of paclitaxel (Taxol) across the blood-brain barrier. Chem Eng Res Des. 2007; 85: pp.1065–1071.
 		\bibitem{Kirkby et.al.}
-		Kirkby NF, Jefferies SJ, Jena R, Burnet NG. A mathematical model of the treatment and survival of patients with high-grade brain tumours. J Theor Biol. 2007; 245: 112–124. pmid:17084863
+		Kirkby NF, Jefferies SJ, Jena R, Burnet NG. A mathematical model of the treatment and survival of patients with high-grade brain tumours. J Theor Biol. 2007; 245: pp.112–124. pmid:17084863
 		\bibitem{Schmitz et.al.}
-		Schmitz JE, Kansal AR, Torquato S. A cellular automaton model of brain tumor treatment and resistance. J Theor Med. 2002; 4(4): 223–239.
+		Schmitz JE, Kansal AR, Torquato S. A cellular automaton model of brain tumor treatment and resistance. J Theor Med. 2002; 4(4): pp.223–239.
 		\bibitem{Walker et.al.}
-		Walker WL, Cook J. Drug delivery to brain tumors. Bull Math Biol. 1996; 58(6): 1047–1074. pmid:8953256
+		Walker WL, Cook J. Drug delivery to brain tumors. Bull Math Biol. 1996; 58(6): pp.1047–1074. pmid:8953256
 		\bibitem{Kronik et.al.}
-		Kronik N, Kogan Y, Vainstein V, Agur Z. Improving alloreactive CTL immunotherapy for malignant gliomas using a simulation model of their interactive dynamics. Cancer Immunol Immunother. 2008; 57: 425–439. pmid:17823798
+		Kronik N, Kogan Y, Vainstein V, Agur Z. Improving alloreactive CTL immunotherapy for malignant gliomas using a simulation model of their interactive dynamics. Cancer Immunol Immunother. 2008; 57: pp.425–439. pmid:17823798
 		\bibitem{model}
 		S. Banerjee, S. Khajanchi and S. Chaudhury, PLoS ONE 10(5), e0123611 (2015). 
 		\bibitem{invar_comp_localization}
-		\textit{Крищенко А.П.} Локализация инвариантных компактов динамических систем //Дифференциальные уравнения, 2005, Т.41, N12, C. 1597 1604.
+		\textit{Крищенко А.П.} Локализация инвариантных компактов динамических систем //Дифференциальные уравнения, 2005, Т.41, N12, C. 1597–1604.
 		\bibitem{invar_comp}
 		\textit{Канатников А.Н., Крищенко А.П.} Инвариантные компакты динамических систем. М.: Изд-во МГТУ им. Н.Э. Баумана, 2011, 231 С.
 	\end{thebibliography}

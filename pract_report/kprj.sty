@@ -50,8 +50,8 @@
 \def\l@subsecsepbefore{1mm}
 \def\l@subsubsecsepbefore{1mm}
 \def\secsepbefore{3.5ex plus 1ex minus .2ex}
-\def\secsepafter{2.3ex plus.2ex}
-\def\subsecsepbefore{3ex plus 1ex minus .2ex}
+\def\secsepafter{3.5ex plus.2ex}
+\def\subsecsepbefore{2ex plus 1ex minus .2ex}
 \def\subsecsepafter{2ex plus 0.3ex minus 0.2ex}
 \def\subsubsecsepbefore{3ex plus 1ex minus .2ex}
 \def\subsubsecsepafter{2ex plus 0.3ex minus 0.2ex}
@@ -141,8 +141,8 @@
 	\fi
 	\@xsect{#3}}
 
-\def\@makectsecthead#1{\@nameuse{head#1}\@nameuse{the#1}.\hspace{0.32em}}
-\def\@makecontctsecthead#1{\hbox to 0pt{\hss \hspace{0pt}}\@nameuse{the#1}.}% черт знает почему, но hspace{0pt} вместо @nameuse{conthd#1} фиксит проблему с toc-файлом -- 3.05.2024
+\def\@makectsecthead#1{\@nameuse{head#1}\@nameuse{the#1}\hspace{0.32em}}
+\def\@makecontctsecthead#1{\hbox to 0pt{\hss \hspace{0pt}}\@nameuse{the#1}}% черт знает почему, но hspace{0pt} вместо @nameuse{conthd#1} фиксит проблему с toc-файлом -- 3.05.2024
 \def\section@dot{}
 \newif\ifsecno@
 \def\secdelim#1{\def\@secdelimamount{#1}\gdef\@secdelim{\@secdelimamount}}
@@ -538,8 +538,6 @@
 	\vfil
 	\bgroup
 	\fontsize{9pt}{11}\selectfont
-	{\bfseries Примечание.} Задание оформляется в двух экземплярах: один выдается студенту,
-	второй хранится на кафедре.\par
 	\if@VKR\else
 	\vspace*{-15mm}\pagebreak\fi
 	\egroup
