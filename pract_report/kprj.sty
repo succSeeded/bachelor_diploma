@@ -27,8 +27,10 @@
 
 %\ProcessOptions
 
+\RequirePackage{setspace} 
 \RequirePackage{amssymb}
 \RequirePackage{amsmath}
+\RequirePackage{amsthm}
 \RequirePackage{cite}
 \ifpdftex\RequirePackage{cmap}\fi
 \RequirePackage{graphicx}
@@ -55,6 +57,21 @@
 \def\subsecsepafter{2ex plus 0.3ex minus 0.2ex}
 \def\subsubsecsepbefore{3ex plus 1ex minus .2ex}
 \def\subsubsecsepafter{2ex plus 0.3ex minus 0.2ex}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Теорема}
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\theoremstyle{definition}
+\newtheorem{affirmation}{Утверждение}
+\renewenvironment{proof}{\noindent$\blacktriangleleft$}{}
+\renewcommand\qedsymbol{$\blacktriangleright$}
+
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\le}{\leqslant}
+
+\addto\captionsrussian{\def\contentsname{Содержание}}
+\addto\captionsrussian{\def\refname{Список использованных источников}}
 
 \AtEndOfPackage{\pagestyle{oneside}}
 
@@ -157,7 +174,7 @@
 	{\subsecsepbefore}{\subsecsepafter}{\reset@font\subsectionfont}}
 \def\subsubsection{\@startctsection{subsubsection}{3}{\@secdelim}%
 	{\subsubsecsepbefore}{\subsubsecsepafter}{\reset@font\subsubsectionfont}}
-\newenvironment{annotation}{\section*{Аннотация}}{\pagebreak}
+\newenvironment{annotation}{\section*{Реферат}}{\pagebreak}
 \newenvironment{introduction}{\section*{Введение}\addcontentsline{toc}{section}{\MakeUppercase{Введение}}}{\pagebreak}
 \newenvironment{conclusion}{\section*{Заключение}\addcontentsline{toc}{section}{\MakeUppercase{Заключение}}}{\pagebreak}
 
@@ -378,8 +395,6 @@
 \newcommand\inspector[1]{\def\@inspector{#1}}
 \newcommand\trend[1]{\def\@trend{#1}}
 \newcommand\themesource[1]{\def\@themesource{#1}}
-\newcommand\setcontentsname[1]{\addto\captionsrussian{\def\contentsname{#1}}}
-\newcommand\setrefsname[1]{\addto\captionsrussian{\def\refname{#1}}}
 \def\variant#1{\def\@variant{#1}}
 \def\@block@variant{\def\variant##1{}\let\@variant\relax}
 \def\Ministry#1{\def\@Ministry{#1}}
@@ -413,63 +428,65 @@
 
 
 \def\maketitle{%
-	\thispagestyle{empty}
-	\bgroup
-	\centering
-	\@title@shapka{emblema}%
-	\ifx\@faculty\@empty\else\vskip4mm{\fontsize{14pt}{18pt}\selectfont\rm Факультет \textit{\al{}\@faculty\ar{}}\par}\fi
-	\ifx\@chair\@empty\else\vskip4mm{\fontsize{14pt}{18pt}\selectfont Кафедра \textit{\al{}\@chair\ar{}}\par}\fi
-	\vskip16mm
-	\bgroup
-	{\fontsize{16pt}{24pt}\selectfont
-	\bgroup\@titlename@font\@title@name\par\egroup}
-	\ifx\@title\@empty\else\vskip4mm{\fontsize{16pt}{24}\selectfont \textbf{\textit{\MakeUppercase{\@title}}}\par}\fi
-	\@ifundefined{@discipline}{}{\vskip4mm{\rm по дисциплине\\[1mm] \al{}\@discipline\ar{}\par}}
-	\@ifundefined{@variant}{}{\vskip4mm{\bfseries Вариант \No\@variant\par}}
-	\egroup
-	\vskip20mm
-	\bgroup
-	\if@pract
-	\@subscr@line@forpract{Студент}{\@ifundefined{@authorfull}{}{\@authorfull}}%
-	\vskip5mm
-	\@subscr@line@forpract{Группа}{\@ifundefined{@group}{}{\@group}}%
-	\vskip5mm
-	\@subscr@line@forpract{Тип практики}{\@ifundefined{@practtype}{}{\@practtype}}%
-	\vskip5mm
-	\@subscr@line@forpract{Название предприятия}{\@ifundefined{@facility}{}{\@facility}}%
-	\fi
-	\vfil
-	{\fontsize{12pt}{12pt}\selectfont
-	\raggedright@
-	\if@pract
-	\@subscr@line{Студент}{}{\@ifundefined{@author}{\ulbox{7em}{}}{\@author}}%
-	\else
-	\@subscr@line{Студент группы}{\@group@place}{\@author}%
-	\fi
-	\@ifundefined{@chief}{}{\vskip5mm\@subscr@line{\@chief@type}{}{\@chief}}%
-	\if@FirstConsultant
-	\vskip5mm
-	\@subscr@line{Консультант}{}{\@ifundefined{@FirstConsultant}{\ulbox{7em}{}}{\@FirstConsultant}}%
-	\fi
-	\if@SecondConsultant
-	\vskip5mm
-	\@subscr@line{Консультант}{}{\@ifundefined{@SecondConsultant}{\ulbox{7em}{}}{\@SecondConsultant}}%
-	\fi
-	\if@inspector
-	\vskip5mm
-	\@subscr@line{Нормоконтролер}{}{\@ifundefined{@inspector}{\ulbox{7em}{}}{\@inspector}}\par
-	\fi
-	\vskip20mm
-	\if@pract{Оценка\hspace{0.6\linewidth}{\ulbox{0.3\linewidth}{}}\par}\fi
-	\egroup
-	\vfil
-	\textit{\@workyear г.}\par
-	\pagebreak
-	\egroup
-	\if@jobspec{\pagestyle{empty}\headheight=0pt\headsep=0pt\@make@jobspec\pagebreak}\fi
-	\if@pract@jobspec{\pagestyle{empty}\headheight=0pt\headsep=0pt\@make@pract@jobspec\pagebreak}\fi
-	\if@VKR\kalplan\fi
-}}
+	\begin{spacing}{1.0} % -- единичный межстрочный интвервал чтобы не слетало форматирование
+		\thispagestyle{empty}
+		\bgroup
+		\centering
+		\@title@shapka{emblema}%
+		\ifx\@faculty\@empty\else\vskip4mm{\fontsize{14pt}{18pt}\selectfont\rm Факультет \textit{\al{}\@faculty\ar{}}\par}\fi
+		\ifx\@chair\@empty\else\vskip4mm{\fontsize{14pt}{18pt}\selectfont Кафедра \textit{\al{}\@chair\ar{}}\par}\fi
+		\vskip16mm
+		\bgroup
+		{\fontsize{16pt}{24pt}\selectfont
+		\bgroup\@titlename@font\@title@name\par\egroup}
+		\ifx\@title\@empty\else\vskip4mm{\fontsize{16pt}{24}\selectfont \textbf{\textit{\MakeUppercase{\@title}}}\par}\fi
+		\@ifundefined{@discipline}{}{\vskip4mm{\rm по дисциплине\\[1mm] \al{}\@discipline\ar{}\par}}
+		\@ifundefined{@variant}{}{\vskip4mm{\bfseries Вариант \No\@variant\par}}
+		\egroup
+		\vskip20mm
+		{\fontsize{12pt}{12pt}\selectfont
+		\bgroup
+		\if@pract
+		\@subscr@line@forpract{Студент}{\@ifundefined{@authorfull}{}{\@authorfull}}%
+		\vskip5mm
+		\@subscr@line@forpract{Группа}{\@ifundefined{@group}{}{\@group}}%
+		\vskip5mm
+		\@subscr@line@forpract{Тип практики}{\@ifundefined{@practtype}{}{\@practtype}}%
+		\vskip5mm
+		\@subscr@line@forpract{Название предприятия}{\@ifundefined{@facility}{}{\@facility}}%
+		\fi
+		\vfil
+		\raggedright@
+		\if@pract
+		\@subscr@line{Студент}{}{\@ifundefined{@author}{\ulbox{7em}{}}{\@author}}%
+		\else
+		\@subscr@line{Студент группы}{\@group@place}{\@author}%
+		\fi
+		\@ifundefined{@chief}{}{\vskip5mm\@subscr@line{\@chief@type}{}{\@chief}}%
+		\if@FirstConsultant
+		\vskip5mm
+		\@subscr@line{Консультант}{}{\@ifundefined{@FirstConsultant}{\ulbox{7em}{}}{\@FirstConsultant}}%
+		\fi
+		\if@SecondConsultant
+		\vskip5mm
+		\@subscr@line{Консультант}{}{\@ifundefined{@SecondConsultant}{\ulbox{7em}{}}{\@SecondConsultant}}%
+		\fi
+		\if@inspector
+		\vskip5mm
+		\@subscr@line{Нормоконтролер}{}{\@ifundefined{@inspector}{\ulbox{7em}{}}{\@inspector}}\par
+		\fi
+		\vskip20mm
+		\if@pract{Оценка\hspace{0.6\linewidth}{\ulbox{0.3\linewidth}{}}\par}\fi
+		\egroup
+		\vfil
+		\textit{\@workyear г.}\par
+		\pagebreak
+		\egroup
+		\if@jobspec{\pagestyle{empty}\headheight=0pt\headsep=0pt\@make@jobspec\pagebreak}\fi
+		\if@pract@jobspec{\@make@pract@jobspec\pagebreak}\fi
+		\if@VKR\kalplan\fi}
+	\end{spacing}
+}
 \let\cover\maketitle
 
 \def\@title@shapka#1{%
@@ -480,9 +497,9 @@
 	\advance\leftskip by 40mm\noindent
 	\dfb{\kern-3mm\hbox{\includegraphics[scale=0.19]{\emb@file}}}%
 	\fi
-	{\fontsize{11}{12pt}\selectfont\bfseries\@Ministry\par}%
+	{\fontsize{12}{12pt}\selectfont\bfseries\@Ministry\par}%
 	\vskip2mm
-	{\fontsize{11}{12pt}\selectfont\bfseries\@BMSTU\par}%
+	{\fontsize{12}{12pt}\selectfont\bfseries\@BMSTU\par}%
 	\egroup
 	\vskip3mm\hrule height.7mm\vskip2pt\hrule}
 
@@ -501,17 +518,16 @@
 \def\@group@place{\underline{\hbox to\@grpl@len{\@ifundefined{@group}{}{\ \@group}\hfil}}}
 
 \def\@make@pract@jobspec{
-	\vspace*{-5mm}
 	{\centering\@title@shapka{}}%
 	\vskip20mm
 	\bgroup
 	\centering
-	{\Large\bfseries{ЗАДАНИЕ}\par на прохождение \@jobsp@type@rod\par}%
+	{\fontsize{14pt}{14}\selectfont\bfseries{ЗАДАНИЕ}\par на прохождение \@jobsp@type@rod\par}%
 	\egroup
 	\vskip5\jsp
 	\bgroup
 	\parindent=0pt
-	\fontsize{11pt}{13}\selectfont
+	{\fontsize{12pt}{12}\selectfont
 	На предприятии \ulfill\\
 	\ulline\\
 	\vspace{12pt}
@@ -524,20 +540,19 @@
 		\item 
 		\item 
 	\end{enumerate} 
-	\vskip10\jsp
+	\vspace{20mm}
 	Дата выдачи задания \al\,\ulbox{1.75em}{}\,\ar\kern0.2em\ulbox{6em}{}\space 20\ulbox{1.5em}{}\,г.\hfill{\space}\par
 	\egroup
-	\vskip7\jsp
+	\vspace{20mm}
 	\bgroup
 	\raggedright@
-	\@subscr@line{Студент}{}{\@author}\par
-	\vskip2\jsp
-	\@subscr@line{\@chief@type}{}{\@ifundefined{@chief}{\ulbox{5em}{}}\@chief}\par
-	\nobreak
+	\fontsize{12pt}{12}\selectfont\@subscr@line{Студент}{}{\@author}\par
+	\vspace{21pt}
+	\fontsize{12pt}{12}\selectfont\@subscr@line{\@chief@type}{}{\@ifundefined{@chief}{\ulbox{5em}{}}\@chief}\par
+	\nobreak}
 	\egroup
 	\vfil
 	\bgroup
-	\fontsize{9pt}{11}\selectfont
 	\if@VKR\else
 	\vspace*{-15mm}\pagebreak\fi
 	\egroup
@@ -551,13 +566,13 @@
 	\vskip5\jsp
 	\bgroup
 	\centering
-	{\Large\bfseries{ЗАДАНИЕ}\par на выполнение\if@VKR\\\else\space\fi\@jobsp@type@rod\par}%
+	{\fontsize{14pt}{14}\selectfont\bfseries{ЗАДАНИЕ}\par на выполнение\if@VKR\\\else\space\fi\@jobsp@type@rod\par}%
 	\ifx\@zadan@title\relax\else\vskip1mm\@zadan@title\fi
 	\egroup
 	\vskip4\jsp
 	\bgroup
 	\parindent=0pt
-	\fontsize{11pt}{13}\selectfont
+	\fontsize{12pt}{12}\selectfont
 	Студент \hbox to 0pt{\kern9em\@authorfull\space\@group\hss}\ulfill\par
 	\hrule height0pt\vskip1mm\hbox to \hsize{\@underwr@font\hfil(Фамилия, Имя, Отчество, Индекс Группы)\hfil}\par
 	\if@VKR\vskip3\jsp\fi
@@ -588,8 +603,9 @@
 	в срок до \al\,\UlBox{1.7em}{}\,\ar\kern0.2em \UlBox{6em}{}\space 20\ulbox{1.5em}{}\,г.\par
 	\fi
 	\egroup
-	\vskip5\jsp
+	\vspace{20mm}
 	\bgroup
+	\fontsize{12pt}{12}\selectfont
 	\raggedright@
 	\@subscr@line{Студент}{}{\@author}\par
 	\vskip2\jsp
@@ -598,9 +614,6 @@
 	\egroup
 	\vfil
 	\bgroup
-	\fontsize{9pt}{11}\selectfont
-	{\bfseries Примечание.} Задание оформляется в двух экземплярах: один выдается студенту,
-	второй хранится на кафедре.\par
 	\if@VKR\else
 	\vspace*{-15mm}\pagebreak\fi
 	\egroup}
@@ -711,6 +724,7 @@
 
 \def\@approval{%
 	\vbox{\hsize=65mm\centering
+		\fontsize{12pt}{12pt}\selectfont
 		УТВЕРЖДАЮ\par
 		\vskip1mm Заведующий кафедрой \ulbox{4em}{\@ifundefined{@chairno}{}{\ \@chairno}\hfil}\par
 		\vskip3mm\indent\ulbox{6em}{}\space\hbox to 7em{\ifx\@chairhead\@empty\ \ulfill\else\@chairhead\fi}\par

@@ -1,7 +1,7 @@
 % !TeX spellcheck = ru_RU-Russian
 % !TeX encoding = UTF-8 
 
-\documentclass[12pt,a4paper]{extarticle}
+\documentclass[14pt,a4paper]{extarticle}
 
 \usepackage[russian]{babel}
 \usepackage[utf8]{inputenc}
@@ -11,10 +11,11 @@
 		right=10mm,
 		top=20mm,
 		bottom=20mm]{geometry}
-\usepackage{amsmath, amssymb}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage{graphicx, cite}
-\usepackage{enumitem}
+\usepackage{graphicx} 
+\usepackage{cite}
 \usepackage{kprj} 
 
 \NIR
@@ -32,22 +33,9 @@
 \chairhead{А.П.~Крищенко}
 
 \onehalfspacing
-\setcounter{secnumdepth}{3}
-\renewcommand{\qedsymbol}{$\blacktriangleright$}
-\renewenvironment{proof}{\noindent$\blacktriangleleft$}{}
-\theoremstyle{definition}
-\newtheorem{theorem}{Теорема}
-\theoremstyle{definition}
-\newtheorem{definition}{Определение}
-\theoremstyle{definition}
-\newtheorem{affirmation}{Утверждение}
-\setcontentsname{СОДЕРЖАНИЕ}
-\setrefsname{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
 
 \begin{document}
-	\begin{spacing}{1.0}
-		\maketitle
-	\end{spacing}
+	\maketitle
 	
 	\tableofcontents
 	 
@@ -68,7 +56,7 @@
 	где $x=(x_1, x_2, x_3, x_4, x_5)$ -- неотрицательные переменные, $t\ge0$ --- время.
 	
 	Введем следующие обозначения:
-	\[\mathbb{R}^n_{+,0}=\left\left\right\}x=(x_1,\dots,x_n)\in\mathbb{R}^n:\, x_i\ge0,\, i=\overline{1,n}\},\,\mathbb{R}_{+,0}=\left\left\right\}x\in\mathbb{R}:\, x\ge0\}.\]
+	\[\mathbb{R}^n_{+,0}=\left\{x=(x_1,\dots,x_n)\in\mathbb{R}^n:\, x_i\ge0,\, i=\overline{1,n}\right\},\,\mathbb{R}_{+,0}=\left\{x\in\mathbb{R}:\, x\ge0\right\}.\]
 	
 	Для данной системы найдем положения равновесия при помощи построения функций Ляпунова, а также условия их устойчивости, если таковые имеются. 
 	
@@ -99,11 +87,11 @@
 			Q_i(x)=&(x_{k_1}+a_1)\cdot\dots\cdot(x_{k_m}+a_m),\\
 			P_i(x)=&(x_{j_1}+b_1)\cdot\dots\cdot(x_{j_l}+b_l).
 		\end{align*}
-		Здесь $j_1,\dots,j_l,k_1,\dots,k_m\in\left\left\right\}1,\dots,n\}$. Заметим, что во внутреннем ПР $x=x_0$ справедливо, что:
+		Здесь $j_1,\dots,j_l,k_1,\dots,k_m\in\left\{1,\dots,n\right\}$. Заметим, что во внутреннем ПР $x=x_0$ справедливо, что:
 		\[f_i(x_0)=\dfrac{P_i(x_0)}{Q_i(x_0)}=0.\]
 		
 		На области $\mathbb{R}^n_{+}$ для $V(x)$ выполняются следующие условия:
-		\[V(x)>0,\, V(x_0)=0,\, x_0\in D,\,x\in D\setminus\left\left\right\}x_0\}.\]
+		\[V(x)>0,\, V(x_0)=0,\, x_0\in D,\,x\in D\setminus\left\{x_0\right\}.\]
 		Квадратичные слагаемые неотрицательно определены на области $\mathbb{R}^n_+$, слагаемые вида
 		\[x_j-x_{j,0}-x_{j,0}\ln\dfrac{x_j}{x_{j,0}}\] 
 		также неотрицательны в $\mathbb{R}^n_+$.
@@ -145,37 +133,37 @@
 			...-\dfrac{\Delta x_{k_1}}{(x_{k_1}+a_1)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.
 		\end{multline*}
 		
-		При $l=1$, $m\in\left\left\right\}2,\dots,n\}$:
+		При $l=1$, $m\in\left\{2,\dots,n\right\}$:
 		\[f_i(x)=\dfrac{(x_{j_1}+b_1)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)}-\dfrac{(x_{j_1,0}+b_1)}{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.\]
 		Совершив в числителе первого слагаемого замену $x_{j_1}=\Delta x_{j_1} + x_{j_1,0}$ и раскрыв скобки можно получить следующую сумму:
 		\begin{multline*}
 			f_i(x)=\dfrac{\Delta x_{j_1}}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)}+\\
 			+b_1\dfrac{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)-(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.
 		\end{multline*}
-		Здесь второе слагаемое соответствует случаю, когда $l=0$ и $m\in\mathbb{N}/\left\left\right\}1\}$, из чего предположение индукции работает также и в этом случае. 
+		Здесь второе слагаемое соответствует случаю, когда $l=0$ и $m\in\mathbb{N}\setminus\left\{1\right\}$, из чего предположение индукции работает также и в этом случае. 
 		
-		Рассмотрим случай, где $l > 1$ и $m\in\mathbb{N}/\left\left\right\}1\}$.
+		Рассмотрим случай, где $l > 1$ и $m\in\mathbb{N}\setminus\left\{1\right\}$.
 		\[f_i(x)=\dfrac{(x_{j_1}+b_1)\cdot...\cdot(x_{j_l}+b_l)}{(x_{k_1}+a_1)\cdot...\cdot(x_{k_m}+a_m)}-\dfrac{(x_{j_1,0}+b_1)\cdot...\cdot(x_{j_l,0}+b_l)}{(x_{k_1,0}+a_1)\cdot...\cdot(x_{k_m,0}+a_m)}.\]
-		Если разложить произвольное слагаемое в числителе первой дроби как $x_{j_p}=\Delta x_{j_p} + x_{j_p,0},\, p\in\left\left\right\}1,\dots,l\}$, то выражение преобразуется в сумму некой ДРФ и произведения разности $\Delta x_{j_p}$ и некоторой другой ДРФ. При этом заметим, что первое слагаемое будет соответствовать предыдущему шагу индукции, т.е. также может быть приведено к виду произведения разности и ДРФ.
+		Если разложить произвольное слагаемое в числителе первой дроби как $x_{j_p}=\Delta x_{j_p} + x_{j_p,0},\, p\in\left\{1,\dots,l\right\}$, то выражение преобразуется в сумму некой ДРФ и произведения разности $\Delta x_{j_p}$ и некоторой другой ДРФ. При этом заметим, что первое слагаемое будет соответствовать предыдущему шагу индукции, т.е. также может быть приведено к виду произведения разности и ДРФ.
 		
 		Таким образом, каждая функция $f_i(x)$ может быть представлена как
 		\[f_i(x)=\sum\limits_{p\in\hat{\sigma}_i}(x_p-x_{p,0})\tilde{h}_p(x),\]    
-		где $\tilde{h}_j(x)$ -- некие ДРФ или линейные функции, $\hat{\sigma}_i$ -- множество всех номеров $x_p,\, p\in\left\left\right\}1,\dots,n\}$, входящих в $f_i(x)$. Тогда производная $V(x)$ в силу системы примет вид:
+		где $\tilde{h}_j(x)$ -- некие ДРФ или линейные функции, $\hat{\sigma}_i$ -- множество всех номеров $x_p,\, p\in\left\{1,\dots,n\right\}$, входящих в $f_i(x)$. Тогда производная $V(x)$ в силу системы примет вид:
 		\[\dot{V}(x)=\sum\limits_{i\in\sigma_1}\hat{k}_i(x_i-x_{i,0})\sum\limits_{p\in\hat{\sigma}_i}(x_p-x_{p,0})\tilde{h}_{p}(x)+\sum\limits_{j\in\sigma_2}\hat{k}_j(x_j-x_{j,0})\sum\limits_{q\in\hat{\sigma}_j}(x_q-x_{q,0})\tilde{h}_{q}(x).\]
 		Сложив все слагаемые с повторяющимися множителями $(x_i-x_{i,0})(x_j-x_{j,0})$ и положив равными нулю коэффициенты при множителях отсутствующих в сумме, получим квадратичную форму с симметричной функциональной матрицей $H$:
 		\[\dot{V}(x)=(x-x_0)^{T}H(x-x_0).\qed\]
 	\end{proof}
 	
 	\begin{theorem}
-		Система \ref{eq:initial_system} при положительных значениях параметров на границе множества $D$ имеет положения равновесия $P_1\left(0,\, 0,\,0,\,\dfrac{s_1}{\mu_2}\right)$ и $P_2\left(0,\, c_2,\,0,\,\dfrac{s_1}{\mu_2}\right)$.  
+		Система \ref{eq:initial_system} имеет положения равновесия $P_1\left(0,\, 0,\,0,\,\dfrac{s_1}{\mu_2}\right)$ и $P_2\left(0,\, c_2,\,0,\,\dfrac{s_1}{\mu_2}\right)$ при положительных значениях параметров на границе множества $D$.  
 	\end{theorem}
 	
 	\begin{theorem}
-		Положение равновесия $P_1\left(0,0,0,\dfrac{s_1}{\mu_2},0\right)$ является неустойчивым, а положение равновесия $P_2\left(0,c_2,0,\dfrac{s_1}{\mu_2},0\right)$ является асимптотически устойчивым при условии $k_1r_1s_1 + e_1k_1\mu_2r_1 < \alpha_1c_2\mu_2$ и неустойчивым при условии $k_1r_1s_1 + e_1k_1\mu_2r_1>\alpha_1c_2\mu_2$. При $k_1r_1s_1 + e_1k_1\mu_2r_1 = \alpha_1c_2\mu_2$ необходимо дополнительное исследование.
+		Положение равновесия $P_1\left(0,0,0,\dfrac{s_1}{\mu_2},0\right)$ является неустойчивым в области $D$, а положение равновесия $P_2\left(0,c_2,0,\dfrac{s_1}{\mu_2},0\right)$ является асимптотически устойчивым в области $D$ при условии $k_1r_1s_1 + e_1k_1\mu_2r_1 < \alpha_1c_2\mu_2$ и неустойчивым в области $D$ при условии $k_1r_1s_1 + e_1k_1\mu_2r_1>\alpha_1c_2\mu_2$. При $k_1r_1s_1 + e_1k_1\mu_2r_1 = \alpha_1c_2\mu_2$ необходимо дополнительное исследование.
 	\end{theorem}
 	
 	\begin{theorem}
-		Положение $P_2\left(0,\, c_2,\,0,\,\dfrac{s_1}{\mu_2},\, 0\right)$ асимптотически устойчиво на инвариантной плоскости $G=\left\left\right\}x_1=x_3=x_5=0\}\cap D$. 
+		Положение $P_2\left(0,\, c_2,\,0,\,\dfrac{s_1}{\mu_2},\, 0\right)$ асимптотически устойчиво на инвариантной плоскости $G=\left\{x_1=x_3=x_5=0\right\}\cap D$. 
 	\end{theorem}
 	\begin{proof}
 		На плоскости $G$ исходная система принимает следующий вид:
@@ -216,7 +204,7 @@
 			\det A &= a_{11}a_{22}-\dfrac{1}{4}a^2_{12} = \dfrac{r_2\mu_2\hat{k}_1\hat{k}_2}{c_2}>0
 		\end{align*}
 		при положительных значениях параметров. Таким образом, 
-		\[V(x)>0,\, \dot{V}(x)<0,\, x\in G\setminus\left\left\right\}\tilde{P}_2\},\]
+		\[V(x)>0,\, \dot{V}(x)<0,\, x\in G\setminus\left\{\tilde{P}_2\right\},\]
 		из чего $\tilde{P}_2$ асимптотически устойчиво на $G$.\qed
 	\end{proof}
 	

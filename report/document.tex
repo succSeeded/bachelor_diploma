@@ -1,20 +1,21 @@
 % !TeX spellcheck = ru_RU-Russian
 % !TeX encoding = UTF-8 
 
-\documentclass[12pt,a4paper]{extarticle}
+\documentclass[14pt,a4paper]{extarticle}
 
 \usepackage[russian]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{setspace} 
 \usepackage[a4paper,
-		left=30mm,
-		right=10mm,
-		top=20mm,
-		bottom=20mm]{geometry}
-\usepackage{amsmath, amssymb}
+			left=30mm,
+			right=10mm,
+			top=20mm,
+			bottom=20mm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage{graphicx, cite}
-\usepackage{enumitem}
+\usepackage{graphicx} 
+\usepackage{cite}
 \usepackage{kprj} 
 
 \VKRTitleOnly
@@ -33,26 +34,13 @@
 \chairhead{А.П.~Крищенко}
 
 \onehalfspacing
-\setcounter{secnumdepth}{3}
-\renewenvironment{proof}{\noindent$\blacktriangleleft$}{}
-\renewcommand\qedsymbol{$\blacktriangleright$}
-\theoremstyle{definition}
-\newtheorem{theorem}{Теорема}
-\theoremstyle{definition}
-\newtheorem{definition}{Определение}
-\theoremstyle{definition}
-\newtheorem{affirmation}{Утверждение}
-\setcontentsname{СОДЕРЖАНИЕ}
-\setrefsname{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
 
 \begin{document}
-	\begin{spacing}{1.0}
-		\maketitle
-	\end{spacing}
+	\maketitle
 	
 	\begin{annotation}
 	
-	Расчетно-пояснительная записка 23 с., 12  источников.
+	Расчетно-пояснительная записка 32 с., 19  источников.
 	
 	\MakeUppercase{функция Ляпунова; инвариантные компакты; злокачественные глиомы.}
 	
@@ -70,7 +58,7 @@
 	
 	Системы дифференциальных уравнений позволяют дать количественное представление многим биологическим процессам, протекающим во время заболевания \cite{abt_DEs}. Например, взаимодействие патогена и иммунной системы с учетом воздействия терапевтических белков\cite{Kasbawati et.al.}, реакция системы рак-иммунитет на химиотерапию\cite{W. L. Duan et.al.,Xiangdong Liu et.al.,L.G. de Pillis et.al., dePillis L.G. et.al.} или взаимодействие клеток иммунитета и раковых клеток с условием поражения ВИЧ т-хелперов\cite{F. A. Rihan et.al.}. В частности может быть предсказана динамику развития глиом в различных сценариях \cite{gliomae_scenarios}.
 	
-	Многие виды рака, включая опухоли головного и спинного мозга, подвергались системной иммунотерапии путем экзогенного введения иммунных клеток или иммунорегулирующих факторов с ограниченным успехом. Chakrabarty и Hanson сформулировали задачу оптимального управления доставкой лекарств к опухоли мозга с целью минимизации плотности опухолевых клеток и снижения побочного действия лекарств с помощью метода конечных элементов Галеркина \cite{Chakrabarty et.al.}. Bandara и др. предложили математическую модель для рациональной разработки таргетных стратегий (in-silico) для эффективной транспортировки Паклитаксела, антимитотического препарата, через гематоэнцефалический барьер \cite{Bandera}. Kirkby и др. сформулировали модель глиобластомы, которая предсказывает эффекты эскалации дозы радиотерапии и воспроизводит чрезвычайно точные клинические данные \cite{Kirkby et.al.}. Schmitz и др. с помощью модели клеточного автомата опухоли мозга изучали гетерогенные опухоли, содержащие как чувствительные к лечению, так и резистентные к нему клетки. Авторы исследовали моноклональные опухоли, двухпоточные с резистентной субпопуляцией и многопоточные опухоли с индуцированной мутацией и смогли представить данные о времени выживания по каждому из этих примеров \cite{Schmitz et.al.}. Walker, Cook \cite{Walker et.al.} на макроскопической модели разработали систему доставки лекарств к опухолям мозга, где авторы предположили, что лекарство доставляется как в нормальную, так и в опухолевую ткань через сосудистую систему. Посредством диффузии и конвекции препараты проникают в ткани мозга через сосудистую сеть, переносятся через гематоэнцефалический барьер и интерстициальное пространство. Оценив влияние изменения параметров на доставку лекарств, они нашли оптимальный способ конвективной доставки лекарств в центр опухоли. Kronik и др. \cite{Kronik et.al.} рассмотрели интерактивную динамику цитотоксических Т-лимфоцитов, клеток опухоли мозга, основного комплекса гистосовместимости (MHC) класса-I и MHC класса-II, а также цитокинов \textit{TGF-}$\beta$ и \textit{IFN-}$\gamma$, где они использовали компьютерное моделирование для проверки модели и поиска предполагаемых сценариев лечения. Полученные ими результаты свидетельствуют о том, что глиобластома может быть уничтожена с помощью новых стратегий с интенсивной дозировкой или путем значительного стимулирования эндогенного иммунного ответа или инфузии Т-клеток, как показано в их математической модели.
+	Многие виды рака, включая опухоли головного и спинного мозга, подвергались системной иммунотерапии путем экзогенного введения иммунных клеток или иммунорегулирующих факторов с ограниченным успехом. Chakr-abarty и Hanson сформулировали задачу оптимального управления доставкой лекарств к опухоли мозга с целью минимизации плотности опухолевых клеток и снижения побочного действия лекарств с помощью метода конечных элементов Галеркина \cite{Chakrabarty et.al.}. Bandara и др. предложили математическую модель для рациональной разработки таргетных стратегий (in-silico) для эффективной транспортировки Паклитаксела, антимитотического препарата, через гематоэнцефалический барьер \cite{Bandera}. Kirkby и др. сформулировали модель глиобластомы, которая предсказывает эффекты эскалации дозы радиотерапии и воспроизводит чрезвычайно точные клинические данные \cite{Kirkby et.al.}. Schmitz и др. с помощью модели клеточного автомата опухоли мозга изучали гетерогенные опухоли, содержащие как чувствительные к лечению, так и резистентные к нему клетки. Авторы исследовали моноклональные опухоли, двухпоточные с резистентной субпопуляцией и многопоточные опухоли с индуцированной мутацией и смогли представить данные о времени выживания по каждому из этих примеров \cite{Schmitz et.al.}. Walker, Cook \cite{Walker et.al.} на макроскопической модели разработали систему доставки лекарств к опухолям мозга, где авторы предположили, что лекарство доставляется как в нормальную, так и в опухолевую ткань через сосудистую систему. Посредством диффузии и конвекции препараты проникают в ткани мозга через сосудистую сеть, переносятся через гематоэнцефалический барьер и интерстициальное пространство. Оценив влияние изменения параметров на доставку лекарств, они нашли оптимальный способ конвективной доставки лекарств в центр опухоли. Kronik и др. \cite{Kronik et.al.} рассмотрели интерактивную динамику цитотоксических Т-лимфоцитов, клеток опухоли мозга, основного комплекса гистосовместимости (MHC) класса-I и MHC класса-II, а также цитокинов \textit{TGF-}$\beta$ и \textit{IFN-}$\gamma$, где они использовали компьютерное моделирование для проверки модели и поиска предполагаемых сценариев лечения. Полученные ими результаты свидетельствуют о том, что глиобластома может быть уничтожена с помощью новых стратегий с интенсивной дозировкой или путем значительного стимулирования эндогенного иммунного ответа или инфузии Т-клеток, как показано в их математической модели.
 	
 	В данной работе была поставлена цель провести исследование модели, представленной в \cite{model} при помощи методов локализации инвариантных компактов \cite{invar_comp, invar_comp_localization}, исследование устойчивости положений равновесия системы при помощи построения функций Ляпунова.
 	
@@ -78,7 +66,8 @@
 	
 	\end{introduction}
 	
-	\section{Постановка задачи}
+	\section{Основная часть}
+	\subsection{Постановка задачи}
 	
 	Рассмотрим следующую пятимерную систему с неотрицательными переменными $x=(x_1, x_2, x_3, x_4, x_5)$ и положительными параметрами:
 	\begin{equation}
@@ -113,14 +102,13 @@
 	\[\mathbb{R}^n_{+,0}=\{x=(x_1,\dots,x_n)\in\mathbb{R}^n:\, x_i\ge0,\, i=\overline{1,n}\},\,\mathbb{R}_{+,0}=\{x\in\mathbb{R}:\, x\ge0\}.\]
 	Для системы \ref{eq:initial_system} покажем, что множество $D=\mathbb{R}^{5}_{+,0} = \{x \ge 0\}$ положительно инвариантно, проведем исследование инвариантности пересечений множества $D$ с координатными плоскостями, а также систем, являющихся ограничениями \ref{eq:initial_system} на инвариантные координатные плоскости. Кроме того, найдем компактное множество, содержащее аттрактор системы.
 	
-	\section{Основная часть}
 	\subsection{Локализация инвариантных компактов}
 	
 	\begin{theorem}\textbf{(Коши)}
 		Пусть функция $f(x, t)$ кусочно непрерывна по t и удовлетворяет неравенству
-		\[\|f(x,t)-f(y,t)\|\leq L\|x-y\|,\]
+		\[\|f(x,t)-f(y,t)\|\le L\|x-y\|,\]
 		где L — постоянная, при любых x, y из $\varepsilon$-окрестности $O_{\varepsilon} = {x : \|x - x_0\| < \varepsilon}$ точки $x_0$ и любого $t \in [t_0,t_1]$. Тогда существует $\delta > 0$ для которого решение задачи Коши вида 
-		\[\dot{x}=f(x,t),\, x(t_0)=x_0\in G,\, t\geq t_0,\]
+		\[\dot{x}=f(x,t),\, x(t_0)=x_0\in G,\, t\ge t_0,\]
 		где $G$ -- область определения системы, существует и единственно при $t\in[t_0,t_0+\delta)$. 
 	\end{theorem}
 	
@@ -431,11 +419,11 @@
 	\begin{theorem}
 		Все компактные инвариантные множества системы (1) содержатся в положительно инвариантных множествах
 		\begin{align*}
-			K_1 &=\{0 \le x_1 \le \overline{x}_1 = c_1\}\cap D,\\
-			K_2 &=\{\frac{s_1}{\mu_2} = \underline{x}_4 \le x_4 \le \overline{x}_4 = \frac{s_1}{\mu_2} + b_1c_1\}\cap K_1,\\
-			K_3 &=\{0 \le x_3 \le \overline{x}_3 = \dfrac{a_2\overline{x}_1}{k_5+\underline{x}_4}\cdot\dfrac{\overline{x}_1+k_2}{\mu_1k_2}\}\cap K_2,\\
-			K_4 &=\{0 \le x_5 \le \overline{x}_5 = \dfrac{b_3\overline{x}_3}{\mu_3}\}\cap K_3,\\
-			K_5 &=\{0 \le x_2 \le \overline{x}_2 =  \dfrac{c_2}{2}+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{x}_5}{k_4(\underline{x}_4+e_2)}}\}\cap K_4.
+			K_1 &=\left\{0 \leqslant x_1 \leqslant \overline{x}_1 = c_1\right\}\cap D,\\[6pt]
+			K_2 &=\left\{\dfrac{s_1}{\mu_2} = \underline{x}_4 \leqslant x_4 \leqslant \overline{x}_4 = \dfrac{s_1}{\mu_2} + b_1c_1\right\}\cap K_1,\\[6pt]
+			K_3 &=\left\{0 \leqslant x_3 \leqslant \overline{x}_3 = \dfrac{a_2\overline{x}_1}{k_5+\underline{x}_4}\cdot\dfrac{\overline{x}_1+k_2}{\mu_1k_2}\right\}\cap K_2,\\[6pt]
+			K_4 &=\left\{0 \leqslant x_5 \leqslant \overline{x}_5 = \dfrac{b_3\overline{x}_3}{\mu_3}\right\}\cap K_3,\\[6pt]
+			K_5 &=\left\{0 \leqslant x_2 \leqslant \overline{x}_2 =  \dfrac{c_2}{2}+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{x}_5}{k_4(\underline{x}_4+e_2)}}\right\}\cap K_4.
 		\end{align*}
 	\end{theorem}
 	\begin{proof} 
@@ -448,44 +436,44 @@
 		Тогда $x_1=0$ или $x_1=c_1\left(1-\dfrac{\alpha_1x_2+\alpha_2x_3}{r_1(x_1+k_1)(x_4+e_1)}\right) $. Таким образом, экстремальные значения $\varphi_1(x)$ на множестве $S(\varphi_1,\, D)$:
 		\[\inf\limits_{x\in S(\varphi_1,\, D)} \varphi_1=0,\, \sup\limits_{x\in S(\varphi_1,\, D)} \varphi_1=c_1,\]
 		из чего локализирующее множество $\Omega(\varphi_1,\, D)$ задается следующим образом:
-		\[\Omega(\varphi_1,\, D)=\{0\le x_1\le c_1 = \overline{x}_1\}\cap D=K_1.\]
+		\[\Omega(\varphi_1,\, D)=\left\{0\leqslant x_1\leqslant c_1 = \overline{x}_1\right\}\cap D=K_1.\]
 		
 		Далее возьмем $\varphi_2(x)=x_4$. В таком случае универсальное сечение имеет вид:
-		\[S(\varphi_2, K_1)=\{s_1 + b_1x_1-\mu_2x_4=0\}\cap K_1.\]
+		\[S(\varphi_2, K_1)=\left\{s_1 + b_1x_1-\mu_2x_4=0\right\}\cap K_1.\]
 		На множестве $S(\varphi_2,\, K_1)$
 		\[\inf\limits_{x\in S(\varphi_2,\, K_1)} \varphi_2=\dfrac{s_1}{\mu_2} = \underline{x}_4,\, \sup\limits_{x\in S(\varphi_2,\, K_1)} \varphi_2=\dfrac{s_1}{\mu_2}+\dfrac{b_1c_1}{\mu_2} = \overline{x}_4.\]
 		Следовательно, локализирующее множество можно задать как 
-		\[\Omega(\varphi_2,\, K_1)=\{\underline{x}_4 \le x_4\le \overline{x}_4\}\cap K_1=K_2.\]
+		\[\Omega(\varphi_2,\, K_1)=\left\{\underline{x}_4 \leqslant x_4\leqslant \overline{x}_4\right\}\cap K_1=K_2.\]
 		
 		Пусть $\varphi_3(x)=x_3$. Универсальное сечение для данной функции:
-		\[S(\varphi_3,\, K_2)=\{a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3=0\}\cap K_2.\]
+		\[S(\varphi_3,\, K_2)=\left\{a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3=0\right\}\cap K_2.\]
 		Преобразовав выражение, задающее $S(\varphi_3,\, K_2)$, получим
 		\[x_3=\dfrac{a_2x_1}{k_5+x_4}\cdot\dfrac{x_1+k_3}{\mu_1x_1+\mu_1k_3+\alpha_4x_1}.\]
 		Тогда на множестве $S(\varphi_3,\, K_2)$
-		\[\inf\limits_{x\in S(\varphi_3,\, K_2)} \varphi_3=0,\, \sup\limits_{x\in S(\varphi_3,\, K_2)} \varphi_3\le \dfrac{a_2\overline{x}_1}{k_5+\underline{x}_4}\cdot\dfrac{\overline{x}_1+k_3}{\mu_1k_3}=\overline{x}_3.\]
+		\[\inf\limits_{x\in S(\varphi_3,\, K_2)} \varphi_3=0,\, \sup\limits_{x\in S(\varphi_3,\, K_2)} \varphi_3\leqslant \dfrac{a_2\overline{x}_1}{k_5+\underline{x}_4}\cdot\dfrac{\overline{x}_1+k_3}{\mu_1k_3}=\overline{x}_3.\]
 		Таким образом, локализирующее множество:
-		\[\Omega(\varphi_3,\, K_2) = (\{0\le x_3 \le \sup{x_3}\}\cap K_2) \subset (\{0 \le x_3\le \overline x_3\} \cap K_2) = K_3.\]
+		\[\Omega(\varphi_3,\, K_2) = (\{0\leqslant x_3 \leqslant \sup{x_3}\}\cap K_2) \subset (\{0 \leqslant x_3\leqslant \overline x_3\} \cap K_2) = K_3.\]
 		
 		Возьмем $\varphi_4(x)=x_5$. В таком случае универсальное сечение:
 		\[S(\varphi_4,\, K_3)=\{\, b_2x_3-\mu_3x_5=0\}\cap K_3.\]
 		На множестве $S(\varphi_4,\, K_3)$
 		\[\inf\limits_{x\in S(\varphi_4,\, K_3)} \varphi_4=0,\, \sup\limits_{x\in S(\varphi_4,\, K_3)} \varphi_4=\dfrac{b_2\overline{x}_3}{\mu_3}=\overline{x}_5,\]
 		поэтому 
-		\[\Omega(\varphi_4,\, K_3) = \{0 \le x_5 \le \overline{x}_5\} \cap K_3 = K_4.\]
+		\[\Omega(\varphi_4,\, K_3) = \{0 \leqslant x_5 \leqslant \overline{x}_5\} \cap K_3 = K_4.\]
 		
 		Далее, пусть $\varphi_5(x)=x_2$. Тогда 
-		\[S(\varphi_5,\, K_4)=\{r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2}-\alpha_3\dfrac{x_1}{x_1+k_2}x_2=0\}\cap K_4.\]
+		\[S(\varphi_5,\, K_4)=\left\{r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2}-\alpha_3\dfrac{x_1}{x_1+k_2}x_2=0\right\}\cap K_4.\]
 		Рассмотрим равенство, задающее универсальное сечение $S_{\varphi_5}$. Заметим, что на множестве $S(\varphi_5,\, K_4)$:
 		\begin{multline*}
-		r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2}-\alpha_3\dfrac{x_1x_2}{x_1+k_2}\le\\
-		\le r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{a_1\overline{x}_5}{(\overline{x}_5+k_4)(\underline{x}_4+e_2)}.
+			r_2x_2\left(1 - \dfrac{x_2}{c_2}\right) + \dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2} - \alpha_3\dfrac{x_1x_2}{x_1+k_2}\le\\
+			\le r_2x_2\left(1-\dfrac{x_2}{c_2}\right) + \dfrac{a_1\overline{x}_5}{(\overline{x}_5+k_4)(\underline{x}_4+e_2)}.
 		\end{multline*}
 		Т.е.
-		\[x_2^2-c_2x_2-\dfrac{a_1\overline{x}_5}{(\overline{x}_5+k_4)(\underline{x}_4+e_2)}\le 0.\]
+		\[x_2^2-c_2x_2-\dfrac{a_1\overline{x}_5}{(\overline{x}_5+k_4)(\underline{x}_4+e_2)}\leqslant 0.\]
 		Таким образом, 
-		\[0 \le x_2 \le \dfrac{c_2}{2}+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{x}_5}{(\overline{x}_5+k_4)(\underline{x}_4+e_2)}}=\overline{x}_2.\]
+		\[0 \leqslant x_2 \leqslant \dfrac{c_2}{2}+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{x}_5}{(\overline{x}_5+k_4)(\underline{x}_4+e_2)}}=\overline{x}_2.\]
 		Итого, локализирующее множество имеет следующий вид:
-		\[\Omega(\varphi_5,\, K_4)=\{0\le x_2 \le \overline{x}_2\} \cap K_4 = K_5.\qed\]
+		\[\Omega(\varphi_5,\, K_4)=\{0\leqslant x_2 \leqslant \overline{x}_2\} \cap K_4 = K_5.\qed\]
 	\end{proof}
 	
 	\begin{theorem}
@@ -493,17 +481,17 @@
 	\end{theorem}
 	\begin{proof}
 		Рассмотрим множество
-		\[K_1(\tau_1) = \{0 \le x_1 \le c_1+\tau_1\}\cap D,\, \tau_1\ge0.\]
+		\[K_1(\tau_1) = \{0 \leqslant x_1 \leqslant c_1+\tau_1\}\cap D,\, \tau_1\geqslant0.\]
 		Заметим, что на множестве $D\setminus K_1(\tau_1) = \{x_1>c_1+\tau_1\}$ производная локализирующей функции $\varphi_1$ в силу системы $\dot{\varphi}_1 < 0$. Действительно, на этом множестве 
-		\[\dot{\varphi}_1 \le r_1x_1\left(1-\dfrac{x_1}{c_1}\right) < -r_1(c_1+\tau_1)\dfrac{\tau_1}{c_1} \le 0.\]
+		\[\dot{\varphi}_1 \leqslant r_1x_1\left(1-\dfrac{x_1}{c_1}\right) < -r_1(c_1+\tau_1)\dfrac{\tau_1}{c_1} \leqslant 0.\]
 		Таким образом множества $K_1(\tau_1)$ положительно инвариантны. Далее будем говорить, что $c_1+\tau_1=\overline{\xi}_1(\tau_1)$.
 		
 		Рассмотрим множество 
-		\[K_2(\tau_1,\,\tau_2,\, \tilde{\tau}_2)=\{\dfrac{s_1}{\mu_2}-\tilde{\tau}_2 \le x_4 \le \dfrac{s_1}{\mu_2} + \dfrac{b_1\overline{\xi}_1(\tau_1)}{\mu_2} + \tau_2\}\cap K_1(\tau_1),\,\tau_1,\,\tau_2,\,\tilde{\tau}_2 \ge 0.\]   
-		На множестве $\{x_4 > \dfrac{s_1}{\mu_2} + \dfrac{b_1\overline{\xi}_1(\tau_1)}{\mu_2} + \tau_2\}\cap K_1(\tau_1)$
-		\[\dot{\varphi_2} = s_1 + b_1x_1 - \mu_2x_4 < - \mu_2\tau_2 \le 0.\]
-		На множестве $\{x_4 < \dfrac{s_1}{\mu_2}-\tilde{\tau}_2\}\cap K_1(\tau_1)$
-		\[\dot{\varphi_2} = s_1 + b_1x_1 - \mu_2x_4 > \mu_2\tilde{\tau}_2 \ge 0.\]
+		\[K_2(\tau_1,\,\tau_2,\, \tilde{\tau}_2)=\left\{\dfrac{s_1}{\mu_2}-\tilde{\tau}_2 \leqslant x_4 \leqslant \dfrac{s_1}{\mu_2} + \dfrac{b_1\overline{\xi}_1(\tau_1)}{\mu_2} + \tau_2\right\}\cap K_1(\tau_1),\,\tau_1,\,\tau_2,\,\tilde{\tau}_2 \geqslant 0.\]   
+		На множестве $\left\{x_4 > \dfrac{s_1}{\mu_2} + \dfrac{b_1\overline{\xi}_1(\tau_1)}{\mu_2} + \tau_2\right\}\cap K_1(\tau_1)$
+		\[\dot{\varphi_2} = s_1 + b_1x_1 - \mu_2x_4 < - \mu_2\tau_2 \leqslant 0.\]
+		На множестве $\left\{x_4 < \dfrac{s_1}{\mu_2}-\tilde{\tau}_2\right\}\cap K_1(\tau_1)$
+		\[\dot{\varphi_2} = s_1 + b_1x_1 - \mu_2x_4 > \mu_2\tilde{\tau}_2 \geqslant 0.\]
 		Таким образом, множества $K_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2)$ положительно инвариантны. Обозначим
 		\begin{align*}
 			\overline{\xi}_4(\tau_1,\,\tau_2) =&\, \dfrac{s_1}{\mu_2} + \dfrac{b_1\tilde{x}_1}{\mu_2} + \tau_2,\\
@@ -511,37 +499,40 @@
 		\end{align*}
 		
 		Пусть 
-		\[K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\,\tau_3) = \{0 \le x_3 \le \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_3}{\mu_1k_3}+\tau_3\}\cap K_2(\tau_1,\, \tau_2,\, \tilde{\tau}_2),\]
-		где $\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3 \ge 0$. Тогда на множестве 
-		\[K_2(\tau_1,\, \tilde{\tau}_2,\, \tau_2)\setminus K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)=\{x_3 > \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_3}{\mu_1k_3}+\tau_3\}\cap K_2(\tau_1,\, \tau_2,\, \tilde{\tau}_2)\]
+		\[K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\,\tau_3) = \left\{0 \leqslant x_3 \leqslant \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_3}{\mu_1k_3}+\tau_3\right\}\cap K_2(\tau_1,\, \tau_2,\, \tilde{\tau}_2),\]
+		где $\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3 \geqslant 0$. Тогда на множестве 
+		\begin{multline*}
+			K_2(\tau_1,\, \tilde{\tau}_2,\, \tau_2)\setminus K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)=\\
+			=\left\{x_3 > \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_3}{\mu_1k_3}+\tau_3\right\}\cap K_2(\tau_1,\, \tau_2,\, \tilde{\tau}_2)
+		\end{multline*}
 		справедливо, что
 		\begin{multline*}
-		\dot{\varphi}_3 = a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3 < a_2\dfrac{\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}-\left(\mu_1+\alpha_4\dfrac{\overline{\xi}_1(\tau_1)}{\overline{\xi}_1(\tau_1)+k_3}\right) x_3 <\\
-		< a_2\dfrac{\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}-\dfrac{\mu_1k_3}{\overline{\xi}_1(\tau_1)+k_3} x_3 < -\dfrac{\mu_1k_2\tau_3}{\overline{\xi}_1(\tau_1)+k_2} \le 0.
+			\dot{\varphi}_3 = a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3 < a_2\dfrac{\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}-\\
+			-\left(\mu_1+\alpha_4\dfrac{\overline{\xi}_1(\tau_1)}{\overline{\xi}_1(\tau_1)+k_3}\right) x_3 < a_2\dfrac{\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}-\dfrac{\mu_1k_3}{\overline{\xi}_1(\tau_1)+k_3} x_3 < -\dfrac{\mu_1k_2\tau_3}{\overline{\xi}_1(\tau_1)+k_2} \leqslant 0.
 		\end{multline*}
 		Таким образом, множества $K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)$ положительно инвариантны. Далее будем считать, что
 		\[\overline{\xi}_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3) = \dfrac{a_2\overline{\xi}_1(\tau_1)}{k_5+\underline{\xi}_4(\tilde{\tau}_2)}\cdot\dfrac{\overline{\xi}_1(\tau_1)+k_2}{\mu_1k_2} + \tau_3.\]
 		
 		Положим, что 
-		\[K_4(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3,\,\tau_4) = \{0 \le x_5 \le \dfrac{b_2\overline{\xi}_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)}{\mu_3}+\tau_4\}\cap K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3),\]
-		где $\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3,\,\tau_4 \ge 0$. На множестве 
+		\[K_4(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3,\,\tau_4) = \left\{0 \leqslant x_5 \leqslant \dfrac{b_2\overline{\xi}_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)}{\mu_3}+\tau_4\right\}\cap K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3),\]
+		где $\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3,\,\tau_4 \geqslant 0$. На множестве 
 		\begin{multline*}
 			K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)\setminus K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4) =\\
-			=\{x_5 > \dfrac{b_2\overline{\xi}_3(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3)}{\mu_3}+\tau_4\}\cap K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)
+			=\left\{x_5 > \dfrac{b_2\overline{\xi}_3(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3)}{\mu_3}+\tau_4\right\}\cap K_3(\tau_1,\,\tau_2,\, \tilde{\tau}_2,\, \tau_3)
 		\end{multline*}
 		справедливо, что
-		\[\dot{\varphi}_4 = b_2x_3 - \mu_3x_5 < -\mu_3\tau_4 \le 0,\]
+		\[\dot{\varphi}_4 = b_2x_3 - \mu_3x_5 < -\mu_3\tau_4 \leqslant 0,\]
 		из чего множества $K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)$ за положительно инвариантны. Обозначим
 		\[\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4) = \dfrac{b_2\overline{\xi}_3(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3)}{\mu_3}+\tau_4.\]
 		
 		Рассмотрим множество 
 		\begin{multline*}
-			K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5) = \{0 \le x_2 \le \dfrac{c_2}{2}+\\
-			+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{k_4(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}}+\tau_5\}\cap K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4),
+			K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5) = \biggr\{0 \leqslant x_2 \leqslant \dfrac{c_2}{2}+\\
+			+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{k_4(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}}+\tau_5\biggr\}\cap K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4),
 		\end{multline*}
-		где $\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \ge 0$.
+		где $\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \geqslant 0$.
 		Можно провести следующую оценку $\dot{\varphi}_2$:
-		\[\dot{\varphi}_2 \le r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{(\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+k_4)(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}.\]
+		\[\dot{\varphi}_2 \leqslant r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{(\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+k_4)(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}.\]
 		Пусть
 		\begin{align*}
 			\overline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4) = \dfrac{c_2}{2}+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{(\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+k_4)(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}},\\
@@ -550,23 +541,23 @@
 		В таком случае, на множестве 
 		\begin{multline*}
 			K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)\setminus K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5) =\\
-			=\{x_2 > \overline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+\tau_5\}\cap K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)
+			=\left\{x_2 > \overline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+\tau_5\right\}\cap K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)
 		\end{multline*}
 		имеет место оценка
 		\begin{multline*}
-			\dot{\varphi}_2 \le -(x_2 - \overline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4))(x_2 - \underline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)) <\\
-			< -2\tau_5\cdot\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{(\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+k_4)(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}} \le 0.
+			\dot{\varphi}_2 \leqslant -(x_2 - \overline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4))(x_2 - \underline{\xi}_2(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)) <\\
+			< -2\tau_5\cdot\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{(\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+k_4)(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}} \leqslant 0.
 		\end{multline*}
 		Следовательно, множества $K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)$ положительно инвариантны.
 		
 		Можно заметить, что множества $K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)$ компактны при
-		\[\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \ge 0.\]
+		\[\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \geqslant 0.\]
 		Тогда с учетом того, что они также положительно инвариантны и содержат предельные множества всех траекторий, и т.к.
-		\[K_5=\mathop{\cap}\limits_{\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \ge 0}K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5),\]
+		\[K_5=\mathop{\cap}\limits_{\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \geqslant 0}K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5),\]
 		можно сделать вделать вывод о том, что $K_5$ --- положительно инвариантный компакт, содержащий аттрактор системы.
 		
 		Действительно, варьируя $\tau_i$ можно добиться того, что любая точка $x\in D$ будет содержаться в неком множестве $K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)$. Вследствие положительной инвариантности данного множества имеем, что траектории, начинающиеся внутри него, не будут его покидать.\qed
-	\end{proof}		
+	\end{proof}				
 	
 	\subsection{Положения равновесия на границе множества $D$}
 	
@@ -596,7 +587,7 @@
 			\frac{a_{2}}{k_{5}+\frac{s_{1}}{\mu _{2}}} & 0 & -\mu _{1} & 0 & 0\\ 
 			b_{1} & 0 & 0 & -\mu _{2} & 0\\ 
 			0 & 0 & b_{2} & 0 & -\mu _{3} 
-		\end{pmatrix}\]
+		\end{pmatrix}.\]
 		
 		Набор ее собственных значений имеет вид
 		
@@ -611,7 +602,7 @@
 			\frac{a_{2}}{k_{5}+\frac{s_{1}}{\mu _{2}}} & 0 & -\mu _{1} & 0 & 0\\ 
 			b_{1} & 0 & 0 & -\mu _{2} & 0\\ 
 			0 & 0 & b_{2} & 0 & -\mu _{3}
-		\end{pmatrix}\]
+		\end{pmatrix}.\]
 		
 		Ее набор собственных значений:
 		
