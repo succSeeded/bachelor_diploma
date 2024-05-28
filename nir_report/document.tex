@@ -16,6 +16,8 @@
 \usepackage{amsthm}
 \usepackage{graphicx} 
 \usepackage{cite}
+\usepackage{subfigure}
+\usepackage{subcaption}
 \usepackage{kprj} 
 
 \NIR
@@ -26,7 +28,7 @@
 \group{ФН12-81Б}
 \faculty{Фундаментальные науки}
 \chair{Математическое моделирование}
-\chief{Д.А.~Фетисов}
+\chief{А.П.~Крищенко}
 \workyear{2024}
 \facultyshort{ФН}
 \chairshort{ФН12}
@@ -212,19 +214,87 @@
 		Положение равновесия $P_1\left(0,0,0,\dfrac{s_1}{\mu_2},0\right)$ является неустойчивым на области $D$, а положение равновесия $P_2\left(0,c_2,0,\dfrac{s_1}{\mu_2},0\right)$ является асимптотически устойчивым в $D$ при условии $k_1r_1s_1 + e_1k_1\mu_2r_1< \alpha_1c_2\mu_2$ и неустойчивым при условии $k_1r_1s_1 + e_1k_1\mu_2r_1>\alpha_1c_2\mu_2$. При $k_1r_1s_1 + e_1k_1\mu_2r_1 = \alpha_1c_2\mu_2$ необходимо дополнительное исследование.
 	\end{theorem}
 	
-	\begin{theorem}
-		Система \ref{eq:initial_system} при значениях параметров, данных в \cite{model}, имеет внутреннее положение равновесия
-		\[P_3\left(875419.1750,\,\,943091.7442,\,\,151.6805,\,\,9135.6470,\,\,0.1517\right).\] 
-	\end{theorem}
-	
-	\begin{theorem}
-		Положение равновесия $P_3$ является асимптотически устойчивым. 
-	\end{theorem}
+	\begin{example}
+		Рассмотрим систему \ref{eq:initial_system} при значениях параметров, данных в~\cite{model_params}. В \cite{model_params} указан только диапазон значений параметра $a_2$, поэтому положим, что $a_2=0.25$. Тогда имеет граничные положения равновесия
+		\[P_1\left(0,\,0,\,0,\,9134.920635,\,0\right),\, P_2\left(0,\,1000000,\,0,\,9134.920635,\,0\right)\]
+		и внутреннее положение равновесия
+		\[P_3\left(875419.175014,\,943091.744167,\,151.680467,\,9135.646993,\,0.15168\right).\] 
+		Проведем численное исследование полученной системы.
+		
+		Численно найдем матрицу Якоби системы с заданными параметрами в точке $P_1$: 
+		\[\begin{pmatrix}
+			0.010000& 0       & 0       & 0       & 0\\
+			0       & 0.330700& 0       & 0       & 0\\
+			0.000022& 0       &-0.007000& 0       & 0\\
+			0       & 0       & 0       &-6.933988& 0\\
+			0       & 0       &\phantom{-}0.000102& 0       &-0.102000
+		\end{pmatrix}.\]
+		Спектр данной матрицы имеет следующий вид:
+		\begin{multline*}
+			\lambda_1=-6.933988,\,\, \lambda_2=-0.102000,\\
+			\lambda_3=-0.007000,\,\, \lambda_4=0.010000,\,\, \lambda_5=0.3307000.
+		\end{multline*}
+		Два собственных значения положительные, из положение равновесия $P_1$ неустойчиво в $D$.
+		
+		Численно найдем матрицу Якоби системы с заданными параметрами  в точке $P_2$: 
+		\[\begin{pmatrix}
+			\phantom{-}0.007097& 0 &      0 &      0   &    0\\
+			-0.718519&-0.293721& 0  &     0    &   0\\
+			\phantom{-}0.000022& 0  &    -0.007000 &   0     &  0\\
+			0     &  0   &     0    &    -6.933988&0\\
+			0  &      0    &    \phantom{-}0.000102 & 0    &   -0.102000\\
+		\end{pmatrix}.\]
+		Спектр данной матрицы имеет следующий вид:
+		\begin{multline*}
+		\lambda_1=-6.933988,\,\, \lambda_2=-0.293721,\\
+		\lambda_3=-0.102000,\,\, \lambda_4=-0.007000,\,\, \lambda_5=0.007097.
+		\end{multline*}
+		Собственное число $\lambda_5$ --- положительное действительное число, следовательно, положение равновесия $P_2$ неустойчиво в $D$.
+		
+		Матрица Якоби системы с заданными параметрами в точке $P_3$: 
+		\[\begin{pmatrix}
+			-0.009635&-0.000071&-0.000014& \phantom{-}0.003766&0\\
+			-0.003638&-0.309228& 0       & 0.      & 0\\
+  \phantom{-}0.000014& 0   &    -0.129571&-0.001766& 0\\
+			 0       & 0     &   0     &  -6.933988& 0\\
+			 0       & 0&\phantom{-}0.000102& 0   &   -0.102000 
+		\end{pmatrix}.\]
+		Спектр данной матрицы имеет следующий вид:
+		\begin{multline*}
+		\lambda_1=-6.933988,\,\, \lambda_2=-0.309229,\\
+		 \lambda_3=-0.129571,\,\, \lambda_4=-0.102000,\,\, \lambda_5=-0.009634.
+		\end{multline*}
+		Все собственные значения являются отрицательными действительными числами, т.е. положение равновесия $P_3$ асимптотически устойчиво.
+		
+		\begin{figure}[h]
+			\centering
+			\subfigure[]{\includegraphics[width=0.32\textwidth]{media/Figure_1.png}} 
+			\subfigure[]{\includegraphics[width=0.32\textwidth]{media/Figure_2.png}}
+			\subfigure[]{\includegraphics[width=0.32\textwidth]{media/Figure_3.png}}\\
+			\subfigure[]{\includegraphics[width=0.40\textwidth]{media/Figure_4.png}}
+			\subfigure[]{\includegraphics[width=0.40\textwidth]{media/Figure_5.png}}
+			\caption{Переходные процессы системы для каждой координаты при выборе начальной точки внутри множества~$D$.}
+			\label{fig:in_D}
+		\end{figure}
+		
+		На \reffig{fig:in_D} представлены переходные процессы системы при выборе начальной точки внутри множества $D$. Легко заметить, что траектории стремятся к внутреннему положению равновесия $P_3$. Проведем аналогичное моделирование для случайной на плоскости $x_1=x_3=x_5=0$.
+		
+		\begin{figure}[h]
+			\centering
+			\subfigure[]{\includegraphics[width=0.40\textwidth]{media/Figure_7.png}} 
+			\subfigure[]{\includegraphics[width=0.40\textwidth]{media/Figure_8.png}}\\
+			\caption{Переходные процессы системы координат при выборе начальной точки на на плоскости $x_1=x_3=x_5=0$.}
+			\label{fig:on_D_border}
+		\end{figure}
+		
+		Из \reffig{fig:on_D_border} можно делать вывод о том, что траектория стремится к положению равновесия $P_2$.
+		
+	\end{example}
 	 
 	\newpage
 	\begin{thebibliography}{1}
-		\bibitem{model}
-		S. Banerjee, S. Khajanchi and S. Chaudhury, PLoS ONE 10(5), e0123611 (2015). 
+		\bibitem{model_params}
+		Khajanchi, S., “Uniform Persistence and Global Stability for a Brain Tumor and Immune System Interaction”, \textit{Biophysical Reviews and Letters}, vol. 12, no. 4, pp. 187–208, 2017. doi:10.1142/S1793048017500114.
 	\end{thebibliography}
 	
 \end{document}

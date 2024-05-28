@@ -1,4 +1,4 @@
 \babel@toc {russian}{}\relax 
 \contentsline {section}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}1 }{\let \oe \OE \@@text@case@aux {upper}{}{Постановка задачи}}}{4}{}%
 \contentsline {section}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2 }{\let \oe \OE \@@text@case@aux {upper}{}{Основная часть}}}{5}{}%
-\contentsline {section}{{\let \oe \OE \@@text@case@aux {upper}{}{Список использованных источников}}}{11}{}%
+\contentsline {section}{{\let \oe \OE \@@text@case@aux {upper}{}{Список использованных источников}}}{14}{}%
