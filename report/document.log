@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.8)  1 JUN 2024 21:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.8)  4 JUN 2024 02:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -701,6 +701,11 @@ OT1/cmr/m/n/14.4 0\OML/cmm/m/it/14.4 :  $
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [22]
+
+LaTeX Warning: Command \cyrr invalid in math mode on input line 551.
+
+Missing character: There is no ð in font cmr12!
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [23]
@@ -753,76 +758,97 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [33]
-<media/Figure_1.png, id=136, 462.528pt x 346.896pt>
-File: media/Figure_1.png Graphic file (type png)
-<use media/Figure_1.png>
-Package pdftex.def Info: media/Figure_1.png  used on input line 807.
-(pdftex.def)             Requested size: 154.78653pt x 116.09045pt.
-<media/Figure_2.png, id=138, 462.528pt x 346.896pt>
-File: media/Figure_2.png Graphic file (type png)
-<use media/Figure_2.png>
-Package pdftex.def Info: media/Figure_2.png  used on input line 808.
-(pdftex.def)             Requested size: 154.78653pt x 116.09045pt.
-<media/Figure_3.png, id=139, 462.528pt x 346.896pt>
-File: media/Figure_3.png Graphic file (type png)
-<use media/Figure_3.png>
-Package pdftex.def Info: media/Figure_3.png  used on input line 809.
-(pdftex.def)             Requested size: 154.78653pt x 116.09045pt.
-<media/Figure_4.png, id=140, 462.528pt x 346.896pt>
-File: media/Figure_4.png Graphic file (type png)
-<use media/Figure_4.png>
-Package pdftex.def Info: media/Figure_4.png  used on input line 810.
+<media2/Figure_1.png, id=136, 545.6385pt x 346.896pt>
+File: media2/Figure_1.png Graphic file (type png)
+<use media2/Figure_1.png>
+Package pdftex.def Info: media2/Figure_1.png  used on input line 809.
+(pdftex.def)             Requested size: 193.47578pt x 123.00337pt.
+<media2/Figure_2.png, id=138, 547.8066pt x 346.896pt>
+File: media2/Figure_2.png Graphic file (type png)
+<use media2/Figure_2.png>
+Package pdftex.def Info: media2/Figure_2.png  used on input line 810.
+(pdftex.def)             Requested size: 193.47578pt x 122.51639pt.
+<media2/Figure_3.png, id=139, 546.3612pt x 346.896pt>
+File: media2/Figure_3.png Graphic file (type png)
+<use media2/Figure_3.png>
+Package pdftex.def Info: media2/Figure_3.png  used on input line 811.
+(pdftex.def)             Requested size: 193.47578pt x 122.83928pt.
+<media2/Figure_4.png, id=140, 527.571pt x 346.896pt>
+File: media2/Figure_4.png Graphic file (type png)
+<use media2/Figure_4.png>
+Package pdftex.def Info: media2/Figure_4.png  used on input line 812.
+(pdftex.def)             Requested size: 193.47578pt x 127.21675pt.
+<media2/Figure_5.png, id=141, 547.0839pt x 346.896pt>
+File: media2/Figure_5.png Graphic file (type png)
+<use media2/Figure_5.png>
+Package pdftex.def Info: media2/Figure_5.png  used on input line 813.
+(pdftex.def)             Requested size: 193.47578pt x 122.67519pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [34 <./media2/Figure_1.png> <./media2/Figure_2.png> <./media2/Figure_3.png> <.
+/media2/Figure_4.png> <./media2/Figure_5.png>]
+<media2/Figure_8.png, id=150, 405.01312pt x 349.305pt>
+File: media2/Figure_8.png Graphic file (type png)
+<use media2/Figure_8.png>
+Package pdftex.def Info: media2/Figure_8.png  used on input line 823.
+(pdftex.def)             Requested size: 193.47578pt x 166.86499pt.
+<media2/Figure_9.png, id=151, 395.22656pt x 348.55219pt>
+File: media2/Figure_9.png Graphic file (type png)
+<use media2/Figure_9.png>
+Package pdftex.def Info: media2/Figure_9.png  used on input line 824.
+(pdftex.def)             Requested size: 193.47578pt x 170.62718pt.
+<media2/Figure_10.png, id=152, 386.19281pt x 346.29375pt>
+File: media2/Figure_10.png Graphic file (type png)
+<use media2/Figure_10.png>
+Package pdftex.def Info: media2/Figure_10.png  used on input line 825.
+(pdftex.def)             Requested size: 193.47578pt x 173.48462pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [35 <./media2/Figure_8.png> <./media2/Figure_9.png> <./media2/Figure_10.png>]
+<media/Figure_6.png, id=159, 462.528pt x 346.896pt>
+File: media/Figure_6.png Graphic file (type png)
+<use media/Figure_6.png>
+Package pdftex.def Info: media/Figure_6.png  used on input line 835.
 (pdftex.def)             Requested size: 193.47578pt x 145.10777pt.
-<media/Figure_5.png, id=141, 462.528pt x 346.896pt>
-File: media/Figure_5.png Graphic file (type png)
-<use media/Figure_5.png>
-Package pdftex.def Info: media/Figure_5.png  used on input line 811.
-(pdftex.def)             Requested size: 193.47578pt x 145.10777pt.
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 812.
-<media/Figure_7.png, id=142, 462.528pt x 346.896pt>
+<media/Figure_7.png, id=160, 462.528pt x 346.896pt>
 File: media/Figure_7.png Graphic file (type png)
 <use media/Figure_7.png>
-Package pdftex.def Info: media/Figure_7.png  used on input line 820.
+Package pdftex.def Info: media/Figure_7.png  used on input line 836.
 (pdftex.def)             Requested size: 193.47578pt x 145.10777pt.
-<media/Figure_8.png, id=143, 462.528pt x 346.896pt>
-File: media/Figure_8.png Graphic file (type png)
-<use media/Figure_8.png>
-Package pdftex.def Info: media/Figure_8.png  used on input line 821.
-(pdftex.def)             Requested size: 193.47578pt x 145.10777pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 837.
+<media/Figure_11.png, id=161, 435.12563pt x 380.92313pt>
+File: media/Figure_11.png Graphic file (type png)
+<use media/Figure_11.png>
+Package pdftex.def Info: media/Figure_11.png  used on input line 846.
+(pdftex.def)             Requested size: 290.22107pt x 254.08374pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [34 <./media/Figure_1.png> <./media/Figure_2.png> <./media/Figure_3.png> <./me
-dia/Figure_4.png> <./media/Figure_5.png>]
+ [36 <./media/Figure_6.png> <./media/Figure_7.png> <./media/Figure_11.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [35 <./media/Figure_7.png> <./media/Figure_8.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [36]
-Underfull \hbox (badness 3068) in paragraph at lines 836--837
+ [37]
+Underfull \hbox (badness 3068) in paragraph at lines 866--867
 []\T2A/cmr/m/n/14.4 Byun YH, Park CK. Classification and Diagnosis of Adult Gli
 oma:
  []
 
 
-Underfull \hbox (badness 3826) in paragraph at lines 836--837
+Underfull \hbox (badness 3826) in paragraph at lines 866--867
 \T2A/cmr/m/n/14.4 A Scoping Review. Brain Neurorehabil. 2022 Nov 22;15(3):e23. 
 doi:
  []
 
 
-Underfull \hbox (badness 2351) in paragraph at lines 848--849
+Underfull \hbox (badness 2351) in paragraph at lines 878--879
 \T2A/cmr/m/n/14.4 T. Neal, K. Yoshida, Chemotherapy for tumors: An analysis of 
 the
  []
 
 
-Underfull \hbox (badness 1540) in paragraph at lines 848--849
+Underfull \hbox (badness 1540) in paragraph at lines 878--879
 \T2A/cmr/m/n/14.4 Biosciences, Volume 209, Issue 1, 2007, pp. 292-315, ISSN 002
 5-5564,
  []
@@ -830,8 +856,8 @@ Underfull \hbox (badness 1540) in paragraph at lines 848--849
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [37]
-Underfull \hbox (badness 1331) in paragraph at lines 866--867
+ [38]
+Underfull \hbox (badness 1331) in paragraph at lines 896--897
 \T2A/cmr/m/n/14.4 interactive dynamics. Cancer Immunol Immunother. 2008; 57: 42
 5^^U439.
  []
@@ -839,10 +865,10 @@ Underfull \hbox (badness 1331) in paragraph at lines 866--867
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [38]
+ [39]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [39]
+ [40]
 (document.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -855,10 +881,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 7222 strings out of 474369
- 114715 string characters out of 5754585
+ 7252 strings out of 474369
+ 115508 string characters out of 5754585
  1946754 words of memory out of 5000000
- 29484 multiletter control sequences out of 15000+600000
+ 29514 multiletter control sequences out of 15000+600000
  576555 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,15n,79p,4396b,462s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -878,9 +904,9 @@ ts/type1/public/cm-super/sfrm1200.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-sup
 er/sfrm1440.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfti1200.pfb><D:/Ap
 ps/MiKTeX/fonts/type1/public/cm-super/sfti1440.pfb><D:/Apps/MiKTeX/fonts/type1/
 public/cm-super/sfti1728.pfb>
-Output written on document.pdf (39 pages, 669263 bytes).
+Output written on document.pdf (40 pages, 998338 bytes).
 PDF statistics:
- 240 PDF objects out of 1000 (max. 8388607)
+ 251 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
