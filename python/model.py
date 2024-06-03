@@ -6,8 +6,6 @@ import random
 from utils import *
 from math_utils import *
 
-plt.rcParams['text.usetex'] = True
-
 class eq_model:
     
     def __init__(self, params=None, dev=None):
@@ -59,7 +57,7 @@ class eq_model:
                 self.r_2*X[1]*(1-X[1]/self.c_2)+self.a_1*X[4]/((self.k_4+X[4])*(self.e_2+X[3]))-self.alpha_3*X[0]*X[1]/(X[0]+self.k_2), 
                 self.a_2*X[0]/(X[3]+self.k_5)-self.mu_1*X[2]-self.alpha_4*X[0]*X[2]/(X[0]+self.k_3), 
                 self.s_1+self.b_1*X[0]-self.mu_2*X[3], 
-                self.b_2*X[2]-self.mu_3*X[4]], dtype='float64')       
+                self.b_2*X[2]-self.mu_3*X[4]], dtype='float64')      
         
         self.__setattr__('dxdt', dxdt)
 
@@ -146,49 +144,67 @@ class eq_model:
             val = self.r_1*(self.c_1-point[0])*(point[3]+self.e_1)*(point[0]+self.k_1) - self.alpha_2*self.c_1*point[2]
             print(f'(4)-2 в точке x_1 = {croots[j]}: {val}')
         return croots
-            
-    def integrate_on_set(self, bounds, T = 2000.0, N = np.array([5,5,5,3,5])):
+    
+    def integrate_at_point(self, point, T = 2000.0):
         
-    # working under assmption that the first element of self.eqpoints is an equilibrium point that lies inside of the set D 
+        plt.rcParams['text.usetex'] = False
+        
+        ax = [plt.figure().add_subplot(projection='3d') for i in range(3)]
+        sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], point, rtol=1e-7, atol=1e-6)
+        X = sol.y
+        for i in range(len(ax)):
+            ax[i].plot(X[(i + 2*(i//5))%5,:], X[(i+1)%5,:], X[(i+2-2*(i//5))%5,:], color='black')    
+            ax[i].scatter(point[(i + 2*(i//5))%5], point[(i+1)%5], point[(i+2-2*(i//5))%5], color='black')    
+            ax[i].scatter(self.eqpoints[1:,(i + 2*(i//5))%5], self.eqpoints[1:,(i+1)%5], self.eqpoints[1:,(i+2-2*(i//5))%5], color='r')
+            ax[i].text(self.eqpoints[1,(i + 2*(i//5))%5], self.eqpoints[1,(i+1)%5], self.eqpoints[1,(i+2-2*(i//5))%5], 'P_2')
+            ax[i].text(self.eqpoints[2,(i + 2*(i//5))%5], self.eqpoints[2,(i+1)%5], self.eqpoints[2,(i+2-2*(i//5))%5], 'P_3')
+            ax[i].set_xlabel(f'x_{(i + 2*(i//5))%5+1}')
+            ax[i].set_ylabel(f'x_{(i+1)%5+1}')
+            ax[i].set_zlabel(f'x_{(i+2-2*(i//5))%5+1}')
+        return None 
+    
+    def quiver(self, plot_area, N = np.array([5, 5, 5, 5, 5])):
+        
+        ax = plt.figure().add_subplot(projection='3d')
+
+        # Make the grid
+        x1, x2, x3, x4, x5 = np.meshgrid(np.linspace(plot_area[0,0], plot_area[0,1], num = N[0]),
+            np.linspace(plot_area[1,0], plot_area[1,1], num = N[1]),
+            np.linspace(plot_area[2,0], plot_area[2,1], num = N[2]),
+            np.linspace(plot_area[3,0], plot_area[3,1], num = N[3]),
+            np.linspace(plot_area[4,0], plot_area[4,1], num = N[4]))
+
+        # Make the direction data for the arrows
+        u1, u2, u3, u4, u5 = self.dxdt(np.array([x1, x2, x3, x4, x5])) 
+
+        ax.quiver(x1, x2, x3, u1, u2, u3, length = 1)
+        ax.scatter(self.eqpoints[2,0], self.eqpoints[2,1], self.eqpoints[2,2], color='r')
+        
+                 
+    def integrate_on_set(self, bounds, T = 2000.0, N = np.array([5,5,5,5,5])):
+        
+        # working under assmption that the first element of self.eqpoints is an equilibrium point that lies inside of the set D 
         
         if bounds.shape != (5,2):
             raise ValueError('Incorrect bounds!')
         
-        f = open("distances.txt", "w")
+        x1 = np.linspace(bounds[0,0], bounds[0,1], num = N[0])
+        x3 = np.linspace(bounds[2,0], bounds[2,1], num = N[2])
+        x5 = np.linspace(bounds[4,0], bounds[4,1], num = N[4])
         
-        x1 = np.linspace(bounds[0,0], bounds[0,1], N[0]) 
-        x2 = np.linspace(bounds[1,0], bounds[1,1], N[1])
-        x3 = np.linspace(bounds[2,0], bounds[2,1], N[2])
-        x4 = np.linspace(bounds[3,0], bounds[3,1], N[3])
-        x5 = np.linspace(bounds[4,0], bounds[4,1], N[4])
-        
-        x1, x2, x3, x4, x5 = np.meshgrid(x1, x2, x3, x4, x5)
-        
-        NN = np.prod(N)
-        traj_beg = np.zeros((NN,5))
-        traj_end = np.zeros((NN,5))
-        for i in range(NN):
-            progress_bar(i, NN)
-            coord1 = i%N[0] 
-            coord2 = i//N[0]%N[1] 
-            coord3 = i//(N[0]*N[1])%N[2]
-            coord4 = i//(N[0]*N[1]*N[2])%N[3] 
-            coord5 = i//(N[0]*N[1]*N[2]*N[3])%N[4]
-            sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], np.array([x1[coord1, coord2, coord3, coord4, coord5], x2[coord1, coord2, coord3, coord4, coord5], x3[coord1, coord2, coord3, coord4, coord5], x4[coord1, coord2, coord3, coord4, coord5], x5[coord1, coord2, coord3, coord4, coord5]]), rtol=1e-7, atol=1e-6)
-            traj_beg[i,:] = sol.y[:,0]
-            traj_end[i,:] = sol.y[:,-1]
-            f.write(f'Для точки {traj_beg[i,:]} расстояние от конца траектории, исходящей из этой точки, до внутренннего ПР:\n{np.linalg.norm(traj_end[i,:] - self.eqpoints[2],2)}\n')
-            # if i == 100:
-            #     print(f'\nДля начальных точек: \n{traj_beg[89:99,:]}')
-            #     print(f'\nРасстояния от конечных точек траекторий до внутреннего положения равновесия: \n{np.linalg.norm(traj_end[89:99] - self.eqpoints[2],2,axis=1)}')
-            #     print(f'\nРасстояния от конечных точек траекторий до устойчивого граничного положения равновесия: \n{np.linalg.norm(traj_end[89:99] - self.eqpoints[1],2,axis=1)}')
-            #     print(f'\nРасстояния от конечных точек траекторий до неустойчивого граничного положения равновесия: \n{np.linalg.norm(traj_end[89:99] - self.eqpoints[0],2,axis=1)}')
-            #     return None
-            
-        # Dmax = np.argmax(np.linalg.norm(traj_end - self.eqpoints[2],2)) 
-        f.close()   
-        progress_bar(NN, NN)
-        print('Integration results written to the .txt file.')
+        ax = plt.figure().add_subplot(projection='3d')
+        points = np.array([np.array([x1[i], 0.0, x3[j], self.s_1/self.mu_2, x5[k]]) for i in range(len(x1)) for j in range(len(x3))  for k in range(len(x3))])
+        for i in range(len(points)):
+            sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], points[i], rtol=1e-7, atol=1e-6)
+            X = sol.y
+            ax.plot(X[0,:], X[2,:], X[4,:], color='black')    
+            ax.scatter(points[i,0], points[i, 2], points[i, 4], color='black')    
+        ax.scatter(self.eqpoints[1:,0], self.eqpoints[1:,2], self.eqpoints[1:,4], color='r')
+        ax.text(self.eqpoints[1,0], self.eqpoints[1,2], self.eqpoints[1,4], 'P_2')
+        ax.text(self.eqpoints[2,0], self.eqpoints[2,2], self.eqpoints[2,4], 'P_3')
+        ax.set_xlabel(f'x_{1}')
+        ax.set_ylabel(f'x_{3}')
+        ax.set_zlabel(f'x_{5}')
         
         return None
                 
@@ -229,6 +245,7 @@ class eq_model:
         return Ds[Dmax]
     
     def plot_transitions(self, T = 2000.0):
+        plt.rcParams['text.usetex'] = True
         ax1 = [plt.figure().add_subplot(), plt.figure().add_subplot(), plt.figure().add_subplot(), plt.figure().add_subplot(), plt.figure().add_subplot()]
         ax2 = [plt.figure().add_subplot(), plt.figure().add_subplot()]
         random.seed()
