@@ -41,7 +41,7 @@
 \def\sectionfont{\large\bf}
 \def\subsectionfont{\bf}
 \def\subsubsectionfont{\it}
-\def\captionfont{\small}
+\def\captionfont{\fontsize{14pt}{14pt}}
 \def\captionnofont{\bfseries}
 \def\foliofont{\rm}
 \def\colonfont{\footnotesize\sl}
@@ -64,6 +64,8 @@
 \newtheorem{definition}{Определение}
 \theoremstyle{definition}
 \newtheorem{affirmation}{Утверждение}
+\theoremstyle{definition}
+\newtheorem{example}{Пример}
 \renewenvironment{proof}{\noindent$\blacktriangleleft$}{}
 \renewcommand\qedsymbol{$\blacktriangleright$}
 
@@ -399,8 +401,10 @@
 \def\@block@variant{\def\variant##1{}\let\@variant\relax}
 \def\Ministry#1{\def\@Ministry{#1}}
 \def\BMSTU#1{\def\@BMSTU{#1}}
+\renewcommand\thesubfigure{}
 \let\oldref=\ref 
 \renewcommand{\ref}[1]{(\oldref{#1})}
+\newcommand{\figref}[1]{рис. \oldref{#1}}
 
 
 %%  Настроечные команды
@@ -830,6 +834,7 @@
 
 
 \long\def\@makecaption#1#2{%
+	\begin{spacing}{1.5}
 	\def\@tempa{#2}\def\@tempb{\ignorespaces}%
 	\ifx\@tempa\@tempb
 	\def\@tempb{{\captionnofont{#1}}}%
@@ -842,7 +847,7 @@
 	\else
 	\global \@minipagefalse
 	\hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
-	\fi}
+	\fi\end{spacing}}
 %  Для вставки рисунка, не занимающего места
 \def\dfb#1{\ifvmode \let\@tempa=\relax \else \let\@tempa=\vadjust\fi
 	\@tempa{\vbox to 0pt{#1\vss}}}
