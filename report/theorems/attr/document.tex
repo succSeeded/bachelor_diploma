@@ -1,0 +1,71 @@
+% !TeX spellcheck = ru_RU-Russian
+% !TeX encoding = UTF-8 
+
+\documentclass[14pt,a4paper]{extarticle}
+
+\usepackage[russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace} 
+\usepackage[a4paper,
+left=30mm,
+right=10mm,
+top=20mm,
+bottom=20mm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx} 
+\usepackage{cite}
+\usepackage{subfigure}
+\usepackage{subcaption}
+\usepackage{kprj}
+
+\onehalfspacing
+
+\begin{document}
+	Рассмотрим следующую пятимерную систему с неотрицательными переменными $x=(x_1, x_2, x_3, x_4, x_5)$ и положительными параметрами:
+	\begin{equation}
+		\begin{cases}
+			\begin{aligned}
+				\dot{x}_1 &= r_1x_1\left(1-\dfrac{x_1}{c_1}\right)-\dfrac{1}{x_4+e_1}(\alpha_1x_2+\alpha_2x_3)\dfrac{x_1}{x_1+k_1},\\
+				\dot{x}_2 &= r_2x_2\left(1-\dfrac{x_2}{c_2}\right)+\dfrac{x_5}{k_4+x_5}a_1\dfrac{1}{x_4+e_2}-\alpha_3\dfrac{x_1}{x_1+k_2}x_2,\\
+				\dot{x}_3 &= a_2\dfrac{x_1}{k_5+x_4}-\mu_1x_3-\alpha_4\dfrac{x_1}{x_1+k_3}x_3,\\
+				\dot{x}_4 &= s_1 + b_1x_1-\mu_2x_4,\\
+				\dot{x}_5 &= b_2x_3-\mu_3x_5,
+			\end{aligned}
+		\end{cases}\label{eq:initial_system}
+	\end{equation}
+	где $t\ge0$ --- время;
+	
+	$x_1$ --- количество клеток глиомы;
+	
+	$x_2$ --- количество макрофагов;
+	
+	$x_3$ --- количество т-киллеров;
+	
+	$x_4$ --- количество белков \textit{TGF-}$\beta$;
+	
+	$x_5$ --- количество $\gamma$-интерферонов.
+	
+	\begin{theorem}\label{th:inv_comp}
+		Все компактные инвариантные множества системы (1) содержатся в положительно инвариантных множествах
+		\begin{align*}
+			K_1 &=\left\{0 \leqslant x_1 \leqslant \overline{x}_1 = c_1\right\}\cap D,\\[6pt]
+			K_2 &=\left\{\dfrac{s_1}{\mu_2} = \underline{x}_4 \leqslant x_4 \leqslant \overline{x}_4 = \dfrac{s_1}{\mu_2} + b_1c_1\right\}\cap K_1,\\[6pt]
+			K_3 &=\left\{0 \leqslant x_3 \leqslant \overline{x}_3 = \dfrac{a_2\overline{x}_1}{k_5+\underline{x}_4}\cdot\dfrac{\overline{x}_1+k_2}{\mu_1k_2}\right\}\cap K_2,\\[6pt]
+			K_4 &=\left\{0 \leqslant x_5 \leqslant \overline{x}_5 = \dfrac{b_2\overline{x}_3}{\mu_3}\right\}\cap K_3,\\[6pt]
+			K_5 &=\left\{0 \leqslant x_2 \leqslant \overline{x}_2 =  \dfrac{c_2}{2}+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{x}_5}{k_4(\underline{x}_4+e_2)}}\right\}\cap K_4.
+		\end{align*}
+	\end{theorem}
+	\newpage
+	
+	\noindent$\blacktriangleleft$\dots Следовательно, множества $K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)$ положительно инвариантны. Также можно заметить, что множества $K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)$ компактны при
+	\[\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \geqslant 0.\]
+	
+	Покажем, что множество $K_5$ содержит аттрактор системы. Решение автономной системы дифференциальных уравнений $\dot{x}=F(x)$, где $F(x)$ --- гладкое векторное поле, с начальным значением из любого компакта продолжается вперед неограниченно, либо до границы этого компакта\cite[с.~84]{Arnold}. Для любой траектории системы \ref{eq:initial_system} существует такой набор $\tau_i = \hat{\tau}_i$, что ее начальная точка будет содержаться в множестве $\hat{K}_5 = K_5(\hat\tau_1,\,\hat\tau_2,\,\hat{\tilde{\tau}}_2,\,\hat\tau_3,\,\hat\tau_4,\,\hat\tau_5)$. Т.к. компакт $\hat{K}_5$ положительно инвариантен и $\dot{\varphi}_i(x)<0$ на границе $\hat{K}_5$, решения, начинающиеся в $\hat{K}_5\setminus K_5$, не будут достигать границы $\hat{K}_5$ и могут быть неограниченно продолжены. Тогда траектории, начинающиеся в $\hat{K}_5$ ограничены и принадлежат этому компакту при $t\ge0$. Следовательно, предельные множества траекторий из $\hat{K}_5$ --- непустые инвариантные компакты. Согласно теореме \thref{th:inv_comp}, $K_5$ содержит все инвариантные компакты системы, т.е. $K_5$ также содержит предельные множества траекторий из $\hat{K}_5$. Т.к. для любой точки из $D$ можно подобрать $\tau_i$ такие, что соответствующий компакт $K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5)$ ее содержит, можно сделать вывод о том, что $K_5$ содержит предельные множества всех траекторий, начинающихся в $D$. Таким образом, $K_5$ --- положительно инвариантный компакт, содержащий аттрактор системы.\qed
+	
+	\begin{thebibliography}{6}
+		\bibitem{Arnold}
+		\textit{Арнольд, В. И.}, Обыкновенные дифференциальные уравнения: учеб. пособие для вузов. --- 3-е изд., перераб. и доп., М., Наука, 1984, 271 c..
+	\end{thebibliography}
+\end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.8)  9 JUN 2024 00:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.8)  6 JUN 2024 20:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -522,9 +522,6 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 \jsp=\dimen176
 )
-(D:\Apps\MiKTeX\tex/latex/psnfss\courier.sty
-Package: courier 2020/03/25 PSNFSS-v9.3 (WaS) 
-)
 (D:\Apps\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-04-11 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count298
@@ -538,23 +535,23 @@ File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )<<t2a.cmap>>)
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Info: Redefining \th on input line 49.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Info: Redefining \th on input line 25.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -615,425 +612,45 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count305
-<emblema.pdf, id=2, 476.01839pt x 534.79799pt>
-File: emblema.pdf Graphic file (type pdf)
-<use emblema.pdf>
-Package pdftex.def Info: emblema.pdf  used on input line 50.
-(pdftex.def)             Requested size: 90.44443pt x 101.61267pt.
-
-
-LaTeX Font Warning: Font shape `T2A/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 50.
-
-
-LaTeX Font Warning: Font shape `T2A/cmr/bx/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 50.
-
-
-LaTeX Font Warning: Font shape `T2A/cmr/m/it' in size <16> not available
-(Font)              size <17.28> substituted on input line 50.
-
-
-LaTeX Font Warning: Font shape `T2A/cmr/bx/it' in size <16> not available
-(Font)              size <17.28> substituted on input line 50.
-
 <<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>>
-Overfull \hbox (1.78844pt too wide) detected at line 50
- \T2A/cmr/m/n/12 ФН12-81Б 
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Overfull \hbox (10.80788pt too wide) detected at line 50
-\T2A/cmr/m/it/12 М.А. Велищанский 
- []
-
-[1
+ [1
 
 {C:/Users/anaki/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{D:/Apps/MiKTe
-X/fonts/enc/dvips/cm-super/cm-super-t2a.enc} <./emblema.pdf>]
+X/fonts/enc/dvips/cm-super/cm-super-t2a.enc}]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-(document.toc)
-\tf@toc=\write3
-\openout3 = `document.toc'.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [11]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [16]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [17]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [19]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [20]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [21]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [22]
-Overfull \hbox (7.52142pt too wide) detected at line 553
- []$[] \OMS/cmsy/m/n/14.4 ^^@ [] \OML/cmm/m/it/14.4 x[] < a[][] \OMS/cmsy/m/n/1
-4.4 ^^@ []\OML/cmm/m/it/14.4 x[] < \OMS/cmsy/m/n/14.4 ^^@[] \U/msa/m/n/14.4 6 \
-OT1/cmr/m/n/14.4 0\OML/cmm/m/it/14.4 :  $ 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [23]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [24]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [26]
-Overfull \hbox (11.8265pt too wide) in paragraph at lines 641--642
-[]\T2A/cmr/m/n/14.4 Воспользовавшись ме-то-дом ма-те-ма-ти-че-ской ин-дук-ции п
-о-ка-жем, что ДРФ
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [27]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [28]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [29]
-Overfull \hbox (15.68758pt too wide) in paragraph at lines 705--706
-\T2A/cmr/m/n/14.4 ях па-ра-мет-ров име-ет по-ло-же-ния рав-но-ве-сия $\OML/cmm/
-m/it/14.4 P[] []$ \T2A/cmr/m/n/14.4 и $\OML/cmm/m/it/14.4 P[] []$\T2A/cmr/m/n/1
-4.4 . 
- []
-
-
-Overfull \hbox (10.88185pt too wide) in paragraph at lines 709--710
-\T2A/cmr/m/n/14.4 вым, а по-ло-же-ние рав-но-ве-сия $\OML/cmm/m/it/14.4 P[] []$
- \T2A/cmr/m/n/14.4 яв-ля-ет-ся асимп-то-ти-че-ски устой-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [30]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [31]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [32]
-Overfull \hbox (0.44595pt too wide) in paragraph at lines 797--798
-\T2A/cmr/bx/n/14.4 Пример 1. \T2A/cmr/m/n/14.4 Рас-смот-рим си-сте-му (1[]) при
- зна-че-ни-ях па-ра-мет-ров, дан-ных в [22].
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [33]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [34]
-<media2/Figure_1.png, id=139, 545.6385pt x 346.896pt>
-File: media2/Figure_1.png Graphic file (type png)
-<use media2/Figure_1.png>
-Package pdftex.def Info: media2/Figure_1.png  used on input line 852.
-(pdftex.def)             Requested size: 193.47578pt x 123.00337pt.
-<media2/Figure_2.png, id=141, 547.8066pt x 346.896pt>
-File: media2/Figure_2.png Graphic file (type png)
-<use media2/Figure_2.png>
-Package pdftex.def Info: media2/Figure_2.png  used on input line 853.
-(pdftex.def)             Requested size: 193.47578pt x 122.51639pt.
-<media2/Figure_3.png, id=142, 546.3612pt x 346.896pt>
-File: media2/Figure_3.png Graphic file (type png)
-<use media2/Figure_3.png>
-Package pdftex.def Info: media2/Figure_3.png  used on input line 854.
-(pdftex.def)             Requested size: 193.47578pt x 122.83928pt.
-<media2/Figure_4.png, id=143, 527.571pt x 346.896pt>
-File: media2/Figure_4.png Graphic file (type png)
-<use media2/Figure_4.png>
-Package pdftex.def Info: media2/Figure_4.png  used on input line 855.
-(pdftex.def)             Requested size: 193.47578pt x 127.21675pt.
-<media2/Figure_5.png, id=144, 547.0839pt x 346.896pt>
-File: media2/Figure_5.png Graphic file (type png)
-<use media2/Figure_5.png>
-Package pdftex.def Info: media2/Figure_5.png  used on input line 856.
-(pdftex.def)             Requested size: 193.47578pt x 122.67519pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [35]
-<media2/Figure_8.png, id=148, 405.01312pt x 349.305pt>
-File: media2/Figure_8.png Graphic file (type png)
-<use media2/Figure_8.png>
-Package pdftex.def Info: media2/Figure_8.png  used on input line 866.
-(pdftex.def)             Requested size: 193.47578pt x 166.86499pt.
-<media2/Figure_9.png, id=149, 395.22656pt x 348.55219pt>
-File: media2/Figure_9.png Graphic file (type png)
-<use media2/Figure_9.png>
-Package pdftex.def Info: media2/Figure_9.png  used on input line 867.
-(pdftex.def)             Requested size: 193.47578pt x 170.62718pt.
-<media2/Figure_10.png, id=150, 386.19281pt x 346.29375pt>
-File: media2/Figure_10.png Graphic file (type png)
-<use media2/Figure_10.png>
-Package pdftex.def Info: media2/Figure_10.png  used on input line 868.
-(pdftex.def)             Requested size: 193.47578pt x 173.48462pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [36 <./media2/Figure_1.png> <./media2/Figure_2.png> <./media2/Figure_3.png> <.
-/media2/Figure_4.png> <./media2/Figure_5.png>]
-<media/Figure_6.png, id=159, 462.528pt x 346.896pt>
-File: media/Figure_6.png Graphic file (type png)
-<use media/Figure_6.png>
-Package pdftex.def Info: media/Figure_6.png  used on input line 878.
-(pdftex.def)             Requested size: 193.47578pt x 145.10777pt.
-<media/Figure_7.png, id=160, 462.528pt x 346.896pt>
-File: media/Figure_7.png Graphic file (type png)
-<use media/Figure_7.png>
-Package pdftex.def Info: media/Figure_7.png  used on input line 879.
-(pdftex.def)             Requested size: 193.47578pt x 145.10777pt.
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 880.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [37 <./media2/Figure_8.png> <./media2/Figure_9.png> <./media2/Figure_10.png>]
-<media/Figure_11.png, id=168, 435.12563pt x 380.92313pt>
-File: media/Figure_11.png Graphic file (type png)
-<use media/Figure_11.png>
-Package pdftex.def Info: media/Figure_11.png  used on input line 889.
-(pdftex.def)             Requested size: 290.22107pt x 254.08374pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [38 <./media/Figure_6.png> <./media/Figure_7.png> <./media/Figure_11.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [39]
-Underfull \hbox (badness 8189) in paragraph at lines 910--912
-\T2A/cmr/m/n/14.4 A Scoping Review. Brain Neurorehabil. 2022 Nov 22;15(3):e23. 
-doi:
- []
-
-
-Underfull \hbox (badness 2707) in paragraph at lines 922--924
-[]\T2A/cmr/m/n/14.4 L.G. de Pillis, W. Gu, K.R. Fister, T. Head, K. Maples, A.
- []
-
-
-Underfull \hbox (badness 2435) in paragraph at lines 922--924
-\T2A/cmr/m/n/14.4 Murugan, T. Neal, K. Yoshida, Chemotherapy for tumors: An ana
-lysis
- []
-
-
-Underfull \hbox (badness 1769) in paragraph at lines 922--924
-\T2A/cmr/m/n/14.4 of the dynamics and a study of quadratic and linear optimal c
-ontrols,
- []
-
-
-Underfull \hbox (badness 1303) in paragraph at lines 926--928
-\T2A/cmr/m/n/14.4 immune dynamics with HIV infection of CD4+ T-cells, Int. J. C
-omput.
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [40]
-Underfull \hbox (badness 1577) in paragraph at lines 940--942
-\T2A/cmr/m/n/14.4 CTL immunotherapy for malignant gliomas using a simulation mo
-del of
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [41]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [42]
-(D:\Apps\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2024/03/11 1.10a listings language file
-)
-LaTeX Font Info:    Trying to load font information for T2A+pcr on input line 9
-59.
-LaTeX Font Info:    No file T2Apcr.fd. on input line 959.
-
-
-LaTeX Font Warning: Font shape `T2A/pcr/m/n' undefined
-(Font)              using `T2A/cmr/m/n' instead on input line 959.
-
-(listings/run.py
-
-LaTeX Font Warning: Font shape `T2A/pcr/b/n' undefined
-(Font)              using `T2A/pcr/m/n' instead on input line 1.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [43])
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [44]
-(listings/model.py
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [45]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [46]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [47]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [48]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [49]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [50]
-
-LaTeX Font Warning: Font shape `T2A/pcr/m/it' undefined
-(Font)              using `T2A/pcr/m/n' instead on input line 165.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [51]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [52]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [53])
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [54]
-(listings/math_utils.py
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [55]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [56])
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [57]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [58]
 (document.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-04-11>
  ***********
-
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 1.28pt have occurred.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
  ) 
 Here is how much of TeX's memory you used:
- 9362 strings out of 474369
- 142994 string characters out of 5754585
- 2240754 words of memory out of 5000000
- 31589 multiletter control sequences out of 15000+600000
- 576555 words of font info for 83 fonts, out of 8000000 for 9000
+ 8373 strings out of 474369
+ 130364 string characters out of 5754585
+ 1940754 words of memory out of 5000000
+ 30669 multiletter control sequences out of 15000+600000
+ 564791 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,15n,79p,4396b,2002s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 67i,15n,77p,2413b,265s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <D:/Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Apps/MiKTeX/fon
 ts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmmi12.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/
-Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Apps/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmr12.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mr7.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Apps/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/Apps/MiKTeX/fonts/type1/public/
-amsfonts/symbols/msam10.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/symbols
-/msbm10.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfbi1728.pfb><D:/Apps/M
-iKTeX/fonts/type1/public/cm-super/sfbx1200.pfb><D:/Apps/MiKTeX/fonts/type1/publ
-ic/cm-super/sfbx1440.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfbx1728.p
-fb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfrm0800.pfb><D:/Apps/MiKTeX/fon
-ts/type1/public/cm-super/sfrm1200.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-sup
-er/sfrm1440.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfti1200.pfb><D:/Ap
-ps/MiKTeX/fonts/type1/public/cm-super/sfti1440.pfb><D:/Apps/MiKTeX/fonts/type1/
-public/cm-super/sfti1728.pfb>
-Output written on document.pdf (58 pages, 1051152 bytes).
+nts/cm/cmmi12.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/
+Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Apps/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb><D:/Apps/MiKTeX/fonts/type1/public/amsfonts/sym
+bols/msam10.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfbx1440.pfb><D:/Ap
+ps/MiKTeX/fonts/type1/public/cm-super/sfbx1728.pfb><D:/Apps/MiKTeX/fonts/type1/
+public/cm-super/sfrm1440.pfb><D:/Apps/MiKTeX/fonts/type1/public/cm-super/sfti14
+40.pfb>
+Output written on document.pdf (3 pages, 135078 bytes).
 PDF statistics:
- 308 PDF objects out of 1000 (max. 8388607)
+ 64 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
