@@ -1,0 +1,69 @@
+% !TeX spellcheck = ru_RU-Russian
+% !TeX encoding = UTF-8 
+
+\documentclass[14pt,a4paper]{extarticle}
+
+\usepackage[russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace} 
+\usepackage[a4paper,
+			left=30mm,
+			right=10mm,
+			top=20mm,
+			bottom=20mm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx} 
+\usepackage{cite}
+\usepackage{subfigure}
+\usepackage{subcaption}
+\usepackage{kprj} 
+
+\onehalfspacing
+
+\begin{document}
+	
+	Рассмотрим следующий класс динамических систем:
+	\[\dot{x}_i=F_i(x),\, x=(x_1,\ldots,x_n)\in D,\, i=\overline{1,n},\]
+	где $D = \mathbb{R}^{n}_{+,0}$, правые части $F_i(x)$ --- дробно-рациональные функции (далее ДРФ) вида 
+	\begin{equation*}
+		F_i(x)=\dfrac{P_i(x)}{Q_i(x)},
+	\end{equation*}
+	где $P(x)$ и $Q(x)$ --- многочлены порядков не выше $n$ и $Q(x)$ не имеет корней в~$D$. 
+	
+	Для динамических систем данного  вида за функцию Ляпунова для внутреннего положения равновесия $\hat{x}=(\hat{x}_1,\ldots,\hat{x}_n)\in D$ можно принять следующее выражение:
+	\[V(x)=2\sum\limits_{i\in\sigma_1}\tilde{k}_i\left(x_i-\hat{x}_i-\hat{x}_i\ln\dfrac{x_i}{\hat{x}_i}\right)+\dfrac{1}{2}\sum\limits_{j\in\sigma_2}\tilde{k}_j\left(x_j-\hat{x}_j\right)^2,\]
+	где $\sigma_1$ --- множество номеров функций $F_i(x)$ кратных $x_i$;
+	
+	$\sigma_2$ --- множество всех остальных номеров функций $F_j(x)$;
+	
+	$\tilde{k}_i$ --- положительные параметры. 
+	
+	Производная такой функции в силу системы будет представима в виде квадратичной формы:
+	\[\dot{V}(x)=(x-\hat{x})^{T}H(x)(x-\hat{x}),\]
+	где $H(x)$ -- симметричная функциональная матрица размера $n\times n$, координатными функциями которой являются дробно--рациональные функции. 
+	
+	На области $D$ для $V(x)$ должны выполняться следующие условия:
+	\[V(x)>0,\, V(\hat{x})=0,\, \hat{x}\in D,\,x\in D\setminus\left\{\hat{x}\right\}.\]
+	Квадратичные слагаемые неотрицательно определены на области $D$, слагаемые вида
+	\[x_j-\hat{x}_j-\hat{x}_j\ln\dfrac{x_j}{\hat{x}_j}\] 
+	также неотрицательны в $D$.
+	Производная $V(x)$ в силу системы:
+	\begin{multline*}
+		\dot{V}(x)=\sum\limits_{i\in\sigma_1}\tilde{k}_i\left(1-\dfrac{\hat{x}_i}{x_i}\right)x_i\tilde{F}_i(x)+\sum\limits_{j\in\sigma_2}\tilde{k}_j(x_j-\hat{x}_j)F_j(x)=\\
+		=\sum\limits_{i\in\sigma_1}\tilde{k}_i(x_i-\hat{x}_i)\tilde{F}_i(x)+\sum\limits_{j\in\sigma_2}\tilde{k}_j(x_j-\tilde{x}_j)F_j(x).
+	\end{multline*}
+	
+	Разложим функцию $P_i(x)$ в многочлен Тейлора в точке $x=\hat{x}$. Т.к. $P_i(x)$~--- многочлен порядка не выше $n$, остаточный член в данном разложении будет равен нулю. Заметим, что $\hat{x}$ --- положение равновесия, т.е. $P_i(\hat{x})=0$ и
+	\begin{multline}\label{eq:Taylor_poly}
+	P_i(x) = \sum\limits_{j=1}^n\dfrac{\partial{P}_i(\hat{x})}{\partial{x}_j}(x_j-\hat{x}_j) + \sum\limits_{j=1}^n\sum\limits_{k=1}^n\dfrac{\partial^2{P}_i(\hat{x})}{\partial{x}_j\partial{x}_k}(x_j-\hat{x}_j)(x_k-\hat{x}_k)+\ldots\\
+	\ldots + \sum\limits_{j_1=1}^n\ldots\sum\limits_{j_n=1}^n\dfrac{\partial^n{P}_i(\hat{x})}{\partial{x}_{j_1}\ldots\partial{x}_{j_n}}(x_{j_1}-\hat{x}_{j_1})\cdot\ldots\cdot(x_{j_n}-\hat{x}_{j_n}).
+	\end{multline}
+	Тогда разделив \ref{eq:Taylor_poly} на соответствующий многочлен $Q_i(x)$ получим, что каждая функция $F_i(x)$ может быть представлена как
+	\[F_i(x)=\sum\limits_{p\in\tilde{\sigma}_i}(x_p-\hat{x}_p)h_p(x),\]    
+	где $h_p(x)$ -- ДРФ, $\tilde{\sigma}_i$ -- множество всех номеров $x_p,\, p\in\left\{1,\ldots,n\right\}$, входящих в $F_i(x)$. Тогда производная $V(x)$ в силу системы примет вид:
+	\[\dot{V}(x)=\sum\limits_{i\in\sigma_1}\tilde{k}_i(x_i-\hat{x}_i)\sum\limits_{p\in\tilde{\sigma}_i}(x_p-\hat{x}_p)h_{p}(x)+\sum\limits_{j\in\sigma_2}\tilde{k}_j(x_j-\hat{x}_j)\sum\limits_{q\in\tilde{\sigma}_j}(x_q-\hat{x}_q)h_{q}(x).\]
+	Сложив все слагаемые с повторяющимися множителями $(x_i-\hat{x}_i)(x_j-\hat{x}_i)$ и положив равными нулю коэффициенты при множителях отсутствующих в сумме, получим квадратичную форму с симметричной функциональной матрицей $H(x)$:
+	\[\dot{V}(x)=(x-\hat{x})^{T}H(x)(x-\hat{x}).\]
+\end{document}
