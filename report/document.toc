@@ -9,6 +9,6 @@
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.1 }Метод выбора функции Ляпунова для определенного класса систем}{26}{}%
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.2 }Положения равновесия на границе множества $D$}{28}{}%
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.3 }Положения равновесия внутри множества $D$}{31}{}%
-\contentsline {section}{\MakeUppercase []{Заключение}}{36}{}%
-\contentsline {section}{{\let \oe \OE \@@text@case@aux {upper}{}{Список использованных источников}}}{37}{}%
-\contentsline {section}{\MakeUppercase []{Приложение A}}{40}{}%
+\contentsline {section}{\MakeUppercase []{Заключение}}{35}{}%
+\contentsline {section}{{\let \oe \OE \@@text@case@aux {upper}{}{Список использованных источников}}}{36}{}%
+\contentsline {section}{\MakeUppercase []{Приложение A}}{39}{}%

@@ -159,9 +159,11 @@ class eq_model:
         for i in range(len(ax)):
             ax[i].plot(X[(i + 2*(i//5))%5,:], X[(i+1)%5,:], X[(i+2-2*(i//5))%5,:], color='black')    
             ax[i].scatter(point[(i + 2*(i//5))%5], point[(i+1)%5], point[(i+2-2*(i//5))%5], color='black')    
-            ax[i].scatter(self.eqpoints[1:,(i + 2*(i//5))%5], self.eqpoints[1:,(i+1)%5], self.eqpoints[1:,(i+2-2*(i//5))%5], color='r')
+            ax[i].scatter(self.eqpoints[1,(i + 2*(i//5))%5], self.eqpoints[1,(i+1)%5], self.eqpoints[1,(i+2-2*(i//5))%5], color='r')
             ax[i].text(self.eqpoints[1,(i + 2*(i//5))%5], self.eqpoints[1,(i+1)%5], self.eqpoints[1,(i+2-2*(i//5))%5], '$P_2$')
-            ax[i].text(self.eqpoints[2,(i + 2*(i//5))%5], self.eqpoints[2,(i+1)%5], self.eqpoints[2,(i+2-2*(i//5))%5], '$P_3$')
+            # ax[i].scatter(self.eqpoints[1:,(i + 2*(i//5))%5], self.eqpoints[1:,(i+1)%5], self.eqpoints[1:,(i+2-2*(i//5))%5], color='r')
+            # ax[i].text(self.eqpoints[1,(i + 2*(i//5))%5], self.eqpoints[1,(i+1)%5], self.eqpoints[1,(i+2-2*(i//5))%5], '$P_2$')
+            # ax[i].text(self.eqpoints[2,(i + 2*(i//5))%5], self.eqpoints[2,(i+1)%5], self.eqpoints[2,(i+2-2*(i//5))%5], '$P_3$')
             ax[i].set_xlabel(f'$x_{(i + 2*(i//5))%5+1}$')
             ax[i].set_ylabel(f'$x_{(i+1)%5+1}$')
             ax[i].set_zlabel(f'$x_{(i+2-2*(i//5))%5+1}$')
@@ -203,7 +205,7 @@ class eq_model:
         ax.quiver(x1, x2, x3, u1, u2, u3, length = 1)
         ax.scatter(self.eqpoints[2,0], self.eqpoints[2,1], self.eqpoints[2,2], color='r')
                
-    def integrate_on_set(self, bounds, T = 2000.0, N = np.array([10,10,10])):
+    def integrate_on_set(self, bounds, T = 2000.0, N = np.array([5,5,5])):
         
         # working under assmption that the first element of self.eqpoints is an equilibrium point that lies inside of the set D 
         plt.rcParams['text.usetex'] = True
@@ -231,16 +233,17 @@ class eq_model:
         
         return None
                     
-    def plot_transitions(self, point, T = 3000.0):
-        ax1 = [plt.figure().add_subplot(), plt.figure().add_subplot(), plt.figure().add_subplot(), plt.figure().add_subplot(), plt.figure().add_subplot()]
-        ax2 = [plt.figure().add_subplot(), plt.figure().add_subplot()]
+    def plot_transitions(self, point, T = 750.0):
+        ax1 = [plt.figure().add_subplot() for i in range(5)]
+        ax2 = [plt.figure().add_subplot() for i in range(2)]
         sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], point, rtol=1e-7, atol=1e-6)
         for i in range(len(ax1)):
             ax1[i].grid()
-            if i == 0 or i == 3:
-                ax1[i].plot(sol.t, sol.y[i,:])
-            else:
+            # ax1[i].plot(sol.t, sol.y[i,:])
+            if i == 3:
                 ax1[i].plot(sol.t[:500], sol.y[1,:500])
+            else:
+                ax1[i].plot(sol.t, sol.y[i,:])
             ax1[i].set_xlabel('t, дней')
             ax1[i].set_ylabel(f'$x_{i+1}$')
         random.seed()
@@ -253,4 +256,15 @@ class eq_model:
             ax2[i].set_ylabel(f'$x_{(i+1)*2}$')
         ax2[0].plot(sol.t[:100], sol.y[1,:100])
         ax2[1].plot(sol.t[:30], sol.y[3,:30])
+        return None
+    
+    def plot_x1transitions(self, points, T = 3000.0):
+        ax = plt.figure().add_subplot()
+        colors = plt.get_cmap("viridis", points.shape[0])
+        for i in range(points.shape[0]):
+            sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], points[i,:], rtol=1e-7, atol=1e-6)
+            ax.plot(sol.t, sol.y[0,:], color=colors(i))
+        ax.grid()
+        ax.set_xlabel('t, дней')
+        ax.set_ylabel(f'$x_{i+1}$')
         return None
