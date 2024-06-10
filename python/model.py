@@ -167,6 +167,25 @@ class eq_model:
             ax[i].set_zlabel(f'$x_{(i+2-2*(i//5))%5+1}$')
         return None 
     
+    def integrate_at_points(self, points, T = 2000.0):
+        
+        ax = [plt.figure().add_subplot(projection='3d') for i in range(3)]
+        colors = plt.get_cmap("viridis", points.shape[0])
+        for j in range(points.shape[0]):
+            sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], points[j,:], rtol=1e-7, atol=1e-6)
+            X = sol.y
+            for i in range(len(ax)):
+                ax[i].plot(X[(i + 2*(i//5))%5,:], X[(i+1)%5,:], X[(i+2-2*(i//5))%5,:], color=colors(j))    
+                ax[i].scatter(points[j,(i + 2*(i//5))%5], points[j,(i+1)%5], points[j,(i+2-2*(i//5))%5], color=colors(j))    
+                if j == 0:
+                    ax[i].scatter(self.eqpoints[1:,(i + 2*(i//5))%5], self.eqpoints[1:,(i+1)%5], self.eqpoints[1:,(i+2-2*(i//5))%5], color='r')
+                    ax[i].text(self.eqpoints[1,(i + 2*(i//5))%5], self.eqpoints[1,(i+1)%5], self.eqpoints[1,(i+2-2*(i//5))%5], '$P_2$')
+                    ax[i].text(self.eqpoints[2,(i + 2*(i//5))%5], self.eqpoints[2,(i+1)%5], self.eqpoints[2,(i+2-2*(i//5))%5], '$P_3$')
+                    ax[i].set_xlabel(f'$x_{(i + 2*(i//5))%5+1}$')
+                    ax[i].set_ylabel(f'$x_{(i+1)%5+1}$')
+                    ax[i].set_zlabel(f'$x_{(i+2-2*(i//5))%5+1}$')
+        return None 
+    
     def quiver(self, plot_area, N = np.array([5, 5, 5, 5, 5])):
         
         ax = plt.figure().add_subplot(projection='3d')
@@ -184,7 +203,7 @@ class eq_model:
         ax.quiver(x1, x2, x3, u1, u2, u3, length = 1)
         ax.scatter(self.eqpoints[2,0], self.eqpoints[2,1], self.eqpoints[2,2], color='r')
                
-    def integrate_on_set(self, bounds, T = 2000.0, N = np.array([5,5,5])):
+    def integrate_on_set(self, bounds, T = 2000.0, N = np.array([10,10,10])):
         
         # working under assmption that the first element of self.eqpoints is an equilibrium point that lies inside of the set D 
         plt.rcParams['text.usetex'] = True
