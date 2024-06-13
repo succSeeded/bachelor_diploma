@@ -6,9 +6,11 @@
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}1.3 }Положительная инвариантность множества $D$}{9}{}%
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}1.4 }Инвариантные множества внутри множества $D$}{19}{}%
 \contentsline {section}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2 }{\let \oe \OE \@@text@case@aux {upper}{}{Исследование положений равновесия}}}{26}{}%
-\contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.1 }Метод выбора функции Ляпунова для определенного класса систем}{26}{}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.1 }Метод выбора кандидата-функции Ляпунова для систем c\linebreak дробно-рациональными правыми частями}{26}{}%
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.2 }Положения равновесия на границе множества $D$}{28}{}%
-\contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.3 }Положения равновесия внутри множества $D$}{31}{}%
-\contentsline {section}{\MakeUppercase []{Заключение}}{35}{}%
-\contentsline {section}{{\let \oe \OE \@@text@case@aux {upper}{}{Список использованных источников}}}{36}{}%
-\contentsline {section}{\MakeUppercase []{Приложение A}}{39}{}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.3 }Положения равновесия внутри области $D$}{31}{}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.4 }Численное моделирование}{33}{}%
+\contentsline {section}{\MakeUppercase []{Заключение}}{40}{}%
+\contentsline {section}{{\let \oe \OE \@@text@case@aux {upper}{}{Список использованных источников}}}{41}{}%
+\contentsline {section}{\MakeUppercase []{Приложение A}}{44}{}%
+\contentsline {section}{\MakeUppercase []{Приложение B}}{45}{}%

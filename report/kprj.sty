@@ -197,7 +197,7 @@
 	\ifdim\@tempskipa>\z@
 	\begingroup
 	#6\relax
-	\raggedcenter@\interlinepenalty\@M #6\relax\@svsec\ifnum #2<2\MakeUppercase{#9}\else #9\fi\par
+	\interlinepenalty\@M \ifnum #2<2 \raggedcenter@ #6\relax\@svsec\MakeUppercase{#9}\else #6\relax\@svsec#9\fi\par
 	\endgroup
 	\csname #1mark\endcsname{#8}
 	\addcontentsline{toc}{#1}{\cont@svsec\ifnum #2<2\MakeUppercase{#7}\else #7\fi}%
@@ -263,9 +263,9 @@
 \newif\if@contentsbreak\@contentsbreaktrue
 \let\InsertContentsbreak\@contentsbreaktrue
 \let\SkipContentsbreak\@contentsbreakfalse
-\def\l@section#1{\addvspace\l@secsepbefore\@dottedtocline{1}{0em}{1.6em}{\contsectionfont#1}}
+\def\l@section#1{\addvspace\l@secsepbefore\@dottedtocline{1}{0cm}{1.6em}{\contsectionfont#1}}
 \def\l@subsection#1{\addvspace\l@subsecsepbefore\@dottedtocline{2}{1.25cm}{2.2em}{\contsubsectionfont#1}}
-\def\l@subsubsection{\addvspace\l@subsubsecsepbefore\@dottedtocline{2}{2.5cm}{2.8em}}
+\def\l@subsubsection{\addvspace\l@subsubsecsepbefore\@dottedtocline{2}{2cm}{2.8em}}
 
 
 
@@ -477,7 +477,7 @@
 \renewcommand\thesubfigure{}
 \let\oldref=\ref 
 \renewcommand{\ref}[1]{(\oldref{#1})}
-\newcommand{\figref}[1]{рис. \oldref{#1}}
+\newcommand{\figref}[1]{рис.~\oldref{#1}}
 \newcommand{\thref}[1]{\oldref{#1}}
 
 
@@ -541,14 +541,6 @@
 		\@subscr@line{Студент группы}{\@group@place}{\@author}%
 		\fi
 		\@ifundefined{@chief}{}{\vskip5mm\@subscr@line{\@chief@type}{}{\@chief}}%
-		\if@FirstConsultant
-		\vskip5mm
-		\@subscr@line{Консультант}{}{\@ifundefined{@FirstConsultant}{\ulbox{7em}{}}{\@FirstConsultant}}%
-		\fi
-		\if@SecondConsultant
-		\vskip5mm
-		\@subscr@line{Консультант}{}{\@ifundefined{@SecondConsultant}{\ulbox{7em}{}}{\@SecondConsultant}}%
-		\fi
 		\if@inspector
 		\vskip5mm
 		\@subscr@line{Нормоконтролер}{}{\@ifundefined{@inspector}{\ulbox{7em}{}}{\@inspector}}\par
@@ -556,7 +548,7 @@
 		\vskip20mm
 		\if@pract{Оценка\hspace{0.6\linewidth}{\ulbox{0.3\linewidth}{}}\par}\fi
 		\egroup
-		\vfil
+		\vskip20mm
 		\textit{\@workyear г.}\par
 		\pagebreak
 		\egroup

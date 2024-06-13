@@ -130,9 +130,9 @@ class eq_model:
         cond_1 = self.r_1*(self.c_1-point[0])*(point[3]+self.e_1)*(point[0]+self.k_1) - self.alpha_2*self.c_1*point[2] > 0
         cond_2 = (0 < point[0]) and (point[0] < self.c_1)
         if cond_1 and cond_2:
-            print(f'Point X = {point} satisifies condtitions for a equilibrium point.')
+            print(f'Point X = {point} satisifies condtitions for an inner equilibrium point.')
         else:
-            print(f'Point X = {point} does not satisfy condtitions for a equilibrium point.')
+            print(f'Point X = {point} does not satisfy condtitions for an inner equilibrium point.')
         return cond_1 and cond_2
     
     def cond_roots(self):
@@ -151,7 +151,7 @@ class eq_model:
             print(f'(4)-2 в точке x_1 = {croots[j]}: {val}')
         return croots
     
-    def integrate_at_point(self, point, T = 2000.0):
+    def integrate_at_point(self, point, T = 3000.0):
         
         ax = [plt.figure().add_subplot(projection='3d') for i in range(3)]
         sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], point, rtol=1e-7, atol=1e-6)
@@ -169,7 +169,7 @@ class eq_model:
             ax[i].set_zlabel(f'$x_{(i+2-2*(i//5))%5+1}$')
         return None 
     
-    def integrate_at_points(self, points, T = 2000.0):
+    def integrate_at_points(self, points, T = 3000.0):
         
         ax = [plt.figure().add_subplot(projection='3d') for i in range(3)]
         colors = plt.get_cmap("viridis", points.shape[0])
@@ -205,7 +205,7 @@ class eq_model:
         ax.quiver(x1, x2, x3, u1, u2, u3, length = 1)
         ax.scatter(self.eqpoints[2,0], self.eqpoints[2,1], self.eqpoints[2,2], color='r')
                
-    def integrate_on_set(self, bounds, T = 2000.0, N = np.array([5,5,5])):
+    def integrate_on_set(self, bounds, T = 3000.0, N = np.array([5,5,5])):
         
         # working under assmption that the first element of self.eqpoints is an equilibrium point that lies inside of the set D 
         plt.rcParams['text.usetex'] = True
@@ -214,28 +214,28 @@ class eq_model:
             raise ValueError('Incorrect bounds!')
         
         x1 = np.linspace(bounds[0,0], bounds[0,1], num = N[0])
-        x3 = np.linspace(bounds[2,0], bounds[2,1], num = N[1])
-        x5 = np.linspace(bounds[4,0], bounds[4,1], num = N[2])
+        x2 = np.linspace(bounds[1,0], bounds[1,1], num = N[1])
+        x3 = np.linspace(bounds[2,0], bounds[2,1], num = N[2])
         
         ax = plt.figure().add_subplot(projection='3d')
         ax.set_prop_cycle(color=mpl.cm.viridis(np.linspace(0,1,N[0]*N[1]*N[2])))
-        points = np.array([np.array([x1[i], 0.0, x3[j], self.s_1/self.mu_2, x5[k]]) for i in range(len(x1)) for j in range(len(x3))  for k in range(len(x3))])
+        points = np.array([np.array([x1[i], x2[j], x3[k], self.s_1/self.mu_2, 0.0]) for i in range(len(x1)) for j in range(len(x3))  for k in range(len(x3))])
         for i in range(len(points)):
             sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], points[i], rtol=1e-7, atol=1e-6)
             X = sol.y
-            ax.plot(X[0,:], X[2,:], X[4,:])    
-        ax.scatter(self.eqpoints[1:,0], self.eqpoints[1:,2], self.eqpoints[1:,4], color='r')
-        ax.text(self.eqpoints[1,0], self.eqpoints[1,2], self.eqpoints[1,4], '$P_2$')
-        ax.text(self.eqpoints[2,0], self.eqpoints[2,2], self.eqpoints[2,4], '$P_3$')
+            ax.plot(X[0,:], X[1,:], X[2,:])    
+        # ax.scatter(self.eqpoints[1:,0], self.eqpoints[1:,2], self.eqpoints[1:,4], color='r')
+        ax.scatter(self.eqpoints[1,0], self.eqpoints[1,1], self.eqpoints[1,2], color='r')
+        ax.text(self.eqpoints[1,0], self.eqpoints[1,1], self.eqpoints[1,2], '$P_2$')
+        # ax.text(self.eqpoints[2,0], self.eqpoints[2,2], self.eqpoints[2,4], '$P_3$')
         ax.set_xlabel(f'$x_{1}$')
-        ax.set_ylabel(f'$x_{3}$')
-        ax.set_zlabel(f'$x_{5}$')
-        
+        ax.set_ylabel(f'$x_{2}$')
+        ax.set_zlabel(f'$x_{3}$')
+        ax.set_xlim((0.0, 10000.0))
         return None
                     
-    def plot_transitions(self, point, T = 750.0):
+    def plot_transitions(self, point, plot_inv = True, T = 3000.0):
         ax1 = [plt.figure().add_subplot() for i in range(5)]
-        ax2 = [plt.figure().add_subplot() for i in range(2)]
         sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], point, rtol=1e-7, atol=1e-6)
         for i in range(len(ax1)):
             ax1[i].grid()
@@ -246,25 +246,29 @@ class eq_model:
                 ax1[i].plot(sol.t, sol.y[i,:])
             ax1[i].set_xlabel('t, дней')
             ax1[i].set_ylabel(f'$x_{i+1}$')
-        random.seed()
-        init_point = np.array([0.0, random.random()*self.Ox2,
-                               0.0, random.random()*self.Ox4, 0.0])
-        sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], init_point, rtol=1e-7, atol=1e-6)
-        for i in range(len(ax2)):
-            ax2[i].grid()
-            ax2[i].set_xlabel('t, дней')
-            ax2[i].set_ylabel(f'$x_{(i+1)*2}$')
-        ax2[0].plot(sol.t[:100], sol.y[1,:100])
-        ax2[1].plot(sol.t[:30], sol.y[3,:30])
+        if plot_inv:
+            ax2 = [plt.figure().add_subplot() for i in range(2)]
+            random.seed()
+            init_point = np.array([0.0, random.random()*self.Ox2,
+                                0.0, random.random()*self.Ox4, 0.0])
+            sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], init_point, rtol=1e-7, atol=1e-6)
+            for i in range(len(ax2)):
+                ax2[i].grid()
+                ax2[i].set_xlabel('t, дней')
+                ax2[i].set_ylabel(f'$x_{(i+1)*2}$')
+            ax2[0].plot(sol.t[:100], sol.y[1,:100])
+            ax2[1].plot(sol.t[:30], sol.y[3,:30])
         return None
     
-    def plot_x1transitions(self, points, T = 3000.0):
+    def plot_x1transitions(self, points, T = 3000.0, legend=False):
         ax = plt.figure().add_subplot()
         colors = plt.get_cmap("viridis", points.shape[0])
         for i in range(points.shape[0]):
             sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], points[i,:], rtol=1e-7, atol=1e-6)
-            ax.plot(sol.t, sol.y[0,:], color=colors(i))
+            ax.plot(sol.t, sol.y[0,:], color=colors(i), label=f'$x_{1}(0)={points[i,0]}$')
         ax.grid()
+        if legend: 
+            ax.legend()
         ax.set_xlabel('t, дней')
-        ax.set_ylabel(f'$x_{i+1}$')
+        ax.set_ylabel(f'$x_{1}$')
         return None
