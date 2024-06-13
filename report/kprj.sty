@@ -32,6 +32,7 @@
 \RequirePackage{amsmath}
 \RequirePackage{amsthm}
 \RequirePackage{cite}
+\RequirePackage{tabu}
 \ifpdftex\RequirePackage{cmap}\fi
 \RequirePackage{graphicx}
 \RequirePackage{listings}
@@ -657,7 +658,31 @@
 		(учебная, исследовательская, практическая, производственная и др.)\hfil}\par
 	\fi
 	\vskip1\jsp
-	Источник тематики \hbox to 0pt{\ \@themesource\hss}\ulfill\par
+	\bgroup
+	\fontsize{11pt}{11}\selectfont\parindent=0pt
+	\tabcolsep=1mm
+	\def\rt{\rightskip0pt plus15pt}%
+	\def\hdf{\fontsize{11pt}{11}\selectfont\bfseries}%
+	\def\hpb##1##2{\parbox{##1}{\usup{2.4}0\centering\hdf\baselineskip2.4ex##2\luft\usup0{0.9}}}%
+	\def\lpb##1##2{\parbox{##1}{\rt\usup{2.4}0\baselineskip2.4ex##2\usup0{0.8}\luft}}%
+	\def\cpb##1##2{\parbox{##1}{\centering\baselineskip2.4ex##2\luft}}%
+	\noindent\kern-0.22em
+	\begin{tabular}{|c|c|}
+		\hline
+		\hpb{0.85\textwidth}{Используется / Не используется} & \hpb{0.15\textwidth}{Да / Нет}\\[6pt]
+		\hline
+		\lpb{0.85\textwidth}{1)	Литературные источники и документы, имеющие гриф секретности} & \\[6pt]
+		\hline
+		\lpb{0.85\textwidth}{2)	2)	Литературные источники и документы, имеющие пометку «Для служебного пользования», иных пометок, запрещающих открытое опубликование} & \\[6pt]
+		\hline
+		\lpb{0.85\textwidth}{3)	Служебные материалы других организаций} & \\[6pt]
+		\hline
+		\lpb{0.85\textwidth}{4)	Результаты НИР (ОКР), выполняемой в МГТУ им. Н.Э.Баумана} & \\[6pt]
+		\hline
+		\lpb{0.85\textwidth}{5)	Материалы по незавершенным исследованиям или материалы по завершенным исследованиям, но ещё не опубликованные в открытой печати} & \\[6pt]
+		\hline
+	\end{tabular}\kern-0.22em\par
+	\egroup
 	\@make@zadanie
 	\vskip3\jsp
 	{\itshape\bfseries Оформление \@jobsp@type@rod:}\\[1mm]
@@ -762,15 +787,15 @@
 		\@pl@dat & & \ruk&\\[3pt]
 		\hline
 		&&&&&\\[-9pt]
-		2.& Часть 1. \hrulefill& \@pl@dat && \ruk&\\[6pt]
+		2.& 1 часть \hrulefill& \@pl@dat && \ruk&\\[6pt]
 		\hline
 		3.& \lpb{16.2}{Утверждение окончательных формулировок решаемой проблемы, цели работы и перечня задач}& \@pl@dat && \agent{Заведующий кафедрой}\kern-0.2em&\\[6pt]
 		\hline
 		&&&&&\\[-9pt]
-		4.& Часть 2. \hrulefill& \@pl@dat && \ruk&\\[6pt]
+		4.& 2 часть \hrulefill& \@pl@dat && \ruk&\\[6pt]
 		\hline
 		&&&&&\\[-9pt]
-		5.& Часть 3. \hrulefill& \@pl@dat && \ruk&\\[6pt]
+		5.& 3 часть \hrulefill& \@pl@dat && \ruk&\\[6pt]
 		\hline
 		&&&&&\\[-9pt]
 		6.& 1-я редакция работы& \@pl@dat && \ruk&\\[6pt]
@@ -812,18 +837,18 @@
 	\ulline\\\ulline\\\ulline\\\ulline\par}
 
 \def\@VKR@zadanie{\vskip4\jsp
-	Тема выпускной квалификационной работы утверждена распоряжением
+	\noindent Тема выпускной квалификационной работы утверждена распоряжением
 	по факультету \UlBox{12.5em}{\ \@faculty}\space \No\space\UlBox{3em}{}\space
 	от \al\,\UlBox{1.7em}{}\,\ar\kern0.2em\UlBox{5em}{}\space 20\UlBox{1.5em}{}\,г.\par
 	\vskip4\jsp
-	{\itshape\bfseries Часть 1. \ulfill}\par
+	{\itshape\bfseries 1 часть \ulfill}\par
 	\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\par
 	\penalty-100
 	\vskip2\jsp\vspace{2mm}
-	{\itshape\bfseries Часть 2. \ulfill}\par
+	{\itshape\bfseries 2 часть \ulfill}\par
 	\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\par
 	\vskip2\jsp\vspace{2mm}
-	{\itshape\bfseries Часть 3. \ulfill}\par
+	{\itshape\bfseries 3 часть \ulfill}\par
 	\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\par
 }
 
