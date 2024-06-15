@@ -25,7 +25,7 @@ model_params = {'r_1': .01, 'c_1': 8.8265e+5, 'e_1': 1e+4, 'alpha_1': 1.5,
 model = eq_model(params=model_params, dev=args['dev'])
 # r_1 = model.alpha_1*model.c_2*model.mu_2/(model.k_1*model.s_1+model.e_1*model.k_1*model.mu_2)
 # print(f'r_1 < {r_1}')
-# model.find_eqpoints()
+model.find_eqpoints()
 # random.seed()
 # randpoint = np.array([random.random()*model.Ox1, random.random()*model.Ox2,
 #             random.random()*model.Ox3, model.Ux4 + random.random()*(model.Ox4-model.Ux4), random.random()*model.Ox5])
@@ -35,16 +35,16 @@ model = eq_model(params=model_params, dev=args['dev'])
 # pot_eqpoint = model.integrate_at_point(randpoint, T=30000.0, disable_plot=True)
 # pot_eqpoint = model.integrate_at_point(pot_eqpoint, T=30000.0, disable_plot=True)
 # model.integrate_at_points(randpoints, T=20000.0)
-points = np.array([[1.0, 0.0, 0.0, 0.0, 0.0],
-                   [10.0, 0.0, 0.0, 0.0, 0.0],
-                   [100.0, 0.0, 0.0, 0.0, 0.0],
-                   [1000.0, 0.0, 0.0, 0.0, 0.0],
-                   [10000.0, 0.0, 0.0, 0.0, 0.0],
-                   [100000.0, 0.0, 0.0, 0.0, 0.0]])
+# points = np.array([[1.0, 0.0, 0.0, 0.0, 0.0],
+#                    [10.0, 0.0, 0.0, 0.0, 0.0],
+#                    [100.0, 0.0, 0.0, 0.0, 0.0],
+#                    [1000.0, 0.0, 0.0, 0.0, 0.0],
+#                    [10000.0, 0.0, 0.0, 0.0, 0.0],
+#                    [100000.0, 0.0, 0.0, 0.0, 0.0]])
 # points = np.array([[x1, model.Ox2, 0.0, model.Ux4, 0.0] for x1 in np.linspace(0.0, model.Ox1, num = 12)])
 # model.plot_x1transitions(points, T=3000.0, legend=True)
 # point = np.array([8000.0, model.Ox2, 100.0, model.Ux4, 100.0])
-model.plot_transitions(points[0,:], plot_inv=True)
+# model.plot_transitions(points[0,:], plot_inv=True)
 # model.integrate_at_point(point, T=12000)
 # model.integrate_at_points(points, T=12000)
 # set_printoptions(suppress=True, precision=6)
@@ -54,10 +54,10 @@ model.plot_transitions(points[0,:], plot_inv=True)
     # print(f'Loss: {model.dxdt(model.eqpoints[i])}.')
     # print(f'Jacobian matrix at ({model.eqpoints[i]}):\n{model.jacobian(model.eqpoints[i])}')
     # print(f'Eigenvalues of J({model.eqpoints[i]}) are:\n{model.eigs(model.eqpoints[i])}\n')
-# bounds = np.array([[0.0, model.Ox1], 
-#                     [0.0, model.Ox2], 
-#                     [0.0, model.Ox3], 
-#                     [model.Ux4, model.Ox4], 
-#                     [0.0, model.Ox5]])
-# model.integrate_on_set(bounds, intTime=3000.0, N = np.array([5,5,5]))
+bounds = np.array([[0.0, model.Ox1], 
+                    [0.0, model.Ox2], 
+                    [0.0, model.Ox3], 
+                    [model.Ux4, model.Ox4], 
+                    [0.0, model.Ox5]])
+model.integrate_on_set(bounds, intTime=3000.0, plotAxes=[0,2,4], N = np.array([5,5,5]))
 plt.show()
