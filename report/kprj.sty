@@ -250,7 +250,7 @@
 	{\subsecsepbefore}{\subsecsepafter}{\reset@font\subsectionfont}}
 \def\subsubsection{\@startctsection{subsubsection}{3}{\@secdelim}%
 	{\subsubsecsepbefore}{\subsubsecsepafter}{\reset@font\subsubsectionfont}}
-\newenvironment{annotation}{\section*{Реферат}}{\pagebreak}
+\newenvironment{annotation}{\section*{Реферат}\addcontentsline{toc}{section}{\MakeUppercase{Реферат}}}{\pagebreak}
 \newenvironment{introduction}{\section*{Введение}\addcontentsline{toc}{section}{\MakeUppercase{Введение}}}{\pagebreak}
 \newenvironment{conclusion}{\section*{Заключение}\addcontentsline{toc}{section}{\MakeUppercase{Заключение}}}{\pagebreak}
 
@@ -377,6 +377,7 @@
 
 \def\ulbox#1#2{\underline{\hbox to #1{#2\hfil}}}
 \def\ulfill{\leaders\hrule height-1pt depth1.4pt\hfill\kern\z@}
+\def\ulfillnoLeaders{\hrule height-1pt depth1.4pt\hfill\kern\z@}
 \def\UlBox#1#2{\hbox to 0pt{#2\hss}\nobreak\vrule height-1pt depth1.4pt width#1{}}
 \def\ulline{\vspace{12pt}\hrulefill}
 \newdimen\jsp\jsp=0.9mm
@@ -394,7 +395,7 @@
 		\@ifundefined{@discipline}{\ulbox{0.7\hsize}{}}{\al{}\@discipline\ar{}}}\par}
 \def\@zadan@NIR@title{\vskip2mm{\rm по теме\\%
 		\@ifundefined{@title}{\ulbox{0.7\hsize}{}}{\al{}\@title\ar{}}}\par}
-\def\@zadan@kurs@theme{\vskip1mm
+\def\@zadan@kurs@theme{
 	Тема \@jobsp@type@rod:
 	\ifx\@title\@empty\hrulefill\penalty-10000\hbox{}\hrulefill
 	\else{\bfseries\@title}\fi\par}
@@ -637,27 +638,25 @@
 	\vskip5\jsp
 	\bgroup
 	\centering
-	{\fontsize{14pt}{14}\selectfont\bfseries{ЗАДАНИЕ}\par на выполнение\if@VKR\\\else\space\fi\@jobsp@type@rod\par}%
+	{\fontsize{14pt}{14}\selectfont\bfseries{ЗАДАНИЕ}\par на выполнение \if@VKR\else\space\fi\@jobsp@type@rod\par}%
 	\ifx\@zadan@title\relax\else\vskip1mm\@zadan@title\fi
 	\egroup
 	\vskip4\jsp
 	\bgroup
 	\parindent=0pt
-	\fontsize{12pt}{12}\selectfont
-	Студент \hbox to 0pt{\kern9em\@authorfull\space\@group\hss}\ulfill\par
-	\hrule height0pt\vskip1mm\hbox to \hsize{\@underwr@font\hfil(Фамилия, Имя, Отчество, Индекс Группы)\hfil}\par
-	\if@VKR\vskip3\jsp\fi
-	\@zadan@theme
+	\begin{flushleft}\fontsize{12pt}{18}\selectfont
+		Студент группы \ulbox{5em}{\space\@group\hss}\par
+		\hbox to0pt{\kern14em\@authorfull\hss}\ulfillnoLeaders\par
+		\hrule height0pt\vskip1mm\hbox to \hsize{\@underwr@font\hfil(Фамилия, Имя, Отчество)\hfil}\par
+		\@zadan@theme
+	\end{flushleft}
 	\if@VKR
-	\vskip2\jsp
 	\else
-	\vskip1\jsp
 	Направленность \@jobsp@type@shrt\space\hbox to 0pt{\ \@trend\hss}\ulfill\par
 	\hrule height0pt
 	\hbox to \hsize{\@underwr@font\hphantom{Направленность КП}\hfil
 		(учебная, исследовательская, практическая, производственная и др.)\hfil}\par
 	\fi
-	\vskip1\jsp
 	\bgroup
 	\fontsize{11pt}{11}\selectfont\parindent=0pt
 	\tabcolsep=1mm
@@ -665,15 +664,17 @@
 	\def\hdf{\fontsize{11pt}{11}\selectfont\bfseries}%
 	\def\hpb##1##2{\parbox{##1}{\usup{2.4}0\centering\hdf\baselineskip2.4ex##2\luft\usup0{0.9}}}%
 	\def\lpb##1##2{\parbox{##1}{\rt\usup{2.4}0\baselineskip2.4ex##2\usup0{0.8}\luft}}%
-	\def\cpb##1##2{\parbox{##1}{\centering\baselineskip2.4ex##2\luft}}%
+	\begin{flushleft}	
+		При выполнении \if@VKRВКР\else\@jobsp@type@shrt\fi:
+		\vspace{3mm}
 	\noindent\kern-0.22em
 	\begin{tabular}{|c|c|}
 		\hline
-		\hpb{0.85\textwidth}{Используется / Не используется} & \hpb{0.15\textwidth}{Да / Нет}\\[6pt]
+		\hpb{0.85\textwidth}{Используются / Не используются} & \hpb{0.13\textwidth}{Да / Нет}\\[6pt]
 		\hline
 		\lpb{0.85\textwidth}{1)	Литературные источники и документы, имеющие гриф секретности} & \\[6pt]
 		\hline
-		\lpb{0.85\textwidth}{2)	2)	Литературные источники и документы, имеющие пометку «Для служебного пользования», иных пометок, запрещающих открытое опубликование} & \\[6pt]
+		\lpb{0.85\textwidth}{2)	Литературные источники и документы, имеющие пометку «Для служебного пользования», иных пометок, запрещающих открытое опубликование} & \\[6pt]
 		\hline
 		\lpb{0.85\textwidth}{3)	Служебные материалы других организаций} & \\[6pt]
 		\hline
@@ -682,10 +683,15 @@
 		\lpb{0.85\textwidth}{5)	Материалы по незавершенным исследованиям или материалы по завершенным исследованиям, но ещё не опубликованные в открытой печати} & \\[6pt]
 		\hline
 	\end{tabular}\kern-0.22em\par
+	\end{flushleft}
 	\egroup
-	\@make@zadanie
+	\fontsize{12pt}{12}\selectfont
+	\begin{flushleft}
+		\@make@zadanie
+	\end{flushleft}
 	\vskip3\jsp
 	{\itshape\bfseries Оформление \@jobsp@type@rod:}\\[1mm]
+	\begin{flushleft}
 	Расчетно-пояснительная записка на \ulbox{2em}{} листах формата A4.\par
 	\vskip1\jsp
 	Перечень графического (иллюстративного) материала\space\hrulefill\\
@@ -697,14 +703,15 @@
 	В соответствии с учебным планом выпускную квалификационную работу выполнить в полном объеме
 	в срок до \al\,\UlBox{1.7em}{}\,\ar\kern0.2em \UlBox{6em}{}\space 20\ulbox{1.5em}{}\,г.\par
 	\fi
+	\end{flushleft}
 	\egroup
-	\vspace{20mm}
+	\vspace{10mm}
 	\bgroup
-	\fontsize{12pt}{12}\selectfont
+	\fontsize{11pt}{11}\selectfont
 	\raggedright@
-	\@subscr@line{Студент}{}{\@author}\par
+	\@subscr@line{Руководитель квалификационной работы}{}{\@ifundefined{@chief}{\ulbox{5em}{}}\@chief}\par
 	\vskip2\jsp
-	\@subscr@line{\@chief@type}{}{\@ifundefined{@chief}{\ulbox{5em}{}}\@chief}\par
+	\@subscr@line{Студент}{}{\@author}\par
 	\nobreak
 	\egroup
 	\vfil
@@ -714,6 +721,7 @@
 	\egroup}
 
 \def\kalplan{%
+	\fontsize{12pt}{12}\selectfont\parindent=0pt
 	\bgroup
 	\headheight=0pt\headsep=0pt\thispagestyle{empty}
 	\vspace*{-5mm}
@@ -733,13 +741,14 @@
 	\vskip5mm
 	\bgroup
 	\centering
-	{\bfseries{КАЛЕНДАРНЫЙ{ }ПЛАН}\\выполнения \@jobsp@type@rod}\par
+	{\bfseries\large{{КАЛЕНДАРНЫЙ{ }ПЛАН}}\\выполнения \@jobsp@type@rod}\par
 	\vskip2mm
-	Студент: \UlBox{18em}{\ \ \@authorfull}\par
-	\vskip2mm
-	Тема квалификационной работы:\\
-	{\bfseries \@title}\par
-	\vskip5mm
+	\begin{flushleft}
+	cтудента: \hbox to0pt{\kern9em\@authorfull\hss}\ulfill\par
+	\hrule height0pt\vskip1mm\hbox to \hsize{\@underwr@font\hfil(Фамилия, Имя, Отчество)\hfil}\par
+	\fontsize{12pt}{18}\selectfont
+		Тема квалификационной работы: {\bfseries \@title}\par
+	\end{flushleft}
 	\@make@tabdat
 	\egroup
 	\vfil
@@ -768,7 +777,7 @@
 	\def\rt{\rightskip0pt plus15pt}%
 	\def\lpb##1##2{\parbox{##1em}{\rt\usup{2.4}0\baselineskip2.4ex##2\usup0{0.8}\luft}}%
 	\def\cpb##1##2{\parbox{##1em}{\centering\baselineskip2.4ex##2\luft}}%
-	\newcommand\@pl@dat{\cpb{5.0}{\usup{1.5}0\ulbox{4em}{}\\
+	\newcommand\@pl@dat{\cpb{6.0}{\usup{1.5}0\ulbox{6em}{}\\
 			\fontsize{3pt}{3}\selectfont \emph{Планируемая дата}\usup0{0.7}}}%
 	\def\agent##1{\cpb{5}{\fontsize{9}{11}\selectfont##1}}%
 	\def\ruk{\agent{\noindent\kern-0.32emРуководитель\kern-0.2em\\ВКР}\kern-0.1em}%
@@ -777,10 +786,10 @@
 		\hline
 		\kern-0.1em\hpb{1.7}{№ п/п\vj{-8}}\kern-0.1em&
 		\hpb{16}{Наименование этапов выпускной квалификационной работы\vj{-9}}&
-		\mc{\hpb{9.5}{Сроки выполнения этапов}}&
+		\mc{\hpb{11.5}{Сроки выполнения этапов}}&
 		\mc{\hpb{11.5}{Отметка о выполнении}}\\
 		\cline{3-6}
-		&& \b{4.5}{план}& \b{4.5}{факт}&  \hdf\kern0.1em должность\kern0.1em&
+		&& \b{6}{план}& \b{3}{факт}&  \hdf\kern0.1em должность\kern0.1em&
 		\hdf ФИО, подпись\usup{2.2}{0.8}\\
 		\hline
 		1.& \lpb{16}{Задание на выполнение работы. Формулирование проблемы, цели и задач работы}&
@@ -836,20 +845,20 @@
 	{\itshape\bfseries Задание} \ulfill\\
 	\ulline\\\ulline\\\ulline\\\ulline\par}
 
-\def\@VKR@zadanie{\vskip4\jsp
+\def\@VKR@zadanie{
 	\noindent Тема выпускной квалификационной работы утверждена распоряжением
 	по факультету \UlBox{12.5em}{\ \@faculty}\space \No\space\UlBox{3em}{}\space
 	от \al\,\UlBox{1.7em}{}\,\ar\kern0.2em\UlBox{5em}{}\space 20\UlBox{1.5em}{}\,г.\par
 	\vskip4\jsp
-	{\itshape\bfseries 1 часть \ulfill}\par
-	\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\par
+	{\itshape\bfseries Часть 1. \ulfill}\par
+	\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\par
 	\penalty-100
 	\vskip2\jsp\vspace{2mm}
-	{\itshape\bfseries 2 часть \ulfill}\par
-	\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\par
+	{\itshape\bfseries Часть 2. \ulfill}\par
+	\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\par
 	\vskip2\jsp\vspace{2mm}
-	{\itshape\bfseries 3 часть \ulfill}\par
-	\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\par
+	{\itshape\bfseries Часть 3. \ulfill}\par
+	\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\\\ulline\par
 }
 
 

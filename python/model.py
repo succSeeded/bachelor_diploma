@@ -10,6 +10,7 @@ from math_utils import *
 mpl.rc('text', usetex=True)
 mpl.rc('text.latex', preamble=r'\usepackage[utf8]{inputenc}')
 mpl.rc('text.latex', preamble=r'\usepackage[russian]{babel}')
+plt.rcParams['figure.figsize'] = [3.5, 3.5]
 mpl.rcParams.update({'font.size': 14})
 
 class eq_model:
@@ -89,8 +90,9 @@ class eq_model:
         return np.sort(LA.eigvals(self.jacobian(point)))
 
     def find_eqpoints(self):
-        self.eqpoints = np.vstack((np.array([0.0,0.0,0.0,self.s_1/self.mu_2,0.0]),\
-            np.array([0.0,self.c_2,0.0,self.s_1/self.mu_2,0.0])))
+        self.eqpoints = np.vstack((np.vstack((np.array([0.0,0.0,0.0,self.s_1/self.mu_2,0.0]),
+            np.array([0.0,self.c_2,0.0,self.s_1/self.mu_2,0.0]))),
+            [845242.623417, 943152.46745, 147.818773, 9135.622138, 0.147819]))
         
         print(f'Searching for zeros...')
         zeros = []
@@ -98,16 +100,14 @@ class eq_model:
         if self.dev == True:
             interval = (self.c_1-100000, self.c_1)
         else:
+            # interval = (1e-6, self.c_1)
             interval = (1e-6, self.c_1)
             
         start = time.time()    
         zeros, zero_times = zero_localizer(self.__target_function, interval, d=1e-1)
         end = time.time()
         for x_1 in zeros:
-            self.eqpoints = np.vstack(\
-                (self.eqpoints,\
-                np.array([x_1, self.x_2(x_1), self.x_3(x_1), self.x_4(x_1), self.x_5(x_1)]))\
-                )
+            self.eqpoints = np.vstack((self.eqpoints,np.array([x_1, self.x_2(x_1), self.x_3(x_1), self.x_4(x_1), self.x_5(x_1)])))
         print(f'Total time elapsed: {round(end-start, 6)}s')
         print(f'Time elapsed while find_zero: {[f"{round(time,6)}s" for time in zero_times]}')
                     
@@ -151,38 +151,42 @@ class eq_model:
             print(f'(4)-2 в точке x_1 = {croots[j]}: {val}')
         return croots
     
-    def integrate_at_point(self, point, T = 3000.0):
+    def integrate_at_point(self, point, T = 3000.0, disable_plot=False, plot_eqpoints = True):
         
-        ax = [plt.figure().add_subplot(projection='3d') for i in range(3)]
         sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], point, rtol=1e-7, atol=1e-6)
         X = sol.y
-        for i in range(len(ax)):
-            ax[i].plot(X[(i + 2*(i//5))%5,:], X[(i+1)%5,:], X[(i+2-2*(i//5))%5,:], color='black')    
-            ax[i].scatter(point[(i + 2*(i//5))%5], point[(i+1)%5], point[(i+2-2*(i//5))%5], color='black')    
-            ax[i].scatter(self.eqpoints[1,(i + 2*(i//5))%5], self.eqpoints[1,(i+1)%5], self.eqpoints[1,(i+2-2*(i//5))%5], color='r')
-            ax[i].text(self.eqpoints[1,(i + 2*(i//5))%5], self.eqpoints[1,(i+1)%5], self.eqpoints[1,(i+2-2*(i//5))%5], '$P_2$')
-            # ax[i].scatter(self.eqpoints[1:,(i + 2*(i//5))%5], self.eqpoints[1:,(i+1)%5], self.eqpoints[1:,(i+2-2*(i//5))%5], color='r')
-            # ax[i].text(self.eqpoints[1,(i + 2*(i//5))%5], self.eqpoints[1,(i+1)%5], self.eqpoints[1,(i+2-2*(i//5))%5], '$P_2$')
-            # ax[i].text(self.eqpoints[2,(i + 2*(i//5))%5], self.eqpoints[2,(i+1)%5], self.eqpoints[2,(i+2-2*(i//5))%5], '$P_3$')
-            ax[i].set_xlabel(f'$x_{(i + 2*(i//5))%5+1}$')
-            ax[i].set_ylabel(f'$x_{(i+1)%5+1}$')
-            ax[i].set_zlabel(f'$x_{(i+2-2*(i//5))%5+1}$')
-        return None 
+        if not disable_plot:
+            ax = [plt.figure().add_subplot(projection='3d') for i in range(3)]
+            for i in range(len(ax)):
+                ax[i].plot(X[(i + 2*(i//5))%5,:], X[(i+1)%5,:], X[(i+2-2*(i//5))%5,:], color='black')    
+                ax[i].scatter(point[(i + 2*(i//5))%5], point[(i+1)%5], point[(i+2-2*(i//5))%5], color='black')
+                if plot_eqpoints:   
+                    ax[i].scatter(self.eqpoints[1:,(i + 2*(i//5))%5], self.eqpoints[1:,(i+1)%5], self.eqpoints[1:,(i+2-2*(i//5))%5], color='r')
+                    ax[i].text(self.eqpoints[1,(i + 2*(i//5))%5], self.eqpoints[1,(i+1)%5], self.eqpoints[1,(i+2-2*(i//5))%5], '$P_2$')
+                    ax[i].text(self.eqpoints[2,(i + 2*(i//5))%5], self.eqpoints[2,(i+1)%5], self.eqpoints[2,(i+2-2*(i//5))%5], '$P_3$')
+                    ax[i].text(self.eqpoints[3,(i + 2*(i//5))%5], self.eqpoints[3,(i+1)%5], self.eqpoints[3,(i+2-2*(i//5))%5], '$P_4$')
+                ax[i].set_xlabel(f'$x_{(i + 2*(i//5))%5+1}$')
+                ax[i].set_ylabel(f'$x_{(i+1)%5+1}$')
+                ax[i].set_zlabel(f'$x_{(i+2-2*(i//5))%5+1}$')
+        return X[:,-1] 
     
-    def integrate_at_points(self, points, T = 3000.0):
+    def integrate_at_points(self, points, T = 3000.0, init_points=False):
         
-        ax = [plt.figure().add_subplot(projection='3d') for i in range(3)]
+        ax = [plt.figure().add_subplot(projection='3d') for i in range(10)]
         colors = plt.get_cmap("viridis", points.shape[0])
         for j in range(points.shape[0]):
             sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], points[j,:], rtol=1e-7, atol=1e-6)
             X = sol.y
             for i in range(len(ax)):
-                ax[i].plot(X[(i + 2*(i//5))%5,:], X[(i+1)%5,:], X[(i+2-2*(i//5))%5,:], color=colors(j))    
-                ax[i].scatter(points[j,(i + 2*(i//5))%5], points[j,(i+1)%5], points[j,(i+2-2*(i//5))%5], color=colors(j))    
+                ax[i].plot(X[(i + 2*(i//5))%5,:], X[(i+1)%5,:], X[(i+2-2*(i//5))%5,:], color=colors(j))
+                if init_points:
+                    ax[i].scatter(points[j,(i + 2*(i//5))%5], points[j,(i+1)%5], points[j,(i+2-2*(i//5))%5], color=colors(j))    
                 if j == 0:
-                    ax[i].scatter(self.eqpoints[1:,(i + 2*(i//5))%5], self.eqpoints[1:,(i+1)%5], self.eqpoints[1:,(i+2-2*(i//5))%5], color='r')
+                    ax[i].scatter(self.eqpoints[0:,(i + 2*(i//5))%5], self.eqpoints[0:,(i+1)%5], self.eqpoints[0:,(i+2-2*(i//5))%5], color='r')
+                    ax[i].text(self.eqpoints[0,(i + 2*(i//5))%5], self.eqpoints[0,(i+1)%5], self.eqpoints[0,(i+2-2*(i//5))%5], '$P_1$')
                     ax[i].text(self.eqpoints[1,(i + 2*(i//5))%5], self.eqpoints[1,(i+1)%5], self.eqpoints[1,(i+2-2*(i//5))%5], '$P_2$')
                     ax[i].text(self.eqpoints[2,(i + 2*(i//5))%5], self.eqpoints[2,(i+1)%5], self.eqpoints[2,(i+2-2*(i//5))%5], '$P_3$')
+                    ax[i].text(self.eqpoints[3,(i + 2*(i//5))%5], self.eqpoints[3,(i+1)%5], self.eqpoints[3,(i+2-2*(i//5))%5], '$P_4$')
                     ax[i].set_xlabel(f'$x_{(i + 2*(i//5))%5+1}$')
                     ax[i].set_ylabel(f'$x_{(i+1)%5+1}$')
                     ax[i].set_zlabel(f'$x_{(i+2-2*(i//5))%5+1}$')
@@ -205,9 +209,8 @@ class eq_model:
         ax.quiver(x1, x2, x3, u1, u2, u3, length = 1)
         ax.scatter(self.eqpoints[2,0], self.eqpoints[2,1], self.eqpoints[2,2], color='r')
                
-    def integrate_on_set(self, bounds, T = 3000.0, N = np.array([5,5,5])):
+    def integrate_on_set(self, bounds, intTime = 3000.0, N = np.array([5,5,5])):
         
-        # working under assmption that the first element of self.eqpoints is an equilibrium point that lies inside of the set D 
         plt.rcParams['text.usetex'] = True
         
         if bounds.shape != (5,2):
@@ -217,21 +220,8 @@ class eq_model:
         x2 = np.linspace(bounds[1,0], bounds[1,1], num = N[1])
         x3 = np.linspace(bounds[2,0], bounds[2,1], num = N[2])
         
-        ax = plt.figure().add_subplot(projection='3d')
-        ax.set_prop_cycle(color=mpl.cm.viridis(np.linspace(0,1,N[0]*N[1]*N[2])))
         points = np.array([np.array([x1[i], x2[j], x3[k], self.s_1/self.mu_2, 0.0]) for i in range(len(x1)) for j in range(len(x3))  for k in range(len(x3))])
-        for i in range(len(points)):
-            sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], points[i], rtol=1e-7, atol=1e-6)
-            X = sol.y
-            ax.plot(X[0,:], X[1,:], X[2,:])    
-        # ax.scatter(self.eqpoints[1:,0], self.eqpoints[1:,2], self.eqpoints[1:,4], color='r')
-        ax.scatter(self.eqpoints[1,0], self.eqpoints[1,1], self.eqpoints[1,2], color='r')
-        ax.text(self.eqpoints[1,0], self.eqpoints[1,1], self.eqpoints[1,2], '$P_2$')
-        # ax.text(self.eqpoints[2,0], self.eqpoints[2,2], self.eqpoints[2,4], '$P_3$')
-        ax.set_xlabel(f'$x_{1}$')
-        ax.set_ylabel(f'$x_{2}$')
-        ax.set_zlabel(f'$x_{3}$')
-        ax.set_xlim((0.0, 10000.0))
+        self.integrate_at_points(points, T=intTime)
         return None
                     
     def plot_transitions(self, point, plot_inv = True, T = 3000.0):

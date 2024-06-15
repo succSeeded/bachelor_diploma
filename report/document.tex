@@ -30,7 +30,7 @@
 	tabsize=4
 }
 
-\VKR
+\VKRTitleOnly
 
 \title{Инвариантные компакты и устойчивость положений равновесия в модели взаимодействия клеток иммунитета и мозговой опухоли}
 \author{М.Д.~Кирдин}
@@ -133,7 +133,7 @@
 		т.е. для любой точки $x_0\in M$ решение системы $x(t)$ с начальным условием $x(0)=x_0$ не выходит за пределы $M$ при $t>0$.
 	\end{definition}
 	
-	\begin{theorem}\cite[c.~20]{invar_comp}
+	\begin{theorem}\cite{invar_comp}
 		Все инвариантные множества динамической системы $\dot{x} = F(x),\, x\in D\subset\mathbb{R}^n,\, F\in C^1,$ содержащиеся в множестве $Q\subset D$, содержатся в \textit{локализирующем множестве}
 		\[\Omega(\varphi,\, Q) = \left\{x\in Q:\, \varphi_{inf}(Q)\le \varphi(x) \le \varphi_{sup}(Q)\right\},\]
 		где $\varphi(x)$ --- гладкая на множестве $D$ функция, называемая \textit{локализирующей функцией}, $\dot{\varphi}(x)$~---~производная $\varphi(x)$ в силу системы $\dot{x}=F(x)$,
@@ -141,11 +141,11 @@
 		а $S(\varphi) = \left\{x\in\mathbb{R}^n:\, \dot{\varphi}(x)=0\right\}$ --- \textit{универсальное сечение} функции~$\varphi(x)$.
 	\end{theorem}
 	
-	\begin{theorem}\cite[с.~84]{Arnold}\label{th:Arnold}
+	\begin{theorem}\cite{Arnold}\label{th:Arnold}
 		Траектория динамической системы $\dot{x}=F(x)$ с начальным значением из любого компакта фазового пространства продолжается вперед(назад) либо неограниченно, либо до границы этого компакта.
 	\end{theorem}
 	
-	\begin{theorem}\cite[c.~114]{Khalil}\label{th:Khalil}
+	\begin{theorem}\cite{Khalil}\label{th:Khalil}
 		Если траектория $x=x(t)$ непрерывной динамической системы $\dot{x}=F(x),\, x\in D\subset\mathbb{R}^n$ ограничена и принадлежит $D$ при $t \ge 0$, то ее $\omega-$предельное множество --- непустой инвариантный компакт и $x(t)$ стремится к $\omega-$предельному множеству при $t\rightarrow+\infty$.
 	\end{theorem}
 	
@@ -341,7 +341,8 @@
 		\end{equation*}  
 		В случае, если $x_3(0)>0$ получим, что $\dot{x}_5(0)>0$, из чего 
 		\[\ddot{x}_2(0) = a_1\dfrac{\dot{x}_5(0)}{k_4(x_4(0)+e_2)} > 0.\]
-		Тогда $x_2(t)>0,\, t\in(0,\, \tilde{\varepsilon}^{\prime}_5),\,\tilde{\varepsilon}^{\prime}_5\le\varepsilon_5$ и траектория не выходит из $D$ через плоскость $x_2=0$. При $x_3(0)=0$ заметим, что $\ddot{x}_2(0)=0$ и система в начальный момент примет следующий вид:
+		Тогда $x_2(t)>0,\, t\in(0,\, \tilde{\varepsilon}^{\prime}_5),\,\tilde{\varepsilon}^{\prime}_5\le\varepsilon_5$ и траектория не выходит из $D$ через плоскость $x_2=0$. Заметим, что если $x_3(0)=0$, то
+		 $\ddot{x}_2(0)=0$ и система в начальный момент примет следующий вид:
 		\begin{equation*}
 			\begin{cases}
 				\begin{aligned}
@@ -675,7 +676,7 @@
 		\lambda_1=\dfrac{k_1r_1s_1 - \alpha_1c_2\mu_2 + e_1k_1\mu_2r_1}{k_1s_1 + e_1k_1\mu_2},\quad \lambda_2=-\mu_1,\\
 		\lambda_3=-\mu_2,\quad \lambda_4=-\mu_3,\quad \lambda_5=-r_2.
 		\end{multline*}
-		Аналогично предыдущему случаю, из условия строгой положительности параметров системы следует, что в ПР $P_2$ система асимптотически устойчива при условии $k_1r_1s_1 + e_1k_1\mu_2r_1< \alpha_1c_2\mu_2$ и неустойчива при условии $k_1r_1s_1 + e_1k_1\mu_2r_1>\alpha_1c_2\mu_2$. Однако в случае когда $k_1r_1s_1 + e_1k_1\mu_2r_1=\alpha_1c_2\mu_2$ точка покоя $P_2$ является критической, т.е. теорема Ляпунова об устойчивости по первому приближению в этом случае не применима и необходимо дополнительное исследование.\qed
+		Аналогично предыдущему случаю, из условия строгой положительности параметров системы следует, что в ПР $P_2$ система асимптотически устойчива при условии $k_1r_1s_1 + e_1k_1\mu_2r_1< \alpha_1c_2\mu_2$ и неустойчива при условии $k_1r_1s_1 + + e_1k_1\mu_2r_1>\alpha_1c_2\mu_2$. Однако в случае когда $k_1r_1s_1 + e_1k_1\mu_2r_1=\alpha_1c_2\mu_2$ точка покоя $P_2$ является критической, т.е. теорема Ляпунова об устойчивости по первому приближению в этом случае не применима и необходимо дополнительное исследование.\qed
 	\end{proof}
 	
 	\begin{theorem}\label{th:P2_stab}
@@ -745,7 +746,7 @@
 		Разрешив последние два уравнения системы \ref{eq:equlibrium_points} относительно $x_4$ и $x_5$, можно получить, что: 
 		\[x_3=\dfrac{b_2}{\mu_3}x_5,\, x_4=\dfrac{b_1x_1+s_1}{\mu_2}.\]
 		Разрешив третье уравнение системы \ref{eq:equlibrium_points} относительно $x_3$ получим следующее выражение:
-		\[x_3 = a_2\dfrac{x_1}{k_5+x_4}\dfrac{x_1+k_3}{\alpha_4x_1+\mu_1(x_1+k_3)}.\]
+		\[x_3 = a_2\dfrac{x_1}{k_5+x_4}\cdot\dfrac{x_1+k_3}{\alpha_4x_1+\mu_1(x_1+k_3)}.\]
 		Первое уравнение системы \ref{eq:equlibrium_points} разрешимо относительно $x_2$, т.к. координаты внутренних положений равновесия строго положительны. Тогда
 		\[x_2 = \dfrac{1}{\alpha_1}\left(r_1\left(1-\dfrac{x_1}{c_1}\right)(x_4+e_1)(x_1+k_1)-\alpha_2x_3\right).\]
 		Таким образом, координаты внутренних положений равновесия системы \ref{eq:initial_system} задаются следующей системой соотношений:
@@ -791,15 +792,13 @@
 		\end{multline*}
 		Все собственные значения являются отрицательными действительными числами, т.е. положение равновесия $P_3$ асимптотически устойчиво.
 		
-		Естественный интерес представит динамика траектории системы, начинающейся в точке $\left(1,\,0,\,0,\,0,\,0\right)$, представляющей собой начало процесса развития глиомы у человека при условии отсутствия иммунотерапии. На \figref{fig:in_D} дано графическое представление динамики развития болезни в течение первых 3000 дней. Можно заметить, что популяция раковых клеток при $t=1500$~дням испытывает резкий скачок после чего останавливается на численности, соответствующей положению равновесия. Популяции макрофагов и клеток т-киллеров также испытывают скачки роста, после чего останавливаются на значениях, соответствующих внутреннему положению равновесия. Стоит заметить, что при $t=150$ дням популяция макрофагов стремится к максимально возможному значению. Иммуноподавляющий фактор $TGF-\beta$ достигает значений, близких внутреннему положению равновесия при $t=160$ дн, тем самым затрудняя рост популяций клеток иммунитета.
-
 		\begin{figure}[h]
 			\centering
-			\subfigure[]{\includegraphics[width=0.35\textwidth]{media/Figure_1.png}} 
-			\subfigure[]{\includegraphics[width=0.35\textwidth]{media/Figure_2.png}}\\
-			\subfigure[]{\includegraphics[width=0.32\textwidth]{media/Figure_3.png}}
+			\subfigure[]{\includegraphics[scale=0.7]{media/Figure_1.png}} 
+			\subfigure[]{\includegraphics[scale=0.7]{media/Figure_2.png}}\\
+			\subfigure[]{\includegraphics[width=0.33\textwidth]{media/Figure_3.png}}
 			\subfigure[]{\includegraphics[width=0.32\textwidth]{media/Figure_4.png}}
-			\subfigure[]{\includegraphics[width=0.32\textwidth]{media/Figure_5.png}}
+			\subfigure[]{\includegraphics[width=0.33\textwidth]{media/Figure_5.png}}
 			\caption{Переходные процессы системы для каждой координаты}
 			\label{fig:in_D}
 		\end{figure}
@@ -812,14 +811,17 @@
 			\label{fig:in_D_3d}
 		\end{figure}
 		
-		На \figref{fig:in_D_3d} показаны переходные процессы в различных тройках координат для начальных точек, соответствующих случаям, когда в исходном состоянии $x_1=1$, $x_1=10$, $x_1=100$, $x_1=1000$, $x_1=10000$ и $x_1=100000$. Из рисунка видно, что траектории изначально стремятся к положению равновесия $P_2$, соответствующему здоровому состоянию у пациента, после чего стремится к ПР $P_3$. Также на \figref{fig:x1_transitions} отдельно приведены переходные процессы для координаты $x_1$ с аналогичными начальными точками.
-	
+		Естественный интерес представит динамика траектории системы, начинающейся в точке $\left(1,\,0,\,0,\,0,\,0\right)$, представляющей собой начало процесса развития глиомы у человека при условии отсутствия иммунотерапии. На \figref{fig:in_D} дано графическое представление динамики развития болезни в течение первых 3000 дней. Можно заметить, что популяция раковых клеток при $t=1500$~дням испытывает резкий скачок после чего останавливается на численности, соответствующей положению равновесия. Популяции макрофагов и клеток т-киллеров также испытывают скачки роста, после чего останавливаются на значениях, соответствующих внутреннему положению равновесия. Стоит заметить, что при $t=150$ дням популяция макрофагов стремится к максимально возможному значению. Иммуноподавляющий фактор $TGF-\beta$ достигает значений, близких внутреннему положению равновесия при $t=160$ дн, тем самым затрудняя рост популяций клеток иммунитета.
+		
 		\begin{figure}[h]
 			\centering
 			\includegraphics[width=0.90\textwidth]{media/Figure_12.png}
 			\caption{Переходные процессы системы для различных начальных значений~$x_1$}
 			\label{fig:x1_transitions}
 		\end{figure}
+		
+		На \figref{fig:in_D_3d} показаны переходные процессы в различных тройках координат для начальных точек, соответствующих случаям, когда в исходном состоянии $x_1=1$, $x_1=10$, $x_1=100$, $x_1=1000$, $x_1=10000$ и $x_1=100000$. Из рисунка видно, что траектории изначально стремятся к положению равновесия $P_2$, соответствующему здоровому состоянию у пациента, после чего стремится к ПР $P_3$. Также на \figref{fig:x1_transitions} отдельно приведены переходные процессы для координаты $x_1$ с аналогичными начальными точками.
+
 		\begin{figure}[h]
 			\centering
 			\subfigure[]{\includegraphics[width=0.40\textwidth]{media/Figure_6.png}} 
@@ -827,15 +829,14 @@
 			\caption{Переходные процессы системы при выборе начальной точки на плоскости $x_1=x_3=x_5=0$}
 			\label{fig:on_D_border}
 		\end{figure}
-		
-		Проведем аналогичное моделирование для случайной траектории на плоскости $x_1=x_3=x_5=0$. Из \figref{fig:on_D_border} можно делать вывод о том, что траектория приходит к положению равновесия $P_2$ за $t=35$ дней. Заметим, что в данном случае количество иммуноподавляющего фактора $TGF-\beta$ испытывает резкий скачок в результате которого достигает значений близких положению равновесия при $t=1$ дн. 
-		
 		\begin{figure}[h]
 			\centering
 			\includegraphics[width=0.60\textwidth]{media/Figure_11.png}
 			\caption{Траектории системы в координатах $x_1,\, x_3,\, x_5$}
 			\label{fig:model_K5}
-		\end{figure}	
+		\end{figure}
+		
+		Проведем аналогичное моделирование для случайной траектории на плоскости $x_1=x_3=x_5=0$. Из \figref{fig:on_D_border} можно делать вывод о том, что траектория приходит к положению равновесия $P_2$ за $t=35$ дней. Заметим, что в данном случае количество иммуноподавляющего фактора $TGF-\beta$ испытывает резкий скачок в результате которого достигает значений близких положению равновесия при $t=1$ дн. 	
 		
 		На \figref{fig:model_K5} было проведено моделирование траекторий системы внутри множества $K_5$. Это показывает типичный ход траекторий системы внутри локализирующего множества. Видно, что траектории, начинающиеся в инвариантной плоскости $x_1=0$, остаются на ней. При этом траектории, начинающиеся вне нее стремятся к внутреннему положению равновесия.
 	\end{example}
@@ -848,18 +849,28 @@
 		Сохранив значения всех параметров из примера 1 кроме $r_1$, получим, что $r_1 < 0.002903$. Поэтому положим, что $r_1=0.002$.
 		
 		Из соображений, аналогичных изложенным в примере 1, можно получить, что при таком наборе параметров система имеет два граничных положения равновесия $P_1\left(0,\,0,\,0,\,9134.92,\,0\right)$ и $P_2\left(0,\,1000000,\,0,\,9134.92,\,0\right)$.
-		Заметим, что в то время как $P_1$ остается неустойчивым, $P_2$, в силу выбора параметра~$r_1$, является асимптотически устойчивым в $D$. Также, согласно теореме~\thref{th:P2_stab}, $P_2$ асимптотически устойчиво на плоскости $x_1=x_3=x_5=0$. 
+		Заметим, что в то время как $P_1$ остается неустойчивым, $P_2$, в силу выбора параметра~$r_1$, является асимптотически устойчивым в $D$.
 		
-		\begin{figure}[h]
-			\centering 
-			\subfigure[]{\includegraphics[width=0.90\textwidth]{media/Figure_13.png}}
-			\caption{Переходные процессы системы с новыми параметрами для различных начальных значений~$x_1$}
-			\label{fig:x1_transitions_new}
-		\end{figure}
-		
-		Система также имеет единственное внутреннее положение равновесия 
-		\[P_3\left(882650,\,0.000001,\,152.606,\,9135.65,\,0.152606\right).\]
+		Система также имеет два внутренних положения равновесия $P_3$ и $P_4$. Положение равновесия $P_3$ имеет координаты
+		\[P_3\left(845242.62,\, 943152.48,\, 147.819,\, 9135.62,\, 0.147819\right).\]
 		Матрица Якоби системы с новыми параметрами в точке $P_3$: 
+		\[\begin{pmatrix}
+			-0.00162 & -0.000071& -0.000014&  0.003752&  0\\
+			 0  &     -0.309228  & 0     &   0     &   0\\
+			 \phantom{-}0.000007 & 0    &   -0.12837&  -0.001702  0\\
+			 0&        0&        0     &  -6.933988&  0\\
+			 0 &       0&        \phantom{-}0.000102 & 0 &       -0.102
+		\end{pmatrix}.\]
+		Спектр данной матрицы имеет следующий вид:
+		\begin{multline*}
+			\lambda_1=-6.93399,\,\, \lambda_2=-0.309228,\\
+			\lambda_3=-0.12837,\,\, \lambda_4=-0.102,\,\, \lambda_5=-0.00162.
+		\end{multline*}
+		Все собственные значения является отрицательными действительными числами, следовательно, положение равновесия $P_3$ является асимптотически устойчивым.
+		
+		Положение равновесия $P_4$ имеет следующие координаты:
+		\[P_4\left(882650,\,0.000001,\,152.606,\,9135.65,\,0.152606\right).\]
+		Матрица Якоби системы с новыми параметрами в точке $P_4$: 
 		\[\begin{pmatrix}
 			-0.00196&  -0.000076 &-0.000006&  0    &    0\\
 			 0     &   \phantom{-}0.311876&  0     &   0    &    0\\
@@ -872,7 +883,7 @@
 			\lambda_1=-6.93399,\,\, \lambda_2=-0.129852,\\
 			\lambda_3=-0.102,\,\, \lambda_4=-0.00196,\,\, \lambda_5=0.311876.
 		\end{multline*}
-		Собственное значение $\lambda_5$ является положительным действительным числом, следовательно, положение равновесия $P_3$ является неустойчивым. 
+		Собственное значение $\lambda_5$ является положительным действительным числом, следовательно, положение равновесия $P_4$ является неустойчивым. 
 		
 		Рассмотрим поведение траекторий в данном случае. В результате численного моделирования решений системы с начальными условиями вида 
 		\[x_1(0)=x_{1,0},\, x_2(0)=0,\, x_3(0)=0,\, x_4(0)=0,\, x_5(0)=0,\, x_{1,0}\in\mathbb{R}_{+},\]
@@ -901,39 +912,39 @@
 	\begin{thebibliography}{\kern\bibindent} \makeatletter \let\old@biblabel\@biblabel \def\@biblabel#1{\hspace{12.5 mm}\old@biblabel{#1}\kern\bibindent} \let\old@bibitem\bibitem \def\bibitem#1{\old@bibitem{#1}\leavevmode\kern-\bibindent} \makeatother
 		
 		\bibitem{glioma_classification}
-		Byun YH, Park CK. Classification and Diagnosis of Adult Glioma: A Scoping Review. Brain Neurorehabil. 2022 Nov 22;15(3):e23. doi: 10.12786/bn.2022.15.e23. PMID: 36742083; PMCID: PMC9833487.
+		Byun YH, Park CK. Classification and Diagnosis of Adult Glioma: A Scoping Review. Brain Neurorehabil. 2022 Nov; vol.~15(3):e23. https://doi.org/10.12786/bn.2022.15.e23
 		\bibitem{glioma_overview}
-		Zeng T, Cui D, Gao L. Glioma: an overview of current classifications, characteristics, molecular biology and target therapies. Front Biosci (Landmark Ed). 2015 Jun 1;20(7):1104-15. doi: 10.2741/4362. PMID: 25961548.
+		Zeng T, Cui D, Gao L. Glioma: an overview of current classifications, characteristics, molecular biology and target therapies. Front Biosci (Landmark Ed). 2015 Jun 1; vol.~20(7): pp.~1104-15. doi: 10.2741/4362. PMID: 25961548.
 		\bibitem{abt_DEs}
-		S. Bunimovich-Mendrazitsky, J. C. Gluckman and J. Chaskalovic, J. Theor. Biol. 277,27 (2011).
+		Bunimovich-Mendrazitsky, Svetlana et al. A mathematical model of combined bacillus Calmette-Guerin (BCG) and interleukin (IL)-2 immunotherapy of superficial bladder cancer. Journal of theoretical biology vol.~277,1 (2011): pp.~27-40. doi:10.1016/j.jtbi.2011.02.008
 		\bibitem{Kasbawati et.al.}
-		Kasbawati, Yuliana Jao, Nur Erawaty. Dynamic study of the pathogen-immune system interaction with natural delaying effects and protein therapy[J]. AIMS Mathematics, 2022, 7(5): 7471-7488. doi: 10.3934/math.2022419
+		Kasbawati, Yuliana Jao, Nur Erawaty. Dynamic study of the pathogen-immune system interaction with natural delaying effects and protein therapy[J]. AIMS Mathematics, 2022, vol.~7(5): pp.~7471-7488. doi: 10.3934/math.2022419
 		\bibitem{W. L. Duan et.al.}
-		W. L. Duan, H. Fang, C. Zeng, The stability analysis of tumor-immune responses to chemotherapy system with gaussian white noises. Chaos, Soliton. Fract., 127 (2019), 96–102. https://doi.org/10.1016/j.chaos.2019.06.030. doi: 10.1016/j.chaos.2019.06.030 
+		W. L. Duan, H. Fang, C. Zeng, The stability analysis of tumor-immune responses to chemotherapy system with gaussian white noises. Chaos, Soliton. Fract., vol.~127 (2019), pp.~96–102. https://doi.org/10.1016/j.chaos.2019.06.030. doi: 10.1016/j.chaos.2019.06.030 
 		\bibitem{Xiangdong Liu et.al.}
 		Xiangdong Liu, Qingze Li, Jianxin Pan, A deterministic and stochastic model for the system dynamics of tumor–immune responses to chemotherapy, Physica A: Statistical Mechanics and its Applications, Volume 500, 2018, pp. 162-176, ISSN 0378-4371, https://doi.org/10.1016/j.physa.2018.02.118.
 		\bibitem{L.G. de Pillis et.al.}
 		L.G. de Pillis, W. Gu, K.R. Fister, T. Head, K. Maples, A. Murugan, T. Neal, K. Yoshida, Chemotherapy for tumors: An analysis of the dynamics and a study of quadratic and linear optimal controls, Mathematical Biosciences, Volume 209, Issue 1, 2007, pp. 292-315, ISSN 0025-5564, https://doi.org/10.1016/j.mbs.2006.05.003.
 		\bibitem{dePillis L.G. et.al.}
-		dePillis, L.G., Eladdadi, A. \& Radunskaya, A.E. Modeling cancer-immune responses to therapy. J Pharmacokinet Pharmacodyn 41, 461–478 (2014). https://doi.org/10.1007/s10928-014-9386-9
+		dePillis, L.G., Eladdadi, A. \& Radunskaya, A.E. Modeling cancer-immune responses to therapy. J Pharmacokinet Pharmacodyn vol.~41, pp.~461–478 (2014). https://doi.org/10.1007/s10928-014-9386-9
 		\bibitem{F. A. Rihan et.al.}
-		F. A. Rihan, D. H. A. Rahman, Delay differential model for tumour-immune dynamics with HIV infection of CD4+ T-cells, Int. J. Comput. Math., 90 (2013), 594–614, http://dx.doi.org/10.1080/00207160.2012.726354. doi: 10.1080/00207160.2012.726354 
+		F. A. Rihan, D. H. A. Rahman, Delay differential model for tumour-immune dynamics with HIV infection of CD4+ T-cells, Int. J. Comput. Math., vol.~90 (2013), pp.~594–614, http://dx.doi.org/10.1080/00207160.2012.726354. doi: 10.1080/00207160.2012.726354 
 		\bibitem{gliomae_scenarios}
-		K. R. Swanson, C. Bridge, J. D. Murray and E. C. Alvord Jr., J. Neurol. Sci. 216, 1 (2003).
+		Swanson, Kristin R et al. “Virtual and real brain tumors: using mathematical modeling to quantify glioma growth and invasion.” Journal of the neurological sciences vol. 216,1 (2003): pp. 1-10. doi:10.1016/j.jns.2003.06.001
 		\bibitem{Chakrabarty et.al.}
-		Chakrabarty SP, Hanson FB. Distributed parameters deterministic model for treatment of brain tumors using Galerkin finite element method. Math Biosci. 2009; 219(2): 129–141. pmid:19345698
+		Chakrabarty SP, Hanson FB. Distributed parameters deterministic model for treatment of brain tumors using Galerkin finite element method. Math Biosci. 2009; vol.~219(2): pp.~129–141. pmid:19345698
 		\bibitem{Bandera}
-		Bandara S, Diehl M, Fricker G. A mathematical model for the transport of paclitaxel (Taxol) across the blood-brain barrier. Chem Eng Res Des. 2007; 85: 1065–1071.
+		Bandara S, Diehl M, Fricker G. A mathematical model for the transport of paclitaxel (Taxol) across the blood-brain barrier. Chem Eng Res Des. 2007; vol.~85: pp.~1065–1071.
 		\bibitem{Kirkby et.al.}
-		Kirkby NF, Jefferies SJ, Jena R, Burnet NG. A mathematical model of the treatment and survival of patients with high-grade brain tumours. J Theor Biol. 2007; 245: 112–124. pmid:17084863
+		Kirkby NF, Jefferies SJ, Jena R, Burnet NG. A mathematical model of the treatment and survival of patients with high-grade brain tumours. J Theor Biol. 2007; vol.~245: pp.~112–124. pmid:17084863
 		\bibitem{Schmitz et.al.}
-		Schmitz JE, Kansal AR, Torquato S. A cellular automaton model of brain tumor treatment and resistance. J Theor Med. 2002; 4(4): 223–239.
+		Schmitz JE, Kansal AR, Torquato S. A cellular automaton model of brain tumor treatment and resistance. J Theor Med. 2002; vol.~4(4): pp.~223–239.
 		\bibitem{Walker et.al.}
-		Walker WL, Cook J. Drug delivery to brain tumors. Bull Math Biol. 1996; 58(6): 1047–1074. pmid:8953256
+		Walker WL, Cook J. Drug delivery to brain tumors. Bull Math Biol. 1996; vol.~58(6): pp.~1047–1074. pmid:8953256
 		\bibitem{Kronik et.al.}
-		Kronik N, Kogan Y, Vainstein V, Agur Z. Improving alloreactive CTL immunotherapy for malignant gliomas using a simulation model of their interactive dynamics. Cancer Immunol Immunother. 2008; 57: 425–439. pmid:17823798
+		Kronik N, Kogan Y, Vainstein V, Agur Z. Improving alloreactive CTL immunotherapy for malignant gliomas using a simulation model of their interactive dynamics. Cancer Immunol Immunother. 2008; vol.~57: pp.~425–439. pmid:17823798
 		\bibitem{model}
-		S. Banerjee, S. Khajanchi and S. Chaudhury, PLoS ONE 10(5), e0123611 (2015). 
+		Banerjee, Sandip et al. “A mathematical model to elucidate brain tumor abrogation by immunotherapy with T11 target structure.” PloS one vol. 10,5 e0123611. 8 May. 2015, doi:10.1371/journal.pone.0123611
 		\bibitem{invar_comp_localization}
 		\textit{Крищенко А.П.} Локализация инвариантных компактов динамических систем //Дифференциальные уравнения, 2005, Т.41, N12, C.~1597--1604.
 		\bibitem{invar_comp}
@@ -943,7 +954,7 @@
 		\bibitem{Khalil}
 		H. K. Khalil \textit{Nonlinear Systems}, 2nd ed., Upper Saddle River, NJ: Prentice Hall, 1996.
 		\bibitem{model_params}
-		Khajanchi, S., “Uniform Persistence and Global Stability for a Brain Tumor and Immune System Interaction”, \textit{Biophysical Reviews and Letters}, vol. 12, no. 4, pp.~187–208, 2017. doi:10.1142/S1793048017500114.
+		Khajanchi, S., “Uniform Persistence and Global Stability for a Brain Tumor and Immune System Interaction”, \textit{Biophysical Reviews and Letters}, vol.~12, no.~4, pp.~187–208, 2017. doi:10.1142/S1793048017500114.
 	\end{thebibliography}
 	
 	\section*{Приложение A}
