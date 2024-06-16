@@ -160,36 +160,26 @@ val = self.r_1*(self.c_1-point[0])*(point[3]+self.e_1)*(point[0]+self.k_1) - sel
 print(f'(4)-2 в точке x_1 = {croots[j]}: {val}');
 return croots;
 
-def integrate_at_point(self, point, T = 2000.0):
+def integrate_at_point(self, point, T = 3000.0, disable_plot=False, plot_eqpoints = True):
 
-ax = [plt.figure().add_subplot(projection='3d') for i in range(3)];
 sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], point, rtol=1e-7, atol=1e-6);
 X = sol.y;
+if not disable_plot:
+ax = [plt.figure().add_subplot(projection='3d') for i in range(3)];
 for i in range(len(ax)):
 ax[i].plot(X[(i + 2*(i//5))%5,:], X[(i+1)%5,:], X[(i+2-2*(i//5))%5,:], color='black');
 ax[i].scatter(point[(i + 2*(i//5))%5], point[(i+1)%5], point[(i+2-2*(i//5))%5], color='black');
-ax[i].scatter(self.eqpoints[1, (i + 2*(i//5))%5], 
-self.eqpoints[1,(i+1)%5], self.eqpoints[1,(i+2-2*(i//5))%5], 
-color='r');
-ax[i].text(self.eqpoints[1, (i + 2*(i//5))%5], 
-self.eqpoints[1,(i+1)%5], self.eqpoints[1, 
-(i+2-2*(i//5))%5], '$P_2$');
-# ax[i].scatter(self.eqpoints[1:,(i + 2*(i//5))%5], 
-# self.eqpoints[1:,(i+1)%5], self.eqpoints[1:,
-# (i+2-2*(i//5))%5], color='r');
-# ax[i].text(self.eqpoints[1,(i + 2*(i//5))%5], 
-# self.eqpoints[1,(i+1)%5], self.eqpoints[1,
-# (i+2-2*(i//5))%5], '$P_2$');
-# ax[i].text(self.eqpoints[2,(i + 2*(i//5))%5], 
-# self.eqpoints[2,(i+1)%5], self.eqpoints[2,
-# (i+2-2*(i//5))%5], '$P_3$');
+if plot_eqpoints:   
+ax[i].scatter(self.eqpoints[1:,(i + 2*(i//5))%5], self.eqpoints[1:,(i+1)%5], self.eqpoints[1:,(i+2-2*(i//5))%5], color='r');
+ax[i].text(self.eqpoints[1,(i + 2*(i//5))%5], self.eqpoints[1,(i+1)%5], self.eqpoints[1,(i+2-2*(i//5))%5], '$P_2$');
+ax[i].text(self.eqpoints[2,(i + 2*(i//5))%5], self.eqpoints[2,(i+1)%5], self.eqpoints[2,(i+2-2*(i//5))%5], '$P_3$');
+ax[i].text(self.eqpoints[3,(i + 2*(i//5))%5], self.eqpoints[3,(i+1)%5], self.eqpoints[3,(i+2-2*(i//5))%5], '$P_4$');
 ax[i].set_xlabel(f'$x_{(i + 2*(i//5))%5+1}$');
 ax[i].set_ylabel(f'$x_{(i+1)%5+1}$');
 ax[i].set_zlabel(f'$x_{(i+2-2*(i//5))%5+1}$');
-return None;
+return X[:,-1];
 
 def integrate_at_points(self, points, T = 2000.0):
-
 ax = [plt.figure().add_subplot(projection='3d') for i in range(3)];
 colors = plt.get_cmap("viridis", points.shape[0]);
 for j in range(points.shape[0]):
@@ -202,53 +192,20 @@ if j == 0:
 ax[i].scatter(self.eqpoints[1:,(i + 2*(i//5))%5], self.eqpoints[1:,(i+1)%5], self.eqpoints[1:,(i+2-2*(i//5))%5], color='r');
 ax[i].text(self.eqpoints[1,(i + 2*(i//5))%5], self.eqpoints[1,(i+1)%5], self.eqpoints[1,(i+2-2*(i//5))%5], '$P_2$');
 ax[i].text(self.eqpoints[2,(i + 2*(i//5))%5], self.eqpoints[2,(i+1)%5], self.eqpoints[2,(i+2-2*(i//5))%5], '$P_3$');
+ax[i].text(self.eqpoints[3,(i + 2*(i//5))%5], self.eqpoints[3,(i+1)%5], self.eqpoints[3,(i+2-2*(i//5))%5], '$P_4$');
 ax[i].set_xlabel(f'$x_{(i + 2*(i//5))%5+1}$');
 ax[i].set_ylabel(f'$x_{(i+1)%5+1}$');
 ax[i].set_zlabel(f'$x_{(i+2-2*(i//5))%5+1}$');
 return None;
 
-def quiver(self, plot_area, N = np.array([5,5,5,5,5])):
-
-ax = plt.figure().add_subplot(projection='3d');
-
-x1, x2, x3, x4, x5 = np.meshgrid(np.linspace(plot_area[0,0],
-plot_area[0,1], num = N[0]), np.linspace(plot_area[1,0], 
-plot_area[1,1], num = N[1]), np.linspace(plot_area[2,0],
-plot_area[2,1], num = N[2]), np.linspace(plot_area[3,0], 
-plot_area[3,1], num = N[3]), np.linspace(plot_area[4,0], 
-plot_area[4,1], num = N[4]));
-
-u1, u2, u3, u4, u5 = self.dxdt(np.array([x1, x2, x3, x4, x5]));
-
-ax.quiver(x1, x2, x3, u1, u2, u3, length = 1);
-ax.scatter(self.eqpoints[2,0], self.eqpoints[2,1], self.eqpoints[2,2], color='r');
-return None;
-
-def integrate_on_set(self, bounds, T = 2000.0, N = np.array([5,2,2])):
-
-plt.rcParams['text.usetex'] = True;
-
+def integrate_on_set(self, bounds, intTime = 3000.0, plotAxes=None, N = np.array([5,5,5])):
 if bounds.shape != (5,2):
 raise ValueError('Incorrect bounds!');
-
 x1 = np.linspace(bounds[0,0], bounds[0,1], num = N[0]);
-x3 = np.linspace(bounds[2,0], bounds[2,1], num = N[1]);
-x5 = np.linspace(bounds[4,0], bounds[4,1], num = N[2]);
-
-ax = plt.figure().add_subplot(projection='3d');
-ax.set_prop_cycle(color=mpl.cm.viridis(np.linspace(0,1,N[0]*N[1]*N[2])));
-points = np.array([np.array([x1[i], 0.0, x3[j], self.s_1/self.mu_2, x5[k]]) for i in range(len(x1)) for j in range(len(x3))  for k in range(len(x3))]);
-for i in range(len(points)):
-sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], points[i], rtol=1e-7, atol=1e-6);
-X = sol.y;
-ax.plot(X[0,:], X[2,:], X[4,:]);
-# ax.scatter(self.eqpoints[1:,0], self.eqpoints[1:,2], self.eqpoints[1:,4], color='r');
-ax.scatter(self.eqpoints[1,0], self.eqpoints[1,2], self.eqpoints[1,4], color='r');
-ax.text(self.eqpoints[1,0], self.eqpoints[1,2], self.eqpoints[1,4], '$P_2$');
-# ax.text(self.eqpoints[2,0], self.eqpoints[2,2], self.eqpoints[2,4], '$P_3$');
-ax.set_xlabel(f'$x_{1}$');
-ax.set_ylabel(f'$x_{3}$');
-ax.set_zlabel(f'$x_{5}$');
+x2 = np.linspace(bounds[1,0], bounds[1,1], num = N[1]);
+x3 = np.linspace(bounds[2,0], bounds[2,1], num = N[2]);
+points = np.array([np.array([x1[i], 0.0, x2[j], self.s_1/self.mu_2, x3[k]]) for i in range(len(x1)) for j in range(len(x3))  for k in range(len(x3))]);
+self.integrate_at_points(points, T=intTime, axes=plotAxes);
 return None;
 
 def plot_transitions(self, point, plot_inv = True, T = 3000.0):
@@ -285,4 +242,21 @@ ax.grid();
 ax.legend();
 ax.set_xlabel('t, дней');
 ax.set_ylabel(f'$x_{1}$');
+return None;
+
+def quiver(self, plot_area, N = np.array([5,5,5,5,5])):
+
+ax = plt.figure().add_subplot(projection='3d');
+
+x1, x2, x3, x4, x5 = np.meshgrid(np.linspace(plot_area[0,0],
+plot_area[0,1], num = N[0]), np.linspace(plot_area[1,0], 
+plot_area[1,1], num = N[1]), np.linspace(plot_area[2,0],
+plot_area[2,1], num = N[2]), np.linspace(plot_area[3,0], 
+plot_area[3,1], num = N[3]), np.linspace(plot_area[4,0], 
+plot_area[4,1], num = N[4]));
+
+u1, u2, u3, u4, u5 = self.dxdt(np.array([x1, x2, x3, x4, x5]));
+
+ax.quiver(x1, x2, x3, u1, u2, u3, length = 1);
+ax.scatter(self.eqpoints[2,0], self.eqpoints[2,1], self.eqpoints[2,2], color='r');
 return None;

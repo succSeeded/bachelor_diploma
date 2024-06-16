@@ -11,7 +11,7 @@ mpl.rc('text', usetex=True)
 mpl.rc('text.latex', preamble=r'\usepackage[utf8]{inputenc}')
 mpl.rc('text.latex', preamble=r'\usepackage[russian]{babel}')
 plt.rcParams['figure.figsize'] = [5, 5]
-mpl.rcParams.update({'font.size': 14}
+mpl.rcParams.update({'font.size': 18})
                     
 
 class eq_model:
@@ -91,11 +91,11 @@ class eq_model:
         return np.sort(LA.eigvals(self.jacobian(point)))
 
     def find_eqpoints(self):
-        # self.eqpoints = np.vstack((np.vstack((np.array([0.0,0.0,0.0,self.s_1/self.mu_2,0.0]),
-        #     np.array([0.0,self.c_2,0.0,self.s_1/self.mu_2,0.0]))),
-        #     [845242.623417, 943152.46745, 147.818773, 9135.622138, 0.147819]))
-        self.eqpoints = np.vstack((np.array([0.0,0.0,0.0,self.s_1/self.mu_2,0.0]),
-            np.array([0.0,self.c_2,0.0,self.s_1/self.mu_2,0.0])))
+        self.eqpoints = np.vstack((np.vstack((np.array([0.0,0.0,0.0,self.s_1/self.mu_2,0.0]),
+            np.array([0.0,self.c_2,0.0,self.s_1/self.mu_2,0.0]))),
+            [845242.623417, 943152.46745, 147.818773, 9135.622138, 0.147819]))
+        # self.eqpoints = np.vstack((np.array([0.0,0.0,0.0,self.s_1/self.mu_2,0.0]),
+        #     np.array([0.0,self.c_2,0.0,self.s_1/self.mu_2,0.0])))
            
         
         print(f'Searching for zeros...')
@@ -180,7 +180,7 @@ class eq_model:
         if axes:
             ax = plt.figure().add_subplot(projection='3d')
         else:
-            ax = [plt.figure().add_subplot(projection='3d') for i in range(10)]
+            ax = [plt.figure().add_subplot(projection='3d') for i in range(3)]
         for j in range(points.shape[0]):
             sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], points[j,:], rtol=1e-7, atol=1e-6)
             X = sol.y
@@ -190,10 +190,11 @@ class eq_model:
                     ax.scatter(points[j,axes[0]], points[j,axes[1]], points[j,axes[2]], color=colors(j))    
                 if j == 0:
                     ax.scatter(self.eqpoints[0:,axes[0]], self.eqpoints[0:,axes[1]], self.eqpoints[0:,axes[2]], color='r')
+                    # ax.scatter(self.eqpoints[0:2,axes[0]], self.eqpoints[0:2,axes[1]], self.eqpoints[0:2,axes[2]], color='r')
                     ax.text(self.eqpoints[0,axes[0]], self.eqpoints[0,axes[1]], self.eqpoints[0,axes[2]], '$P_1$')
                     ax.text(self.eqpoints[1,axes[0]], self.eqpoints[1,axes[1]], self.eqpoints[1,axes[2]], '$P_2$')
                     ax.text(self.eqpoints[2,axes[0]], self.eqpoints[2,axes[1]], self.eqpoints[2,axes[2]], '$P_3$')
-                    # ax[i].text(self.eqpoints[3,(i + 2*(i//5))%5], self.eqpoints[3,(i+1)%5], self.eqpoints[3,(i+2-2*(i//5))%5], '$P_4$')
+                    # ax.text(self.eqpoints[3,axes[0]], self.eqpoints[3,axes[1]], self.eqpoints[3,axes[2]], '$P_4$')
                     ax.set_xlabel(f'$x_{axes[0]+1}$')
                     ax.set_ylabel(f'$x_{axes[1]+1}$')
                     ax.set_zlabel(f'$x_{axes[2]+1}$')                
@@ -207,28 +208,11 @@ class eq_model:
                         ax[i].text(self.eqpoints[0,(i + 2*(i//5))%5], self.eqpoints[0,(i+1)%5], self.eqpoints[0,(i+2-2*(i//5))%5], '$P_1$')
                         ax[i].text(self.eqpoints[1,(i + 2*(i//5))%5], self.eqpoints[1,(i+1)%5], self.eqpoints[1,(i+2-2*(i//5))%5], '$P_2$')
                         ax[i].text(self.eqpoints[2,(i + 2*(i//5))%5], self.eqpoints[2,(i+1)%5], self.eqpoints[2,(i+2-2*(i//5))%5], '$P_3$')
-                        # ax[i].text(self.eqpoints[3,(i + 2*(i//5))%5], self.eqpoints[3,(i+1)%5], self.eqpoints[3,(i+2-2*(i//5))%5], '$P_4$')
+                        ax[i].text(self.eqpoints[3,(i + 2*(i//5))%5], self. eqpoints[3,(i+1)%5], self.eqpoints[3,(i+2-2*(i//5))%5], '$P_4$')
                         ax[i].set_xlabel(f'$x_{(i + 2*(i//5))%5+1}$')
                         ax[i].set_ylabel(f'$x_{(i+1)%5+1}$')
                         ax[i].set_zlabel(f'$x_{(i+2-2*(i//5))%5+1}$')
         return None 
-    
-    def quiver(self, plot_area, N = np.array([5, 5, 5, 5, 5])):
-        
-        ax = plt.figure().add_subplot(projection='3d')
-
-        # Make the grid
-        x1, x2, x3, x4, x5 = np.meshgrid(np.linspace(plot_area[0,0], plot_area[0,1], num = N[0]),
-            np.linspace(plot_area[1,0], plot_area[1,1], num = N[1]),
-            np.linspace(plot_area[2,0], plot_area[2,1], num = N[2]),
-            np.linspace(plot_area[3,0], plot_area[3,1], num = N[3]),
-            np.linspace(plot_area[4,0], plot_area[4,1], num = N[4]))
-
-        # Make the direction data for the arrows
-        u1, u2, u3, u4, u5 = self.dxdt(np.array([x1, x2, x3, x4, x5])) 
-
-        ax.quiver(x1, x2, x3, u1, u2, u3, length = 1)
-        ax.scatter(self.eqpoints[2,0], self.eqpoints[2,1], self.eqpoints[2,2], color='r')
                
     def integrate_on_set(self, bounds, intTime = 3000.0, plotAxes=None, N = np.array([5,5,5])):
         
@@ -283,3 +267,20 @@ class eq_model:
         ax.set_xlabel('t, дней')
         ax.set_ylabel(f'$x_{1}$')
         return None
+    
+    def quiver(self, plot_area, N = np.array([5, 5, 5, 5, 5])):
+        
+        ax = plt.figure().add_subplot(projection='3d')
+
+        # Make the grid
+        x1, x2, x3, x4, x5 = np.meshgrid(np.linspace(plot_area[0,0], plot_area[0,1], num = N[0]),
+            np.linspace(plot_area[1,0], plot_area[1,1], num = N[1]),
+            np.linspace(plot_area[2,0], plot_area[2,1], num = N[2]),
+            np.linspace(plot_area[3,0], plot_area[3,1], num = N[3]),
+            np.linspace(plot_area[4,0], plot_area[4,1], num = N[4]))
+
+        # Make the direction data for the arrows
+        u1, u2, u3, u4, u5 = self.dxdt(np.array([x1, x2, x3, x4, x5])) 
+
+        ax.quiver(x1, x2, x3, u1, u2, u3, length = 1)
+        ax.scatter(self.eqpoints[2,0], self.eqpoints[2,1], self.eqpoints[2,2], color='r')

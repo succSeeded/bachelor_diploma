@@ -22,15 +22,14 @@ model_params = {'r_1': .01, 'c_1': 8.8265e+5,
 
 model = eq_model(params=model_params, dev=args['dev']);
 r_1 = model.alpha_1*model.c_2*model.mu_2/(model.k_1*model.s_1+model.e_1*model.k_1*model.mu_2);
-# model.r_1 = .002 
 print(f'Условие усточивости ПР P_2: r_1 < {r_1}');
 model.find_eqpoints();
 random.seed();
 randpoint = np.array([random.random()*model.Ox1, random.random()*model.Ox2, random.random()*model.Ox3, model.Ux4 + random.random()*(model.Ox4-model.Ux4), random.random()*model.Ox5]);
 model.plot_transitions(randpoint);
 model.integrate_at_point(randpoint);
-points = np.array([[1.0, 0.0, 0.0, 0.0, 0.0], [10.0, 0.0, 0.0, 0.0, 0.0], [100.0, 0.0, 0.0, 0.0, 0.0], [1000.0, 0.0, 0.0, 0.0, 0.0], [10000.0, 0.0, 0.0, 0.0, 0.0],[100000.0, 0.0, 0.0, 0.0, 0.0]]);
-model.plot_x1transitions(points);
+points = np.array([[x1, 0.0, 0.0, 0.0, 0.0] for x1 in np.linspace(1.0, 100000.0, num = 5)])
+model.plot_x1transitions(points, T=3000.0, legend=True)
 point = np.array([0.0, model.c_2, 1, model.s_1/model.mu_2+1, 0.0]);
 model.plot_transitions(points[0,:], plot_inv=True);
 model.integrate_at_point(point);

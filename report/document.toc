@@ -12,6 +12,6 @@
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.3 }Положения равновесия внутри области $D$}{30}{}%
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss \hspace {0pt}}2.4 }Численное моделирование}{32}{}%
 \contentsline {section}{\MakeUppercase []{Заключение}}{39}{}%
-\contentsline {section}{{\let \oe \OE \@@text@case@aux {upper}{}{Список использованных источников}}}{41}{}%
-\contentsline {section}{\MakeUppercase []{Приложение A}}{44}{}%
-\contentsline {section}{\MakeUppercase []{Приложение B}}{45}{}%
+\contentsline {section}{{\let \oe \OE \@@text@case@aux {upper}{}{Список использованных источников}}}{40}{}%
+\contentsline {section}{\MakeUppercase []{Приложение A}}{43}{}%
+\contentsline {section}{\MakeUppercase []{Приложение B}}{44}{}%
