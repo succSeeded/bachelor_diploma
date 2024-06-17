@@ -228,6 +228,26 @@ class eq_model:
         points = np.array([np.array([x1[i], 0.0, x2[j], self.s_1/self.mu_2, x3[k]]) for i in range(len(x1)) for j in range(len(x3))  for k in range(len(x3))])
         self.integrate_at_points(points, T=intTime, axes=plotAxes)
         return None
+    
+    def integrate_on_plane(self, point, T=3000.0):
+        sol = scip.solve_ivp(lambda t, X: self.dxdt(X), [0.0,T], point, rtol=1e-7, atol=1e-6)
+        ax = plt.figure().add_subplot()
+        ax.plot(sol.y[1,:], sol.y[3,:], color='black')    
+        ax.scatter(point[1], point[3], color='black')
+        ax.scatter(self.eqpoints[:2,1], self.eqpoints[:2,3], color='r')
+        ax.text(self.eqpoints[0,1], self.eqpoints[0,3], '$P_1$')
+        ax.text(self.eqpoints[1,1], self.eqpoints[1,3], '$P_2$')
+        ax.set_xlabel(f'$x_{2}$')
+        ax.set_ylabel(f'$x_{4}$')
+        ax.grid()
+        ax2 = [plt.figure().add_subplot() for i in range(2)]
+        for i in range(len(ax2)):
+            ax2[i].grid()
+            ax2[i].set_xlabel('t, дней')
+            ax2[i].set_ylabel(f'$x_{(i+1)*2}$')
+        ax2[0].plot(sol.t[:100], sol.y[1,:100])
+        ax2[1].plot(sol.t[:30], sol.y[3,:30])
+        return None
                     
     def plot_transitions(self, point, plot_inv = True, T = 3000.0):
         ax1 = [plt.figure().add_subplot() for i in range(5)]

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.13)  17 JUN 2024 02:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.13)  17 JUN 2024 14:51
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -708,7 +708,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6]
-Underfull \hbox (badness 1742) in paragraph at lines 121--122
+Underfull \hbox (badness 1742) in paragraph at lines 119--120
 \OML/cmm/m/it/14.4 x \OT1/cmr/m/n/14.4 = \OML/cmm/m/it/14.4 x\OT1/cmr/m/n/14.4 
 (\OML/cmm/m/it/14.4 t\OT1/cmr/m/n/14.4 )$ \T2A/cmr/m/n/14.4 в слу-чае, ес-ли су
 -ще-ству-ет та-ка€ по-сле-до-ва-тель-ность $\OMS/cmsy/m/n/14.4 f\OML/cmm/m/it/1
@@ -719,7 +719,7 @@ Underfull \hbox (badness 1742) in paragraph at lines 121--122
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7]
-Underfull \hbox (badness 1852) in paragraph at lines 136--138
+Underfull \hbox (badness 1852) in paragraph at lines 134--136
 \T2A/cmr/bx/n/14.4 “еорема 1. \T2A/cmr/m/n/14.4 [19] ¬се ин-ва-ри-ант-ные мно-ж
 е-ства ди-на-ми-че-ской си-сте-мы
  []
@@ -728,7 +728,7 @@ Underfull \hbox (badness 1852) in paragraph at lines 136--138
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
-Underfull \hbox (badness 1112) in paragraph at lines 158--160
+Underfull \hbox (badness 1112) in paragraph at lines 156--158
 \T2A/cmr/m/n/14.4 где $\OML/cmm/m/it/14.4 G$ \T2A/cmr/m/n/14.4 -- об-ласть опре
 -де-ле-ни€ си-сте-мы, су-ще-ству-ет и един-ствен-но при
  []
@@ -758,12 +758,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16]
-Overfull \hbox (15.926pt too wide) in paragraph at lines 430--432
-\T2A/cmr/m/n/14.4 ” пре-об-ра-зо-ван-ной си-сте-мы так-же два по-ло-же-ни€ рав-
-но-ве-си€: $[]$ и $[]$. 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
@@ -779,13 +773,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21]
-Overfull \hbox (7.52142pt too wide) detected at line 536
- []$[] \OMS/cmsy/m/n/14.4 ^^@ [] \OML/cmm/m/it/14.4 x[] < a[][] \OMS/cmsy/m/n/1
-4.4 ^^@ []\OML/cmm/m/it/14.4 x[] < \OMS/cmsy/m/n/14.4 ^^@[] \U/msa/m/n/14.4 6 \
-OT1/cmr/m/n/14.4 0\OML/cmm/m/it/14.4 :  $ 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [22]
@@ -798,17 +785,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [25]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [26]
-Overfull \hbox (15.68758pt too wide) in paragraph at lines 644--645
+Overfull \hbox (15.68758pt too wide) in paragraph at lines 590--591
 \T2A/cmr/m/n/14.4 €х па-ра-мет-ров име-ет по-ло-же-ни€ рав-но-ве-си€ $\OML/cmm/
 m/it/14.4 P[] []$ \T2A/cmr/m/n/14.4 и $\OML/cmm/m/it/14.4 P[] []$\T2A/cmr/m/n/1
 4.4 . 
  []
 
 
-Overfull \hbox (10.88185pt too wide) in paragraph at lines 648--649
+Overfull \hbox (10.88185pt too wide) in paragraph at lines 594--595
 \T2A/cmr/m/n/14.4 вым, а по-ло-же-ние рав-но-ве-си€ $\OML/cmm/m/it/14.4 P[] []$
  \T2A/cmr/m/n/14.4 €в-л€-ет-с€ асимп-то-ти-че-ски устой-
  []
@@ -816,11 +800,11 @@ Overfull \hbox (10.88185pt too wide) in paragraph at lines 648--649
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [27]
+ [26]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28]
-Overfull \hbox (16.95657pt too wide) in paragraph at lines 681--682
+ [27]
+Overfull \hbox (16.95657pt too wide) in paragraph at lines 627--628
 \T2A/cmr/bx/n/14.4 “еорема 11. \T2A/cmr/m/n/14.4 ѕо-ло-же-ние рав-но-ве-си€ $\O
 ML/cmm/m/it/14.4 P[] []$ \T2A/cmr/m/n/14.4 асимп-то-ти-че-ски устой-
  []
@@ -828,14 +812,14 @@ ML/cmm/m/it/14.4 P[] []$ \T2A/cmr/m/n/14.4 асимп-то-ти-че-ски устой-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [28]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [29]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [30]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [31]
-Overfull \hbox (0.44595pt too wide) in paragraph at lines 770--771
+Overfull \hbox (0.44595pt too wide) in paragraph at lines 716--717
 \T2A/cmr/bx/n/14.4 ѕример 1. \T2A/cmr/m/n/14.4 –ас-смот-рим си-сте-му (1[]) при
  зна-че-ни-€х па-ра-мет-ров, дан-ных в [22].
  []
@@ -843,137 +827,140 @@ Overfull \hbox (0.44595pt too wide) in paragraph at lines 770--771
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [32]
-<media/Figure_1.png, id=134, 259.7203pt x 204.765pt>
+ [31]
+<media/Figure_1.png, id=131, 259.7203pt x 204.765pt>
 File: media/Figure_1.png Graphic file (type png)
 <use media/Figure_1.png>
-Package pdftex.def Info: media/Figure_1.png  used on input line 795.
+Package pdftex.def Info: media/Figure_1.png  used on input line 741.
 (pdftex.def)             Requested size: 181.80296pt x 143.3345pt.
-<media/Figure_2.png, id=136, 258.21469pt x 215.30438pt>
+<media/Figure_2.png, id=133, 258.21469pt x 215.30438pt>
 File: media/Figure_2.png Graphic file (type png)
 <use media/Figure_2.png>
-Package pdftex.def Info: media/Figure_2.png  used on input line 796.
+Package pdftex.def Info: media/Figure_2.png  used on input line 742.
 (pdftex.def)             Requested size: 180.74904pt x 150.71204pt.
-<media/Figure_3.png, id=137, 247.67531pt x 167.87718pt>
+<media/Figure_3.png, id=134, 247.67531pt x 167.87718pt>
 File: media/Figure_3.png Graphic file (type png)
 <use media/Figure_3.png>
-Package pdftex.def Info: media/Figure_3.png  used on input line 797.
+Package pdftex.def Info: media/Figure_3.png  used on input line 743.
 (pdftex.def)             Requested size: 159.62085pt x 108.19157pt.
-<media/Figure_4.png, id=138, 240.9pt x 179.92218pt>
+<media/Figure_4.png, id=135, 240.9pt x 179.92218pt>
 File: media/Figure_4.png Graphic file (type png)
 <use media/Figure_4.png>
-Package pdftex.def Info: media/Figure_4.png  used on input line 798.
+Package pdftex.def Info: media/Figure_4.png  used on input line 744.
 (pdftex.def)             Requested size: 154.78653pt x 115.60828pt.
-<media/Figure_5.png, id=139, 243.91125pt x 173.89969pt>
+<media/Figure_5.png, id=136, 243.91125pt x 173.89969pt>
 File: media/Figure_5.png Graphic file (type png)
 <use media/Figure_5.png>
-Package pdftex.def Info: media/Figure_5.png  used on input line 799.
+Package pdftex.def Info: media/Figure_5.png  used on input line 745.
 (pdftex.def)             Requested size: 159.62085pt x 113.8056pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [33 <./media/Figure_1.png> <./media/Figure_2.png> <./media/Figure_3.png> <./me
+ [32 <./media/Figure_1.png> <./media/Figure_2.png> <./media/Figure_3.png> <./me
 dia/Figure_4.png> <./media/Figure_5.png>]
-<media/Figure_8.png, id=148, 313.17pt x 274.77657pt>
+<media/Figure_8.png, id=145, 313.17pt x 274.77657pt>
 File: media/Figure_8.png Graphic file (type png)
 <use media/Figure_8.png>
-Package pdftex.def Info: media/Figure_8.png  used on input line 808.
+Package pdftex.def Info: media/Figure_8.png  used on input line 754.
 (pdftex.def)             Requested size: 159.62085pt x 140.05452pt.
-<media/Figure_9.png, id=149, 326.72063pt x 283.0575pt>
+<media/Figure_9.png, id=146, 326.72063pt x 283.0575pt>
 File: media/Figure_9.png Graphic file (type png)
 <use media/Figure_9.png>
-Package pdftex.def Info: media/Figure_9.png  used on input line 809.
+Package pdftex.def Info: media/Figure_9.png  used on input line 755.
 (pdftex.def)             Requested size: 154.78653pt x 134.09953pt.
-<media/Figure_10.png, id=150, 313.17pt x 280.04625pt>
+<media/Figure_10.png, id=147, 313.17pt x 280.04625pt>
 File: media/Figure_10.png Graphic file (type png)
 <use media/Figure_10.png>
-Package pdftex.def Info: media/Figure_10.png  used on input line 810.
+Package pdftex.def Info: media/Figure_10.png  used on input line 756.
 (pdftex.def)             Requested size: 159.62085pt x 142.7405pt.
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 811.
-<media/Figure_11.png, id=151, 579.6054pt x 269.5671pt>
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 757.
+<media/Figure_11.png, id=148, 579.6054pt x 269.5671pt>
 File: media/Figure_11.png Graphic file (type png)
 <use media/Figure_11.png>
-Package pdftex.def Info: media/Figure_11.png  used on input line 816.
+Package pdftex.def Info: media/Figure_11.png  used on input line 762.
 (pdftex.def)             Requested size: 435.32422pt x 202.46686pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [34 <./media/Figure_8.png> <./media/Figure_9.png> <./media/Figure_10.png> <./m
+ [33 <./media/Figure_8.png> <./media/Figure_9.png> <./media/Figure_10.png> <./m
 edia/Figure_11.png>]
-<media/Figure_6.png, id=159, 275.52937pt x 229.60782pt>
+<media/Figure_6.png, id=156, 275.52937pt x 229.60782pt>
 File: media/Figure_6.png Graphic file (type png)
 <use media/Figure_6.png>
-Package pdftex.def Info: media/Figure_6.png  used on input line 825.
+Package pdftex.def Info: media/Figure_6.png  used on input line 771.
 (pdftex.def)             Requested size: 193.47578pt x 161.23589pt.
-<media/Figure_7.png, id=160, 274.02374pt x 215.30438pt>
+<media/Figure_7.png, id=157, 274.02374pt x 215.30438pt>
 File: media/Figure_7.png Graphic file (type png)
 <use media/Figure_7.png>
-Package pdftex.def Info: media/Figure_7.png  used on input line 826.
+Package pdftex.def Info: media/Figure_7.png  used on input line 772.
 (pdftex.def)             Requested size: 193.47578pt x 152.01956pt.
-<media/Figure_12.png, id=161, 312.41719pt x 274.77657pt>
+<media/Figure_12.png, id=158, 312.41719pt x 274.77657pt>
 File: media/Figure_12.png Graphic file (type png)
 <use media/Figure_12.png>
-Package pdftex.def Info: media/Figure_12.png  used on input line 832.
+Package pdftex.def Info: media/Figure_12.png  used on input line 778.
 (pdftex.def)             Requested size: 266.03474pt x 233.98883pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [35 <./media/Figure_6.png> <./media/Figure_7.png> <./media/Figure_12.png>]
+ [34 <./media/Figure_6.png> <./media/Figure_7.png> <./media/Figure_12.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [36]
-Overfull \hbox (12.52528pt too wide) in paragraph at lines 865--867
+ [35]
+Overfull \hbox (12.52528pt too wide) in paragraph at lines 811--813
 \T2A/cmr/m/n/14.4 ла-ми, сле-до-ва-тель-но, по-ло-же-ние рав-но-ве-си€ $\OML/cm
 m/m/it/14.4 P[]$ \T2A/cmr/m/n/14.4 €в-л€-ет-с€ асимп-то-ти-че-ски устой-
  []
 
-<media/Figure_13.png, id=171, 313.9228pt x 263.48438pt>
+<media/Figure_13.png, id=168, 313.9228pt x 263.48438pt>
 File: media/Figure_13.png Graphic file (type png)
 <use media/Figure_13.png>
-Package pdftex.def Info: media/Figure_13.png  used on input line 887.
-(pdftex.def)             Requested size: 266.03474pt x 223.2994pt.
+Package pdftex.def Info: media/Figure_13.png  used on input line 833.
+(pdftex.def)             Requested size: 241.84843pt x 202.98811pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [37]
-<media/Figure_14.png, id=176, 338.01282pt x 298.11375pt>
+ [36]
+<media/Figure_14.png, id=172, 338.01282pt x 298.11375pt>
 File: media/Figure_14.png Graphic file (type png)
 <use media/Figure_14.png>
-Package pdftex.def Info: media/Figure_14.png  used on input line 898.
-(pdftex.def)             Requested size: 266.03474pt x 234.63844pt.
+Package pdftex.def Info: media/Figure_14.png  used on input line 844.
+(pdftex.def)             Requested size: 241.84843pt x 213.30437pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [38 <./media/Figure_13.png> <./media/Figure_14.png>]
+ [37 <./media/Figure_13.png> <./media/Figure_14.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [39]
-Underfull \hbox (badness 5756) in paragraph at lines 917--919
+ [38]
+Underfull \hbox (badness 5756) in paragraph at lines 863--865
 \T2A/cmr/m/n/14.4 A Scoping Review // Brain Neurorehabil. 2022 Nov; vol. 15(3):
 e23.
  []
 
 
-Underfull \hbox (badness 2707) in paragraph at lines 929--931
+Underfull \hbox (badness 2707) in paragraph at lines 875--877
 []\T2A/cmr/m/n/14.4 L.G. de Pillis, W. Gu, K.R. Fister, T. Head, K. Maples, A.
  []
 
 
-Underfull \hbox (badness 1859) in paragraph at lines 929--931
+Underfull \hbox (badness 1859) in paragraph at lines 875--877
 \T2A/cmr/m/n/14.4 the dynamics and a study of quadratic and linear optimal cont
 rols //
  []
 
 
-Underfull \hbox (badness 1253) in paragraph at lines 931--933
+Underfull \hbox (badness 1253) in paragraph at lines 877--879
 \T2A/cmr/m/n/14.4 immune responses to therapy // J Pharmacokinet Pharmacodyn vo
 l. 41,
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [39]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [40]
@@ -983,16 +970,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [42]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [43]
-LaTeX Font Info:    Trying to load font information for T2A+pcr on input line 1
-000.
-LaTeX Font Info:    No file T2Apcr.fd. on input line 1000.
+LaTeX Font Info:    Trying to load font information for T2A+pcr on input line 9
+46.
+LaTeX Font Info:    No file T2Apcr.fd. on input line 946.
 
 
 LaTeX Font Warning: Font shape `T2A/pcr/m/n' undefined
-(Font)              using `T2A/cmr/m/n' instead on input line 1000.
+(Font)              using `T2A/cmr/m/n' instead on input line 946.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
@@ -1005,11 +989,14 @@ LaTeX Font Warning: Font shape `T2A/pcr/b/n' undefined
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [44])
+ [43])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [44]
+(./listings/model.py
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [45]
-(./listings/model.py
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [46]
@@ -1033,20 +1020,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [52]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [53]
+ [53])
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [54])
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [55]
+ [54]
 (./listings/math_utils.py
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [56]
+ [55]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [57]
+ [56]
 
 LaTeX Font Warning: Font shape `T2A/pcr/m/it' undefined
 (Font)              using `T2A/pcr/m/n' instead on input line 65.
@@ -1054,7 +1038,7 @@ LaTeX Font Warning: Font shape `T2A/pcr/m/it' undefined
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [58]
+ [57]
 (./document.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
@@ -1098,10 +1082,10 @@ ve/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive
 /2023/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2
 023/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/local/texlive/202
 3/texmf-dist/fonts/type1/public/cm-super/sfti1728.pfb>
-Output written on document.pdf (58 pages, 1087258 bytes).
+Output written on document.pdf (57 pages, 1084963 bytes).
 PDF statistics:
- 317 PDF objects out of 1000 (max. 8388607)
- 196 compressed objects within 2 object streams
+ 314 PDF objects out of 1000 (max. 8388607)
+ 194 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  96 words of extra memory for PDF output out of 10000 (max. 10000000)
 
