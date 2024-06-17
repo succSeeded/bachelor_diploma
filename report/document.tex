@@ -396,7 +396,7 @@
 			K_2 &=\left\{\dfrac{s_1}{\mu_2} = \underline{x}_4 \leqslant x_4 \leqslant \overline{x}_4 = \dfrac{s_1}{\mu_2} + \dfrac{b_1c_1}{\mu_2}\right\}\cap K_1,\\[6pt]
 			K_3 &=\left\{0 \leqslant x_3 \leqslant \overline{x}_3 = \dfrac{a_2\overline{x}_1}{k_5+\underline{x}_4}\cdot\dfrac{\overline{x}_1+k_2}{\mu_1k_2}\right\}\cap K_2,\\[6pt]
 			K_4 &=\left\{0 \leqslant x_5 \leqslant \overline{x}_5 = \dfrac{b_2\overline{x}_3}{\mu_3}\right\}\cap K_3,\\[6pt]
-			K_5 &=\left\{0 \leqslant x_2 \leqslant \overline{x}_2 =  \dfrac{c_2}{2}+\sqrt{\dfrac{c_2^2}{4}+\dfrac{a_1\overline{x}_5}{k_4(\underline{x}_4+e_2)}}\right\}\cap K_4.
+			K_5 &=\left\{0 \leqslant x_2 \leqslant \overline{x}_2 =  \dfrac{c_2}{2}+\sqrt{\dfrac{c_2^2}{4}+\dfrac{c_2a_1\overline{x}_5}{r_2(\overline{\xi}_5+k_4)(\underline{x}_4+e_2)}}\right\}\cap K_4.
 		\end{align*}
 	\end{theorem}
 	\begin{proof} 
@@ -425,7 +425,7 @@
 		Тогда на множестве $S(\varphi_3,\, K_2)$
 		\[\inf\limits_{x\in S(\varphi_3,\, K_2)} \varphi_3=0,\, \sup\limits_{x\in S(\varphi_3,\, K_2)} \varphi_3\leqslant \dfrac{a_2\overline{x}_1}{k_5+\underline{x}_4}\cdot\dfrac{\overline{x}_1+k_3}{\mu_1k_3}=\overline{x}_3.\]
 		Таким образом, локализирующее множество:
-		\[\Omega(\varphi_3,\, K_2) = (\{0\leqslant x_3 \leqslant \sup\limits_{x\in S(\varphi_3,\, K_2)} x_3\}\cap K_2) \subset (\{0 \leqslant x_3\leqslant \overline x_3\} \cap K_2) = K_3.\]
+		\[\Omega(\varphi_3,\, K_2) = \left(\left\{0\leqslant x_3 \leqslant \sup\limits_{x\in S(\varphi_3,\, K_2)} x_3\right\}\cap K_2\right) \subset (\{0 \leqslant x_3\leqslant \overline x_3\} \cap K_2) = K_3.\]
 		
 		Возьмем $\varphi_4(x)=x_5$. В таком случае универсальное сечение:
 		\[S(\varphi_4,\, K_3)=\{\, b_2x_3-\mu_3x_5=0\}\cap K_3.\]
@@ -497,8 +497,8 @@
 		
 		Рассмотрим множество 
 		\begin{multline*}
-			K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5) = \biggr\{0 \leqslant x_2 \leqslant \dfrac{c_2}{2}+\\
-			+\sqrt{\dfrac{c_2^2}{4}+\dfrac{c_2a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{r_2k_4(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}}+\tau_5\biggr\}\cap K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4),
+			K_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5) = K_4(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)\cap \biggr\{0 \leqslant x_2 \leqslant \dfrac{c_2}{2}+\\
+			+\sqrt{\dfrac{c_2^2}{4}+\dfrac{c_2a_1\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)}{r_2(\overline{\xi}_5(\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4)+k_4)(\underline{\xi}_4(\tilde{\tau}_2)+e_2)}}+\tau_5\biggr\},
 		\end{multline*}
 		где $\tau_1,\,\tau_2,\,\tilde{\tau}_2,\,\tau_3,\,\tau_4,\,\tau_5 \geqslant 0$.
 		Можно провести следующую оценку $\dot{\varphi}_2$:
@@ -776,7 +776,7 @@
 		\begin{figure}[h]
 			\centering
 			\includegraphics[width=0.55\textwidth]{media/Figure_12.png}
-			\caption{трехмерные проекции фазовых траекторий системы в координатах $x_1,\, x_3,\, x_5$}
+			\caption{Трехмерные проекции фазовых траекторий системы на координаты $x_1,\, x_3,\, x_5$}
 			\label{fig:model_K5}
 		\end{figure}
 		
@@ -831,7 +831,7 @@
 		\begin{figure}[h]
 			\centering
 			\includegraphics[width=0.50\textwidth]{media/Figure_13.png}
-			\caption{Трехмерные проекции фазовых траекторий системы в координатах $x_1,\, x_3,\, x_5$ при $x_1 < 9273.02$}
+			\caption{Трехмерные проекции фазовых траекторий системы на координаты $x_1,\, x_3,\, x_5$ при $x_1 < 9273.02$}
 			\label{fig:model_P2_zone}
 		\end{figure}
 		
@@ -842,7 +842,7 @@
 		\begin{figure}[h]
 			\centering
 			\includegraphics[width=0.50\textwidth]{media/Figure_14.png}
-			\caption{Трехмерные проекции фазовых траекторий системы в координатах $x_1,\, x_2,\, x_3$ при $x_1 > 9273.02$}
+			\caption{Трехмерные проекции фазовых траекторий системы на координаты $x_1,\, x_2,\, x_3$ при $x_1 > 9273.02$}
 			\label{fig:model_K5_new}
 		\end{figure}
 	\end{example}
